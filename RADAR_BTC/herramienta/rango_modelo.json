@@ -1,0 +1,157 @@
+{
+ "mayor": {
+  "feats": [
+   "posicion",
+   "rsi4h",
+   "ret_24v",
+   "pend_minimos",
+   "pend_maximos",
+   "dist_ema50d",
+   "vol_velas_bajistas",
+   "compresion_12v"
+  ],
+  "coef": [
+   -1.6528,
+   0.444,
+   0.0304,
+   0.3049,
+   0.0109,
+   -0.2156,
+   -0.1487,
+   0.2064
+  ],
+  "inter": -0.6238,
+  "mu": [
+   0.522166,
+   50.504971,
+   0.001779,
+   0.090618,
+   0.037308,
+   0.015018,
+   0.493744,
+   0.496466
+  ],
+  "sd": [
+   0.250367,
+   10.198512,
+   0.032902,
+   0.430418,
+   0.442004,
+   0.085909,
+   0.057172,
+   0.20764
+  ],
+  "horizonte_velas": 60
+ },
+ "menor": {
+  "feats": [
+   "posicion",
+   "rsi4h",
+   "ret_24v",
+   "pend_minimos",
+   "pend_maximos",
+   "dist_ema50d",
+   "vol_velas_bajistas",
+   "compresion_12v"
+  ],
+  "coef": [
+   -0.6448,
+   -0.1175,
+   -0.0143,
+   0.0669,
+   -0.0948,
+   -0.0308,
+   0.0073,
+   0.1287
+  ],
+  "inter": -0.4209,
+  "mu": [
+   0.509709,
+   50.560462,
+   0.002093,
+   0.044878,
+   0.00896,
+   0.009959,
+   0.499732,
+   0.708903
+  ],
+  "sd": [
+   0.249476,
+   8.985607,
+   0.026259,
+   0.468484,
+   0.477174,
+   0.071829,
+   0.081015,
+   0.198942
+  ],
+  "horizonte_velas": 30
+ },
+ "ruptura": {
+  "mayor": {
+   "prof_fuerte": 0.098,
+   "vol_fuerte": 2.75
+  },
+  "menor": {
+   "prof_fuerte": 0.158,
+   "vol_fuerte": 2.4
+  },
+  "real_si_ambos": {
+   "mayor": 0.61,
+   "menor": 0.73
+  },
+  "real_si_uno": {
+   "mayor": 0.45,
+   "menor": 0.57
+  },
+  "real_si_ninguno": {
+   "mayor": 0.21,
+   "menor": 0.22
+  },
+  "caida5d_dos_cierres": {
+   "mayor": -6.0,
+   "menor": -4.7
+  },
+  "caida5d_sin_segundo": {
+   "mayor": -2.9,
+   "menor": -2.5
+  },
+  "falsas": {
+   "mayor": 0.55,
+   "menor": 0.5
+  },
+  "tras_ruptura_3d": {
+   "FUERTE": {
+    "p_baja": 0.52,
+    "ret3d": -0.3,
+    "caida5d": -4.5,
+    "subida5d": 2.6,
+    "n": 62
+   },
+   "MEDIA": {
+    "p_baja": 0.46,
+    "ret3d": 0.2,
+    "caida5d": -3.7,
+    "subida5d": 3.5,
+    "n": 110
+   },
+   "FLOJA": {
+    "p_baja": 0.39,
+    "ret3d": 1.5,
+    "caida5d": -2.9,
+    "subida5d": 4.5,
+    "n": 96
+   }
+  },
+  "fuerte_con_radar_hostil": {
+   "ret3d": -4.3,
+   "n": 12
+  },
+  "barrido_3d": {
+   "p_sube": 0.64,
+   "ret3d": 1.3,
+   "n": 95
+  },
+  "nota": "Medido reproduciendo los avisos vela a vela entre marzo de 2018 y septiembre de 2026."
+ }
+}

@@ -1,0 +1,792 @@
+<title>Radar de riesgo BTC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: boletín de avisos tipo servicio meteorológico. Cabecera con el nivel, cuatro bloques, tendencia, piezas, y abajo el estudio. */
+:root {
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --surface-2: #eef1f4;
+  --ink: #101820;
+  --ink-2: #44505d;
+  --muted: #6f7b88;
+  --line: #dde3e9;
+  --accent: #1d5b86;
+  --verde: #0ca30c;
+  --amarillo: #fab219;
+  --naranja: #ec835a;
+  --rojo: #d03b3b;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #9aa3ad;
+  --f-display: "Archivo Narrow", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --f-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1318; --surface: #151c23; --surface-2: #1b242d; --ink: #edf1f5; --ink-2: #b3becb; --muted: #8592a0;
+    --line: #26313c; --accent: #6aaee0;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #6c7782;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1318; --surface: #151c23; --surface-2: #1b242d; --ink: #edf1f5; --ink-2: #b3becb; --muted: #8592a0;
+  --line: #26313c; --accent: #6aaee0;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #6c7782;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 56px; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--f-display); letter-spacing: .01em; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.45rem; font-weight: 700; }
+h3 { font-size: 1.08rem; font-weight: 600; }
+p { margin: 0; }
+.eyebrow { font-family: var(--f-display); text-transform: uppercase; letter-spacing: .09em; font-size: .78rem; color: var(--muted); font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--f-data); }
+.muted { color: var(--muted); }
+.small { font-size: .86rem; }
+section { display: grid; gap: 14px; min-width: 0; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; min-width: 0; }
+
+/* ---------- boletín ---------- */
+.boletin { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 18px; align-items: stretch; }
+@media (max-width: 820px) { .boletin { grid-template-columns: 1fr; } }
+.aviso { position: relative; overflow: hidden; display: grid; gap: 14px; padding: 22px 22px 20px; border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); }
+.aviso::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 8px; background: var(--nivel, var(--muted)); }
+.aviso-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 8px; border-radius: 999px; font-family: var(--f-display); font-weight: 700; letter-spacing: .06em; font-size: .9rem; background: color-mix(in srgb, var(--nivel) 16%, var(--surface)); color: var(--ink); border: 1px solid color-mix(in srgb, var(--nivel) 55%, var(--line)); }
+.pill svg { width: 18px; height: 18px; flex: none; }
+.cifra { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.cifra .big { font-size: clamp(3.2rem, 9vw, 4.6rem); font-weight: 700; line-height: 1; font-variant-numeric: proportional-nums; letter-spacing: -.02em; }
+.cifra .de { font-size: 1.2rem; color: var(--muted); font-weight: 600; }
+.lectura { font-size: 1.12rem; max-width: 60ch; }
+.escala { display: grid; grid-template-columns: 40fr 12fr 10fr 38fr; height: 10px; border-radius: 6px; overflow: hidden; position: relative; gap: 2px; }
+.escala span:nth-child(1) { background: var(--verde); } .escala span:nth-child(2) { background: var(--amarillo); }
+.escala span:nth-child(3) { background: var(--naranja); } .escala span:nth-child(4) { background: var(--rojo); }
+.escala-wrap { position: relative; padding-top: 12px; }
+.marca { position: absolute; top: 0; width: 2px; height: 26px; background: var(--ink); transform: translateX(-1px); border-radius: 2px; }
+.escala-lab { position: relative; height: 16px; font-size: .76rem; color: var(--muted); margin-top: 6px; font-family: var(--f-data); }
+.escala-lab span { position: absolute; top: 0; transform: translateX(-50%); }
+.escala-lab span:first-child { transform: none; } .escala-lab span:last-child { transform: translateX(-100%); }
+.datos-aviso { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding-top: 6px; border-top: 1px solid var(--line); }
+.datos-aviso div { display: grid; gap: 2px; min-width: 0; }
+.datos-aviso b { font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 460px) { .datos-aviso { grid-template-columns: 1fr 1fr; } }
+
+.vigilar { display: grid; gap: 12px; align-content: start; }
+.lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.lista li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 8px; align-items: start; }
+.dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 7px; background: var(--muted); }
+.niveles { display: grid; gap: 6px; }
+.nivel-row { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px dashed var(--line); padding-bottom: 4px; }
+.nivel-row:last-child { border-bottom: 0; }
+
+/* ---------- bloques ---------- */
+.bloques { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 900px) { .bloques { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .bloques { grid-template-columns: 1fr; } }
+.bloque { display: grid; gap: 8px; align-content: start; }
+.bloque .fila { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.bloque .val { font-size: 1.9rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.meter { height: 8px; border-radius: 4px; background: var(--surface-2); overflow: hidden; }
+.meter i { display: block; height: 100%; border-radius: 4px; }
+.bloque p { color: var(--ink-2); font-size: .9rem; }
+.spark { width: 100%; height: 42px; display: block; }
+
+/* ---------- gráficos ---------- */
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); }
+.seg button { font: inherit; font-size: .86rem; border: 0; background: transparent; color: var(--ink-2); padding: 6px 12px; cursor: pointer; font-family: var(--f-data); }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--surface); }
+.seg button:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: .82rem; box-shadow: 0 6px 18px rgb(0 0 0 / .12); min-width: 170px; z-index: 3; }
+.tip b { font-family: var(--f-data); font-weight: 500; }
+.tip .t-row { display: flex; justify-content: space-between; gap: 12px; }
+.leyenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .84rem; color: var(--ink-2); }
+.leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.minis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 900px) { .minis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .minis { grid-template-columns: 1fr; } }
+
+/* ---------- tablas ---------- */
+.tabla-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-display); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; font-size: .76rem; color: var(--muted); }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+.barra { position: relative; height: 8px; width: 110px; background: var(--surface-2); border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; }
+.barra i { position: absolute; inset: 0 auto 0 0; border-radius: 4px; }
+
+.dos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 820px) { .dos { grid-template-columns: 1fr; } }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: .8rem; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-2); }
+.chip.on { border-color: color-mix(in srgb, var(--naranja) 60%, var(--line)); background: color-mix(in srgb, var(--naranja) 14%, var(--surface)); color: var(--ink); }
+.kv { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 14px; font-size: .92rem; }
+.kv dt { color: var(--ink-2); } .kv dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.nota { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; display: grid; gap: 6px; }
+.prose { display: grid; gap: 10px; max-width: 72ch; color: var(--ink-2); }
+.prose strong { color: var(--ink); }
+.hallazgos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 900px) { .hallazgos { grid-template-columns: 1fr; } }
+.hallazgo { display: grid; gap: 6px; align-content: start; }
+.hallazgo .k { font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.loading { padding: 40px 0; color: var(--muted); }
+footer { color: var(--muted); font-size: .82rem; display: grid; gap: 4px; }
+
+/* ---------- rango de 4 horas ---------- */
+.rango-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 720px) { .rango-grid { grid-template-columns: 1fr; } }
+.capa { display: grid; gap: 10px; align-content: start; }
+.capa .fila { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.estado-chip { font-family: var(--f-display); font-weight: 700; letter-spacing: .05em; font-size: .8rem; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-2); }
+.estado-chip.dentro { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+.estado-chip.ruptura { background: color-mix(in srgb, var(--naranja) 18%, var(--surface)); border-color: var(--naranja); }
+.estado-chip.confirmada { background: color-mix(in srgb, var(--rojo) 18%, var(--surface)); border-color: var(--rojo); }
+.estado-chip.barrido { background: color-mix(in srgb, var(--verde) 16%, var(--surface)); border-color: var(--verde); }
+.key { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+.avisos-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.avisos-lista li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 10px; font-size: .88rem; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.avisos-lista li:last-child { border-bottom: 0; }
+.tag { font-family: var(--f-display); font-weight: 700; font-size: .74rem; letter-spacing: .05em; }
+@media (prefers-reduced-motion: no-preference) { .meter i, .marca { transition: all .4s ease; } }
+</style>
+
+<div class="wrap" id="app">
+  <header class="sec-head">
+    <div style="display:grid;gap:4px">
+      <span class="eyebrow">Boletín diario · bitcoin</span>
+      <h1 style="font-size:clamp(1.9rem,5vw,2.6rem);font-weight:700">Radar de riesgo BTC</h1>
+    </div>
+    <p class="muted small" id="revision">Cargando el boletín…</p>
+  </header>
+
+  <div class="boletin">
+    <div class="aviso" id="aviso" style="--nivel: var(--muted)">
+      <div class="aviso-top"><span class="pill" id="pill">—</span><span class="muted small" id="fechaCierre"></span></div>
+      <div class="cifra"><span class="big num" id="total">—</span><span class="de">/ 100</span><span class="muted small" id="delta"></span></div>
+      <p class="lectura" id="lectura">Leyendo los datos del último cierre diario…</p>
+      <div class="escala-wrap">
+        <div class="marca" id="marca" style="left:0"></div>
+        <div class="escala" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <div class="escala-lab"><span style="left:0">0</span><span style="left:40%">40</span><span style="left:52%">52</span><span style="left:62%">62</span><span style="left:100%">100</span></div>
+      </div>
+      <div class="datos-aviso">
+        <div><span class="eyebrow">Precio</span><b id="precio">—</b></div>
+        <div><span class="eyebrow">Hace 7 días</span><b id="hace7">—</b></div>
+        <div><span class="eyebrow">Peso de la macro</span><b id="pesoMacro">—</b></div>
+      </div>
+    </div>
+    <div class="panel vigilar">
+      <h3>Qué vigilar ahora</h3>
+      <ul class="lista" id="gatillos"></ul>
+      <div class="niveles" id="niveles"></div>
+      <div style="display:grid;gap:6px">
+        <span class="eyebrow">Próximos catalizadores programados</span>
+        <ul class="lista" id="eventos"></ul>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><h2>Los cuatro bloques</h2><span class="muted small">0 = sin riesgo · 100 = máximo histórico de riesgo</span></div>
+    <div class="bloques" id="bloques"></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Tendencia del riesgo</h2>
+      <div class="seg" role="group" aria-label="Periodo">
+        <button type="button" id="r90" data-d="90">3M</button><button type="button" id="r365" data-d="365" aria-pressed="true">1A</button><button type="button" id="r1095" data-d="1095">3A</button><button type="button" id="rall" data-d="0">Todo</button>
+      </div>
+    </div>
+    <div class="panel" style="display:grid;gap:10px">
+      <div class="leyenda" id="leyendaNiveles"></div>
+      <div class="chart" id="chTotal"></div>
+      <span class="eyebrow">Precio de bitcoin (escala logarítmica) · sombreado en los días en naranja o rojo</span>
+      <div class="chart" id="chPrecio"></div>
+      <p class="muted small" id="origenNota"></p>
+    </div>
+    <div class="minis" id="minis"></div>
+  </section>
+
+  <section class="dos">
+    <div class="panel" style="display:grid;gap:12px">
+      <h3>Piezas de la macro y la liquidez</h3>
+      <p class="muted small">La barra dice cuánto riesgo supone hoy cada dato comparado con 2017-2026. 90 = peor que el 90 % de los días.</p>
+      <div class="tabla-wrap"><table id="piezas"><thead><tr><th>Dato</th><th class="n">Hoy</th><th>Riesgo</th></tr></thead><tbody></tbody></table></div>
+    </div>
+    <div style="display:grid;gap:18px;align-content:start">
+      <div class="panel" style="display:grid;gap:12px">
+        <h3>Flujo, osciladores y apalancamiento</h3>
+        <dl class="kv" id="flujo"></dl>
+        <div style="display:grid;gap:6px"><span class="eyebrow">Divergencias bajistas (últimos 25 días)</span><div class="chips" id="divs"></div>
+        <p class="muted small">Solas no anticipan caídas. Solo suman si el precio rompe además un soporte.</p></div>
+      </div>
+      <div class="panel" style="display:grid;gap:10px">
+        <h3>A qué datos reacciona bitcoin ahora</h3>
+        <p class="muted small">Movimiento de BTC en los últimos 8 días de cada dato frente a un día normal (1,0 = igual).</p>
+        <dl class="kv" id="sensib"></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel nota-wrap" style="display:grid;gap:10px">
+    <h3>Nota del día</h3>
+    <div class="nota" id="nota"><p class="muted">Sin nota todavía.</p></div>
+  </section>
+
+
+  <section id="rango">
+    <div class="sec-head"><h2>Rango de 4 horas</h2><span class="muted small" id="rangoAct">Cargando…</span></div>
+    <p class="muted small" style="max-width:75ch">Para caídas pequeñas: detecta solo los laterales en velas de 4 horas, aunque midan un 5-7 %, y mide el riesgo de que se pierda el suelo. Se revisa tres veces al día (hacia las 7:58, 14:07 y 22:07 de Madrid) y solo avisa si pasa algo.</p>
+    <div class="rango-grid" id="capas"></div>
+    <div class="panel" style="display:grid;gap:10px">
+      <div class="leyenda"><span><i class="key" style="background:var(--s1)"></i>Rango mayor (4-20 días)</span><span><i class="key" style="background:var(--s2)"></i>Rango menor (2-6 días)</span></div>
+      <div class="chart" id="chVelas"></div>
+      <span class="eyebrow">Probabilidad de que el rango se rompa antes por abajo que por arriba</span>
+      <div class="chart" id="chProb"></div>
+    </div>
+    <div class="dos">
+      <div class="panel" style="display:grid;gap:10px;align-content:start">
+        <h3>Últimos avisos de rango</h3>
+        <ul class="avisos-lista" id="avisosRango"></ul>
+      </div>
+      <div class="panel" style="display:grid;gap:10px;align-content:start">
+        <h3>Lo que enseña el pasado en rangos de 4 horas</h3>
+        <div class="prose small">
+          <p><strong>Bitcoin pasa la mitad del tiempo en un lateral</strong> de este tipo (55 % de las velas desde 2017).</p>
+          <p><strong>Cuando el precio está en el 20 % inferior del rango, el suelo se rompe antes que el techo 77 de cada 100 veces.</strong> Por eso el riesgo sube al acercarse al suelo.</p>
+          <p><strong>La mitad de las rupturas son barridos:</strong> el precio vuelve dentro en menos de 24 horas.</p>
+          <p><strong>Lo que distingue una ruptura de verdad es la vela que rompe:</strong> que cierre lejos del suelo y con mucho volumen. El delta de esa vela, en cambio, no ayudó.</p>
+        </div>
+        <div class="tabla-wrap"><table id="tablaRupturas"></table></div>
+        <p class="muted small">Avisos reproducidos vela a vela de marzo de 2018 a septiembre de 2026. Con el radar diario en naranja o rojo, las rupturas fuertes cayeron un 4 % de mediana en 3 días (solo 12 casos).</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Lo que enseña el pasado</h2><span class="muted small">Estudio 2017-2026 con datos públicos</span></div>
+    <div class="hallazgos">
+      <div class="panel hallazgo"><span class="eyebrow">Peso de la macro en los grandes movimientos</span><span class="k">2 % → 56 %</span><p class="small muted">De 2017-19 a 2024-26. Hoy la mayoría de los movimientos grandes tienen detrás un hecho macro, casi siempre <strong>imprevisto</strong>: aranceles, guerra, ventas en bolsa.</p></div>
+      <div class="panel hallazgo"><span class="eyebrow">Movimientos rápidos en día de dato</span><span class="k">30 %</span><p class="small muted">Solo el 30 % cae a un día de la Fed, el IPC o el empleo. Por puro azar tocaría un 27 %. El calendario importa poco; el entorno y las sorpresas, mucho.</p></div>
+      <div class="panel hallazgo"><span class="eyebrow">Grandes caídas avisadas</span><span class="k">10 de 13</span><p class="small muted">El radar no avisa en el techo. Avisa cuando la caída ya ha empezado y el entorno indica que puede seguir: de media aún quedaba un 27 % más de caída.</p></div>
+    </div>
+    <div class="dos">
+      <div class="panel" style="display:grid;gap:10px">
+        <h3>Qué hubo detrás de cada gran movimiento</h3>
+        <p class="muted small">123 movimientos y giros, clasificados por su catalizador. Porcentaje de cada periodo.</p>
+        <div class="leyenda" id="leyCat"></div>
+        <div class="chart" id="chCat"></div>
+      </div>
+      <div class="panel" style="display:grid;gap:10px">
+        <h3>Cuánto se parece bitcoin al Nasdaq</h3>
+        <p class="muted small">Correlación de los movimientos diarios, por año. 0 = van por libre · 1 = se mueven igual.</p>
+        <div class="chart" id="chCorr"></div>
+      </div>
+    </div>
+    <div class="dos">
+      <div class="panel" style="display:grid;gap:10px">
+        <h3>El mismo soporte se lee distinto según la macro</h3>
+        <p class="muted small">Desde un toque del mínimo de 30 días o una ruptura del máximo de 30 días: ¿llega antes un +10 % o un −8 %? Pocos casos por casilla (13 a 23).</p>
+        <div class="tabla-wrap"><table id="regimen"></table></div>
+      </div>
+      <div class="panel" style="display:grid;gap:10px">
+        <h3>Qué pasó otras veces en cada nivel</h3>
+        <p class="muted small">Días entre 2018 y 2026, con el radar reconstruido sin mirar el futuro. "Desplome" = caída anormalmente grande para la volatilidad de ese momento en los 30 días siguientes.</p>
+        <div class="tabla-wrap"><table id="nivTabla"></table></div>
+      </div>
+    </div>
+    <div class="panel" style="display:grid;gap:10px">
+      <h3>Las 13 grandes caídas desde 2019</h3>
+      <p class="muted small">Caídas de más del 25 % al cierre. Cuándo pasó el radar a naranja y cuánto quedaba por caer.</p>
+      <div class="tabla-wrap"><table id="episodios"></table></div>
+    </div>
+  </section>
+
+  <section class="panel" style="display:grid;gap:12px">
+    <h3>Cómo funciona</h3>
+    <div class="prose small">
+      <p><strong>Macro (30-45 %).</strong> Presión de los tipos: el bono a 2 años frente al tipo de la Fed y cuánto han subido en 60 días los bonos a 2 y 10 años y el tipo real. Más las condiciones financieras y el diferencial de crédito. Pesa más cuanto más se mueve bitcoin con el Nasdaq.</p>
+      <p><strong>Liquidez (20 %).</strong> El dólar frente a su media de 200 días y su cambio en 60 días, la aceleración de las stablecoins y el flujo de los fondos cotizados de bitcoin. La liquidez neta de la Fed se vigila, pero pesa poco: en el estudio no anticipó caídas.</p>
+      <p><strong>Estructura y flujo (25 %).</strong> Hechos, no opiniones: cierre bajo el soporte de 20 días, ruptura con ventas agresivas fuertes (delta de volumen), precio bajo el mínimo de 60 días, intento fallido de recuperar el soporte, divergencias solo si hay ruptura y prima de Coinbase muy negativa.</p>
+      <p><strong>Catalizadores (10 %).</strong> Sobresaltos detectados en la bolsa, el miedo, los bonos, el dólar, el yen o el crédito, más la revisión diaria de noticias que hace Claude.</p>
+      <p><strong>Avisos por Telegram:</strong> cada mañana llega siempre un resumen con la puntuación. Se marca como aviso cuando el nivel sube a naranja o rojo, cuando vuelve a bajar, cuando salta un gatillo técnico con el riesgo ya alto y cuando aparece un catalizador externo grave.</p>
+      <p><strong>Rango de 4 horas.</strong> Aparte, tres veces al día busca laterales en velas de 4 horas (mayor: 4-20 días y hasta un 12 % de ancho; menor: 2-6 días y hasta un 7 %). Avisa cuando el precio se acerca al suelo con riesgo alto, cuando lo rompe (y si la ruptura es fuerte o floja), cuando la confirma con un segundo cierre y cuando resulta ser un barrido. Si no pasa nada de esto, no manda nada.</p>
+      <p><strong>Límites:</strong> el radar no predice techos. Entre 2024 y 2026 funcionó peor que antes porque los fondos cotizados y las empresas tesoreras mandaron más que los tipos. Los pesos son fijos y elegidos con la historia: es una herramienta de vigilancia, no de entrada automática.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Fuentes: Binance (velas y volumen comprador), Coinbase, OKX, Reserva Federal de San Luis (FRED), DefiLlama, Farside. Revisión automática cada mañana.</span>
+    <span id="pie"></span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var NIV = { VERDE: { c: 'var(--verde)', u: 0, t: 'Verde' }, AMARILLO: { c: 'var(--amarillo)', u: 40, t: 'Amarillo' }, NARANJA: { c: 'var(--naranja)', u: 52, t: 'Naranja' }, ROJO: { c: 'var(--rojo)', u: 62, t: 'Rojo' } };
+  var BLOQ = [
+    { k: 'macro', n: 'Macro', d: 'Tipos de interés, condiciones financieras y crédito.' },
+    { k: 'liquidez', n: 'Liquidez', d: 'Dólar, stablecoins y flujo de los fondos de bitcoin.' },
+    { k: 'estructura', n: 'Estructura y flujo', d: 'Soportes rotos, ventas agresivas y divergencias confirmadas.' },
+    { k: 'catalizadores', n: 'Catalizadores', d: 'Sobresaltos de mercado y noticias graves de los últimos días.' }
+  ];
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (x, d) { return x == null || isNaN(x) ? '—' : Number(x).toLocaleString('es-ES', { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); };
+  var nivelDe = function (t) { return t >= 62 ? 'ROJO' : t >= 52 ? 'NARANJA' : t >= 40 ? 'AMARILLO' : 'VERDE'; };
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs, parent) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+  function icono(n) {
+    var paths = {
+      VERDE: '<circle cx="12" cy="12" r="9" fill="var(--verde)"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+      AMARILLO: '<circle cx="12" cy="12" r="9" fill="var(--amarillo)"/><rect x="11" y="7" width="2" height="7" rx="1" fill="#1a1a1a"/><circle cx="12" cy="16.6" r="1.2" fill="#1a1a1a"/>',
+      NARANJA: '<path d="M12 3l9.5 17h-19z" fill="var(--naranja)"/><rect x="11" y="9" width="2" height="6" rx="1" fill="#1a1a1a"/><circle cx="12" cy="17.4" r="1.2" fill="#1a1a1a"/>',
+      ROJO: '<path d="M8.2 3h7.6L21 8.2v7.6L15.8 21H8.2L3 15.8V8.2z" fill="var(--rojo)"/><rect x="11" y="7" width="2" height="7" rx="1" fill="#fff"/><circle cx="12" cy="16.6" r="1.2" fill="#fff"/>'
+    };
+    return '<svg viewBox="0 0 24 24" aria-hidden="true">' + paths[n] + '</svg>';
+  }
+
+  var H = null, rango = 365;
+
+  function lectura(h) {
+    var b = h.bloques, partes = [];
+    var terreno = b.macro >= 65 ? 'los tipos y el crédito aprietan' : b.macro <= 35 ? 'la macro acompaña' : 'la macro está neutral';
+    var liq = b.liquidez >= 60 ? 'la liquidez se está retirando' : b.liquidez <= 35 ? 'entra liquidez' : 'la liquidez no da señales claras';
+    var est = b.estructura >= 40 ? 'y el precio ya ha roto un soporte' : b.estructura > 0 ? 'y hay alguna señal técnica débil' : 'pero el precio no ha roto ningún soporte';
+    var cab = h.nivel === 'ROJO' ? 'Riesgo alto de caída fuerte: ' : h.nivel === 'NARANJA' ? 'Terreno hostil: ' : h.nivel === 'AMARILLO' ? 'Precaución: ' : 'Sin riesgo especial: ';
+    return cab + terreno + ', ' + liq + ' ' + est + '.';
+  }
+
+  function pintarCabecera(h, meta) {
+    var n = NIV[h.nivel];
+    $('aviso').style.setProperty('--nivel', n.c);
+    $('pill').innerHTML = icono(h.nivel) + 'NIVEL ' + h.nivel;
+    $('total').textContent = fmt(h.total);
+    var d = h.total_ayer == null ? null : h.total - h.total_ayer;
+    $('delta').textContent = d == null ? '' : (d >= 0 ? '+' : '−') + fmt(Math.abs(d), 1) + ' frente a ayer';
+    $('lectura').textContent = lectura(h);
+    $('marca').style.left = Math.max(0, Math.min(100, h.total)) + '%';
+    $('precio').textContent = fmt(h.precio) + ' $';
+    $('hace7').textContent = fmt(h.total_hace7) + ' / 100';
+    $('pesoMacro').textContent = fmt(h.peso_macro * 100) + ' %';
+    $('fechaCierre').textContent = 'Cierre diario del ' + new Date(h.fecha + 'T12:00:00Z').toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+    $('revision').textContent = 'Última revisión: ' + (meta.ultima_revision || '—');
+    var g = $('gatillos'); g.innerHTML = '';
+    var lista = (h.gatillos && h.gatillos.length) ? h.gatillos : ['Ningún gatillo activo'];
+    lista.forEach(function (t) {
+      var li = document.createElement('li');
+      li.innerHTML = '<span class="dot" style="background:' + (h.gatillos && h.gatillos.length ? 'var(--naranja)' : 'var(--verde)') + '"></span><span></span>';
+      li.lastChild.textContent = t.charAt(0).toUpperCase() + t.slice(1);
+      g.appendChild(li);
+    });
+    var nv = h.niveles || {};
+    $('niveles').innerHTML = [['Soporte de 20 días', nv.soporte_20d], ['Soporte de 60 días', nv.soporte_60d], ['Techo de 60 días', nv.techo_60d]]
+      .map(function (r) { return '<div class="nivel-row"><span class="muted">' + r[0] + '</span><span class="num mono">' + fmt(r[1]) + ' $</span></div>'; }).join('');
+    var ev = $('eventos'); ev.innerHTML = '';
+    (h.eventos_proximos || []).slice(0, 5).forEach(function (e) {
+      var li = document.createElement('li');
+      li.innerHTML = '<span class="dot" style="background:var(--accent)"></span><span><span class="mono num"></span> · <span></span></span>';
+      li.querySelector('.mono').textContent = new Date(e.fecha + 'T12:00:00Z').toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+      li.lastChild.lastChild.textContent = e.evento;
+      ev.appendChild(li);
+    });
+    if (!(h.eventos_proximos || []).length) ev.innerHTML = '<li><span class="dot"></span><span class="muted">Sin eventos anotados</span></li>';
+  }
+
+  function sparkline(svgParent, vals, color) {
+    var w = 240, hgt = 42, svg = el('svg', { viewBox: '0 0 ' + w + ' ' + hgt, class: 'spark', preserveAspectRatio: 'none', role: 'img', 'aria-label': 'Últimos 90 días' }, svgParent);
+    var v = vals.filter(function (x) { return x != null; }); if (v.length < 2) return;
+    var x = function (i) { return 2 + i * (w - 8) / (vals.length - 1); }, y = function (t) { return hgt - 3 - t / 100 * (hgt - 6); };
+    var d = '', a = '';
+    vals.forEach(function (t, i) { if (t == null) return; d += (d ? 'L' : 'M') + x(i).toFixed(1) + ',' + y(t).toFixed(1); });
+    a = d + 'L' + x(vals.length - 1).toFixed(1) + ',' + (hgt - 3) + 'L' + x(0).toFixed(1) + ',' + (hgt - 3) + 'Z';
+    el('path', { d: a, fill: color, 'fill-opacity': '.10', stroke: 'none' }, svg);
+    el('path', { d: d, fill: 'none', stroke: color, 'stroke-width': '2', 'stroke-linejoin': 'round', 'stroke-linecap': 'round', 'vector-effect': 'non-scaling-stroke' }, svg);
+    el('circle', { cx: x(vals.length - 1), cy: y(vals[vals.length - 1]), r: 3.5, fill: color, stroke: 'var(--surface)', 'stroke-width': 2 }, svg);
+  }
+
+  function pintarBloques(h, filas) {
+    var cont = $('bloques'); cont.innerHTML = '';
+    var ult = filas.slice(-90);
+    BLOQ.forEach(function (b) {
+      var v = h.bloques[b.k];
+      var div = document.createElement('div'); div.className = 'panel bloque';
+      var col = 'var(--' + nivelDe(v).toLowerCase() + ')';
+      div.innerHTML = '<span class="eyebrow">' + b.n + '</span><div class="fila"><span class="val">' + fmt(v) + '</span><span class="muted small">' + (b.k === 'macro' ? fmt(h.peso_macro * 100) : b.k === 'liquidez' ? '20' : b.k === 'estructura' ? '25' : '10') + ' % del total</span></div>' +
+        '<div class="meter"><i style="width:' + Math.max(2, v) + '%;background:' + col + '"></i></div><p>' + b.d + '</p>';
+      cont.appendChild(div);
+      sparkline(div, ult.map(function (r) { return r[b.k]; }), 'var(--accent)');
+    });
+  }
+
+  function pintarTablas(h) {
+    var tb = document.querySelector('#piezas tbody'); tb.innerHTML = '';
+    (h.piezas || []).forEach(function (p) {
+      var tr = document.createElement('tr');
+      var r = p.riesgo_pct == null ? null : p.riesgo_pct;
+      var col = r == null ? 'var(--muted)' : r >= 80 ? 'var(--rojo)' : r >= 60 ? 'var(--naranja)' : r >= 40 ? 'var(--amarillo)' : 'var(--verde)';
+      var u = p.unidad === 'pp' ? ' pp' : p.unidad === '%' ? ' %' : p.unidad === 'M$' ? ' M$' : '';
+      tr.innerHTML = '<td><span></span><br><span class="muted small"></span></td><td class="n mono">' + (p.valor > 0 && p.unidad !== 'índice' ? '+' : '') + fmt(p.valor, p.unidad === 'M$' ? 0 : 2) + u + '</td>' +
+        '<td><span class="barra"><i style="width:' + (r == null ? 0 : r) + '%;background:' + col + '"></i></span> <span class="num mono small">' + (r == null ? '—' : r) + '</span></td>';
+      tr.firstChild.firstChild.textContent = p.nombre; tr.firstChild.lastChild.textContent = p.explicacion;
+      tb.appendChild(tr);
+    });
+    var f = h.flujo || {};
+    var filasF = [
+      ['Delta de volumen del día (compras − ventas agresivas)', (f.delta_hoy > 0 ? '+' : '') + fmt(f.delta_hoy, 1) + ' %'],
+      ['Delta acumulado de 30 días', (f.cvd30 > 0 ? '+' : '') + fmt(f.cvd30, 2) + ' %'],
+      ['Fuerza relativa (RSI 14 días)', fmt(f.rsi14, 0)],
+      ['Financiación de perpetuos (anualizada)', f.funding_anual == null ? '—' : fmt(f.funding_anual, 1) + ' %'],
+      ['Volatilidad de 30 días (anualizada)', fmt(f.vol30, 0) + ' %'],
+      ['Correlación con el Nasdaq (60 sesiones)', h.corr_nasdaq == null ? '—' : fmt(h.corr_nasdaq, 2)]
+    ];
+    $('flujo').innerHTML = filasF.map(function (r) { return '<dt>' + r[0] + '</dt><dd class="mono">' + r[1] + '</dd>'; }).join('');
+    var dv = f.divergencias || {}, nm = { div_rsi: 'RSI', div_macd: 'MACD', div_mfi: 'Flujo de dinero (MFI)', div_cvd: 'Delta acumulado' };
+    $('divs').innerHTML = Object.keys(nm).map(function (k) { return '<span class="chip ' + (dv[k] ? 'on' : '') + '">' + nm[k] + (dv[k] ? ' · activa' : ' · no') + '</span>'; }).join('');
+    var s = h.sensibilidad_eventos || {};
+    $('sensib').innerHTML = Object.keys(s).map(function (k) { var v = s[k]; return '<dt>' + k + '</dt><dd class="mono">' + (v == null ? '—' : fmt(v, 2) + '×') + '</dd>'; }).join('');
+    var no = h.noticias || {};
+    var nota = $('nota'); nota.innerHTML = '';
+    var p = document.createElement('p'); p.textContent = no.resumen || 'Sin nota hoy.'; nota.appendChild(p);
+    var pts = document.createElement('p'); pts.className = 'muted small'; pts.textContent = 'Puntos sumados al bloque de catalizadores por noticias: ' + (no.puntos || 0); nota.appendChild(pts);
+    (no.fuentes || []).forEach(function (u) { if (!/^https:\/\//.test(u)) return; var a = document.createElement('a'); a.href = u; a.textContent = u.replace(/^https:\/\/(www\.)?/, '').slice(0, 70); a.target = '_blank'; a.rel = 'noopener'; a.className = 'small'; a.style.color = 'var(--accent)'; nota.appendChild(a); });
+  }
+
+  /* ---------- gráfico principal ---------- */
+  function escala(d0, d1, r0, r1) { return function (v) { return r0 + (v - d0) / (d1 - d0) * (r1 - r0); }; }
+  function filasRango(filas) { if (!rango) return filas; return filas.slice(-rango); }
+
+  function chartTotal() {
+    var cont = $('chTotal'); cont.innerHTML = '';
+    var F = filasRango(H.filas), W = Math.max(320, cont.clientWidth || 700), Hh = W < 520 ? 210 : 260;
+    var m = { l: 34, r: 12, t: 8, b: 26 };
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + Hh, role: 'img', 'aria-label': 'Puntuación total del radar en el tiempo' }, cont);
+    var t0 = Date.parse(F[0].fecha), t1 = Date.parse(F[F.length - 1].fecha);
+    var x = escala(t0, t1, m.l, W - m.r), y = escala(0, 100, Hh - m.b, m.t);
+    [[0, 40, 'verde'], [40, 52, 'amarillo'], [52, 62, 'naranja'], [62, 100, 'rojo']].forEach(function (b) {
+      el('rect', { x: m.l, y: y(b[1]), width: W - m.l - m.r, height: y(b[0]) - y(b[1]), fill: 'var(--' + b[2] + ')', 'fill-opacity': '.09' }, svg);
+    });
+    [0, 40, 52, 62, 100].forEach(function (v) {
+      el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: 'var(--line)', 'stroke-width': 1 }, svg);
+      var tx = el('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace' }, svg); tx.textContent = v;
+    });
+    ejeX(svg, t0, t1, x, Hh - m.b + 16, W);
+    var dl = '', vivo = '';
+    F.forEach(function (r) { var px = x(Date.parse(r.fecha)).toFixed(1), py = y(r.total).toFixed(1); dl += (dl ? 'L' : 'M') + px + ',' + py; });
+    el('path', { d: dl, fill: 'none', stroke: 'var(--ink-2)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
+    var enVivo = F.filter(function (r) { return r.origen === 'en vivo'; });
+    if (enVivo.length) {
+      enVivo.forEach(function (r, i) { var px = x(Date.parse(r.fecha)).toFixed(1), py = y(r.total).toFixed(1); vivo += (i ? 'L' : 'M') + px + ',' + py; });
+      el('path', { d: vivo, fill: 'none', stroke: 'var(--accent)', 'stroke-width': 2.5, 'stroke-linejoin': 'round' }, svg);
+    }
+    var u = F[F.length - 1];
+    el('circle', { cx: x(Date.parse(u.fecha)), cy: y(u.total), r: 5, fill: 'var(--' + nivelDe(u.total).toLowerCase() + ')', stroke: 'var(--surface)', 'stroke-width': 2 }, svg);
+    hover(cont, svg, F, x, function (r) { return y(r.total); }, m, W, Hh, function (r) {
+      return '<div class="t-row"><span>' + fechaLarga(r.fecha) + '</span></div><div class="t-row"><span>Total</span><b>' + fmt(r.total, 1) + ' · ' + nivelDe(r.total).toLowerCase() + '</b></div>' +
+        '<div class="t-row"><span>Macro</span><b>' + fmt(r.macro) + '</b></div><div class="t-row"><span>Liquidez</span><b>' + fmt(r.liquidez) + '</b></div>' +
+        '<div class="t-row"><span>Estructura</span><b>' + fmt(r.estructura) + '</b></div><div class="t-row"><span>Catalizadores</span><b>' + fmt(r.catalizadores) + '</b></div>' +
+        '<div class="t-row"><span>Precio</span><b>' + fmt(r.precio) + ' $</b></div>';
+    });
+    $('origenNota').textContent = enVivo.length ? 'Línea gris: lecturas reconstruidas con datos de la época. Línea azul: lecturas en vivo desde ' + fechaLarga(enVivo[0].fecha) + '.' : 'Lecturas reconstruidas con los datos que se conocían cada día. Las lecturas en vivo empiezan con la primera revisión automática.';
+  }
+
+  function chartPrecio() {
+    var cont = $('chPrecio'); cont.innerHTML = '';
+    var F = filasRango(H.filas), W = Math.max(320, cont.clientWidth || 700), Hh = W < 520 ? 150 : 180;
+    var m = { l: 34, r: 12, t: 8, b: 26 };
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + Hh, role: 'img', 'aria-label': 'Precio de bitcoin' }, cont);
+    var t0 = Date.parse(F[0].fecha), t1 = Date.parse(F[F.length - 1].fecha);
+    var lp = F.map(function (r) { return Math.log10(r.precio); }), mn = Math.min.apply(null, lp), mx = Math.max.apply(null, lp), pad = (mx - mn) * 0.06 || 0.05;
+    var x = escala(t0, t1, m.l, W - m.r), y = escala(mn - pad, mx + pad, Hh - m.b, m.t);
+    var dia = (W - m.l - m.r) / Math.max(1, F.length - 1);
+    F.forEach(function (r) {
+      if (r.total >= 52) el('rect', { x: x(Date.parse(r.fecha)) - dia / 2, y: m.t, width: Math.max(1, dia), height: Hh - m.b - m.t, fill: r.total >= 62 ? 'var(--rojo)' : 'var(--naranja)', 'fill-opacity': '.16' }, svg);
+    });
+    var ticks = ticksLog(Math.pow(10, mn - pad), Math.pow(10, mx + pad));
+    ticks.forEach(function (v) {
+      el('line', { x1: m.l, x2: W - m.r, y1: y(Math.log10(v)), y2: y(Math.log10(v)), stroke: 'var(--line)', 'stroke-width': 1 }, svg);
+      var tx = el('text', { x: m.l - 6, y: y(Math.log10(v)) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace' }, svg); tx.textContent = v >= 1000 ? (v / 1000) + 'k' : v;
+    });
+    ejeX(svg, t0, t1, x, Hh - m.b + 16, W);
+    var d = ''; F.forEach(function (r) { d += (d ? 'L' : 'M') + x(Date.parse(r.fecha)).toFixed(1) + ',' + y(Math.log10(r.precio)).toFixed(1); });
+    el('path', { d: d, fill: 'none', stroke: 'var(--accent)', 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+    hover(cont, svg, F, x, function (r) { return y(Math.log10(r.precio)); }, m, W, Hh, function (r) {
+      return '<div class="t-row"><span>' + fechaLarga(r.fecha) + '</span></div><div class="t-row"><span>Precio</span><b>' + fmt(r.precio) + ' $</b></div><div class="t-row"><span>Radar</span><b>' + fmt(r.total) + ' · ' + nivelDe(r.total).toLowerCase() + '</b></div>';
+    });
+  }
+
+  function ticksLog(a, b) {
+    var cand = [1000, 2000, 3000, 5000, 10000, 15000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 120000, 150000, 200000];
+    var t = cand.filter(function (v) { return v >= a && v <= b; });
+    while (t.length > 5) t = t.filter(function (_, i) { return i % 2 === 0; });
+    return t;
+  }
+  function fechaLarga(f) { return new Date(f + 'T12:00:00Z').toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' }); }
+  function ejeX(svg, t0, t1, x, yy, W) {
+    var dias = (t1 - t0) / 864e5, out = [], d = new Date(t0);
+    var paso = dias > 1500 ? 12 : dias > 500 ? 3 : 1;
+    d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() + 1);
+    while (d.getTime() <= t1) { if (dias <= 500 || d.getUTCMonth() % paso === 0) out.push(new Date(d)); d.setUTCMonth(d.getUTCMonth() + 1); }
+    var maxT = Math.max(2, Math.floor(W / 80)); while (out.length > maxT) out = out.filter(function (_, i) { return i % 2 === 0; });
+    out.forEach(function (dd) {
+      var tx = el('text', { x: x(dd.getTime()), y: yy, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace' }, svg);
+      tx.textContent = dias > 1500 ? dd.getUTCFullYear() : dd.toLocaleDateString('es-ES', { month: 'short', year: '2-digit', timeZone: 'UTC' });
+    });
+  }
+  function hover(cont, svg, F, x, yf, m, W, Hh, html) {
+    var tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true; cont.appendChild(tip);
+    var vl = el('line', { y1: m.t, y2: Hh - m.b, stroke: 'var(--muted)', 'stroke-width': 1, visibility: 'hidden' }, svg);
+    var pt = el('circle', { r: 4.5, fill: 'var(--ink)', stroke: 'var(--surface)', 'stroke-width': 2, visibility: 'hidden' }, svg);
+    var hit = el('rect', { x: m.l, y: 0, width: W - m.l - m.r, height: Hh, fill: 'transparent' }, svg);
+    var ts = F.map(function (r) { return Date.parse(r.fecha); });
+    function mover(ev) {
+      var rect = svg.getBoundingClientRect(), sx = (ev.clientX - rect.left) * W / rect.width;
+      var t = ts[0] + (sx - m.l) / (W - m.l - m.r) * (ts[ts.length - 1] - ts[0]);
+      var i = 0, best = Infinity; for (var k = 0; k < ts.length; k++) { var dd = Math.abs(ts[k] - t); if (dd < best) { best = dd; i = k; } }
+      var r = F[i], px = x(ts[i]), py = yf(r);
+      vl.setAttribute('x1', px); vl.setAttribute('x2', px); vl.setAttribute('visibility', 'visible');
+      pt.setAttribute('cx', px); pt.setAttribute('cy', py); pt.setAttribute('visibility', 'visible');
+      tip.innerHTML = html(r); tip.hidden = false;
+      var cx = px * rect.width / W, tw = tip.offsetWidth;
+      tip.style.left = Math.max(0, Math.min(rect.width - tw, cx + 12 > rect.width - tw ? cx - tw - 12 : cx + 12)) + 'px';
+      tip.style.top = '6px';
+    }
+    hit.addEventListener('pointermove', mover);
+    hit.addEventListener('pointerdown', mover);
+    hit.addEventListener('pointerleave', function () { tip.hidden = true; vl.setAttribute('visibility', 'hidden'); pt.setAttribute('visibility', 'hidden'); });
+  }
+
+  function minis() {
+    var cont = $('minis'); cont.innerHTML = '';
+    var F = filasRango(H.filas);
+    BLOQ.forEach(function (b) {
+      var p = document.createElement('div'); p.className = 'panel'; p.style.display = 'grid'; p.style.gap = '6px';
+      var u = F[F.length - 1][b.k];
+      p.innerHTML = '<div class="sec-head"><span class="eyebrow">' + b.n + '</span><span class="num mono small">' + fmt(u) + '</span></div>';
+      cont.appendChild(p);
+      var vals = F.map(function (r) { return r[b.k]; });
+      if (vals.length > 400) { var paso = Math.ceil(vals.length / 400), v2 = []; for (var i = 0; i < vals.length; i += paso) v2.push(vals[i]); v2[v2.length - 1] = vals[vals.length - 1]; vals = v2; }
+      sparkline(p, vals, 'var(--accent)');
+    });
+  }
+
+  /* ---------- estudio (datos fijos del análisis) ---------- */
+  var CAT = { periodos: ['2017-19', '2020-21', '2022-23', '2024-26'],
+    series: [
+      { n: 'Macro imprevista', c: 'var(--s2)', v: [2, 21, 26, 38] },
+      { n: 'Macro de calendario', c: 'var(--s4)', v: [0, 10, 21, 19] },
+      { n: 'Regulación e instituciones', c: 'var(--s1)', v: [51, 34, 16, 31] },
+      { n: 'Interno de cripto', c: 'var(--s3)', v: [16, 10, 37, 12] },
+      { n: 'Sin causa clara', c: 'var(--s5)', v: [30, 24, 0, 0] }
+    ], n: [43, 29, 19, 32] };
+  var CORR = [[2017, .12], [2018, .08], [2019, -.09], [2020, .45], [2021, .25], [2022, .58], [2023, .18], [2024, .31], [2025, .46], [2026, .41]];
+  var NIVST = [['Verde', 64, 12, 13, -10.4], ['Amarillo', 21, 15, 18, -11.3], ['Naranja', 8, 24, 31, -15.4], ['Rojo', 6, 42, 47, -20.1]];
+  var REG = [
+    ['Toque de soporte', 'Macro favorable', 64, 32, 22], ['Toque de soporte', 'Macro hostil', 38, 50, 16],
+    ['Ruptura al alza', 'Macro favorable', 61, 39, 23], ['Ruptura al alza', 'Macro hostil', 31, 69, 13],
+    ['Toque de soporte', 'Dólar bajo su media de 200 días', 55, 40, 20], ['Toque de soporte', 'Dólar sobre su media de 200 días', 34, 61, 38]
+  ];
+  var EPI = [
+    ['26 jun 2019', '16 jul 2019', -27.9, '—', '—', '—', 'Libra y presión regulatoria'],
+    ['8 ago 2019', '24 oct 2019', -38.2, '28 ago 2019', '50 %', '−24 %', 'Bakkt flojo y ruptura de 9.000 $'],
+    ['27 oct 2019', '17 dic 2019', -30.5, '—', '—', '—', 'Ofensiva china y PlusToken'],
+    ['14 feb 2020', '12 mar 2020', -53.6, '26 feb 2020', '28 %', '−45 %', 'Covid: pánico global'],
+    ['8 ene 2021', '27 ene 2021', -25.2, '—', '—', '—', 'Euforia y recogida de beneficios'],
+    ['13 abr 2021', '20 jul 2021', -53.1, '19 jul 2021', '97 %', '−3 %', 'Prohibiciones en China y Tesla'],
+    ['8 nov 2021', '22 ene 2022', -48.1, '18 nov 2021', '33 %', '−38 %', 'IPC al 6,2 % y Fed dura'],
+    ['29 mar 2022', '18 jun 2022', -60.0, '29 mar 2022', '0 %', '−60 %', 'Subidas de tipos, Terra y Celsius'],
+    ['13 ago 2022', '21 nov 2022', -35.4, '9 sep 2022', '36 %', '−26 %', 'Fed dura y FTX'],
+    ['13 mar 2024', '6 sep 2024', -26.2, '1 may 2024', '77 %', '−8 %', 'Salidas de fondos y carry trade del yen'],
+    ['21 ene 2025', '8 abr 2025', -28.1, '28 feb 2025', '73 %', '−10 %', 'Aranceles y hackeo de Bybit'],
+    ['6 oct 2025', '5 feb 2026', -49.5, '4 nov 2025', '38 %', '−38 %', 'Arancel a China, 19.000 M$ liquidados, Warsh, venta de IA'],
+    ['10 may 2026', '30 jun 2026', -28.7, '22 may 2026', '28 %', '−22 %', 'IPC del 3,8 %, Strategy vende, salidas de fondos']
+  ];
+
+  function chartCat() {
+    var cont = $('chCat'); cont.innerHTML = '';
+    $('leyCat').innerHTML = CAT.series.map(function (s) { return '<span><i class="sw" style="background:' + s.c + '"></i>' + s.n + '</span>'; }).join('');
+    var W = Math.max(300, cont.clientWidth || 500), Hh = 230, m = { l: 34, r: 8, t: 8, b: 40 };
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + Hh, role: 'img', 'aria-label': 'Catalizadores por periodo' }, cont);
+    var y = escala(0, 100, Hh - m.b, m.t), bw = Math.min(56, (W - m.l - m.r) / CAT.periodos.length * .55), step = (W - m.l - m.r) / CAT.periodos.length;
+    [0, 25, 50, 75, 100].forEach(function (v) { el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: 'var(--line)' }, svg); var t = el('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace' }, svg); t.textContent = v + '%'; });
+    var tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true; cont.appendChild(tip);
+    CAT.periodos.forEach(function (p, i) {
+      var cx = m.l + step * i + step / 2, acc = 0;
+      CAT.series.forEach(function (s) {
+        var v = s.v[i]; if (!v) return;
+        var y0 = y(acc), y1 = y(acc + v);
+        var r = el('rect', { x: cx - bw / 2, y: y1 + 1, width: bw, height: Math.max(0, y0 - y1 - 2), fill: s.c, rx: 2 }, svg);
+        r.addEventListener('pointerenter', function () { tip.innerHTML = '<div class="t-row"><span>' + p + '</span></div><div class="t-row"><span>' + s.n + '</span><b>' + v + ' %</b></div>'; tip.hidden = false; tip.style.left = Math.min(cont.clientWidth - 180, cx * cont.clientWidth / W) + 'px'; tip.style.top = '0px'; });
+        r.addEventListener('pointerleave', function () { tip.hidden = true; });
+        acc += v;
+      });
+      var t = el('text', { x: cx, y: Hh - m.b + 16, 'text-anchor': 'middle', 'font-size': 12, fill: 'var(--ink-2)', 'font-family': 'IBM Plex Mono, monospace' }, svg); t.textContent = p;
+      var t2 = el('text', { x: cx, y: Hh - m.b + 31, 'text-anchor': 'middle', 'font-size': 10.5, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace' }, svg); t2.textContent = CAT.n[i] + ' casos';
+    });
+  }
+  function chartCorr() {
+    var cont = $('chCorr'); cont.innerHTML = '';
+    var W = Math.max(300, cont.clientWidth || 500), Hh = 230, m = { l: 34, r: 8, t: 12, b: 26 };
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + Hh, role: 'img', 'aria-label': 'Correlación anual con el Nasdaq' }, cont);
+    var y = escala(-0.2, 0.7, Hh - m.b, m.t), step = (W - m.l - m.r) / CORR.length, bw = Math.min(24, step * .6);
+    [-0.2, 0, 0.2, 0.4, 0.6].forEach(function (v) { el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: v === 0 ? 'var(--muted)' : 'var(--line)' }, svg); var t = el('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace' }, svg); t.textContent = v.toFixed(1).replace('.', ','); });
+    CORR.forEach(function (c, i) {
+      var cx = m.l + step * i + step / 2, v = c[1], top = Math.min(y(v), y(0)), h = Math.abs(y(v) - y(0));
+      el('rect', { x: cx - bw / 2, y: top, width: bw, height: Math.max(1, h), fill: 'var(--accent)', rx: 3 }, svg);
+      if (i === CORR.length - 1 || c[0] === 2019 || c[0] === 2022) { var lt = el('text', { x: cx, y: (v >= 0 ? y(v) - 5 : y(v) + 13), 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--ink-2)', 'font-family': 'IBM Plex Mono, monospace' }, svg); lt.textContent = v.toFixed(2).replace('.', ','); }
+      if (W > 420 || i % 2 === 0) { var t = el('text', { x: cx, y: Hh - m.b + 16, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace' }, svg); t.textContent = c[0]; }
+    });
+  }
+  function tablasEstudio() {
+    $('nivTabla').innerHTML = '<thead><tr><th>Nivel</th><th class="n">Días</th><th class="n">Desplome</th><th class="n">Caída ≥ 20 %</th><th class="n">Caída máx. media</th></tr></thead><tbody>' +
+      NIVST.map(function (r) { var k = r[0].toUpperCase(); return '<tr><td><span class="sw" style="background:' + NIV[k].c + ';margin-right:8px"></span>' + r[0] + '</td><td class="n">' + r[1] + ' %</td><td class="n">' + r[2] + ' %</td><td class="n">' + r[3] + ' %</td><td class="n">' + fmt(r[4], 1) + ' %</td></tr>'; }).join('') +
+      '<tr><td class="muted">Cualquier día</td><td class="n muted">100 %</td><td class="n muted">15 %</td><td class="n muted">18 %</td><td class="n muted">−11,6 %</td></tr></tbody>';
+    $('regimen').innerHTML = '<thead><tr><th>Situación</th><th>Entorno</th><th class="n">Funciona</th><th class="n">Falla</th><th class="n">Casos</th></tr></thead><tbody>' +
+      REG.map(function (r) { return '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td class="n">' + r[2] + ' %</td><td class="n">' + r[3] + ' %</td><td class="n muted">' + r[4] + '</td></tr>'; }).join('') + '</tbody>';
+    $('episodios').innerHTML = '<thead><tr><th>Techo</th><th>Suelo</th><th class="n">Caída</th><th>Primer aviso naranja</th><th class="n">Ya hecho</th><th class="n">Quedaba</th><th>Qué pasó</th></tr></thead><tbody>' +
+      EPI.map(function (r) { return '<tr><td class="num">' + r[0] + '</td><td class="num">' + r[1] + '</td><td class="n">' + fmt(r[2], 1) + ' %</td><td class="num">' + r[3] + '</td><td class="n">' + r[4] + '</td><td class="n">' + r[5] + '</td><td class="small">' + r[6] + '</td></tr>'; }).join('') + '</tbody>';
+    $('leyendaNiveles').innerHTML = ['VERDE', 'AMARILLO', 'NARANJA', 'ROJO'].map(function (k) { return '<span><i class="sw" style="background:' + NIV[k].c + '"></i>' + NIV[k].t + (k === 'VERDE' ? ' < 40' : k === 'AMARILLO' ? ' 40-52' : k === 'NARANJA' ? ' 52-62' : ' ≥ 62') + '</span>'; }).join('');
+  }
+
+
+  /* ---------- rango de 4 horas ---------- */
+  var RG = null;
+  var ESTADOS = { 'dentro': ['Dentro del rango', 'dentro'], 'ruptura': ['Ruptura bajista', 'ruptura'], 'confirmada': ['Ruptura confirmada', 'confirmada'],
+                  'sin rango': ['Sin rango claro', ''], 'roto al alza': ['Roto al alza', 'barrido'] };
+  function pintarCapas() {
+    var cont = $('capas'); cont.innerHTML = '';
+    ['mayor', 'menor'].forEach(function (k) {
+      var cp = RG.capas[k] || {}, est = ESTADOS[cp.estado] || ['Sin datos', ''];
+      var div = document.createElement('div'); div.className = 'panel capa';
+      var col = k === 'mayor' ? 'var(--s1)' : 'var(--s2)';
+      var p = cp.prob_abajo, pos = cp.senales ? cp.senales.posicion : null;
+      var rup = cp.ruptura && (cp.estado === 'ruptura' || cp.estado === 'confirmada') ? '<p class="small">Vela de ruptura: ' + cp.ruptura.fecha + ' UTC, cierre ' + fmt(cp.ruptura.cierre) + ' $, calidad <strong>' + cp.ruptura.calidad + '</strong> (volumen ' + fmt(cp.ruptura.volumen_relativo, 1) + '×).</p>' : '';
+      div.innerHTML = '<div class="fila"><span class="eyebrow"><i class="key" style="background:' + col + '"></i>' + (RG.textos[k] || k) + '</span><span class="estado-chip ' + est[1] + '">' + est[0] + '</span></div>' +
+        (cp.techo ? '<div class="kv"><dt>Techo</dt><dd class="mono">' + fmt(cp.techo) + ' $</dd><dt>Suelo</dt><dd class="mono">' + fmt(cp.suelo) + ' $</dd><dt>Ancho</dt><dd class="mono">' + fmt(cp.ancho * 100, 1) + ' %</dd>' +
+          (pos != null && cp.estado === 'dentro' ? '<dt>Posición en el rango</dt><dd class="mono">' + fmt(pos * 100) + ' %</dd>' : '') + '</div>' : '<p class="muted small">Ahora mismo no hay un lateral que cumpla las condiciones.</p>') +
+        (p != null && cp.estado === 'dentro' ? '<div style="display:grid;gap:4px"><div class="fila"><span class="small">Riesgo de romper antes por abajo</span><b class="mono">' + fmt(p * 100) + ' %</b></div><div class="meter"><i style="width:' + (p * 100) + '%;background:' + (p >= .7 ? 'var(--rojo)' : p >= .55 ? 'var(--naranja)' : p >= .4 ? 'var(--amarillo)' : 'var(--verde)') + '"></i></div></div>' : '') + rup;
+      cont.appendChild(div);
+    });
+    $('rangoAct').textContent = 'Última vela: ' + RG.ultima_vela + ' UTC · ' + fmt(RG.precio) + ' $';
+  }
+  function chartVelas() {
+    var cont = $('chVelas'); cont.innerHTML = '';
+    var V = RG.velas, W = Math.max(320, cont.clientWidth || 700), Hh = W < 520 ? 220 : 280, m = { l: 48, r: 12, t: 10, b: 26 };
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + Hh, role: 'img', 'aria-label': 'Velas de 4 horas con los rangos' }, cont);
+    var lo = Math.min.apply(null, V.map(function (v) { return v[3]; })), hi = Math.max.apply(null, V.map(function (v) { return v[2]; }));
+    ['mayor', 'menor'].forEach(function (k) { var cp = RG.capas[k]; if (cp && cp.suelo && cp.estado !== 'sin rango') { lo = Math.min(lo, cp.suelo); hi = Math.max(hi, cp.techo); } });
+    var pad = (hi - lo) * .05, y = escala(lo - pad, hi + pad, Hh - m.b, m.t), step = (W - m.l - m.r) / V.length, x = function (i) { return m.l + step * i + step / 2; };
+    var nt = 5; for (var t = 0; t <= nt; t++) { var val = lo - pad + (hi - lo + 2 * pad) * t / nt; el('line', { x1: m.l, x2: W - m.r, y1: y(val), y2: y(val), stroke: 'var(--line)' }, svg); var tx = el('text', { x: m.l - 6, y: y(val) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace' }, svg); tx.textContent = (val / 1000).toFixed(1).replace('.', ',') + 'k'; }
+    ['mayor', 'menor'].forEach(function (k) {
+      var cp = RG.capas[k]; if (!cp || !cp.suelo || cp.estado === 'sin rango' || cp.estado === 'roto al alza') return;
+      var col = k === 'mayor' ? 'var(--s1)' : 'var(--s2)';
+      var desde = V.findIndex(function (v) { return v[0] >= (cp.desde || ''); }); var n0 = Math.max(0, V.length - (cp.N || 30) - 1);
+      var x0 = x(Math.max(0, Math.min(n0, desde < 0 ? n0 : desde))) - step / 2;
+      el('rect', { x: x0, y: y(cp.techo), width: W - m.r - x0, height: y(cp.suelo) - y(cp.techo), fill: col, 'fill-opacity': '.07', stroke: col, 'stroke-width': 1.5, 'stroke-opacity': '.8' }, svg);
+      var lab = el('text', { x: W - m.r - 4, y: y(cp.suelo) - 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--ink-2)', 'font-family': 'IBM Plex Mono, monospace' }, svg); lab.textContent = 'suelo ' + fmt(cp.suelo);
+    });
+    var bw = Math.max(1.5, Math.min(7, step * .6));
+    V.forEach(function (v, i) {
+      var up = v[4] >= v[1], col = up ? 'var(--verde)' : 'var(--rojo)';
+      el('line', { x1: x(i), x2: x(i), y1: y(v[2]), y2: y(v[3]), stroke: col, 'stroke-width': 1 }, svg);
+      el('rect', { x: x(i) - bw / 2, y: y(Math.max(v[1], v[4])), width: bw, height: Math.max(1, Math.abs(y(v[1]) - y(v[4]))), fill: col }, svg);
+    });
+    var ts = V.map(function (v) { return Date.parse(v[0].replace(' ', 'T') + ':00Z'); });
+    var lbl = [0, Math.floor(V.length / 3), Math.floor(2 * V.length / 3), V.length - 1];
+    lbl.forEach(function (i) { var tx = el('text', { x: x(i), y: Hh - m.b + 16, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace' }, svg); tx.textContent = new Date(ts[i]).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', timeZone: 'UTC' }); });
+    var F = V.map(function (v) { return { fecha: v[0], o: v[1], h: v[2], l: v[3], c: v[4] }; });
+    var xs = function (t) { var i = ts.indexOf(t); return x(i); };
+    hoverIdx(cont, svg, F, x, function (r) { return y(r.c); }, m, W, Hh, function (r) { return '<div class="t-row"><span>' + r.fecha + ' UTC</span></div><div class="t-row"><span>Apertura</span><b>' + fmt(r.o) + '</b></div><div class="t-row"><span>Máximo</span><b>' + fmt(r.h) + '</b></div><div class="t-row"><span>Mínimo</span><b>' + fmt(r.l) + '</b></div><div class="t-row"><span>Cierre</span><b>' + fmt(r.c) + '</b></div>'; });
+  }
+  function hoverIdx(cont, svg, F, x, yf, m, W, Hh, html) {
+    var tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true; cont.appendChild(tip);
+    var vl = el('line', { y1: m.t, y2: Hh - m.b, stroke: 'var(--muted)', 'stroke-width': 1, visibility: 'hidden' }, svg);
+    var hit = el('rect', { x: m.l, y: 0, width: W - m.l - m.r, height: Hh, fill: 'transparent' }, svg);
+    function mover(ev) {
+      var rect = svg.getBoundingClientRect(), sx = (ev.clientX - rect.left) * W / rect.width;
+      var i = Math.max(0, Math.min(F.length - 1, Math.round((sx - m.l) / ((W - m.l - m.r) / F.length) - .5)));
+      var px = x(i); vl.setAttribute('x1', px); vl.setAttribute('x2', px); vl.setAttribute('visibility', 'visible');
+      tip.innerHTML = html(F[i]); tip.hidden = false;
+      var cx = px * rect.width / W, tw = tip.offsetWidth;
+      tip.style.left = Math.max(0, Math.min(rect.width - tw, cx + 12 > rect.width - tw ? cx - tw - 12 : cx + 12)) + 'px'; tip.style.top = '6px';
+    }
+    hit.addEventListener('pointermove', mover); hit.addEventListener('pointerdown', mover);
+    hit.addEventListener('pointerleave', function () { tip.hidden = true; vl.setAttribute('visibility', 'hidden'); });
+  }
+  function chartProb() {
+    var cont = $('chProb'); cont.innerHTML = '';
+    var Hs = RG.historial || []; if (Hs.length < 2) { cont.innerHTML = '<p class="muted small">Se irá llenando con cada revisión.</p>'; return; }
+    var W = Math.max(320, cont.clientWidth || 700), Hh = 150, m = { l: 48, r: 12, t: 8, b: 24 };
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + Hh, role: 'img', 'aria-label': 'Riesgo de ruptura bajista en el tiempo' }, cont);
+    var y = escala(0, 1, Hh - m.b, m.t), step = (W - m.l - m.r) / Math.max(1, Hs.length - 1), x = function (i) { return m.l + step * i; };
+    [0, .5, .7, 1].forEach(function (v) { el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: v === .7 ? 'var(--naranja)' : 'var(--line)', 'stroke-dasharray': v === .7 ? '0' : '0' }, svg); var t = el('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace' }, svg); t.textContent = Math.round(v * 100) + ' %'; });
+    [['p_mayor', 'var(--s1)'], ['p_menor', 'var(--s2)']].forEach(function (s) {
+      var d = '', pen = false;
+      Hs.forEach(function (r, i) { var v = r[s[0]]; if (v == null) { pen = false; return; } d += (pen ? 'L' : 'M') + x(i).toFixed(1) + ',' + y(v).toFixed(1); pen = true; });
+      if (d) el('path', { d: d, fill: 'none', stroke: s[1], 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+    });
+    [0, Hs.length - 1].forEach(function (i) { var tx = el('text', { x: x(i), y: Hh - m.b + 16, 'text-anchor': i ? 'end' : 'start', 'font-size': 11, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace' }, svg); tx.textContent = Hs[i].t.slice(5, 10).split('-').reverse().join('/'); });
+    var F = Hs.map(function (r) { return r; });
+    hoverIdx(cont, svg, F, function (i) { return x(i) - 0; }, function () { return 0; }, m, W, Hh, function (r) { return '<div class="t-row"><span>' + r.t + ' UTC</span></div><div class="t-row"><span>Mayor</span><b>' + (r.p_mayor == null ? '—' : fmt(r.p_mayor * 100) + ' %') + '</b></div><div class="t-row"><span>Menor</span><b>' + (r.p_menor == null ? '—' : fmt(r.p_menor * 100) + ' %') + '</b></div><div class="t-row"><span>Precio</span><b>' + fmt(r.precio) + ' $</b></div>'; });
+  }
+  function avisosRango() {
+    var ul = $('avisosRango'); ul.innerHTML = '';
+    var A = (RG.avisos || []).slice().reverse().slice(0, 8);
+    if (!A.length) { ul.innerHTML = '<li><span></span><span class="muted">Sin avisos todavía.</span></li>'; return; }
+    var col = { RIESGO: 'var(--amarillo)', RUPTURA: 'var(--naranja)', CONFIRMADA: 'var(--rojo)', BARRIDO: 'var(--verde)' };
+    A.forEach(function (a) {
+      var li = document.createElement('li');
+      li.innerHTML = '<span><span class="tag"><i class="sw" style="background:' + col[a.tipo] + ';margin-right:6px"></i>' + a.tipo + '</span><br><span class="muted mono small"></span></span><span></span>';
+      li.querySelector('.mono').textContent = a.fecha.slice(5).replace('-', '/') + ' · ' + a.capa;
+      li.lastChild.textContent = a.texto; ul.appendChild(li);
+    });
+  }
+  function tablaRupturas() {
+    $('tablaRupturas').innerHTML = '<thead><tr><th>Vela que rompe</th><th class="n">Casos</th><th class="n">3 días después, más abajo</th><th class="n">Caída máx. 5 días</th><th class="n">Subida máx. 5 días</th></tr></thead><tbody>' +
+      [['Fuerte (lejos del suelo y mucho volumen)', 62, 52, -4.5, 2.6], ['Media', 110, 46, -3.7, 3.5], ['Floja (justo debajo, volumen normal)', 96, 39, -2.9, 4.5], ['Barrido (vuelve dentro)', 95, 36, -3.3, 4.5]]
+        .map(function (r) { return '<tr><td>' + r[0] + '</td><td class="n">' + r[1] + '</td><td class="n">' + r[2] + ' %</td><td class="n">' + (r[3] == null ? '—' : fmt(r[3], 1) + ' %') + '</td><td class="n">' + (r[4] == null ? '—' : '+' + fmt(r[4], 1) + ' %') + '</td></tr>'; }).join('') +
+      '<tr><td class="muted">Cualquier vela de 4 h</td><td class="n muted">—</td><td class="n muted">48 %</td><td class="n muted">−3,6 %</td><td class="n muted">+3,8 %</td></tr></tbody>';
+  }
+  function renderRango() { if (!RG) return; pintarCapas(); chartVelas(); chartProb(); avisosRango(); }
+  tablaRupturas();
+  fetch('rango.json', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) { RG = d; renderRango(); })
+    .catch(function (e) { $('rangoAct').textContent = 'No se pudo cargar el rango (' + e.message + ').'; });
+
+  function render() { chartTotal(); chartPrecio(); minis(); }
+  document.querySelectorAll('.seg button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.seg button').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true'); rango = +b.dataset.d; try { localStorage.setItem('radar_rango', String(rango)); } catch (e) {}
+      if (H) render();
+    });
+  });
+  try { var rg = localStorage.getItem('radar_rango'); if (rg !== null) { rango = +rg; document.querySelectorAll('.seg button').forEach(function (o) { o.setAttribute('aria-pressed', String(+o.dataset.d === rango)); }); } } catch (e) {}
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { if (H) { render(); chartCat(); chartCorr(); } renderRango(); }, 150); });
+
+  tablasEstudio(); chartCat(); chartCorr();
+  fetch('historial.json', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (data) {
+    H = data;
+    var h = data.hoy;
+    if (!h) { var u = data.filas[data.filas.length - 1]; h = { fecha: u.fecha, precio: u.precio, total: u.total, nivel: u.nivel, bloques: { macro: u.macro, liquidez: u.liquidez, estructura: u.estructura, catalizadores: u.catalizadores }, peso_macro: .4 }; }
+    pintarCabecera(h, data.meta || {});
+    pintarBloques(h, data.filas);
+    pintarTablas(h);
+    render();
+    $('pie').textContent = (data.meta && data.meta.nota) || '';
+  }).catch(function (e) {
+    $('revision').textContent = 'No se pudo cargar el historial (' + e.message + '). Recarga la página en un momento.';
+    $('lectura').textContent = 'Sin datos.';
+  });
+})();
+</script>
