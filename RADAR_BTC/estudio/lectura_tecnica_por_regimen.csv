@@ -1,0 +1,116 @@
+fecha,tipo,resultado,Fed,Balance Fed,Clima macro,Dólar
+2018-01-16,toque de soporte,falla,quieta,plano,neutro,bajo su media 200
+2018-02-01,toque de soporte,falla,quieta,plano,neutro,bajo su media 200
+2018-03-14,toque de soporte,falla,subiendo tipos,menguando,neutro,bajo su media 200
+2018-03-30,toque de soporte,aguanta,subiendo tipos,menguando,neutro,bajo su media 200
+2018-05-17,toque de soporte,falla,subiendo tipos,menguando,neutro,sobre su media 200
+2018-06-11,toque de soporte,falla,subiendo tipos,menguando,neutro,sobre su media 200
+2018-08-08,toque de soporte,aguanta,subiendo tipos,menguando,neutro,sobre su media 200
+2018-09-17,toque de soporte,aguanta,subiendo tipos,menguando,hostil (>=60),sobre su media 200
+2018-10-11,toque de soporte,aguanta,subiendo tipos,menguando,neutro,sobre su media 200
+2018-10-29,toque de soporte,falla,subiendo tipos,menguando,hostil (>=60),sobre su media 200
+2019-01-20,toque de soporte,aguanta,subiendo tipos,menguando,favorable (<=40),sobre su media 200
+2019-07-17,toque de soporte,aguanta,quieta,menguando,favorable (<=40),sobre su media 200
+2019-07-28,toque de soporte,aguanta,quieta,menguando,favorable (<=40),sobre su media 200
+2019-08-28,toque de soporte,aguanta,bajando tipos,menguando,favorable (<=40),sobre su media 200
+2019-09-26,toque de soporte,falla,bajando tipos,plano,favorable (<=40),sobre su media 200
+2019-11-21,toque de soporte,falla,bajando tipos,creciendo,favorable (<=40),sobre su media 200
+2019-12-17,toque de soporte,aguanta,bajando tipos,creciendo,favorable (<=40),bajo su media 200
+2020-02-26,toque de soporte,falla,bajando tipos,creciendo,favorable (<=40),sobre su media 200
+2020-06-26,toque de soporte,aguanta,bajando tipos,creciendo,favorable (<=40),bajo su media 200
+2020-09-02,toque de soporte,falla,bajando tipos,menguando,favorable (<=40),bajo su media 200
+2021-04-18,toque de soporte,falla,quieta,creciendo,neutro,bajo su media 200
+2021-05-13,toque de soporte,falla,quieta,creciendo,neutro,bajo su media 200
+2021-06-21,toque de soporte,falla,quieta,creciendo,neutro,sobre su media 200
+2021-07-20,toque de soporte,aguanta,quieta,creciendo,neutro,sobre su media 200
+2021-09-07,toque de soporte,falla,quieta,creciendo,neutro,sobre su media 200
+2021-11-16,toque de soporte,falla,quieta,creciendo,hostil (>=60),sobre su media 200
+2022-01-04,toque de soporte,falla,quieta,creciendo,hostil (>=60),sobre su media 200
+2022-02-24,toque de soporte,aguanta,quieta,creciendo,hostil (>=60),sobre su media 200
+2022-04-15,toque de soporte,falla,subiendo tipos,creciendo,hostil (>=60),sobre su media 200
+2022-06-14,toque de soporte,falla,subiendo tipos,plano,hostil (>=60),sobre su media 200
+2022-08-19,toque de soporte,falla,subiendo tipos,menguando,neutro,sobre su media 200
+2022-09-19,toque de soporte,nada,subiendo tipos,menguando,hostil (>=60),sobre su media 200
+2022-10-13,toque de soporte,aguanta,subiendo tipos,menguando,hostil (>=60),sobre su media 200
+2022-11-08,toque de soporte,falla,subiendo tipos,menguando,hostil (>=60),sobre su media 200
+2022-12-28,toque de soporte,aguanta,subiendo tipos,menguando,favorable (<=40),bajo su media 200
+2023-03-03,toque de soporte,falla,subiendo tipos,menguando,neutro,bajo su media 200
+2023-04-21,toque de soporte,aguanta,subiendo tipos,creciendo,favorable (<=40),bajo su media 200
+2023-07-22,toque de soporte,falla,subiendo tipos,menguando,neutro,bajo su media 200
+2024-01-03,toque de soporte,aguanta,subiendo tipos,menguando,favorable (<=40),bajo su media 200
+2024-04-13,toque de soporte,falla,quieta,menguando,neutro,sobre su media 200
+2024-04-30,toque de soporte,aguanta,quieta,menguando,hostil (>=60),sobre su media 200
+2024-06-15,toque de soporte,falla,quieta,menguando,favorable (<=40),sobre su media 200
+2024-08-05,toque de soporte,aguanta,quieta,menguando,favorable (<=40),bajo su media 200
+2024-09-06,toque de soporte,aguanta,quieta,menguando,favorable (<=40),bajo su media 200
+2024-12-20,toque de soporte,falla,bajando tipos,menguando,hostil (>=60),sobre su media 200
+2025-02-03,toque de soporte,falla,bajando tipos,menguando,hostil (>=60),sobre su media 200
+2025-02-18,toque de soporte,falla,bajando tipos,menguando,favorable (<=40),sobre su media 200
+2025-04-06,toque de soporte,aguanta,bajando tipos,menguando,favorable (<=40),bajo su media 200
+2025-06-13,toque de soporte,aguanta,bajando tipos,menguando,favorable (<=40),bajo su media 200
+2025-08-18,toque de soporte,nada,quieta,menguando,favorable (<=40),bajo su media 200
+2025-09-25,toque de soporte,aguanta,bajando tipos,menguando,favorable (<=40),bajo su media 200
+2025-10-10,toque de soporte,falla,bajando tipos,menguando,favorable (<=40),sobre su media 200
+2025-11-04,toque de soporte,falla,bajando tipos,menguando,neutro,sobre su media 200
+2026-01-20,toque de soporte,falla,bajando tipos,plano,neutro,sobre su media 200
+2026-03-31,toque de soporte,aguanta,bajando tipos,creciendo,hostil (>=60),sobre su media 200
+2026-05-21,toque de soporte,falla,bajando tipos,creciendo,neutro,sobre su media 200
+2026-06-24,toque de soporte,nada,quieta,creciendo,hostil (>=60),sobre su media 200
+2026-08-02,toque de soporte,aguanta,quieta,plano,hostil (>=60),sobre su media 200
+2017-10-09,ruptura al alza,aguanta,quieta,plano,neutro,bajo su media 200
+2017-10-31,ruptura al alza,aguanta,quieta,plano,neutro,bajo su media 200
+2017-11-16,ruptura al alza,aguanta,quieta,plano,neutro,bajo su media 200
+2018-04-24,ruptura al alza,falla,subiendo tipos,menguando,neutro,bajo su media 200
+2018-05-05,ruptura al alza,falla,subiendo tipos,menguando,neutro,sobre su media 200
+2018-07-17,ruptura al alza,aguanta,subiendo tipos,menguando,neutro,sobre su media 200
+2018-09-04,ruptura al alza,falla,subiendo tipos,menguando,hostil (>=60),sobre su media 200
+2019-02-18,ruptura al alza,aguanta,subiendo tipos,menguando,favorable (<=40),sobre su media 200
+2019-03-29,ruptura al alza,aguanta,subiendo tipos,menguando,favorable (<=40),sobre su media 200
+2019-04-23,ruptura al alza,aguanta,subiendo tipos,menguando,favorable (<=40),sobre su media 200
+2019-05-26,ruptura al alza,falla,subiendo tipos,menguando,neutro,sobre su media 200
+2019-06-20,ruptura al alza,aguanta,quieta,menguando,favorable (<=40),sobre su media 200
+2019-10-26,ruptura al alza,falla,bajando tipos,creciendo,neutro,sobre su media 200
+2020-01-06,ruptura al alza,aguanta,bajando tipos,creciendo,favorable (<=40),bajo su media 200
+2020-01-28,ruptura al alza,aguanta,bajando tipos,creciendo,favorable (<=40),sobre su media 200
+2020-04-23,ruptura al alza,aguanta,bajando tipos,creciendo,favorable (<=40),sobre su media 200
+2020-06-01,ruptura al alza,falla,bajando tipos,creciendo,favorable (<=40),bajo su media 200
+2020-07-25,ruptura al alza,aguanta,bajando tipos,creciendo,favorable (<=40),bajo su media 200
+2020-08-17,ruptura al alza,falla,bajando tipos,plano,favorable (<=40),bajo su media 200
+2020-10-10,ruptura al alza,aguanta,quieta,creciendo,neutro,bajo su media 200
+2020-12-16,ruptura al alza,aguanta,quieta,creciendo,favorable (<=40),bajo su media 200
+2021-02-08,ruptura al alza,aguanta,quieta,creciendo,neutro,bajo su media 200
+2021-03-13,ruptura al alza,falla,quieta,creciendo,hostil (>=60),bajo su media 200
+2021-04-13,ruptura al alza,falla,quieta,creciendo,neutro,sobre su media 200
+2021-07-26,ruptura al alza,aguanta,quieta,creciendo,neutro,sobre su media 200
+2021-09-05,ruptura al alza,falla,quieta,creciendo,neutro,sobre su media 200
+2021-10-06,ruptura al alza,aguanta,quieta,creciendo,hostil (>=60),sobre su media 200
+2021-11-08,ruptura al alza,falla,quieta,creciendo,hostil (>=60),sobre su media 200
+2022-03-27,ruptura al alza,falla,subiendo tipos,creciendo,hostil (>=60),sobre su media 200
+2022-07-19,ruptura al alza,falla,subiendo tipos,menguando,hostil (>=60),sobre su media 200
+2022-10-26,ruptura al alza,falla,subiendo tipos,menguando,hostil (>=60),sobre su media 200
+2022-12-13,ruptura al alza,falla,subiendo tipos,menguando,favorable (<=40),bajo su media 200
+2023-01-12,ruptura al alza,aguanta,subiendo tipos,menguando,favorable (<=40),bajo su media 200
+2023-02-15,ruptura al alza,falla,subiendo tipos,menguando,neutro,bajo su media 200
+2023-03-17,ruptura al alza,aguanta,subiendo tipos,plano,neutro,bajo su media 200
+2023-04-10,ruptura al alza,falla,subiendo tipos,creciendo,favorable (<=40),bajo su media 200
+2023-06-21,ruptura al alza,nada,subiendo tipos,menguando,neutro,bajo su media 200
+2023-10-01,ruptura al alza,aguanta,subiendo tipos,menguando,hostil (>=60),sobre su media 200
+2023-10-23,ruptura al alza,aguanta,subiendo tipos,menguando,hostil (>=60),sobre su media 200
+2023-12-01,ruptura al alza,aguanta,subiendo tipos,menguando,favorable (<=40),bajo su media 200
+2024-01-02,ruptura al alza,falla,subiendo tipos,menguando,favorable (<=40),bajo su media 200
+2024-02-11,ruptura al alza,aguanta,quieta,menguando,favorable (<=40),sobre su media 200
+2024-02-26,ruptura al alza,aguanta,quieta,menguando,neutro,bajo su media 200
+2024-05-20,ruptura al alza,falla,quieta,menguando,neutro,sobre su media 200
+2024-07-19,ruptura al alza,falla,quieta,menguando,favorable (<=40),bajo su media 200
+2024-09-26,ruptura al alza,falla,bajando tipos,menguando,favorable (<=40),bajo su media 200
+2024-10-15,ruptura al alza,aguanta,bajando tipos,menguando,favorable (<=40),bajo su media 200
+2024-12-15,ruptura al alza,falla,bajando tipos,menguando,hostil (>=60),sobre su media 200
+2025-04-22,ruptura al alza,aguanta,bajando tipos,menguando,neutro,bajo su media 200
+2025-07-09,ruptura al alza,aguanta,quieta,menguando,favorable (<=40),bajo su media 200
+2025-08-13,ruptura al alza,falla,quieta,menguando,favorable (<=40),bajo su media 200
+2025-10-01,ruptura al alza,falla,bajando tipos,menguando,favorable (<=40),bajo su media 200
+2026-01-13,ruptura al alza,falla,bajando tipos,plano,neutro,sobre su media 200
+2026-03-16,ruptura al alza,falla,bajando tipos,creciendo,hostil (>=60),sobre su media 200
+2026-04-17,ruptura al alza,falla,bajando tipos,creciendo,hostil (>=60),bajo su media 200
+2026-05-04,ruptura al alza,falla,bajando tipos,creciendo,neutro,bajo su media 200
+2026-07-21,ruptura al alza,aguanta,quieta,plano,hostil (>=60),sobre su media 200

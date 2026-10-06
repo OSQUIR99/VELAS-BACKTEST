@@ -1,0 +1,808 @@
+<title>Backtest de barridos de liquidez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: informe de laboratorio en una columna; texto a ~68ch, figuras y tablas a todo el ancho (1040px). */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#121820; --ink-2:#435063; --muted:#6c7787;
+  --rule:#d9dfe6; --rule-2:#eaeef2; --accent:#1c5cab; --callout:#e8f0fa;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --pos:#2a78d6; --neg:#e34948; --on-fill:#ffffff;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1216; --surface:#171b21; --ink:#eef2f6; --ink-2:#b6c0cc; --muted:#8a95a4;
+    --rule:#2b313a; --rule-2:#1f242b; --accent:#86b6ef; --callout:#15243a;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --pos:#3987e5; --neg:#e66767; --on-fill:#ffffff;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1216; --surface:#171b21; --ink:#eef2f6; --ink-2:#b6c0cc; --muted:#8a95a4;
+  --rule:#2b313a; --rule-2:#1f242b; --accent:#86b6ef; --callout:#15243a;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --pos:#3987e5; --neg:#e66767; --on-fill:#ffffff;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+.prose{max-width:68ch}
+h1,h2,h3{font-family:var(--f-display);font-stretch:85%;text-wrap:balance;margin:0;color:var(--ink)}
+h1{font-size:clamp(2rem,5.2vw,3.3rem);line-height:1.04;font-weight:800;letter-spacing:-0.01em}
+h2{font-size:clamp(1.45rem,3vw,1.95rem);line-height:1.15;font-weight:750;margin-bottom:.4em}
+h3{font-size:1.15rem;font-weight:700;line-height:1.25;margin:1.4em 0 .4em}
+p{margin:0 0 .85em}
+strong{font-weight:600;color:var(--ink)}
+a{color:var(--accent)}
+.eyebrow{font:500 .76rem/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.num,.tnum{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--f-mono)}
+.muted{color:var(--muted)}
+.small{font-size:.875rem}
+
+/* navegación */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+.nav-in{max-width:1040px;margin:0 auto;padding-inline:20px;display:flex;gap:18px;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.nav a{flex:0 0 auto;font:500 .8rem/1 var(--f-mono);color:var(--ink-2);text-decoration:none;padding:13px 0;border-bottom:2px solid transparent}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);border-bottom-color:var(--accent);outline:none}
+
+/* cabecera */
+header.hero{padding-block:44px 28px;display:grid;gap:16px}
+.lede{font-size:1.13rem;color:var(--ink-2);max-width:62ch;margin:0}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:10px}
+.tile{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 18px;display:grid;gap:6px;align-content:start}
+.tile .big{font:700 2.1rem/1 var(--f-display);font-stretch:80%;color:var(--ink);font-variant-numeric:tabular-nums}
+.tile p{margin:0;font-size:.9rem;color:var(--ink-2);line-height:1.45}
+
+section{padding-block:40px 8px;border-top:1px solid var(--rule)}
+section:first-of-type{border-top:0}
+.sec-head{display:grid;gap:6px;margin-bottom:14px}
+.verdict{display:grid;gap:10px;margin:0;padding:0;list-style:none;max-width:72ch}
+.verdict li{padding-left:22px;position:relative}
+.verdict li::before{content:"";position:absolute;left:2px;top:.62em;width:9px;height:9px;border-radius:2px;background:var(--ink-2)}
+
+.callout{background:var(--callout);border-radius:6px;padding:14px 18px;margin:16px 0;max-width:72ch}
+.callout p:last-child{margin:0}
+
+/* figuras */
+figure{margin:22px 0 26px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 18px 14px}
+figcaption{display:grid;gap:3px;margin-bottom:10px}
+figcaption .ft{font-weight:600;font-size:1rem}
+figcaption .fs{font-size:.86rem;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.84rem;color:var(--ink-2);margin:4px 0 8px}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.lk{display:inline-block;width:18px;height:2px;border-radius:1px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px}
+.bg-s1{background:var(--s1)} .bg-s2{background:var(--s2)} .bg-s3{background:var(--s3)} .bg-pos{background:var(--pos)} .bg-neg{background:var(--neg)}
+svg.chart{width:100%;height:auto;display:block;overflow:visible}
+svg .grid{stroke:var(--rule-2);stroke-width:1}
+svg .axis{stroke:var(--rule);stroke-width:1}
+svg .tick{fill:var(--muted);font:400 11px var(--f-mono)}
+svg .axt{fill:var(--muted);font:400 11.5px var(--f-body)}
+svg .lab{fill:var(--ink-2);font:500 12px var(--f-body)}
+svg path.ln{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+svg .ln.s1{stroke:var(--s1)} svg .ln.s2{stroke:var(--s2)} svg .ln.s3{stroke:var(--s3)}
+svg .dot{stroke:var(--surface);stroke-width:2}
+svg .s1{fill:var(--s1)} svg .s2{fill:var(--s2)} svg .s3{fill:var(--s3)}
+svg .ln.dash{stroke-dasharray:5 4}
+svg .conn{stroke:var(--rule);stroke-width:3;stroke-linecap:round}
+svg .hit{fill:transparent;cursor:crosshair;outline:none}
+svg .hit:focus-visible{fill:var(--rule-2);fill-opacity:.5}
+svg .xhair{stroke:var(--muted);stroke-width:1}
+svg .bar.s1{fill:var(--s1)} svg .bar.s2{fill:var(--s2)}
+svg .bar:hover{opacity:.85}
+.fig-table{margin-top:8px}
+details.datos summary{cursor:pointer;font-size:.82rem;color:var(--muted);margin-top:6px}
+
+/* tooltip */
+#tip{position:fixed;z-index:20;pointer-events:none;background:var(--surface);color:var(--ink);border:1px solid var(--rule);border-radius:6px;padding:8px 10px;font-size:.82rem;box-shadow:0 6px 18px rgba(0,0,0,.14);max-width:280px}
+#tip .tip-t{color:var(--muted);font-size:.78rem;margin-bottom:4px}
+#tip .tip-r{display:flex;align-items:center;gap:6px;line-height:1.5}
+#tip .tip-r strong{font-variant-numeric:tabular-nums}
+#tip .tip-r span{color:var(--ink-2)}
+#tip .key{display:inline-block;width:12px;height:2px}
+#tip .key.s1{background:var(--s1)} #tip .key.s2{background:var(--s2)} #tip .key.s3{background:var(--s3)}
+
+/* barras horizontales en HTML */
+.hb{display:grid;gap:8px}
+.hb-row{display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr) 5.2rem;gap:12px;align-items:center}
+.hb-lab{font-size:.88rem;color:var(--ink-2);line-height:1.3}
+.hb-track{position:relative;height:18px}
+.hb-zero{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--muted)}
+.hb-ref{position:absolute;top:-3px;bottom:-3px;width:0;border-left:1px dashed var(--muted)}
+.hb-bar{position:absolute;top:3px;height:12px;border-radius:2px}
+.hb-ci{position:absolute;top:8px;height:2px;background:var(--ink-2);opacity:.55}
+.hb-val{font:500 .85rem var(--f-mono);text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+.hb-row:hover .hb-bar{filter:brightness(1.08)}
+.hb-axis{display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr) 5.2rem;gap:12px}
+.hb-ticks{position:relative;height:16px;font:400 11px var(--f-mono);color:var(--muted)}
+.hb-ticks span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+
+/* controles */
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin:2px 0 12px;background:var(--surface)}
+.seg button{font:500 .82rem var(--f-mono);border:0;background:transparent;color:var(--ink-2);padding:7px 13px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--rule)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+
+/* tablas */
+.tbl-wrap{overflow-x:auto;margin:10px 0 4px}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--rule-2);white-space:nowrap;font-variant-numeric:tabular-nums}
+th{font-weight:600;color:var(--muted);font-size:.78rem;border-bottom:1px solid var(--rule);vertical-align:bottom;white-space:normal}
+th:first-child,td:first-child{text-align:left}
+td:first-child{color:var(--ink-2);white-space:normal;min-width:10rem}
+tr.hl td{background:var(--callout)}
+.chip{display:inline-block;min-width:4.4em;padding:1px 7px;border-radius:4px;font:500 .82rem var(--f-mono);text-align:right}
+.chip.pos{color:var(--pos);background:color-mix(in oklab,var(--pos) 13%,transparent)}
+.chip.neg{color:var(--neg);background:color-mix(in oklab,var(--neg) 12%,transparent)}
+.chip.neu{color:var(--ink-2);background:var(--rule-2)}
+.heat td.cell{text-align:center;font:500 .9rem var(--f-mono);min-width:5.5rem}
+
+/* diagrama de casos */
+.cases{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:14px 0 6px}
+.case{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:10px 10px 12px;display:grid;gap:6px;align-content:start}
+.case svg{width:100%;height:auto}
+.case b{font:700 .95rem var(--f-display);font-stretch:85%}
+.case span{font-size:.8rem;color:var(--ink-2);line-height:1.35}
+.case .lvl{stroke:var(--muted);stroke-dasharray:3 3;stroke-width:1}
+.case .px{fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.case .pt{fill:var(--s2);stroke:var(--surface);stroke-width:2}
+.case .pt0{fill:var(--ink-2);stroke:var(--surface);stroke-width:2}
+
+/* reglas */
+.rules{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:r}
+.rules li{counter-increment:r;display:grid;grid-template-columns:2.2rem minmax(0,1fr);gap:10px;max-width:78ch}
+.rules li::before{content:counter(r);font:700 1.25rem/1.3 var(--f-display);color:var(--accent)}
+.rules p{margin:0 0 .4em}
+
+/* pestañas por activo */
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 16px}
+.tabs button{font:600 .9rem var(--f-body);border:1px solid var(--rule);background:var(--surface);color:var(--ink-2);padding:8px 14px;border-radius:6px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.panel h3:first-child{margin-top:0}
+.scheme{display:grid;gap:4px}
+.scheme h4{font:600 .78rem/1.3 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.scheme ul{margin:0;padding-left:1.1em;max-width:74ch}
+.scheme li{margin-bottom:.35em}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.gloss{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:8px 20px;margin:0;max-width:86ch}
+.gloss dt{font-weight:600}
+.gloss dd{margin:0;color:var(--ink-2)}
+.resumen{background:var(--ink);color:var(--bg);border-radius:6px;padding:20px 22px;margin-top:28px}
+.resumen h2{color:var(--bg);font-size:1.35rem}
+.resumen p{margin:.35em 0;max-width:80ch}
+.resumen strong{color:var(--bg)}
+.vida-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.vida-grid .vt{font:600 .85rem var(--f-mono);color:var(--ink-2);margin-bottom:4px}
+
+@media (max-width:760px){
+  .tiles{grid-template-columns:minmax(0,1fr)}
+  .cases{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two,.vida-grid{grid-template-columns:minmax(0,1fr)}
+  .hb-row,.hb-axis{grid-template-columns:minmax(0,1fr) 4.6rem}
+  .hb-lab{grid-column:1 / -1}
+  .hb-axis > div:first-child{display:none}
+  .gloss{grid-template-columns:minmax(0,1fr)}
+  .gloss dd{margin-bottom:6px}
+  figure{padding:14px 12px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<nav class="nav" aria-label="Secciones"><div class="nav-in">
+  <a href="#respuesta">Respuesta</a><a href="#metodo">Método</a><a href="#principal">Barrido vs mínimo más alto</a>
+  <a href="#duracion">Duración</a><a href="#pendientes">Niveles pendientes</a><a href="#amplitud">Movimiento contrario</a>
+  <a href="#desequilibrio">Desequilibrio</a><a href="#prediccion">¿Barrido o ruptura?</a><a href="#estrategias">Estrategias</a>
+  <a href="#reglas">Qué hacer</a><a href="#activos">Por activo</a><a href="#glosario">Glosario</a>
+</div></nav>
+
+<div class="wrap">
+<header class="hero" id="respuesta">
+  <div class="eyebrow">Backtest · Bitcoin, S&amp;P 500, Nasdaq 100, oro, plata y Brent · datos hasta el 29-sep-2026</div>
+  <h1>¿Compensa esperar al barrido de liquidez?</h1>
+  <p class="lede">He medido casi 20.000 máximos y mínimos en velas de 1 hora, 4 horas y diarias. La pregunta: qué pasa cuando el precio limpia el extremo anterior frente a cuando lo deja pendiente. Y cada resultado lo comparo con lo que haría un precio cualquiera.</p>
+  <div class="tiles">
+    <div class="tile"><span class="eyebrow">Giro tras perforar</span><span class="big">42 % · 45 %</span><p>Tras perforar un máximo o mínimo evidente, el precio se da la vuelta el 42 % de las veces. Un precio cualquiera, el 45 %.</p></div>
+    <div class="tile"><span class="eyebrow">Barrido frente a mínimo más alto</span><span class="big">Sin diferencia</span><p>A igual distancia del otro extremo, el tramo que sale de un barrido llega igual de lejos y tan rápido como el de un mínimo más alto.</p></div>
+    <div class="tile"><span class="eyebrow">Lo que sí funcionó</span><span class="big">+0,10 a +0,32 R</span><p>Por operación, al acompañar la ruptura de un máximo en 4 horas y diario. Funcionó en Bitcoin y en bolsa, no en Brent.</p></div>
+  </div>
+</header>
+
+<section style="border-top:0;padding-top:10px">
+  <div class="sec-head"><h2>La respuesta corta</h2></div>
+  <ul class="verdict">
+    <li><strong>El barrido de liquidez, por sí solo, no da ventaja.</strong> Tras perforar un mínimo evidente, el precio gira algo menos que tras perforar un precio cualquiera.</li>
+    <li><strong>El movimiento que nace de un barrido no es más grande, ni más rápido, ni más limpio</strong> que el que nace de un mínimo más alto. En ambos casos mide unas 4,2 veces lo que se mueve una vela típica.</li>
+    <li><strong>Los suelos y techos iguales son el peor sitio para apostar por el giro.</strong> Con tres toques o más, el nivel se rompe en 2 de cada 3 casos.</li>
+    <li><strong>Con lo que sabes antes del toque, no se puede anticipar si habrá barrido o ruptura.</strong> La única pista fuerte es cómo cierra la vela que perfora. Y para entonces esa ventaja ya está en el precio.</li>
+    <li><strong>Lo que sí ha funcionado es lo contrario: acompañar la ruptura de un máximo</strong> en 4 horas y diario, en Bitcoin, Nasdaq y S&amp;P 500.</li>
+    <li><strong>En Bitcoin, las liquidaciones dejan una huella útil.</strong> Si el interés abierto cae durante la vela del barrido, el giro es bastante más probable. Mejora el filtro, pero no basta para ganar dinero después de comisiones.</li>
+  </ul>
+</section>
+
+<section id="metodo">
+  <div class="sec-head"><span class="eyebrow">Cómo lo he medido</span><h2>La liquidez son los máximos y mínimos que todo el mundo ve</h2></div>
+  <div class="prose">
+    <p>Debajo de cada mínimo visible se acumulan los stops de los largos y sus precios de liquidación. Encima de cada máximo, los de los cortos. <strong>Ese es el mapa de liquidez que se puede reconstruir con datos públicos</strong> en cualquier mercado.</p>
+    <p>Para bolsa, oro, plata y petróleo no existen datos públicos de liquidaciones. Para Bitcoin he añadido el <strong>interés abierto de Binance cada 5 minutos desde septiembre de 2020</strong>, es decir, cuántos contratos de futuros siguen abiertos. Si cae de golpe en una vela, es que se han cerrado posiciones a la fuerza. Binance no publica en su archivo público el histórico de liquidaciones de este contrato, así que esa caída es la mejor huella disponible.</p>
+    <p>Para marcar los giros con la flexibilidad que pedías uso un <strong>detector adaptado a la volatilidad</strong>. Un giro cuenta cuando el precio se aleja 2,5 veces el ATR del extremo. El ATR (average true range, rango medio verdadero) es lo que se mueve de media una vela. Lo he repetido con 1,5 y 4 veces para comprobar que el resultado no depende de ese ajuste. <strong>Ningún giro se usa antes del momento en que se habría podido ver.</strong></p>
+    <p>Cada mínimo nuevo se clasifica según dónde queda respecto al anterior. Los máximos se tratan igual, en espejo.</p>
+  </div>
+  <div class="cases" id="cases"></div>
+  <div class="prose">
+    <p><strong>Cada resultado se compara con un control.</strong> Puede ser un nivel de precio puesto al azar a la misma distancia, o lo que daría un paseo aleatorio, es decir, un precio que sube o baja por pura suerte. Si el barrido no supera al control, no aporta nada.</p>
+    <p>Las estrategias pagan una comisión del 0,05 % por lado. Los resultados van en <strong>R</strong>, es decir, en múltiplos de lo que arriesgas: 1R es lo que pierdes si salta el stop. También doy la equivalencia con apalancamiento 20x.</p>
+  </div>
+  <details class="datos"><summary>Datos usados por activo y temporalidad</summary><div class="tbl-wrap" id="tbl-periodos"></div></details>
+</section>
+
+<section id="principal">
+  <div class="sec-head"><span class="eyebrow">Pregunta principal</span><h2>¿Es mejor el largo que sale de un barrido o el que sale de un mínimo más alto?</h2></div>
+  <div class="prose">
+    <p>Tras cada mínimo confirmado he medido el tramo que viene después. Cuánto sube, cuánto tarda y con qué eficiencia, es decir, qué parte del recorrido es avance neto y no ida y vuelta. También si llega a superar el máximo anterior, que es el otro extremo del rango, donde espera la liquidez de los cortos.</p>
+  </div>
+  <div class="tbl-wrap" id="tbl-global"></div>
+  <div class="prose">
+    <p>A primera vista, el mínimo más alto parece mejor. Llega al otro extremo entre el 58 % y el 69 % de las veces, frente al 44 % del barrido. <strong>Es una ilusión creada por la distancia.</strong> Tras un barrido, el otro extremo queda más lejos: 4,5 ATR de mediana, frente a 3,2–3,7 ATR tras un mínimo más alto. Y lo que está más lejos se alcanza menos.</p>
+    <p>Si comparas a la misma distancia, las tres líneas se superponen:</p>
+  </div>
+  <figure>
+    <figcaption><span class="ft">Probabilidad de llegar al otro extremo del rango, según lo lejos que esté</span><span class="fs">Todos los activos y temporalidades. Distancia en ATR desde el mínimo hasta el máximo anterior.</span></figcaption>
+    <div class="legend" id="lg-dist"></div>
+    <div id="ch-dist"></div>
+  </figure>
+  <div class="prose">
+    <p>La columna <strong>ventaja sobre el azar</strong> lo resume. Mide cuántos puntos de acierto ganas por encima de un paseo aleatorio con el mismo stop y el mismo objetivo. En todos los casos está entre −1 y +0,5 puntos. <strong>Es decir, nada.</strong></p>
+    <p>Tampoco cambia en un rango lateral con el mínimo en el extremo, que es tu ejemplo del gráfico. Ahí el barrido sale +2,7 puntos, pero con 639 casos eso cabe dentro del margen de error.</p>
+  </div>
+</section>
+
+<section id="duracion">
+  <div class="sec-head"><span class="eyebrow">Tiempo y porcentaje</span><h2>Cuánto recorre y cuánto dura el tramo en cada caso</h2></div>
+  <div class="prose"><p>Mediana del tramo desde el mínimo hasta el siguiente máximo, en porcentaje y en tiempo real de calendario. <strong>La diferencia entre casos es mucho menor que la diferencia entre activos.</strong></p></div>
+  <div class="seg" role="group" aria-label="Temporalidad" id="seg-dur"></div>
+  <div class="tbl-wrap" id="tbl-dur"></div>
+  <p class="small muted">La tendencia completa (hasta el primer mínimo más bajo) y su duración están en la pestaña de cada activo, más abajo.</p>
+</section>
+
+<section id="pendientes">
+  <div class="sec-head"><span class="eyebrow">Subpregunta 1</span><h2>¿Los máximos y mínimos pendientes se acaban limpiando?</h2></div>
+  <div class="prose">
+    <p><strong>Sí, casi siempre.</strong> De los mínimos que quedan intactos porque el siguiente suelo es más alto (y de los máximos, en espejo), acaban barridos entre el 80 % y el 92 % dentro del periodo estudiado.</p>
+    <p><strong>Pero tardan, y tardan lo mismo que cualquier otro precio a esa distancia.</strong> La espera mediana es de días en 1 hora, semanas en 4 horas y meses en diario. Un precio cualquiera colocado a la misma distancia se toca al mismo ritmo.</p>
+  </div>
+  <div class="tbl-wrap" id="tbl-pend"></div>
+  <figure>
+    <figcaption><span class="ft">Porcentaje barrido en cada plazo: nivel pendiente frente a un precio cualquiera</span><span class="fs">Plazos en número de velas. Mismo punto de partida y misma distancia en ATR.</span></figcaption>
+    <div class="legend"><span><i class="sw bg-s1"></i>Nivel pendiente real</span><span><i class="sw bg-s2"></i>Precio cualquiera a la misma distancia</span></div>
+    <div class="vida-grid" id="ch-vida"></div>
+  </figure>
+  <div class="callout"><p><strong>En la práctica:</strong> un nivel pendiente es un objetivo razonable, porque lo más probable es que se acabe tocando. Pero no es un reloj. Que haya liquidez debajo no adelanta el momento en que el precio va a buscarla.</p></div>
+</section>
+
+<section id="amplitud">
+  <div class="sec-head"><span class="eyebrow">Subpregunta 2</span><h2>Cuando barre, ¿el movimiento contrario es más amplio?</h2></div>
+  <div class="prose">
+    <p><strong>No.</strong> El tramo que sigue a un barrido mide lo mismo que el que sigue a un mínimo más alto: 4,2 ATR de mediana. En las 50 velas siguientes a la perforación, el precio avanza a favor del giro 3,4 ATR en niveles reales y 3,6 ATR en precios cualquiera.</p>
+    <p>Y en el momento de perforar, <strong>los niveles reales giran menos que el azar</strong> en los seis mercados. Cuento como giro que el precio vuelva 1,5 ATR por encima del nivel antes de caer 1,5 ATR por debajo.</p>
+  </div>
+  <figure>
+    <figcaption><span class="ft">Probabilidad de giro tras perforar el nivel</span><span class="fs">Las tres temporalidades juntas. Bitcoin también en 15 minutos.</span></figcaption>
+    <div class="legend"><span><i class="sw bg-s1"></i>Máximo o mínimo real</span><span><i class="sw bg-s2"></i>Precio cualquiera (control)</span></div>
+    <div id="ch-giro"></div>
+  </figure>
+  <div class="prose">
+    <p>Lo que sí cambia mucho es <strong>el cierre de la vela que perfora</strong>. Si cierra de vuelta dentro, gira el 63 % de las veces. Si cierra fuera, solo el 25 %. Pero en un precio cualquiera pasa exactamente lo mismo: 64 % y 26 %. <strong>La señal está en la vela, no en el nivel.</strong></p>
+  </div>
+</section>
+
+<section id="desequilibrio">
+  <div class="sec-head"><span class="eyebrow">Subpregunta 3</span><h2>¿Dejar liquidez pendiente en un lado tira de la tendencia?</h2></div>
+  <div class="prose">
+    <p>Cada 10 velas he mirado el nivel pendiente más cercano por arriba y por abajo, y cuál se toca primero. Si la liquidez atrajera al precio, el lado con más niveles acumulados se tocaría antes de lo que dice su distancia.</p>
+    <p><strong>No pasa.</strong> Qué lado se toca antes lo explica casi del todo la distancia, como en un paseo aleatorio. Queda un sesgo constante de unos 3 puntos hacia arriba, que es la tendencia alcista de fondo de casi todos estos mercados.</p>
+  </div>
+  <figure>
+    <figcaption><span class="ft">Probabilidad de tocar antes el nivel de arriba, según dónde esté el precio entre los dos</span><span class="fs">0 = pegado al nivel de arriba; 1 = pegado al de abajo. Todos los activos y temporalidades, 24.652 muestras.</span></figcaption>
+    <div class="legend"><span><i class="lk bg-s1"></i>Real</span><span><i class="lk bg-s2"></i>Paseo aleatorio</span></div>
+    <div id="ch-iman"></div>
+  </figure>
+  <div class="prose">
+    <p>Tampoco importa el racimo. Si el nivel de arriba tiene varios máximos apilados, se toca primero lo mismo que si es un nivel suelto (+3,4 puntos frente a +3,1 sobre el azar). Y contar cuántos niveles hay a 5 ATR por cada lado no anticipa la dirección de las 50 velas siguientes de forma fiable.</p>
+    <p><strong>Conclusión: la liquidez pendiente no tira del precio.</strong> Mandan la distancia y la tendencia de fondo.</p>
+  </div>
+</section>
+
+<section id="prediccion">
+  <div class="sec-head"><span class="eyebrow">Subpregunta 4</span><h2>¿Hay algo que anticipe barrido o ruptura?</h2></div>
+  <div class="prose">
+    <p>He entrenado dos modelos con 12 datos que se conocen antes de que el precio toque el nivel. Entre ellos: toques del nivel, antigüedad, velocidad de llegada, volatilidad, tendencia, índice de fuerza relativa (RSI, relative strength index) y distancia a otros niveles. Aprenden con el primer 60 % de cada histórico y se prueban en el 40 % final, que no han visto.</p>
+    <p><strong>Capacidad de acierto fuera de muestra: 0,51–0,54.</strong> Una moneda al aire da 0,50 y un acierto perfecto, 1. Es decir, prácticamente nada. Si añades la vela que perfora (cierre y profundidad), sube a 0,71–0,79. Pero entonces ya llegas tarde.</p>
+    <p>Hay pistas débiles que apuntan siempre en la misma dirección. Ayudan a no equivocarse de lado, pero no bastan para operar solas:</p>
+  </div>
+  <figure>
+    <figcaption><span class="ft">Probabilidad de giro tras perforar, según cada pista</span><span class="fs">Todos los activos y temporalidades. La línea discontinua marca la media (42,5 %).</span></figcaption>
+    <div id="ch-rasgos"></div>
+  </figure>
+  <div class="prose">
+    <p>Lo más útil: <strong>volatilidad comprimida y niveles muy tocados empujan hacia la ruptura</strong>. Un RSI en sobreventa al llegar empuja algo hacia el giro. La profundidad de la perforación es lo que más separa, pero solo se conoce cuando la vela ya ha cerrado.</p>
+  </div>
+  <h3>Bitcoin: la huella de las liquidaciones</h3>
+  <div class="prose">
+    <p>Aquí sí hay una pista que el resto de mercados no tiene. Comparo barridos de la misma profundidad según lo que hizo el interés abierto en la vela que perfora. <strong>Si cae, el giro es entre 8 y 13 puntos más probable</strong>, salvo en perforaciones muy profundas, donde casi nunca gira. Si sube, es que entran posiciones nuevas a favor de la ruptura, y eso apunta a continuación.</p>
+  </div>
+  <figure>
+    <figcaption><span class="ft">Bitcoin: probabilidad de giro según el interés abierto y la profundidad del barrido</span><span class="fs">Velas de 1 h, 4 h y diarias, desde septiembre de 2020. Cuartiles del cambio de interés abierto dentro de cada temporalidad.</span></figcaption>
+    <div class="tbl-wrap"><table class="heat" id="tbl-oi"></table></div>
+    <p class="small muted" id="oi-umbral"></p>
+  </figure>
+  <div class="prose">
+    <p>Aun así, comprar el barrido al cierre con ese filtro siguió perdiendo después de comisiones: −0,13 a −0,18 R por operación, frente a −0,16 a −0,28 R sin él. <strong>Mejora la probabilidad, pero la entrada al cierre llega con el stop demasiado lejos.</strong></p>
+  </div>
+</section>
+
+<section id="estrategias">
+  <div class="sec-head"><span class="eyebrow">¿Esperar la confirmación?</span><h2>Qué habría ganado cada forma de operar</h2></div>
+  <div class="prose">
+    <p>Resultado medio por operación en R, después de comisiones. La raya fina marca el margen de error, es decir, el intervalo donde caería el resultado el 95 % de las veces.</p>
+  </div>
+  <div class="seg" role="group" aria-label="Temporalidad" id="seg-estr"></div>
+  <figure>
+    <figcaption><span class="ft" id="estr-title">Resultado por operación</span><span class="fs">Todos los activos juntos (en 15 minutos, solo Bitcoin). Largos y cortos, en espejo.</span></figcaption>
+    <div class="legend"><span><i class="sw bg-pos"></i>Gana</span><span><i class="sw bg-neg"></i>Pierde</span></div>
+    <div id="ch-estr"></div>
+  </figure>
+  <div class="prose">
+    <p><strong>Confirmar es mejor que anticipar, pero no basta.</strong> Poner una orden límite justo en el nivel es lo peor de todo. Esperar a que la vela cierre de vuelta dentro mejora, pero da lo mismo en un nivel real que en uno al azar.</p>
+    <p><strong>La entrada SMC completa es la mejor forma de operar el giro.</strong> SMC (Smart Money Concepts) es el método que busca barridos de liquidez. Su entrada completa pide tres pasos: barrido, rotura de la estructura menor y orden límite en el 50 % del impulso. Tras un barrido queda casi en tablas: +0,04 R en 4 horas. La misma entrada tras un mínimo más alto o un suelo igual sale peor.</p>
+    <p><strong>Seguir la ruptura de un máximo es lo único claramente positivo:</strong> +0,10 R en 4 horas y +0,20 R en diario. Entrar al azar con el mismo stop y objetivo da −0,03 R y +0,08 R. Es decir, la ruptura añade unos 0,12 R de ventaja. Las rupturas a la baja, en cambio, no funcionaron.</p>
+  </div>
+  <h3>¿Se mantiene en el tiempo?</h3>
+  <div class="prose"><p>He partido cada histórico por la mitad. La ventaja de la entrada SMC tras barrido <strong>existió en la primera mitad y desapareció en la segunda</strong>. La de seguir rupturas de máximos <strong>se reforzó</strong>.</p></div>
+  <figure>
+    <figcaption><span class="ft">Primera mitad frente a segunda mitad de cada histórico (R por operación)</span><span class="fs">Entrada SMC con objetivo en la liquidez opuesta, y ruptura de máximo con objetivo 2R.</span></figcaption>
+    <div class="legend"><span><i class="sw bg-s1"></i>Primera mitad</span><span><i class="sw bg-s2"></i>Segunda mitad (más reciente)</span></div>
+    <div id="ch-mitades"></div>
+  </figure>
+  <h3>La comisión decide en temporalidades bajas</h3>
+  <div class="prose">
+    <p>En 1 hora el stop típico está entre el 0,3 % y el 0,9 %. Pagar un 0,1 % de ida y vuelta se come entre 0,1 y 0,3 R por operación. En 15 minutos, unos 0,25–0,3 R. <strong>Antes de comisiones, casi todo está cerca de cero. Después, casi todo pierde.</strong></p>
+  </div>
+  <div class="tbl-wrap" id="tbl-com"></div>
+</section>
+
+<section id="reglas">
+  <div class="sec-head"><span class="eyebrow">Conclusiones accionables</span><h2>Qué cambiaría en tu operativa de futuros</h2></div>
+  <ol class="rules">
+    <li><div><p><strong>No uses el barrido como señal de entrada por sí solo.</strong> Esperar a que barra el nivel y vuelva rinde igual en un nivel real que en un precio al azar. Como regla aislada es neutra antes de comisiones y perdedora después.</p></div></li>
+    <li><div><p><strong>No apuestes por el giro en suelos o techos iguales.</strong> Fue el peor caso en todas las pruebas: −0,25 R en 1 hora y −0,28 R en 4 horas con entrada SMC. Con dos o tres toques en el mismo precio, piensa en ruptura, no en rebote.</p></div></li>
+    <li><div><p><strong>Prefiere acompañar la ruptura de un máximo en 4 horas o diario.</strong> Entra con el cierre de la vela por encima, stop medio ATR por debajo del nivel y objetivo 2R. Funcionó en Nasdaq (+0,22 a +0,25 R en las tres temporalidades), S&amp;P 500 diario (+0,32 R) y Bitcoin 4 horas (+0,19 R). En Brent no funcionó. Vender rupturas a la baja tampoco.</p></div></li>
+    <li><div><p><strong>Si operas giros, usa la entrada SMC completa y solo en 4 horas.</strong> Barrido, rotura de estructura menor, orden límite al 50 % y objetivo en la liquidez opuesta. Fue el único giro positivo: +0,04 R con órdenes a mercado y +0,08 R con órdenes límite. Es poco y no se mantuvo en la mitad reciente. Trátalo como neutro, no como ventaja.</p></div></li>
+    <li><div><p><strong>En Bitcoin, exige huella de liquidaciones antes de apostar por el giro.</strong> Que el interés abierto caiga al menos un 1 % en la vela de 1 hora que perfora (un 1,5 % en 4 horas). Si sube mientras perfora, espera continuación.</p></div></li>
+    <li><div><p><strong>No bajes de 1 hora con órdenes a mercado.</strong> En 15 minutos la comisión convierte cualquier sistema de barridos en perdedor (−0,28 a −0,56 R). Si operas en 1 hora, entra y sal con órdenes límite.</p></div></li>
+    <li><div><p><strong>Con 20x, el stop estructural en diario es la liquidación.</strong> En Bitcoin diario el stop típico está en el 4,7–4,9 %, y con 20x te liquidan antes de llegar a él. En 4 horas cada stop cuesta un 33–37 % del margen. Mejor fija el riesgo por operación (por ejemplo, el 1 % de la cuenta) y deja que el tamaño salga de la distancia al stop.</p></div></li>
+    <li><div><p><strong>Usa la liquidez pendiente como objetivo, no como reloj.</strong> Más del 80 % de los niveles pendientes se acaban tocando, pero al mismo ritmo que cualquier precio a esa distancia.</p></div></li>
+    <li><div><p><strong>Alejar el stop del mínimo evidente no te protege de la "caza de stops".</strong> Con el stop a 0,1, 0,5, 1 o 1,5 ATR por debajo, el acierto coincide con el del azar. Alejarlo solo cambia el tamaño de la posición y reduce el peso de la comisión.</p></div></li>
+  </ol>
+  <figure>
+    <figcaption><span class="ft">Cuánto margen pierdes cuando salta el stop con 20x</span><span class="fs">Stop típico de la entrada SMC (mediana) multiplicado por 20. Si pasa del 90 %, el stop cae más allá del precio de liquidación.</span></figcaption>
+    <div class="tbl-wrap" id="tbl-20x"></div>
+  </figure>
+</section>
+
+<section id="activos">
+  <div class="sec-head"><span class="eyebrow">Resultados por mercado</span><h2>Cada activo, por separado</h2></div>
+  <div class="tabs" role="tablist" aria-label="Activo" id="tabs"></div>
+  <div id="panels">
+    <div class="panel" role="tabpanel" data-asset="BTC">
+      <div class="scheme">
+        <h4>Qué está pasando</h4>
+        <ul>
+          <li>Al perforar un máximo o mínimo evidente, se da la vuelta <strong>el 41,5 % de las veces, frente al 45,8 % de un precio cualquiera</strong>. En Bitcoin los niveles se rompen algo más que el azar.</li>
+          <li>En 4 horas, el tramo tras un barrido sube un 7,1 % en unas 52 horas. Tras un mínimo más alto en el extremo, un 7,5 % en el mismo tiempo.</li>
+          <li>El 92 % de los niveles pendientes acaban barridos. La espera mediana es de 5–6 días en 1 hora, 3 semanas en 4 horas y 4 meses en diario.</li>
+          <li><strong>Seguir la ruptura de un máximo: +0,19 R en 4 horas</strong>, con respaldo estadístico. En diario, +0,27 R, pero con solo 63 casos. En 1 hora, −0,07 R.</li>
+          <li>Giro tras barrido con entrada SMC: −0,13 R en 1 hora y −0,02 R en 4 horas.</li>
+          <li><strong>Si el interés abierto cae en la vela del barrido, el giro pasa del 61–65 % al 74–78 %</strong> en barridos poco profundos.</li>
+          <li>En 15 minutos todo pierde, entre −0,28 y −0,56 R, por la comisión.</li>
+        </ul>
+        <h4>Qué significa</h4>
+        <ul>
+          <li>Bitcoin premia acompañar la ruptura al alza en 4 horas, no apostar por el giro.</li>
+          <li>Para operar giros, el interés abierto es la mejor pista disponible. Aun así, no basta por sí solo.</li>
+          <li>El scalping de barridos en 15 minutos no sobrevive a las comisiones.</li>
+        </ul>
+        <h4>Qué podría pasar cuando llegue a un mínimo evidente en 4 horas</h4>
+        <ul>
+          <li><strong>Probable:</strong> que lo perfore y siga, sobre todo si llega con la volatilidad comprimida o si el interés abierto sube mientras perfora.</li>
+          <li><strong>Poco probable:</strong> que barra y gire. Gana opciones si la vela cierra de vuelta dentro y el interés abierto cae a la vez.</li>
+          <li><strong>Sería raro:</strong> que un suelo tocado tres veces aguante el siguiente toque.</li>
+        </ul>
+        <h4>Qué vigilar</h4>
+        <ul>
+          <li>El cierre de la vela de 4 horas respecto al nivel.</li>
+          <li>El cambio del interés abierto en esa misma vela.</li>
+          <li>La distancia del stop: en diario pasa del 4,5 %, que con 20x es liquidación.</li>
+        </ul>
+      </div>
+      <div class="asset-tables"></div>
+    </div>
+    <div class="panel" role="tabpanel" data-asset="sp500" hidden>
+      <div class="scheme">
+        <h4>Qué está pasando</h4>
+        <ul>
+          <li>Al perforar un nivel, gira el <strong>43,8 %</strong> de las veces, frente al 45,0 % de un precio cualquiera.</li>
+          <li>En 4 horas, el tramo tras un barrido sube un 3,1 % en unos 6 días. Tras un mínimo más alto en el extremo, un 3,9 % en unos 7 días.</li>
+          <li>El 83 % de los niveles pendientes acaban barridos. Espera mediana: 20 días en 1 hora, 2 meses en 4 horas y 4,6 meses en diario.</li>
+          <li><strong>Seguir la ruptura de un máximo en diario: +0,32 R</strong>, el resultado más sólido de todo el estudio. En 4 horas y 1 hora, casi cero.</li>
+          <li>Giro tras barrido con entrada SMC: entre −0,04 y −0,01 R. Neutro.</li>
+          <li>Comprar el barrido al cierre de la vela: entre −0,21 y −0,33 R.</li>
+        </ul>
+        <h4>Qué significa</h4>
+        <ul>
+          <li>La tendencia alcista de fondo lo domina todo. Comprar rupturas de máximos diarios funcionó. Vender rupturas de mínimos, no.</li>
+          <li>Los barridos no aportan nada medible en este índice.</li>
+        </ul>
+        <h4>Qué podría pasar</h4>
+        <ul>
+          <li><strong>Probable:</strong> que las rupturas de máximos diarios con cierre por encima continúen.</li>
+          <li><strong>Poco probable:</strong> que un barrido en 1 hora compense tras comisiones, con un stop típico del 0,4 %.</li>
+          <li><strong>Sería raro:</strong> ganar de forma estable vendiendo rupturas a la baja.</li>
+        </ul>
+        <h4>Qué vigilar</h4>
+        <ul>
+          <li>Los cierres diarios por encima de máximos previos.</li>
+          <li>El tamaño del stop: entre el 1 % y el 1,4 % en diario, es decir, un 20–27 % del margen con 20x.</li>
+          <li>Comisión y diferencial de precio de tu bróker en 1 hora.</li>
+        </ul>
+      </div>
+      <div class="asset-tables"></div>
+    </div>
+    <div class="panel" role="tabpanel" data-asset="nasdaq100" hidden>
+      <div class="scheme">
+        <h4>Qué está pasando</h4>
+        <ul>
+          <li>Al perforar un nivel, gira el <strong>42,2 %</strong> de las veces, frente al 42,8 % de un precio cualquiera.</li>
+          <li>En 4 horas, el tramo tras un barrido sube un 4,4 % en unos 7 días. Tras un mínimo más alto en el extremo, un 4,7 %.</li>
+          <li>El 81 % de los niveles pendientes acaban barridos. Espera mediana: 3 semanas en 1 hora, 2 meses en 4 horas y 3,7 meses en diario.</li>
+          <li><strong>Seguir la ruptura de un máximo funcionó en las tres temporalidades: +0,22 R, +0,25 R y +0,24 R.</strong> Las tres con respaldo estadístico. Es el resultado más constante del estudio.</li>
+          <li>Giro tras barrido con entrada SMC: +0,13, +0,32 y +0,11 R. Pero con pocos casos (127–168) y sin respaldo estadístico. En 1 hora se dio la vuelta en la mitad reciente.</li>
+        </ul>
+        <h4>Qué significa</h4>
+        <ul>
+          <li>El Nasdaq es el mercado más de ruptura. Seguir la liquidez al alza ha funcionado en todas las escalas.</li>
+          <li>El buen dato del giro tras barrido es prometedor, pero no está demostrado.</li>
+        </ul>
+        <h4>Qué podría pasar</h4>
+        <ul>
+          <li><strong>Probable:</strong> que una ruptura de máximo con cierre por encima continúe.</li>
+          <li><strong>Poco probable:</strong> que el giro tras barrido mantenga ese buen resultado; hay pocos casos.</li>
+          <li><strong>Sería raro:</strong> que vender rupturas a la baja sea rentable.</li>
+        </ul>
+        <h4>Qué vigilar</h4>
+        <ul>
+          <li>El cierre por encima del máximo roto.</li>
+          <li>Stops del 0,5 % en 1 hora y del 1,5–1,8 % en diario.</li>
+          <li>Cómo evoluciona el giro tras barrido en 4 horas en los próximos meses.</li>
+        </ul>
+      </div>
+      <div class="asset-tables"></div>
+    </div>
+    <div class="panel" role="tabpanel" data-asset="oro" hidden>
+      <div class="scheme">
+        <h4>Qué está pasando</h4>
+        <ul>
+          <li>Al perforar un nivel, gira el <strong>43,1 %</strong> de las veces, frente al 45,2 % de un precio cualquiera.</li>
+          <li>En 4 horas, el tramo tras un barrido sube un 2,7 % en unos 2,7 días. Tras un mínimo más alto en el extremo, un 2,5 %.</li>
+          <li>El 80 % de los niveles pendientes acaban barridos. Espera mediana: 6,6 días en 1 hora, 3,5 semanas en 4 horas y 5,5 meses en diario.</li>
+          <li>Seguir la ruptura de un máximo: +0,12 R en diario, sin respaldo estadístico. Casi cero en 4 horas y −0,06 R en 1 hora.</li>
+          <li>Giro tras barrido con entrada SMC: −0,30 R en 1 hora, +0,03 R en 4 horas y −0,25 R en diario.</li>
+          <li><strong>En 1 hora el stop típico es de solo el 0,33 %:</strong> la comisión se come unos 0,3 R por operación.</li>
+        </ul>
+        <h4>Qué significa</h4>
+        <ul>
+          <li>En oro no aparece ninguna ventaja ligada a la liquidez.</li>
+          <li>En intradía, el mayor enemigo es el coste por operación.</li>
+        </ul>
+        <h4>Qué podría pasar</h4>
+        <ul>
+          <li><strong>Probable:</strong> que barridos y rupturas se comporten como el azar.</li>
+          <li><strong>Poco probable:</strong> sacar ventaja operando giros en 1 hora.</li>
+          <li><strong>Sería raro:</strong> un patrón de barrido que se repita con fiabilidad.</li>
+        </ul>
+        <h4>Qué vigilar</h4>
+        <ul>
+          <li>El coste real por operación de tu bróker.</li>
+          <li>Las rupturas de máximos diarios: ligera ventaja, todavía no demostrada.</li>
+        </ul>
+      </div>
+      <div class="asset-tables"></div>
+    </div>
+    <div class="panel" role="tabpanel" data-asset="plata" hidden>
+      <div class="scheme">
+        <h4>Qué está pasando</h4>
+        <ul>
+          <li>Al perforar un nivel, gira el <strong>40,4 %</strong> de las veces, frente al 46,2 % de un precio cualquiera. <strong>Es la mayor diferencia de los seis mercados.</strong></li>
+          <li>En 4 horas, el tramo tras un barrido sube un 5,0 % en unos 2,6 días, igual que tras un mínimo más alto.</li>
+          <li>El 84 % de los niveles pendientes acaban barridos. Espera mediana: 6 días en 1 hora, 3,5 semanas en 4 horas y 6,5 meses en diario.</li>
+          <li>Seguir la ruptura de un máximo: +0,13 R en 1 hora, +0,06 R en 4 horas y +0,28 R en diario. Ninguno con respaldo estadístico suficiente.</li>
+          <li>Giro tras barrido con entrada SMC: −0,19 R en 1 hora y −0,21 R en 4 horas.</li>
+        </ul>
+        <h4>Qué significa</h4>
+        <ul>
+          <li>En plata, apostar por el giro en un nivel evidente es especialmente mala idea. El nivel tiende a romperse.</li>
+        </ul>
+        <h4>Qué podría pasar</h4>
+        <ul>
+          <li><strong>Probable:</strong> que la perforación de un nivel evidente continúe.</li>
+          <li><strong>Poco probable:</strong> un giro limpio tras un barrido.</li>
+          <li><strong>Sería raro:</strong> que un suelo tocado varias veces aguante.</li>
+        </ul>
+        <h4>Qué vigilar</h4>
+        <ul>
+          <li>La volatilidad: la plata se mueve aproximadamente el doble que el oro.</li>
+          <li>El cierre de la vela fuera del nivel.</li>
+        </ul>
+      </div>
+      <div class="asset-tables"></div>
+    </div>
+    <div class="panel" role="tabpanel" data-asset="brent" hidden>
+      <div class="scheme">
+        <h4>Qué está pasando</h4>
+        <ul>
+          <li>Al perforar un nivel, gira el <strong>44,9 %</strong> de las veces, frente al 46,7 % de un precio cualquiera.</li>
+          <li>En 4 horas, el tramo tras un barrido sube un 5,1 % en unos 2,7 días.</li>
+          <li>El 92 % de los niveles pendientes acaban barridos. Espera mediana: 7,7 días en 1 hora, 4 semanas en 4 horas y 7 meses en diario.</li>
+          <li><strong>Seguir la ruptura de un máximo no funciona:</strong> −0,26 R en 1 hora, −0,04 R en 4 horas y 0,00 R en diario.</li>
+          <li>Giro tras barrido con entrada SMC: 0,00 R en 1 hora, +0,15 R en 4 horas (133 casos, sin respaldo estadístico) y −0,02 R en diario.</li>
+        </ul>
+        <h4>Qué significa</h4>
+        <ul>
+          <li>El petróleo no tiene la deriva alcista de la bolsa o el oro. Por eso seguir rupturas no compensa.</li>
+          <li>Es el único mercado donde el giro tras barrido en 4 horas sale positivo, aunque sin respaldo suficiente.</li>
+        </ul>
+        <h4>Qué podría pasar</h4>
+        <ul>
+          <li><strong>Probable:</strong> falsas rupturas frecuentes en ambos sentidos.</li>
+          <li><strong>Poco probable:</strong> rupturas con continuidad sostenida.</li>
+          <li><strong>Sería raro:</strong> una ventaja estable siguiendo la liquidez.</li>
+        </ul>
+        <h4>Qué vigilar</h4>
+        <ul>
+          <li>Las noticias de la OPEP (Organización de Países Exportadores de Petróleo) y los datos de inventarios, que provocan rupturas bruscas.</li>
+          <li>El stop típico en 4 horas, de un 1,3 %.</li>
+        </ul>
+      </div>
+      <div class="asset-tables"></div>
+    </div>
+  </div>
+</section>
+
+<section id="limites">
+  <div class="sec-head"><span class="eyebrow">Hasta dónde llega esto</span><h2>Límites del estudio</h2></div>
+  <ul class="verdict">
+    <li>Los giros son una aproximación objetiva a lo que se ve a ojo. Otra persona marcaría algunos distintos. Por eso lo repetí con tres tamaños de giro, y el resultado no cambia.</li>
+    <li>Solo hay huella de liquidaciones para Bitcoin, a través del interés abierto de Binance. Los mapas de calor de liquidaciones de webs como Coinglass son estimaciones de un modelo, no liquidaciones reales.</li>
+    <li>Algunas casillas tienen pocos casos: Bitcoin diario, plata diario y oro o plata en 1 hora, que solo llegan a 2024 y 2025.</li>
+    <li>He hecho muchas pruebas a la vez, y alguna saldrá positiva por pura suerte. Solo doy por buenos los resultados que se repiten en varios activos o con un estadístico z de 2,5 o más. El z mide cuántas veces supera el resultado a su margen de error.</li>
+    <li>La comisión es fija, del 0,05 % por lado. No incluye deslizamiento, que es el precio peor del esperado al ejecutar, ni el coste de financiación de los perpetuos.</li>
+    <li>Las cifras con 20x son por operación y sin interés compuesto.</li>
+  </ul>
+</section>
+
+<section id="glosario">
+  <div class="sec-head"><span class="eyebrow">Términos</span><h2>Glosario</h2></div>
+  <dl class="gloss">
+    <dt>Liquidez</dt><dd>Órdenes acumuladas cerca de máximos y mínimos visibles: stops, liquidaciones y órdenes pendientes.</dd>
+    <dt>Barrido (sweep)</dt><dd>El precio perfora un máximo o mínimo anterior, hace saltar los stops y se da la vuelta.</dd>
+    <dt>Mínimo más alto (higher low)</dt><dd>Suelo que se queda por encima del anterior y lo deja intacto.</dd>
+    <dt>Suelo o techo igual</dt><dd>Dos o más giros en el mismo precio, con un margen de ±0,2 ATR.</dd>
+    <dt>ATR (average true range)</dt><dd>Rango medio verdadero: lo que se mueve de media una vela. Sirve para medir todo en la misma escala.</dd>
+    <dt>R</dt><dd>Unidad de riesgo. 1R es lo que pierdes si salta el stop. +0,2 R de media es ganar el 20 % de lo arriesgado por operación.</dd>
+    <dt>Ventaja sobre el azar</dt><dd>Puntos de acierto por encima de lo que daría un paseo aleatorio con el mismo stop y objetivo.</dd>
+    <dt>Paseo aleatorio</dt><dd>Modelo en el que el precio sube o baja por pura suerte. Es la vara de medir.</dd>
+    <dt>Estadístico z</dt><dd>Cuántas veces supera el resultado a su margen de error. Por encima de 2 empieza a ser fiable.</dd>
+    <dt>Interés abierto (open interest)</dt><dd>Número de contratos de futuros abiertos. Si cae de golpe, se han cerrado posiciones, muchas por liquidación.</dd>
+    <dt>Liquidación</dt><dd>Cierre forzoso de una posición apalancada cuando la pérdida agota el margen.</dd>
+    <dt>SMC (Smart Money Concepts)</dt><dd>Método que entra tras barridos de liquidez y roturas de estructura.</dd>
+    <dt>Rotura de estructura menor</dt><dd>Tras el barrido, el precio supera su último máximo pequeño. En SMC es la señal de giro.</dd>
+    <dt>RSI (relative strength index)</dt><dd>Índice de fuerza relativa: por debajo de 30 indica sobreventa.</dd>
+    <dt>Orden límite / a mercado</dt><dd>La límite espera a tu precio y paga menos comisión (maker). La de mercado se ejecuta al momento y paga más (taker).</dd>
+    <dt>Fuera de muestra</dt><dd>Probar en datos que el modelo no vio mientras aprendía.</dd>
+    <dt>Capacidad de acierto (AUC)</dt><dd>Area under the curve: de 0,5, que es una moneda al aire, a 1, que es acertar siempre.</dd>
+  </dl>
+  <div class="resumen">
+    <h2>En resumen</h2>
+    <p><strong>El barrido de liquidez no es una ventaja por sí mismo:</strong> gira menos que un precio cualquiera y su movimiento no es mayor.</p>
+    <p><strong>Lo que dio dinero fue acompañar la ruptura de máximos</strong> en 4 horas y diario (Nasdaq, S&amp;P 500, Bitcoin), no apostar por el giro.</p>
+    <p><strong>Si operas giros, hazlo en 4 horas con entrada SMC</strong>, exige huella de liquidaciones en Bitcoin y ajusta el tamaño para que el stop no sea la liquidación a 20x.</p>
+  </div>
+</section>
+</div>
+
+<div id="tip" hidden role="tooltip"></div>
+<script id="datos" type="application/json">{"distancia": {"bins": ["<3", "3–4", "4–5", "5–6", "6–8"], "cats": {"barrido": [81.457, 65.3664, 45.8841, 27.6824, 17.602], "doble": [86.8946, 69.3966, 46.0733, 27.0588, 20.2899], "ml_alto": [87.2148, 66.6501, 44.709, 25.5144, 18.6916], "ml_extremo": [88.764, 65.47, 43.554, 27.5154, 17.2757], "ruptura": [null, 60.2972, 42.5714, 30.6156, 18.2988]}}, "dist_mediana": {"barrido": 4.4653, "doble": 3.4854, "ml_alto": 3.1769, "ml_extremo": 3.6748, "ruptura": 6.4484}, "tramos": {"BTC": {"1h": {"ruptura": {"n": 1792, "tramo_pct": 3.5943, "tramo_h": 11.0, "tend_pct": 4.4428, "tend_h": 17.0, "rompe": 24.5536, "er": 0.4681, "hh": 0.4079, "ventaja": -1.8509, "z": -1.7046}, "barrido": {"n": 742, "tramo_pct": 3.389, "tramo_h": 11.0, "tend_pct": 3.9984, "tend_h": 19.0, "rompe": 41.3747, "er": 0.4678, "hh": 0.7143, "ventaja": -0.6265, "z": -0.3641}, "doble": {"n": 302, "tramo_pct": 3.4563, "tramo_h": 12.0, "tend_pct": 4.075, "tend_h": 19.0, "rompe": 58.9404, "er": 0.483, "hh": 1.0099, "ventaja": -1.739, "z": -0.6171}, "ml_extremo": {"n": 1312, "tramo_pct": 3.4155, "tramo_h": 12.0, "tend_pct": 4.1206, "tend_h": 18.5, "rompe": 55.8689, "er": 0.4824, "hh": 0.8864, "ventaja": 2.7807, "z": 2.1306}, "ml_alto": {"n": 1513, "tramo_pct": 3.3142, "tramo_h": 11.0, "tend_pct": 4.072, "tend_h": 17.0, "rompe": 65.2346, "er": 0.5048, "hh": 1.0152, "ventaja": 0.2693, "z": 0.2151}}, "4h": {"ruptura": {"n": 429, "tramo_pct": 7.9384, "tramo_h": 44.0, "tend_pct": 9.3917, "tend_h": 64.0, "rompe": 20.979, "er": 0.5052, "hh": 0.3823, "ventaja": -1.4751, "z": -0.6542}, "barrido": {"n": 177, "tramo_pct": 7.0828, "tramo_h": 52.0, "tend_pct": 8.1113, "tend_h": 88.0, "rompe": 46.3277, "er": 0.5314, "hh": 0.774, "ventaja": 3.5195, "z": 1.0212}, "doble": {"n": 80, "tramo_pct": 6.3912, "tramo_h": 48.0, "tend_pct": 7.2892, "tend_h": 70.0, "rompe": 51.25, "er": 0.4633, "hh": 0.7375, "ventaja": -8.8917, "z": -1.7071}, "ml_extremo": {"n": 346, "tramo_pct": 7.4914, "tramo_h": 52.0, "tend_pct": 9.3011, "tend_h": 76.0, "rompe": 49.422, "er": 0.5056, "hh": 0.8092, "ventaja": -1.1132, "z": -0.4317}, "ml_alto": {"n": 356, "tramo_pct": 7.7785, "tramo_h": 44.0, "tend_pct": 9.6381, "tend_h": 70.0, "rompe": 69.6629, "er": 0.5168, "hh": 1.1404, "ventaja": -0.3466, "z": -0.1342}}, "1d": {"ruptura": {"n": 66, "tramo_pct": 19.814, "tramo_h": 276.0, "tend_pct": 22.872, "tend_h": 396.0, "rompe": 22.7273, "er": 0.4941, "hh": 0.2879, "ventaja": -3.8765, "z": -0.7067}, "barrido": {"n": 31, "tramo_pct": 21.1983, "tramo_h": 336.0, "tend_pct": 28.1038, "tend_h": 624.0, "rompe": 38.7097, "er": 0.419, "hh": 0.7419, "ventaja": -0.7081, "z": -0.0882}, "ml_extremo": {"n": 46, "tramo_pct": 25.2056, "tramo_h": 324.0, "tend_pct": 30.0022, "tend_h": 720.0, "rompe": 63.0435, "er": 0.5359, "hh": 1.0217, "ventaja": 12.0482, "z": 1.9077}, "ml_alto": {"n": 62, "tramo_pct": 19.5593, "tramo_h": 312.0, "tend_pct": 20.3493, "tend_h": 444.0, "rompe": 64.5161, "er": 0.5065, "hh": 1.1452, "ventaja": -7.7648, "z": -1.2271}}}, "sp500": {"1h": {"ruptura": {"n": 307, "tramo_pct": 2.0438, "tramo_h": 43.0, "tend_pct": 2.4284, "tend_h": 69.0, "rompe": 26.0586, "er": 0.602, "hh": 0.5342, "ventaja": 0.0214, "z": 0.0082}, "barrido": {"n": 139, "tramo_pct": 1.9019, "tramo_h": 45.0, "tend_pct": 2.0878, "tend_h": 75.0, "rompe": 43.8849, "er": 0.5866, "hh": 0.705, "ventaja": 2.641, "z": 0.6485}, "doble": {"n": 52, "tramo_pct": 2.3217, "tramo_h": 46.5, "tend_pct": 3.2009, "tend_h": 132.0, "rompe": 75.0, "er": 0.5919, "hh": 1.2885, "ventaja": 13.5448, "z": 2.2907}, "ml_extremo": {"n": 178, "tramo_pct": 1.93, "tramo_h": 29.5, "tend_pct": 2.2449, "tend_h": 71.0, "rompe": 66.8539, "er": 0.6339, "hh": 1.1854, "ventaja": -1.3609, "z": -0.3712}, "ml_alto": {"n": 243, "tramo_pct": 1.944, "tramo_h": 46.0, "tend_pct": 2.3923, "tend_h": 90.0, "rompe": 70.3704, "er": 0.6058, "hh": 1.2058, "ventaja": -3.3848, "z": -1.0699}}, "4h": {"ruptura": {"n": 302, "tramo_pct": 3.2608, "tramo_h": 144.0, "tend_pct": 3.6546, "tend_h": 194.0, "rompe": 26.1589, "er": 0.625, "hh": 0.5695, "ventaja": -0.328, "z": -0.1213}, "barrido": {"n": 126, "tramo_pct": 3.1468, "tramo_h": 144.0, "tend_pct": 3.5668, "tend_h": 172.0, "rompe": 49.2063, "er": 0.6277, "hh": 0.8333, "ventaja": -6.5645, "z": -1.624}, "doble": {"n": 54, "tramo_pct": 3.7146, "tramo_h": 196.0, "tend_pct": 4.236, "tend_h": 300.0, "rompe": 72.2222, "er": 0.5505, "hh": 1.1296, "ventaja": 2.1401, "z": 0.3279}, "ml_extremo": {"n": 159, "tramo_pct": 3.939, "tramo_h": 164.0, "tend_pct": 4.937, "tend_h": 236.0, "rompe": 67.2956, "er": 0.6306, "hh": 1.1761, "ventaja": 1.2971, "z": 0.3402}, "ml_alto": {"n": 218, "tramo_pct": 3.2704, "tramo_h": 172.5, "tend_pct": 4.1272, "tend_h": 284.0, "rompe": 74.7706, "er": 0.5758, "hh": 1.3211, "ventaja": -1.7092, "z": -0.5149}}, "1d": {"ruptura": {"n": 390, "tramo_pct": 5.6097, "tramo_h": 288.0, "tend_pct": 6.4766, "tend_h": 479.5, "rompe": 26.6667, "er": 0.5819, "hh": 0.5308, "ventaja": -3.4878, "z": -1.5469}, "barrido": {"n": 163, "tramo_pct": 5.3776, "tramo_h": 312.0, "tend_pct": 6.0256, "tend_h": 480.0, "rompe": 41.1043, "er": 0.5803, "hh": 0.7607, "ventaja": -6.1441, "z": -1.6978}, "doble": {"n": 70, "tramo_pct": 5.8056, "tramo_h": 336.0, "tend_pct": 6.6257, "tend_h": 504.0, "rompe": 67.1429, "er": 0.6077, "hh": 1.2571, "ventaja": 2.3632, "z": 0.4187}, "ml_extremo": {"n": 252, "tramo_pct": 6.1938, "tramo_h": 360.0, "tend_pct": 7.1189, "tend_h": 468.0, "rompe": 66.6667, "er": 0.5844, "hh": 1.1111, "ventaja": 1.1019, "z": 0.3687}, "ml_alto": {"n": 275, "tramo_pct": 5.541, "tramo_h": 336.0, "tend_pct": 6.2509, "tend_h": 504.0, "rompe": 73.0909, "er": 0.5942, "hh": 1.2364, "ventaja": -2.3783, "z": -0.8605}}}, "nasdaq100": {"1h": {"ruptura": {"n": 329, "tramo_pct": 2.542, "tramo_h": 27.0, "tend_pct": 3.0372, "tend_h": 66.0, "rompe": 20.3647, "er": 0.5794, "hh": 0.3556, "ventaja": -0.0502, "z": -0.0197}, "barrido": {"n": 112, "tramo_pct": 2.6928, "tramo_h": 44.0, "tend_pct": 3.2157, "tend_h": 95.5, "rompe": 52.6786, "er": 0.67, "hh": 0.8839, "ventaja": 5.433, "z": 1.2082}, "doble": {"n": 68, "tramo_pct": 3.0079, "tramo_h": 59.5, "tend_pct": 3.6726, "tend_h": 118.5, "rompe": 73.5294, "er": 0.6149, "hh": 1.3235, "ventaja": 8.1862, "z": 1.3487}, "ml_extremo": {"n": 181, "tramo_pct": 2.6497, "tramo_h": 48.0, "tend_pct": 3.0591, "tend_h": 76.0, "rompe": 64.0884, "er": 0.643, "hh": 1.0552, "ventaja": 0.9291, "z": 0.2493}, "ml_alto": {"n": 268, "tramo_pct": 2.6733, "tramo_h": 47.0, "tend_pct": 2.9686, "tend_h": 90.5, "rompe": 68.2836, "er": 0.5952, "hh": 1.1679, "ventaja": -5.8136, "z": -2.0207}}, "4h": {"ruptura": {"n": 284, "tramo_pct": 4.0041, "tramo_h": 144.0, "tend_pct": 4.645, "tend_h": 194.0, "rompe": 23.5915, "er": 0.6017, "hh": 0.4754, "ventaja": -3.0073, "z": -1.0857}, "barrido": {"n": 130, "tramo_pct": 4.4061, "tramo_h": 168.0, "tend_pct": 4.8046, "tend_h": 214.0, "rompe": 51.5385, "er": 0.6335, "hh": 0.8308, "ventaja": -2.1572, "z": -0.5321}, "doble": {"n": 74, "tramo_pct": 4.8113, "tramo_h": 168.0, "tend_pct": 5.9172, "tend_h": 216.0, "rompe": 71.6216, "er": 0.6092, "hh": 1.1486, "ventaja": -3.3367, "z": -0.55}, "ml_extremo": {"n": 158, "tramo_pct": 4.7191, "tramo_h": 164.0, "tend_pct": 6.1639, "tend_h": 236.0, "rompe": 62.0253, "er": 0.6293, "hh": 1.1835, "ventaja": 0.5841, "z": 0.1569}, "ml_alto": {"n": 214, "tramo_pct": 4.7992, "tramo_h": 180.0, "tend_pct": 6.0288, "tend_h": 275.5, "rompe": 72.8972, "er": 0.5926, "hh": 1.2897, "ventaja": -4.6239, "z": -1.3675}}, "1d": {"ruptura": {"n": 247, "tramo_pct": 7.4186, "tramo_h": 240.0, "tend_pct": 8.6726, "tend_h": 336.0, "rompe": 23.0769, "er": 0.5374, "hh": 0.4494, "ventaja": -2.0625, "z": -0.7052}, "barrido": {"n": 111, "tramo_pct": 8.007, "tramo_h": 312.0, "tend_pct": 8.9158, "tend_h": 336.0, "rompe": 43.2432, "er": 0.5768, "hh": 0.8198, "ventaja": -8.6682, "z": -1.9552}, "doble": {"n": 53, "tramo_pct": 7.0968, "tramo_h": 288.0, "tend_pct": 8.0736, "tend_h": 432.0, "rompe": 73.5849, "er": 0.5908, "hh": 1.2453, "ventaja": 0.1754, "z": 0.0269}, "ml_extremo": {"n": 154, "tramo_pct": 7.9688, "tramo_h": 336.0, "tend_pct": 9.5617, "tend_h": 504.0, "rompe": 63.6364, "er": 0.5327, "hh": 1.1429, "ventaja": -0.0008, "z": -0.0002}, "ml_alto": {"n": 191, "tramo_pct": 8.1253, "tramo_h": 312.0, "tend_pct": 9.5975, "tend_h": 504.0, "rompe": 73.822, "er": 0.5714, "hh": 1.3089, "ventaja": -2.7708, "z": -0.7959}}}, "oro": {"1h": {"ruptura": {"n": 365, "tramo_pct": 1.4756, "tramo_h": 11.0, "tend_pct": 1.7557, "tend_h": 17.0, "rompe": 21.0959, "er": 0.5226, "hh": 0.3452, "ventaja": -2.265, "z": -0.9583}, "barrido": {"n": 161, "tramo_pct": 1.3128, "tramo_h": 14.0, "tend_pct": 1.7738, "tend_h": 24.0, "rompe": 45.3416, "er": 0.5343, "hh": 0.7764, "ventaja": 4.2373, "z": 1.1411}, "doble": {"n": 63, "tramo_pct": 1.9654, "tramo_h": 17.0, "tend_pct": 2.1622, "tend_h": 24.0, "rompe": 69.8413, "er": 0.5441, "hh": 1.1429, "ventaja": 7.5374, "z": 1.3159}, "ml_extremo": {"n": 273, "tramo_pct": 1.3612, "tramo_h": 11.0, "tend_pct": 1.6661, "tend_h": 19.0, "rompe": 55.6777, "er": 0.5758, "hh": 0.9341, "ventaja": -5.0354, "z": -1.685}, "ml_alto": {"n": 305, "tramo_pct": 1.434, "tramo_h": 13.0, "tend_pct": 1.7549, "tend_h": 19.0, "rompe": 69.5082, "er": 0.5562, "hh": 1.082, "ventaja": 2.0667, "z": 0.7494}}, "4h": {"ruptura": {"n": 242, "tramo_pct": 2.5764, "tramo_h": 52.0, "tend_pct": 2.8931, "tend_h": 92.0, "rompe": 23.9669, "er": 0.4779, "hh": 0.405, "ventaja": 1.3064, "z": 0.4488}, "barrido": {"n": 97, "tramo_pct": 2.7272, "tramo_h": 64.0, "tend_pct": 3.4158, "tend_h": 124.0, "rompe": 43.299, "er": 0.5502, "hh": 0.7732, "ventaja": 3.3639, "z": 0.7008}, "doble": {"n": 41, "tramo_pct": 2.0472, "tramo_h": 44.0, "tend_pct": 2.2368, "tend_h": 64.0, "rompe": 60.9756, "er": 0.5179, "hh": 0.9024, "ventaja": -5.8767, "z": -0.8821}, "ml_extremo": {"n": 154, "tramo_pct": 2.5253, "tramo_h": 64.0, "tend_pct": 3.0482, "tend_h": 108.0, "rompe": 55.8442, "er": 0.5736, "hh": 1.013, "ventaja": 0.8836, "z": 0.2215}, "ml_alto": {"n": 203, "tramo_pct": 3.0088, "tramo_h": 76.0, "tend_pct": 3.3687, "tend_h": 124.0, "rompe": 72.4138, "er": 0.5177, "hh": 1.2167, "ventaja": 3.0632, "z": 0.9242}}, "1d": {"ruptura": {"n": 280, "tramo_pct": 6.8132, "tramo_h": 336.0, "tend_pct": 8.5439, "tend_h": 624.0, "rompe": 21.7857, "er": 0.5503, "hh": 0.3821, "ventaja": 1.9537, "z": 0.7276}, "barrido": {"n": 129, "tramo_pct": 5.773, "tramo_h": 384.0, "tend_pct": 7.1753, "tend_h": 600.0, "rompe": 44.186, "er": 0.5353, "hh": 0.7519, "ventaja": 2.8329, "z": 0.7018}, "doble": {"n": 51, "tramo_pct": 7.1752, "tramo_h": 480.0, "tend_pct": 9.8485, "tend_h": 864.0, "rompe": 66.6667, "er": 0.5202, "hh": 1.098, "ventaja": 2.7888, "z": 0.4506}, "ml_extremo": {"n": 204, "tramo_pct": 5.9529, "tramo_h": 408.0, "tend_pct": 7.0674, "tend_h": 504.0, "rompe": 55.3922, "er": 0.611, "hh": 0.8775, "ventaja": -4.4111, "z": -1.3041}, "ml_alto": {"n": 252, "tramo_pct": 7.0822, "tramo_h": 384.0, "tend_pct": 8.3953, "tend_h": 528.0, "rompe": 68.254, "er": 0.5746, "hh": 1.0238, "ventaja": 0.6326, "z": 0.2088}}}, "plata": {"1h": {"ruptura": {"n": 238, "tramo_pct": 3.1623, "tramo_h": 11.5, "tend_pct": 3.7673, "tend_h": 19.0, "rompe": 21.0084, "er": 0.5319, "hh": 0.3403, "ventaja": -0.3228, "z": -0.1079}, "barrido": {"n": 100, "tramo_pct": 2.9864, "tramo_h": 15.5, "tend_pct": 3.8087, "tend_h": 34.0, "rompe": 45.0, "er": 0.5331, "hh": 0.85, "ventaja": 5.9443, "z": 1.2393}, "doble": {"n": 42, "tramo_pct": 2.9034, "tramo_h": 13.5, "tend_pct": 3.4981, "tend_h": 20.5, "rompe": 66.6667, "er": 0.469, "hh": 1.1429, "ventaja": -1.4567, "z": -0.1988}, "ml_extremo": {"n": 165, "tramo_pct": 2.8418, "tramo_h": 12.0, "tend_pct": 3.2473, "tend_h": 19.0, "rompe": 52.7273, "er": 0.4937, "hh": 0.7939, "ventaja": -2.9015, "z": -0.7756}, "ml_alto": {"n": 206, "tramo_pct": 3.0779, "tramo_h": 13.0, "tend_pct": 3.7662, "tend_h": 23.0, "rompe": 71.3592, "er": 0.5304, "hh": 1.0825, "ventaja": 3.5124, "z": 1.0865}}, "4h": {"ruptura": {"n": 238, "tramo_pct": 5.1591, "tramo_h": 68.0, "tend_pct": 6.3833, "tend_h": 96.0, "rompe": 23.1092, "er": 0.5087, "hh": 0.3908, "ventaja": 2.7471, "z": 0.9029}, "barrido": {"n": 104, "tramo_pct": 5.0108, "tramo_h": 62.0, "tend_pct": 6.3922, "tend_h": 112.0, "rompe": 47.1154, "er": 0.5435, "hh": 0.8462, "ventaja": -2.0874, "z": -0.4258}, "doble": {"n": 30, "tramo_pct": 5.3866, "tramo_h": 76.0, "tend_pct": 8.8411, "tend_h": 122.0, "rompe": 70.0, "er": 0.4684, "hh": 1.3333, "ventaja": 1.5715, "z": 0.1819}, "ml_extremo": {"n": 164, "tramo_pct": 5.0295, "tramo_h": 56.0, "tend_pct": 5.9302, "tend_h": 86.0, "rompe": 59.7561, "er": 0.5384, "hh": 0.9573, "ventaja": -2.3708, "z": -0.663}, "ml_alto": {"n": 197, "tramo_pct": 4.9391, "tramo_h": 72.0, "tend_pct": 5.8373, "tend_h": 100.0, "rompe": 65.9898, "er": 0.5384, "hh": 0.9797, "ventaja": -4.5002, "z": -1.3902}}, "1d": {"ruptura": {"n": 85, "tramo_pct": 12.4643, "tramo_h": 456.0, "tend_pct": 15.4857, "tend_h": 672.0, "rompe": 22.3529, "er": 0.4445, "hh": 0.4235, "ventaja": 1.6416, "z": 0.3167}, "barrido": {"n": 36, "tramo_pct": 11.8654, "tramo_h": 408.0, "tend_pct": 15.9905, "tend_h": 684.0, "rompe": 30.5556, "er": 0.4301, "hh": 0.5833, "ventaja": -4.53, "z": -0.5874}, "doble": {"n": 18, "tramo_pct": 14.5534, "tramo_h": 492.0, "tend_pct": 19.0547, "tend_h": 1020.0, "rompe": 66.6667, "er": 0.6221, "hh": 1.1667, "ventaja": 16.6568, "z": 1.6342}, "ml_extremo": {"n": 52, "tramo_pct": 13.401, "tramo_h": 528.5, "tend_pct": 14.9112, "tend_h": 600.0, "rompe": 59.6154, "er": 0.588, "hh": 1.1154, "ventaja": 0.0023, "z": 0.0003}, "ml_alto": {"n": 70, "tramo_pct": 13.2366, "tramo_h": 396.5, "tend_pct": 13.8533, "tend_h": 516.0, "rompe": 77.1429, "er": 0.5932, "hh": 1.1857, "ventaja": 5.9973, "z": 1.1682}}}, "brent": {"1h": {"ruptura": {"n": 368, "tramo_pct": 2.4049, "tramo_h": 13.0, "tend_pct": 2.8812, "tend_h": 21.5, "rompe": 24.1848, "er": 0.5299, "hh": 0.4076, "ventaja": 1.9182, "z": 0.8019}, "barrido": {"n": 157, "tramo_pct": 2.4384, "tramo_h": 15.0, "tend_pct": 2.9275, "tend_h": 23.0, "rompe": 43.949, "er": 0.5232, "hh": 0.7771, "ventaja": -1.1681, "z": -0.3019}, "doble": {"n": 81, "tramo_pct": 2.3536, "tramo_h": 12.0, "tend_pct": 2.7034, "tend_h": 16.0, "rompe": 60.4938, "er": 0.55, "hh": 0.9259, "ventaja": 2.9067, "z": 0.5424}, "ml_extremo": {"n": 254, "tramo_pct": 2.5042, "tramo_h": 13.0, "tend_pct": 2.8897, "tend_h": 19.0, "rompe": 59.0551, "er": 0.5419, "hh": 0.9567, "ventaja": -1.1267, "z": -0.3657}, "ml_alto": {"n": 300, "tramo_pct": 2.4286, "tramo_h": 12.0, "tend_pct": 2.9275, "tend_h": 20.5, "rompe": 68.0, "er": 0.5476, "hh": 1.06, "ventaja": 0.9498, "z": 0.3406}}, "4h": {"ruptura": {"n": 253, "tramo_pct": 5.4795, "tramo_h": 56.0, "tend_pct": 6.6205, "tend_h": 98.0, "rompe": 24.5059, "er": 0.5129, "hh": 0.4387, "ventaja": -3.7649, "z": -1.3605}, "barrido": {"n": 94, "tramo_pct": 5.0737, "tramo_h": 66.0, "tend_pct": 7.4469, "tend_h": 127.0, "rompe": 50.0, "er": 0.5676, "hh": 0.8936, "ventaja": 9.3272, "z": 2.0211}, "doble": {"n": 48, "tramo_pct": 5.1157, "tramo_h": 63.0, "tend_pct": 6.4495, "tend_h": 115.0, "rompe": 50.0, "er": 0.5221, "hh": 0.7708, "ventaja": -10.932, "z": -1.5723}, "ml_extremo": {"n": 165, "tramo_pct": 5.0936, "tramo_h": 50.0, "tend_pct": 5.7277, "tend_h": 86.0, "rompe": 56.3636, "er": 0.5162, "hh": 0.9152, "ventaja": -1.9776, "z": -0.5255}, "ml_alto": {"n": 210, "tramo_pct": 5.3872, "tramo_h": 56.0, "tend_pct": 6.605, "tend_h": 90.0, "rompe": 68.5714, "er": 0.5455, "hh": 1.0, "ventaja": 2.7374, "z": 0.8819}}, "1d": {"ruptura": {"n": 194, "tramo_pct": 12.4787, "tramo_h": 336.0, "tend_pct": 15.4511, "tend_h": 672.0, "rompe": 25.2577, "er": 0.5064, "hh": 0.4021, "ventaja": 1.0698, "z": 0.3182}, "barrido": {"n": 65, "tramo_pct": 13.3229, "tramo_h": 480.0, "tend_pct": 15.4314, "tend_h": 766.0, "rompe": 38.4615, "er": 0.5262, "hh": 0.6154, "ventaja": 3.9589, "z": 0.6676}, "doble": {"n": 46, "tramo_pct": 13.009, "tramo_h": 491.0, "tend_pct": 17.5465, "tend_h": 900.5, "rompe": 58.6957, "er": 0.5149, "hh": 1.0, "ventaja": 9.2396, "z": 1.2026}, "ml_extremo": {"n": 129, "tramo_pct": 11.9723, "tramo_h": 406.0, "tend_pct": 14.9238, "tend_h": 672.0, "rompe": 55.0388, "er": 0.5227, "hh": 0.938, "ventaja": 1.2974, "z": 0.2921}, "ml_alto": {"n": 165, "tramo_pct": 13.3067, "tramo_h": 336.0, "tend_pct": 14.5521, "tend_h": 432.0, "rompe": 60.6061, "er": 0.5622, "hh": 0.8485, "ventaja": -17.3449, "z": -4.2783}}}}, "tramos_global": {"ruptura": {"n": 6409, "tramo_atr": 4.1572, "er": 0.5224, "rompe": 23.701, "ventaja": -0.986, "z": -1.7211, "hh": 0.4213, "tend_atr": 4.8217}, "barrido": {"n": 2674, "tramo_atr": 4.174, "er": 0.5359, "rompe": 44.2408, "ventaja": 0.2048, "z": 0.2257, "hh": 0.7674, "tend_atr": 5.0088}, "doble": {"n": 1178, "tramo_atr": 4.4565, "er": 0.5326, "rompe": 63.837, "ventaja": 0.5396, "z": 0.3867, "hh": 1.0654, "tend_atr": 5.3272}, "ml_extremo": {"n": 4346, "tramo_atr": 4.2104, "er": 0.5402, "rompe": 57.9844, "ventaja": 0.2042, "z": 0.281, "hh": 0.9602, "tend_atr": 4.9779}, "ml_alto": {"n": 5248, "tramo_atr": 4.2386, "er": 0.5433, "rompe": 68.5976, "ventaja": -1.0052, "z": -1.5113, "hh": 1.1004, "tend_atr": 5.0085}}, "vida": {"BTC": {"1d": [{"H": 5, "real": 3.6697, "azar": 4.5872}, {"H": 20, "real": 14.8148, "azar": 16.6667}, {"H": 100, "real": 42.4528, "azar": 44.3396}], "1h": [{"H": 24, "real": 19.4888, "azar": 20.4045}, {"H": 120, "real": 49.9822, "azar": 49.9467}, {"H": 500, "real": 71.7244, "azar": 71.5102}], "4h": [{"H": 6, "real": 3.0, "azar": 4.2857}, {"H": 30, "real": 21.0602, "azar": 21.8571}, {"H": 120, "real": 48.3501, "azar": 45.5587}]}, "brent": {"1d": [{"H": 5, "real": 2.381, "azar": 1.3605}, {"H": 20, "real": 14.6758, "azar": 14.6259}, {"H": 100, "real": 46.875, "azar": 39.726}], "1h": [{"H": 24, "real": 21.0526, "azar": 19.2029}, {"H": 120, "real": 53.4672, "azar": 49.0842}, {"H": 500, "real": 74.8593, "azar": 71.5094}], "4h": [{"H": 6, "real": 3.2, "azar": 4.8}, {"H": 30, "real": 24.5989, "azar": 26.4706}, {"H": 120, "real": 50.2688, "azar": 49.8652}]}, "nasdaq100": {"1d": [{"H": 5, "real": 1.7341, "azar": 3.1792}, {"H": 20, "real": 19.4203, "azar": 17.3913}, {"H": 100, "real": 48.105, "azar": 47.093}], "1h": [{"H": 24, "real": 22.5951, "azar": 22.5446}, {"H": 120, "real": 52.1542, "azar": 55.4054}, {"H": 500, "real": 74.5327, "azar": 74.7685}], "4h": [{"H": 6, "real": 3.7634, "azar": 4.0323}, {"H": 30, "real": 23.7197, "azar": 25.2688}, {"H": 120, "real": 53.8251, "azar": 50.6739}]}, "oro": {"1d": [{"H": 5, "real": 2.6316, "azar": 3.2895}, {"H": 20, "real": 15.7895, "azar": 17.9825}, {"H": 100, "real": 42.1978, "azar": 46.0526}], "1h": [{"H": 24, "real": 21.875, "azar": 20.0}, {"H": 120, "real": 49.1259, "azar": 52.5394}, {"H": 500, "real": 73.8351, "azar": 73.4657}], "4h": [{"H": 6, "real": 3.6415, "azar": 2.521}, {"H": 30, "real": 22.409, "azar": 22.409}, {"H": 120, "real": 48.8636, "azar": 48.0114}]}, "plata": {"1d": [{"H": 5, "real": 1.6393, "azar": 0.8197}, {"H": 20, "real": 16.3934, "azar": 11.4754}, {"H": 100, "real": 42.5, "azar": 42.5}], "1h": [{"H": 24, "real": 21.2938, "azar": 19.6765}, {"H": 120, "real": 54.8913, "azar": 51.3587}, {"H": 500, "real": 72.8291, "azar": 71.4286}], "4h": [{"H": 6, "real": 3.6011, "azar": 4.1551}, {"H": 30, "real": 24.4444, "azar": 24.0997}, {"H": 120, "real": 52.9412, "azar": 49.7191}]}, "sp500": {"1d": [{"H": 5, "real": 2.4621, "azar": 1.7045}, {"H": 20, "real": 18.7856, "azar": 15.7495}, {"H": 100, "real": 46.8451, "azar": 47.1483}], "1h": [{"H": 24, "real": 22.381, "azar": 19.6682}, {"H": 120, "real": 52.7578, "azar": 53.0952}, {"H": 500, "real": 72.4566, "azar": 71.4286}], "4h": [{"H": 6, "real": 3.183, "azar": 5.8355}, {"H": 30, "real": 25.3333, "azar": 26.2599}, {"H": 120, "real": 55.3763, "azar": 52.1505}]}}, "vida_global": {"1h": [{"H": 24, "real": 20.5519, "azar": 20.3047}, {"H": 120, "real": 51.018, "azar": 50.9682}, {"H": 500, "real": 72.6575, "azar": 71.989}], "4h": [{"H": 6, "real": 3.3438, "azar": 4.288}, {"H": 30, "real": 23.2742, "azar": 24.085}, {"H": 120, "real": 51.1924, "azar": 48.8492}], "1d": [{"H": 5, "real": 2.372, "azar": 2.4259}, {"H": 20, "real": 17.1259, "azar": 16.1987}, {"H": 100, "real": 45.3951, "azar": 45.2278}]}, "dejados_alguna_vez": {"BTC": 92.1423, "sp500": 82.5923, "nasdaq100": 80.9769, "oro": 79.9136, "plata": 84.192, "brent": 92.1376}, "dejados_espera_mediana_h": {"BTC": {"1h": 133.0, "4h": 506.0, "1d": 3060.0}, "sp500": {"1h": 480.5, "4h": 1587.0, "1d": 3347.0}, "nasdaq100": {"1h": 503.5, "4h": 1511.5, "1d": 2665.0}, "oro": {"1h": 158.5, "4h": 564.0, "1d": 3983.0}, "plata": {"1h": 148.0, "4h": 580.0, "1d": 4681.0}, "brent": {"1h": 185.5, "4h": 664.0, "1d": 5039.0}}, "giro": {"BTC": {"1h": {"real": 41.6052, "azar": 46.4127, "n": 5420}, "4h": {"real": 40.9722, "azar": 44.3925, "n": 1296}, "1d": {"real": 41.5301, "azar": 36.9942, "n": 183}, "15m": {"real": 42.2985, "azar": 46.7485, "n": 22937}}, "sp500": {"1h": {"real": 40.8235, "azar": 42.1237, "n": 850}, "4h": {"real": 45.625, "azar": 43.4278, "n": 800}, "1d": {"real": 44.894, "azar": 48.4907, "n": 1038}}, "nasdaq100": {"1h": {"real": 39.8664, "azar": 40.0922, "n": 898}, "4h": {"real": 43.2432, "azar": 43.6767, "n": 777}, "1d": {"real": 44.1441, "azar": 45.4834, "n": 666}}, "oro": {"1h": {"real": 43.1034, "azar": 47.3373, "n": 1044}, "4h": {"real": 45.2345, "azar": 45.5657, "n": 661}, "1d": {"real": 41.2911, "azar": 42.112, "n": 821}}, "plata": {"1h": {"real": 37.4817, "azar": 46.1883, "n": 683}, "4h": {"real": 43.6012, "azar": 47.9452, "n": 672}, "1d": {"real": 39.4191, "azar": 41.1765, "n": 241}}, "brent": {"1h": {"real": 47.7171, "azar": 50.2238, "n": 1117}, "4h": {"real": 43.2918, "azar": 46.5847, "n": 723}, "1d": {"real": 41.3081, "azar": 39.8946, "n": 581}}}, "giro_global": {"real": 42.4774, "azar": 45.3722}, "giro_cierre": {"True": {"real": 63.2753, "azar": 64.2047, "n": 8335}, "False": {"real": 25.3749, "azar": 26.3216, "n": 10136}}, "rasgos": {"Volatilidad reciente / volatilidad de fondo": [{"tramo": "0.42 a 0.90", "giro": 39.4976, "n": 4618}, {"tramo": "0.90 a 0.99", "giro": 41.2733, "n": 4618}, {"tramo": "0.99 a 1.09", "giro": 43.1666, "n": 4617}, {"tramo": "1.09 a 2.02", "giro": 45.9723, "n": 4618}], "RSI al llegar al nivel": [{"tramo": "5.34 a 32.68", "giro": 44.5214, "n": 4618}, {"tramo": "32.68 a 38.33", "giro": 44.4132, "n": 4618}, {"tramo": "38.33 a 43.56", "giro": 40.2209, "n": 4617}, {"tramo": "43.56 a 83.39", "giro": 40.7536, "n": 4618}], "Velocidad de llegada (ATR en 10 velas)": [{"tramo": "-8.89 a -2.67", "giro": 44.0234, "n": 4618}, {"tramo": "-2.67 a -1.54", "giro": 43.1356, "n": 4618}, {"tramo": "-1.54 a -0.53", "giro": 42.0186, "n": 4617}, {"tramo": "-0.53 a 5.04", "giro": 40.7319, "n": 4618}], "Antigüedad del nivel (velas)": [{"tramo": "2.00 a 15.00", "giro": 42.6801, "n": 4761}, {"tramo": "15.00 a 34.00", "giro": 42.4631, "n": 4604}, {"tramo": "34.00 a 105.00", "giro": 41.2889, "n": 4500}, {"tramo": "105.00 a 25796.00", "giro": 43.4433, "n": 4606}], "Distancia al siguiente nivel pendiente (ATR)": [{"tramo": "0.30 a 1.16", "giro": 43.1139, "n": 4618}, {"tramo": "1.16 a 2.47", "giro": 42.984, "n": 4618}, {"tramo": "2.47 a 5.06", "giro": 42.0619, "n": 4617}, {"tramo": "5.06 a 50.00", "giro": 41.7497, "n": 4618}], "Toques del mismo nivel (suelos/techos iguales)": [{"tramo": "1 (nivel simple)", "giro": 42.7813, "n": 15439}, {"tramo": "2 (doble)", "giro": 41.5991, "n": 2714}, {"tramo": "3 o más", "giro": 35.2201, "n": 318}], "Profundidad de la perforación (vela de rotura)": [{"tramo": "<0,3 ATR", "giro": 60.0538, "n": 5943}, {"tramo": "0,3–0,7", "giro": 51.0172, "n": 5112}, {"tramo": "0,7–1,2", "giro": 39.4358, "n": 3403}, {"tramo": ">1,2", "giro": 8.1485, "n": 4013}]}, "estrategias": {"1h": {"Anticipar: orden límite en el nivel": {"n": 9941, "R": -0.4199, "z": -25.0547}, "Confirmar: cierre de vuelta dentro (2R)": {"n": 6260, "R": -0.2385, "z": -13.2088}, "Confirmar en niveles al azar (control)": {"n": 6771, "R": -0.2681, "z": -15.4672}, "SMC tras barrido → liquidez opuesta": {"n": 1843, "R": -0.1052, "z": -2.0416}, "SMC en mínimo más alto → liquidez opuesta": {"n": 3018, "R": -0.1346, "z": -3.2514}, "SMC en suelo/techo igual → liquidez opuesta": {"n": 1168, "R": -0.2535, "z": -4.4661}, "Ruptura de máximo → largo (2R)": {"n": 2973, "R": -0.0312, "z": -1.1581}, "Ruptura de mínimo → corto (2R)": {"n": 2480, "R": -0.2156, "z": -7.6399}}, "4h": {"Anticipar: orden límite en el nivel": {"n": 4917, "R": -0.279, "z": -13.1812}, "Confirmar: cierre de vuelta dentro (2R)": {"n": 3134, "R": -0.206, "z": -8.1987}, "Confirmar en niveles al azar (control)": {"n": 3337, "R": -0.2453, "z": -10.2018}, "SMC tras barrido → liquidez opuesta": {"n": 957, "R": 0.0432, "z": 0.5025}, "SMC en mínimo más alto → liquidez opuesta": {"n": 1462, "R": -0.2282, "z": -4.7111}, "SMC en suelo/techo igual → liquidez opuesta": {"n": 624, "R": -0.2757, "z": -3.6575}, "Ruptura de máximo → largo (2R)": {"n": 1558, "R": 0.0966, "z": 2.5833}, "Ruptura de mínimo → corto (2R)": {"n": 1185, "R": -0.0923, "z": -2.2344}}, "1d": {"Anticipar: orden límite en el nivel": {"n": 3513, "R": -0.216, "z": -9.121}, "Confirmar: cierre de vuelta dentro (2R)": {"n": 2397, "R": -0.1665, "z": -5.8626}, "Confirmar en niveles al azar (control)": {"n": 2422, "R": -0.1815, "z": -6.4251}, "SMC tras barrido → liquidez opuesta": {"n": 677, "R": -0.0241, "z": -0.2626}, "SMC en mínimo más alto → liquidez opuesta": {"n": 1031, "R": -0.0827, "z": -1.2792}, "SMC en suelo/techo igual → liquidez opuesta": {"n": 439, "R": -0.0582, "z": -0.5406}, "Ruptura de máximo → largo (2R)": {"n": 1091, "R": 0.2017, "z": 4.4905}, "Ruptura de mínimo → corto (2R)": {"n": 817, "R": -0.0858, "z": -1.7435}}, "15m": {"Anticipar: orden límite en el nivel": {"n": 23110, "R": -0.5558, "z": -62.1369}, "Confirmar: cierre de vuelta dentro (2R)": {"n": 14717, "R": -0.3606, "z": -29.856}, "Confirmar en niveles al azar (control)": {"n": 15890, "R": -0.3541, "z": -30.6429}, "SMC tras barrido → liquidez opuesta": {"n": 4029, "R": -0.2847, "z": -8.9146}, "SMC en mínimo más alto → liquidez opuesta": {"n": 7518, "R": -0.329, "z": -14.4276}, "SMC en suelo/techo igual → liquidez opuesta": {"n": 2732, "R": -0.2981, "z": -7.7632}, "Ruptura de máximo → largo (2R)": {"n": 6318, "R": -0.3201, "z": -17.4932}, "Ruptura de mínimo → corto (2R)": {"n": 5606, "R": -0.3114, "z": -16.012}}}, "por_activo": {"BTC": {"1h": {"confirmar": {"n": 3400, "R": -0.2078, "z": -8.6858}, "smc_barrido": {"n": 971, "R": -0.1285, "z": -1.9476}, "smc_ml": {"n": 1813, "R": -0.14, "z": -3.0484}, "smc_doble": {"n": 641, "R": -0.279, "z": -3.8649}, "rup_max_largo": {"n": 1546, "R": -0.0661, "z": -1.8022}, "rup_min_corto": {"n": 1299, "R": -0.128, "z": -3.2616}, "m20_rup_max": 1.069, "liq_rup_max": 0.5297, "m20_confirmar": -1.6709, "stop_confirmar": 0.9113, "riesgo_smc": 0.87}, "4h": {"confirmar": {"n": 812, "R": -0.1516, "z": -3.1178}, "smc_barrido": {"n": 227, "R": -0.0148, "z": -0.1028}, "smc_ml": {"n": 419, "R": -0.1236, "z": -1.3096}, "smc_doble": {"n": 170, "R": -0.3994, "z": -3.0924}, "rup_max_largo": {"n": 397, "R": 0.1947, "z": 2.6184}, "rup_min_corto": {"n": 291, "R": -0.0973, "z": -1.1818}, "m20_rup_max": 13.1582, "liq_rup_max": 1.4368, "m20_confirmar": -0.059, "stop_confirmar": 1.6491, "riesgo_smc": 1.85}, "1d": {"confirmar": {"n": 118, "R": -0.3166, "z": -2.6839}, "smc_barrido": {"n": 37, "R": 0.1432, "z": 0.3771}, "smc_ml": {"n": 80, "R": 0.0202, "z": 0.0911}, "smc_doble": {"n": 21, "R": -0.3141, "z": -0.7967}, "rup_max_largo": {"n": 63, "R": 0.2723, "z": 1.4529}, "rup_min_corto": {"n": 41, "R": 0.1484, "z": 0.6416}, "m20_rup_max": 44.7015, "liq_rup_max": 12.2642, "m20_confirmar": 7.2277, "stop_confirmar": 4.899, "riesgo_smc": 4.72}}, "sp500": {"1h": {"confirmar": {"n": 492, "R": -0.3298, "z": -4.7943}, "smc_barrido": {"n": 152, "R": -0.0285, "z": -0.1347}, "smc_ml": {"n": 188, "R": 0.3138, "z": 0.9342}, "smc_doble": {"n": 90, "R": -0.1628, "z": -0.6639}, "rup_max_largo": {"n": 283, "R": 0.0307, "z": 0.3436}, "rup_min_corto": {"n": 237, "R": -0.2724, "z": -2.9601}, "m20_rup_max": 1.1349, "liq_rup_max": 0.0, "m20_confirmar": 0.7547, "stop_confirmar": 0.3999, "riesgo_smc": 0.45}, "4h": {"confirmar": {"n": 508, "R": -0.2102, "z": -3.2743}, "smc_barrido": {"n": 160, "R": -0.0377, "z": -0.1837}, "smc_ml": {"n": 206, "R": -0.3114, "z": -2.4469}, "smc_doble": {"n": 103, "R": -0.454, "z": -3.0581}, "rup_max_largo": {"n": 270, "R": 0.0159, "z": 0.1774}, "rup_min_corto": {"n": 209, "R": -0.114, "z": -1.1515}, "m20_rup_max": -0.6256, "liq_rup_max": 0.0, "m20_confirmar": 2.2355, "stop_confirmar": 0.7192, "riesgo_smc": 0.82}, "1d": {"confirmar": {"n": 737, "R": -0.2089, "z": -4.0647}, "smc_barrido": {"n": 207, "R": -0.0069, "z": -0.046}, "smc_ml": {"n": 278, "R": -0.3331, "z": -3.3307}, "smc_doble": {"n": 121, "R": -0.4891, "z": -3.1957}, "rup_max_largo": {"n": 292, "R": 0.3169, "z": 3.6044}, "rup_min_corto": {"n": 221, "R": -0.1185, "z": -1.2645}, "m20_rup_max": 6.1887, "liq_rup_max": 0.0, "m20_confirmar": 0.3012, "stop_confirmar": 1.0364, "riesgo_smc": 1.37}}, "nasdaq100": {"1h": {"confirmar": {"n": 542, "R": -0.23, "z": -3.6766}, "smc_barrido": {"n": 159, "R": 0.1296, "z": 0.6256}, "smc_ml": {"n": 170, "R": -0.0887, "z": -0.4829}, "smc_doble": {"n": 100, "R": -0.0262, "z": -0.1122}, "rup_max_largo": {"n": 303, "R": 0.2246, "z": 2.5803}, "rup_min_corto": {"n": 245, "R": -0.3776, "z": -4.4093}, "m20_rup_max": 5.7619, "liq_rup_max": 0.0, "m20_confirmar": -0.1444, "stop_confirmar": 0.4989, "riesgo_smc": 0.63}, "4h": {"confirmar": {"n": 497, "R": -0.2156, "z": -3.3881}, "smc_barrido": {"n": 168, "R": 0.321, "z": 1.0553}, "smc_ml": {"n": 187, "R": -0.3371, "z": -2.7135}, "smc_doble": {"n": 93, "R": -0.1242, "z": -0.5613}, "rup_max_largo": {"n": 254, "R": 0.2548, "z": 2.7208}, "rup_min_corto": {"n": 193, "R": -0.1241, "z": -1.2155}, "m20_rup_max": 4.3538, "liq_rup_max": 0.0, "m20_confirmar": -0.3504, "stop_confirmar": 0.8843, "riesgo_smc": 1.09}, "1d": {"confirmar": {"n": 461, "R": -0.0645, "z": -0.9734}, "smc_barrido": {"n": 127, "R": 0.1096, "z": 0.4087}, "smc_ml": {"n": 189, "R": -0.1194, "z": -0.767}, "smc_doble": {"n": 80, "R": -0.0405, "z": -0.1611}, "rup_max_largo": {"n": 243, "R": 0.2448, "z": 2.5621}, "rup_min_corto": {"n": 136, "R": -0.1585, "z": -1.3369}, "m20_rup_max": 6.2841, "liq_rup_max": 0.0, "m20_confirmar": 1.1529, "stop_confirmar": 1.5267, "riesgo_smc": 1.78}}, "oro": {"1h": {"confirmar": {"n": 688, "R": -0.3573, "z": -6.3822}, "smc_barrido": {"n": 204, "R": -0.299, "z": -2.0411}, "smc_ml": {"n": 304, "R": -0.3919, "z": -3.4351}, "smc_doble": {"n": 115, "R": -0.3878, "z": -2.3154}, "rup_max_largo": {"n": 306, "R": -0.0616, "z": -0.7167}, "rup_min_corto": {"n": 230, "R": -0.3094, "z": -3.2733}, "m20_rup_max": 0.5401, "liq_rup_max": 0.0, "m20_confirmar": -1.8204, "stop_confirmar": 0.328, "riesgo_smc": 0.36}, "4h": {"confirmar": {"n": 425, "R": -0.2649, "z": -3.8318}, "smc_barrido": {"n": 135, "R": 0.0323, "z": 0.1684}, "smc_ml": {"n": 231, "R": -0.2052, "z": -1.6227}, "smc_doble": {"n": 82, "R": -0.1469, "z": -0.6305}, "rup_max_largo": {"n": 220, "R": 0.0063, "z": 0.0635}, "rup_min_corto": {"n": 145, "R": -0.273, "z": -2.3846}, "m20_rup_max": 0.5045, "liq_rup_max": 0.0, "m20_confirmar": -2.1142, "stop_confirmar": 0.5747, "riesgo_smc": 0.62}, "1d": {"confirmar": {"n": 540, "R": -0.1328, "z": -2.1828}, "smc_barrido": {"n": 152, "R": -0.2468, "z": -1.3235}, "smc_ml": {"n": 253, "R": 0.1843, "z": 1.2294}, "smc_doble": {"n": 102, "R": -0.0532, "z": -0.2707}, "rup_max_largo": {"n": 255, "R": 0.1203, "z": 1.2991}, "rup_min_corto": {"n": 183, "R": -0.0623, "z": -0.5874}, "m20_rup_max": 2.7823, "liq_rup_max": 1.3043, "m20_confirmar": 0.7102, "stop_confirmar": 1.1456, "riesgo_smc": 1.53}}, "plata": {"1h": {"confirmar": {"n": 411, "R": -0.2105, "z": -2.9714}, "smc_barrido": {"n": 133, "R": -0.1854, "z": -1.0228}, "smc_ml": {"n": 213, "R": -0.0553, "z": -0.4042}, "smc_doble": {"n": 66, "R": -0.134, "z": -0.5343}, "rup_max_largo": {"n": 230, "R": 0.1331, "z": 1.3423}, "rup_min_corto": {"n": 149, "R": -0.1776, "z": -1.5329}, "m20_rup_max": 3.5666, "liq_rup_max": 0.0, "m20_confirmar": 0.2895, "stop_confirmar": 0.6799, "riesgo_smc": 0.77}, "4h": {"confirmar": {"n": 423, "R": -0.1762, "z": -2.5899}, "smc_barrido": {"n": 134, "R": -0.2061, "z": -1.223}, "smc_ml": {"n": 195, "R": -0.14, "z": -1.0797}, "smc_doble": {"n": 75, "R": -0.134, "z": -0.5757}, "rup_max_largo": {"n": 201, "R": 0.0554, "z": 0.5363}, "rup_min_corto": {"n": 161, "R": 0.1375, "z": 1.1852}, "m20_rup_max": 2.0188, "liq_rup_max": 0.2717, "m20_confirmar": 0.5332, "stop_confirmar": 1.1192, "riesgo_smc": 1.22}, "1d": {"confirmar": {"n": 145, "R": -0.1851, "z": -1.6428}, "smc_barrido": {"n": 49, "R": 0.1099, "z": 0.3609}, "smc_ml": {"n": 72, "R": -0.1868, "z": -0.8866}, "smc_doble": {"n": 36, "R": -0.3403, "z": -1.3303}, "rup_max_largo": {"n": 72, "R": 0.2834, "z": 1.6004}, "rup_min_corto": {"n": 68, "R": 0.0152, "z": 0.0871}, "m20_rup_max": 19.9412, "liq_rup_max": 2.2727, "m20_confirmar": -1.0087, "stop_confirmar": 2.0761, "riesgo_smc": 2.82}}, "brent": {"1h": {"confirmar": {"n": 727, "R": -0.23, "z": -4.2803}, "smc_barrido": {"n": 224, "R": 0.0016, "z": 0.0098}, "smc_ml": {"n": 330, "R": -0.1982, "z": -1.6152}, "smc_doble": {"n": 156, "R": -0.2985, "z": -1.9177}, "rup_max_largo": {"n": 305, "R": -0.259, "z": -3.1936}, "rup_min_corto": {"n": 320, "R": -0.3558, "z": -4.6478}, "m20_rup_max": -1.1449, "liq_rup_max": 0.3436, "m20_confirmar": -1.6049, "stop_confirmar": 0.5096, "riesgo_smc": 0.58}, "4h": {"confirmar": {"n": 469, "R": -0.259, "z": -4.0689}, "smc_barrido": {"n": 133, "R": 0.1508, "z": 0.6964}, "smc_ml": {"n": 224, "R": -0.3566, "z": -2.9505}, "smc_doble": {"n": 101, "R": -0.2352, "z": -1.1713}, "rup_max_largo": {"n": 216, "R": -0.0386, "z": -0.3928}, "rup_min_corto": {"n": 186, "R": -0.0851, "z": -0.8152}, "m20_rup_max": 0.6428, "liq_rup_max": 2.3256, "m20_confirmar": -4.1985, "stop_confirmar": 1.0572, "riesgo_smc": 1.26}, "1d": {"confirmar": {"n": 396, "R": -0.2005, "z": -2.9538}, "smc_barrido": {"n": 105, "R": -0.0186, "z": -0.085}, "smc_ml": {"n": 159, "R": -0.0308, "z": -0.1725}, "smc_doble": {"n": 79, "R": 0.7738, "z": 2.0665}, "rup_max_largo": {"n": 166, "R": -0.0011, "z": -0.0096}, "rup_min_corto": {"n": 168, "R": -0.1073, "z": -1.0016}, "m20_rup_max": 2.9082, "liq_rup_max": 3.9867, "m20_confirmar": -0.5919, "stop_confirmar": 2.2066, "riesgo_smc": 2.86}}}, "mitades_smc": {"barrido": {"1a": 0.0475, "2a": -0.1443}, "ml_cerca": {"1a": -0.2059, "2a": -0.0923}, "doble": {"1a": -0.2705, "2a": -0.1729}, "sin_nivel": {"1a": -0.1263, "2a": -0.175}}, "mitades_fechas": {"BTC 1h": "2022-04-10", "BTC 4h": "2022-04-13", "BTC 1d": "2022-04-26", "sp500 1h": "2023-05-05", "sp500 4h": "2016-06-02", "sp500 1d": "1997-08-22", "nasdaq100 1h": "2023-05-17", "nasdaq100 4h": "2016-04-05", "nasdaq100 1d": "2008-03-15", "oro 1h": "2025-05-22", "oro 4h": "2023-05-14", "oro 1d": "1998-09-29", "plata 1h": "2025-11-13", "plata 4h": "2023-05-30", "plata 1d": "2018-04-11", "brent 1h": "2025-05-27", "brent 4h": "2023-06-08", "brent 1d": "2009-06-16"}, "mitades_rup": {"1h": {"1a": -0.0444, "2a": -0.0167}, "4h": {"1a": 0.0392, "2a": 0.1545}, "1d": {"1a": 0.1278, "2a": 0.2744}}, "iman_dist": [{"tramo": "0.0–0.2", "real": 89.3127, "azar": 86.8953}, {"tramo": "0.2–0.4", "real": 73.2812, "azar": 69.4877}, {"tramo": "0.4–0.6", "real": 54.4726, "azar": 50.2406}, {"tramo": "0.6–0.8", "real": 32.9422, "azar": 31.0127}, {"tramo": "0.8–1.0", "real": 13.869, "azar": 13.9344}], "iman_deseq": [{"deseq": -3, "real": 28.8889, "azar": 25.8377, "f50": 0.7702, "n": 1575}, {"deseq": -2, "real": 33.0776, "azar": 32.7106, "f50": 0.2943, "n": 2216}, {"deseq": -1, "real": 41.9725, "azar": 39.4505, "f50": 0.5666, "n": 4360}, {"deseq": 0, "real": 54.5371, "azar": 51.7644, "f50": 0.6673, "n": 6491}, {"deseq": 1, "real": 70.2805, "azar": 65.8321, "f50": 0.933, "n": 5811}, {"deseq": 2, "real": 75.7598, "azar": 71.2189, "f50": 1.0387, "n": 2731}, {"deseq": 3, "real": 78.7466, "azar": 76.5802, "f50": 1.0934, "n": 1468}], "iman_racimo": {"-1": {"exc": 2.6052, "n": 3575}, "0": {"exc": 3.1313, "n": 17870}, "1": {"exc": 3.359, "n": 3207}}, "btc_oi": {"filas": ["Cae mucho", "Cae algo", "Sube algo", "Sube mucho"], "cols": ["<0,3 ATR", "0,3–0,7", "0,7–1,2", ">1,2"], "giro": [[78.2609, 62.0192, 51.9841, 8.6806], [73.5905, 64.5161, 53.252, 10.0746], [60.6936, 58.3562, 40.3226, 8.1197], [64.6617, 51.9608, 39.7727, 8.1006]], "n": [[161, 208, 252, 576], [337, 341, 246, 268], [346, 365, 248, 234], [266, 306, 264, 358]], "umbral": {"1h": -1.0099, "4h": -1.4978, "1d": -3.688}, "E2": {"Cae mucho": -0.1817, "Cae algo": -0.1268, "Sube algo": -0.2833, "Sube mucho": -0.158}}, "muestras": {"BTC": {"1h": 5664, "4h": 1391, "1d": 213}, "sp500": {"1h": 922, "4h": 862, "1d": 1153}, "nasdaq100": {"1h": 961, "4h": 863, "1d": 759}, "oro": {"1h": 1170, "4h": 740, "1d": 919}, "plata": {"1h": 754, "4h": 736, "1d": 264}, "brent": {"1h": 1163, "4h": 773, "1d": 602}}, "comisiones_smc": {"1h": {"barrido": {"bruto": 0.0513, "taker": -0.1052, "maker": -0.0474, "riesgo": 0.7565}, "ml_cerca": {"bruto": 0.0266, "taker": -0.1346, "maker": -0.0751, "riesgo": 0.7212}, "doble": {"bruto": -0.0977, "taker": -0.2535, "maker": -0.197, "riesgo": 0.7469}, "sin_nivel": {"bruto": -0.0091, "taker": -0.1839, "maker": -0.1187, "riesgo": 0.6826}}, "4h": {"barrido": {"bruto": 0.1374, "taker": 0.0432, "maker": 0.0778, "riesgo": 1.2501}, "ml_cerca": {"bruto": -0.1327, "taker": -0.2282, "maker": -0.1934, "riesgo": 1.199}, "doble": {"bruto": -0.1809, "taker": -0.2757, "maker": -0.2419, "riesgo": 1.2245}, "sin_nivel": {"bruto": 0.0196, "taker": -0.0808, "maker": -0.0435, "riesgo": 1.1382}}, "1d": {"barrido": {"bruto": 0.0375, "taker": -0.0241, "maker": -0.0018, "riesgo": 1.8687}, "ml_cerca": {"bruto": -0.0233, "taker": -0.0827, "maker": -0.0612, "riesgo": 1.8683}, "doble": {"bruto": -0.0004, "taker": -0.0582, "maker": -0.0377, "riesgo": 1.8942}, "sin_nivel": {"bruto": -0.0897, "taker": -0.1512, "maker": -0.1289, "riesgo": 1.8232}}, "15m": {"barrido": {"bruto": -0.0205, "taker": -0.2847, "maker": -0.1889, "riesgo": 0.474}, "ml_cerca": {"bruto": -0.0261, "taker": -0.329, "maker": -0.2169, "riesgo": 0.4056}, "doble": {"bruto": -0.0147, "taker": -0.2981, "maker": -0.1939, "riesgo": 0.4439}, "sin_nivel": {"bruto": -0.025, "taker": -0.3431, "maker": -0.224, "riesgo": 0.3917}}}, "smc_20x": {"1h": {"barrido": {"m": -1.7404, "liq": 0.592}, "ml_cerca": {"m": -1.3958, "liq": 0.4985}, "doble": {"m": -3.6157, "liq": 0.578}}, "4h": {"barrido": {"m": -0.5033, "liq": 1.4718}, "ml_cerca": {"m": -2.8899, "liq": 1.3158}, "doble": {"m": -5.9086, "liq": 1.6787}}, "1d": {"barrido": {"m": -0.4722, "liq": 4.9884}, "ml_cerca": {"m": -1.4294, "liq": 5.1336}, "doble": {"m": 15.0593, "liq": 5.0736}}}, "giro_activo": {"BTC": {"real": 41.4843, "azar": 45.7975, "n": 6899, "nc": 6865}, "sp500": {"real": 43.8244, "azar": 44.9624, "n": 2688, "nc": 2660}, "nasdaq100": {"real": 42.2042, "azar": 42.8067, "n": 2341, "nc": 2266}, "oro": {"real": 43.0721, "azar": 45.1915, "n": 2526, "nc": 2454}, "plata": {"real": 40.3509, "azar": 46.1637, "n": 1596, "nc": 1564}, "brent": {"real": 44.8575, "azar": 46.6915, "n": 2421, "nc": 2418}, "BTC15": {"real": 42.2985, "azar": 46.7485, "n": 22937, "nc": 22805}}, "periodos": {"BTC": {"1h": ["2017-08-17", "2026-09-29"], "4h": ["2017-08-17", "2026-09-29"], "1d": ["2017-08-17", "2026-09-28"]}, "sp500": {"1h": ["2020-01-02", "2026-09-29"], "4h": ["2006-01-03", "2026-09-29"], "1d": ["1965-01-04", "2026-09-28"]}, "nasdaq100": {"1h": ["2020-01-02", "2026-09-29"], "4h": ["2006-01-03", "2026-09-29"], "1d": ["1990-01-02", "2026-09-28"]}, "oro": {"1h": ["2024-01-01", "2026-09-29"], "4h": ["2020-01-01", "2026-09-29"], "1d": ["1975-01-01", "2026-09-27"]}, "plata": {"1h": ["2025-01-01", "2026-09-29"], "4h": ["2020-01-01", "2026-09-29"], "1d": ["2009-09-01", "2026-09-27"]}, "brent": {"1h": ["2024-01-02", "2026-09-29"], "4h": ["2020-01-02", "2026-09-29"], "1d": ["1990-01-02", "2026-09-27"]}}}</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById('datos').textContent);
+const ACT=['BTC','sp500','nasdaq100','oro','plata','brent'];
+const NOM={BTC:'Bitcoin',sp500:'S&P 500',nasdaq100:'Nasdaq 100',oro:'Oro',plata:'Plata',brent:'Brent',BTC15:'Bitcoin 15 min'};
+const CAT={ruptura:'Ruptura (perfora mucho)',barrido:'Barrido',doble:'Suelo o techo igual',ml_extremo:'Mínimo más alto en el extremo',ml_alto:'Mínimo más alto alto (retroceso corto)'};
+const ORD=['ruptura','barrido','doble','ml_extremo','ml_alto'];
+const NS='http://www.w3.org/2000/svg';
+const loc=(v,d)=>v.toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d});
+const nf=(v,d=1)=>v==null?'—':loc(v,d);
+const sg=(v,d=2)=>v==null?'—':(v>0.0000001?'+':v<-0.0000001?'−':'')+loc(Math.abs(v),d);
+function dur(h){if(h==null)return '—';if(h<48)return loc(h,0)+' h';const d=h/24;if(d<60)return loc(d,d<10?1:0)+' días';return loc(d/30.4,1)+' meses';}
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+function tx(p,x,y,s,c,anc){const t=el('text',{x:x,y:y,class:c,'text-anchor':anc||'start'},p);t.textContent=s;return t;}
+function h(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+// tooltip
+const tip=document.getElementById('tip');
+function showTip(ev,title,rows){tip.replaceChildren();tip.appendChild(h('div','tip-t',title));rows.forEach(r=>{const d=h('div','tip-r');if(r.cls){d.appendChild(h('span','key '+r.cls));}d.appendChild(h('strong',null,r.v));d.appendChild(h('span',null,r.n));tip.appendChild(d);});tip.hidden=false;moveTip(ev);}
+function moveTip(ev){const pad=14;const r=tip.getBoundingClientRect();let x=ev.clientX+pad,y=ev.clientY+pad;if(x+r.width>innerWidth-8)x=ev.clientX-r.width-pad;if(y+r.height>innerHeight-8)y=ev.clientY-r.height-pad;tip.style.left=Math.max(4,x)+'px';tip.style.top=Math.max(4,y)+'px';}
+function hideTip(){tip.hidden=true;}
+const RENDER=[];function reg(fn){RENDER.push(fn);fn();}
+let lastW=innerWidth,rt=null;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(Math.abs(innerWidth-lastW)>30){lastW=innerWidth;RENDER.forEach(f=>f());}},180);});
+function bindHover(node,fn){node.addEventListener('pointermove',fn);node.addEventListener('pointerleave',hideTip);node.addEventListener('focus',()=>{const b=node.getBoundingClientRect();fn({clientX:b.x+b.width/2,clientY:b.y+8});});node.addEventListener('blur',hideTip);}
+function table(host,head,rows,opts){const t=document.createElement('table');if(opts&&opts.cls)t.className=opts.cls;const th=document.createElement('thead');const tr=document.createElement('tr');head.forEach(c=>tr.appendChild(h('th',null,c)));th.appendChild(tr);t.appendChild(th);const tb=document.createElement('tbody');rows.forEach(r=>{const row=document.createElement('tr');if(r.hl)row.className='hl';r.c.forEach(c=>{const td=document.createElement('td');if(c instanceof Node)td.appendChild(c);else td.textContent=c;row.appendChild(td);});tb.appendChild(row);});t.appendChild(tb);host.replaceChildren(t);return t;}
+function chip(v,d=2,suf=''){const c=h('span','chip '+(v==null?'neu':v>0.02?'pos':v<-0.02?'neg':'neu'),v==null?'—':sg(v,d)+suf);return c;}
+function seg(host,opts,cur,cb){host.replaceChildren();opts.forEach(o=>{const b=h('button',null,o.l);b.type='button';b.setAttribute('aria-pressed',o.v===cur?'true':'false');b.addEventListener('click',()=>{host.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');cb(o.v);});host.appendChild(b);});}
+
+// ---------- diagrama de casos ----------
+(function(){const host=document.getElementById('cases');const cs=[
+ ['Ruptura','Perfora el mínimo anterior más de un tercio del rango y luego gira.',92],
+ ['Barrido','Perfora el mínimo anterior un poco y gira. Limpia la liquidez.',78],
+ ['Suelo igual','Rebota en el mismo punto (±0,2 ATR). Deja la liquidez intacta.',66],
+ ['Mínimo más alto en el extremo','Gira justo encima, en el tercio bajo del rango. Se comprime y deja la liquidez debajo.',55],
+ ['Mínimo más alto alto','Gira lejos del mínimo: retroceso corto dentro de una tendencia.',36]];
+ cs.forEach(c=>{const d=h('div','case');const s=el('svg',{viewBox:'0 0 140 100',role:'img','aria-label':c[0]});
+  el('line',{x1:30,x2:136,y1:66,y2:66,class:'lvl'},s);
+  el('polyline',{points:`4,18 30,66 66,22 102,${c[2]} 136,10`,class:'px'},s);
+  el('circle',{cx:30,cy:66,r:4,class:'pt0'},s);el('circle',{cx:102,cy:c[2],r:4.5,class:'pt'},s);
+  d.appendChild(s);d.appendChild(h('b',null,c[0]));d.appendChild(h('span',null,c[1]));host.appendChild(d);});})();
+
+// ---------- tabla de periodos ----------
+(function(){const rows=ACT.map(a=>({c:[NOM[a],...['1h','4h','1d'].map(tf=>{const p=D.periodos[a][tf];return p[0].slice(0,4)+'–'+p[1].slice(0,4)+' · '+loc(D.muestras[a][tf],0)+' niveles';})]}));
+ table(document.getElementById('tbl-periodos'),['Activo','1 hora','4 horas','Diario'],rows);})();
+
+// ---------- tabla global ----------
+(function(){const g=D.tramos_global;const rows=ORD.map(c=>({hl:c==='barrido'||c==='ml_extremo',c:[CAT[c],loc(g[c].n,0),nf(g[c].tramo_atr,2)+' ATR',nf(g[c].er,2),nf(g[c].rompe,0)+' %',sg(g[c].ventaja,1)+' pts',nf(g[c].hh,2)]}));
+ table(document.getElementById('tbl-global'),['Caso','Casos','Tramo (mediana)','Eficiencia (0–1)','Llega al otro extremo','Ventaja sobre el azar','Máximos crecientes seguidos'],rows);})();
+
+// ---------- gráfico de líneas genérico ----------
+function lineChart(host,o){host.replaceChildren();const W=Math.max(300,Math.min(980,host.clientWidth||640)),H=W<520?250:300,m={l:46,r:W<520?18:22,t:12,b:44};const iw=W-m.l-m.r,ih=H-m.t-m.b;const n=o.cats.length;
+ const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,class:'chart',role:'img','aria-label':o.label||''});host.appendChild(svg);
+ const x=i=>m.l+(n===1?iw/2:i*iw/(n-1));const y=v=>m.t+ih-(v-o.yMin)/(o.yMax-o.yMin)*ih;
+ for(let v=o.yMin;v<=o.yMax+1e-9;v+=o.yStep){el('line',{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),class:'grid'},svg);tx(svg,m.l-8,y(v)+4,loc(v,0)+' %','tick','end');}
+ o.cats.forEach((c,i)=>tx(svg,x(i),H-m.b+18,c,'tick',i===0?'start':i===n-1?'end':'middle'));
+ if(o.xTitle)tx(svg,m.l+iw/2,H-6,o.xTitle,'axt','middle');
+ o.series.forEach(s=>{let d='',pen=false;s.values.forEach((v,i)=>{if(v==null){pen=false;return;}d+=(pen?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1);pen=true;});el('path',{d:d,class:'ln '+s.cls+(s.dash?' dash':'')},svg);
+  s.values.forEach((v,i)=>{if(v!=null)el('circle',{cx:x(i),cy:y(v),r:4,class:'dot '+s.cls},svg);});});
+ const xh=el('line',{y1:m.t,y2:m.t+ih,class:'xhair'},svg);xh.style.display='none';
+ const bw=n>1?iw/(n-1):iw;
+ o.cats.forEach((c,i)=>{const x0=Math.max(m.l-6,x(i)-bw/2),x1=Math.min(W-m.r+6,x(i)+bw/2);const r=el('rect',{x:x0,y:m.t,width:x1-x0,height:ih,class:'hit',tabindex:0},svg);
+  bindHover(r,ev=>{xh.setAttribute('x1',x(i));xh.setAttribute('x2',x(i));xh.style.display='';showTip(ev,(o.catTitle||'')+c,o.series.map(s=>({cls:s.cls,v:s.values[i]==null?'—':loc(s.values[i],1)+' %',n:s.name})));});
+  r.addEventListener('pointerleave',()=>{xh.style.display='none';});r.addEventListener('blur',()=>{xh.style.display='none';});});}
+function legendLines(host,series){series.forEach(s=>{const sp=h('span');const k=h('i','lk bg-'+s.cls);sp.appendChild(k);sp.appendChild(document.createTextNode(s.name));host.appendChild(sp);});}
+
+// distancia
+(function(){const d=D.distancia;const ser=[{cls:'s1',name:'Barrido',values:d.cats.barrido},{cls:'s2',name:'Suelo igual',values:d.cats.doble},{cls:'s3',name:'Mínimo más alto en el extremo',values:d.cats.ml_extremo}];
+ legendLines(document.getElementById('lg-dist'),ser);
+ reg(()=>lineChart(document.getElementById('ch-dist'),{cats:d.bins,series:ser,yMin:0,yMax:100,yStep:20,xTitle:'Distancia hasta el otro extremo, en ATR',catTitle:'Distancia (ATR) ',label:'Probabilidad de llegar al otro extremo según la distancia'}));})();
+
+// imán
+(function(){const r=D.iman_dist;reg(()=>lineChart(document.getElementById('ch-iman'),{cats:r.map(x=>x.tramo.replace('.',',').replace('.',',')),series:[{cls:'s1',name:'Real',values:r.map(x=>x.real)},{cls:'s2',name:'Paseo aleatorio',values:r.map(x=>x.azar),dash:true}],yMin:0,yMax:100,yStep:20,xTitle:'Posición del precio entre el nivel de arriba (0) y el de abajo (1)',catTitle:'Posición ',label:'Probabilidad de tocar antes el nivel de arriba'}));})();
+
+// ---------- dumbbell giro ----------
+reg(function(){const host=document.getElementById('ch-giro');host.replaceChildren();const keys=['BTC','sp500','nasdaq100','oro','plata','brent','BTC15'];const rows=keys.map(k=>({k:k,...D.giro_activo[k]}));
+ const W=Math.max(300,Math.min(980,host.clientWidth||640)),rowH=36,m={l:W<520?100:120,r:16,t:8,b:30};const H=m.t+rows.length*rowH+m.b;const mn=35,mx=50;const iw=W-m.l-m.r;const x=v=>m.l+(v-mn)/(mx-mn)*iw;
+ const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,class:'chart',role:'img','aria-label':'Probabilidad de giro real frente a control por activo'});host.appendChild(svg);
+ for(let v=mn;v<=mx;v+=5){el('line',{x1:x(v),x2:x(v),y1:m.t,y2:H-m.b,class:'grid'},svg);tx(svg,x(v),H-m.b+18,v+' %','tick','middle');}
+ rows.forEach((r,i)=>{const cy=m.t+i*rowH+rowH/2;tx(svg,m.l-12,cy+4,NOM[r.k],'lab','end');
+  el('line',{x1:x(r.real),x2:x(r.azar),y1:cy,y2:cy,class:'conn'},svg);
+  el('circle',{cx:x(r.azar),cy:cy,r:6,class:'dot s2'},svg);el('circle',{cx:x(r.real),cy:cy,r:6,class:'dot s1'},svg);
+  const hit=el('rect',{x:m.l-110,y:cy-rowH/2,width:W-m.l+110-m.r+10,height:rowH,class:'hit',tabindex:0},svg);
+  bindHover(hit,ev=>showTip(ev,NOM[r.k]+' · '+loc(r.n,0)+' perforaciones',[{cls:'s1',v:loc(r.real,1)+' %',n:'nivel real'},{cls:'s2',v:loc(r.azar,1)+' %',n:'precio cualquiera'}]));});});
+
+// ---------- vida (columnas pequeñas) ----------
+reg(function(){const host=document.getElementById('ch-vida');host.replaceChildren();const tfn={'1h':'1 hora','4h':'4 horas','1d':'Diario'};
+ ['1h','4h','1d'].forEach(tf=>{const box=h('div');host.appendChild(box);box.appendChild(h('div','vt',tfn[tf]));const data=D.vida_global[tf];
+  const W=Math.max(260,box.clientWidth||300),H=200,m={l:34,r:6,t:10,b:30};const iw=W-m.l-m.r,ih=H-m.t-m.b;const y=v=>m.t+ih-v/100*ih;
+  const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,class:'chart',role:'img','aria-label':'Porcentaje barrido por plazo en '+tfn[tf]});
+  [0,25,50,75,100].forEach(v=>{el('line',{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),class:'grid'},svg);tx(svg,m.l-6,y(v)+4,v+'%','tick','end');});
+  const gw=iw/data.length;const bw=Math.min(24,gw/3);
+  data.forEach((d,i)=>{const cx=m.l+gw*i+gw/2;[['real','s1',-1],['azar','s2',1]].forEach(([k,c,sgn])=>{const v=d[k];const bx=cx+(sgn<0?-bw-1:1);const top=y(v),bot=y(0);const r=4;const ht=bot-top;
+    const p=`M${bx},${bot}V${top+r}Q${bx},${top} ${bx+r},${top}H${bx+bw-r}Q${bx+bw},${top} ${bx+bw},${top+r}V${bot}Z`;
+    const b=el('path',{d:p,class:'bar '+c,tabindex:0},svg);bindHover(b,ev=>showTip(ev,tfn[tf]+' · en '+d.H+' velas',[{cls:'s1',v:loc(d.real,1)+' %',n:'nivel pendiente'},{cls:'s2',v:loc(d.azar,1)+' %',n:'precio cualquiera'}]));});
+   tx(svg,cx,H-m.b+16,d.H+' velas','tick','middle');});
+  box.appendChild(svg);});});
+
+// tabla pendientes
+(function(){const rows=ACT.map(a=>({c:[NOM[a],nf(D.dejados_alguna_vez[a],0)+' %',dur(D.dejados_espera_mediana_h[a]['1h']),dur(D.dejados_espera_mediana_h[a]['4h']),dur(D.dejados_espera_mediana_h[a]['1d'])]}));
+ table(document.getElementById('tbl-pend'),['Activo','Acaban barridos','Espera mediana en 1 h','En 4 h','En diario'],rows);})();
+
+// ---------- duración ----------
+(function(){const host=document.getElementById('tbl-dur');const cats=['barrido','ml_extremo','doble'];
+ function draw(tf){const rows=ACT.map(a=>{const t=D.tramos[a][tf];return {c:[NOM[a],...cats.map(c=>t[c]?nf(t[c].tramo_pct,1)+' % · '+dur(t[c].tramo_h):'—')]};});
+  table(host,['Activo','Tras barrido','Tras mínimo más alto en el extremo','Tras suelo igual'],rows);}
+ seg(document.getElementById('seg-dur'),[{v:'1h',l:'1 hora'},{v:'4h',l:'4 horas'},{v:'1d',l:'Diario'}],'4h',draw);draw('4h');})();
+
+// ---------- barras horizontales HTML ----------
+function hbars(host,items,o){host.replaceChildren();const wrap=h('div','hb');const span=o.max-o.min;const pos=v=>(v-o.min)/span*100;
+ items.forEach(it=>{const row=h('div','hb-row');row.tabIndex=0;row.appendChild(h('div','hb-lab',it.label));const tr=h('div','hb-track');
+  if(o.zero!=null){const z=h('span','hb-zero');z.style.left=pos(o.zero)+'%';tr.appendChild(z);}
+  if(o.ref!=null){const z=h('span','hb-ref');z.style.left=pos(o.ref)+'%';tr.appendChild(z);}
+  const base=o.zero!=null?o.zero:o.min;const v=Math.max(o.min,Math.min(o.max,it.v));const a=pos(Math.min(base,v)),b=pos(Math.max(base,v));
+  const bar=h('span','hb-bar '+(it.cls||(it.v>=0?'bg-pos':'bg-neg')));bar.style.left=a+'%';bar.style.width=Math.max(0.6,b-a)+'%';
+  if(o.zero!=null){bar.style.borderRadius=it.v>=0?'0 3px 3px 0':'3px 0 0 3px';}else{bar.style.borderRadius='0 3px 3px 0';}
+  tr.appendChild(bar);
+  if(it.se){const lo=Math.max(o.min,it.v-1.96*it.se),hi=Math.min(o.max,it.v+1.96*it.se);const ci=h('span','hb-ci');ci.style.left=pos(lo)+'%';ci.style.width=(pos(hi)-pos(lo))+'%';tr.appendChild(ci);}
+  row.appendChild(tr);row.appendChild(h('div','hb-val',it.txt));
+  bindHover(row,ev=>showTip(ev,it.label,it.tip||[{v:it.txt,n:''}]));wrap.appendChild(row);});
+ const ax=h('div','hb-axis');ax.appendChild(h('div'));const tk=h('div','hb-ticks');const wide=(host.clientWidth||600)>560;o.ticks.filter((t,i)=>wide||i%2===0||t===0).forEach(t=>{const s=h('span',null,o.tf(t));s.style.left=pos(t)+'%';tk.appendChild(s);});ax.appendChild(tk);ax.appendChild(h('div'));wrap.appendChild(ax);host.appendChild(wrap);}
+
+// rasgos
+(function(){const host=document.getElementById('ch-rasgos');host.replaceChildren();const sel=['Toques del mismo nivel (suelos/techos iguales)','Volatilidad reciente / volatilidad de fondo','RSI al llegar al nivel','Profundidad de la perforación (vela de rotura)'];
+ const nombres={'Toques del mismo nivel (suelos/techos iguales)':'Toques del mismo nivel','Volatilidad reciente / volatilidad de fondo':'Volatilidad reciente frente a la de fondo (menos de 1 = comprimida)','RSI al llegar al nivel':'RSI al llegar al nivel (cuartiles)','Profundidad de la perforación (vela de rotura)':'Profundidad de la perforación (se sabe al cerrar la vela)'};
+ sel.forEach(k=>{const box=h('div');box.style.marginBottom='16px';box.appendChild(h('div','vt',nombres[k]));box.lastChild.style.cssText='font:600 .85rem var(--f-mono);color:var(--ink-2);margin-bottom:6px';const inner=h('div');box.appendChild(inner);host.appendChild(box);
+  const rnd=(str,d)=>str.replace(/\d+\.\d+/g,m=>loc(parseFloat(m),d));const items=D.rasgos[k].map(r=>({label:(k.startsWith('Toques')?r.tramo:k.startsWith('Prof')?r.tramo:k.startsWith('RSI')?'RSI de '+rnd(r.tramo,0):'Cociente de '+rnd(r.tramo,2)),v:r.giro,txt:loc(r.giro,1)+' %',cls:'bg-s1',tip:[{cls:'s1',v:loc(r.giro,1)+' %',n:'giro · '+loc(r.n,0)+' casos'}]}));
+  hbars(inner,items,{min:0,max:80,ref:42.5,ticks:[0,20,40,60,80],tf:t=>t+' %'});});})();
+
+// heatmap OI
+(function(){const t=document.getElementById('tbl-oi');const o=D.btc_oi;const th=document.createElement('thead');const tr=document.createElement('tr');tr.appendChild(h('th',null,'Interés abierto en la vela que perfora'));o.cols.forEach(c=>tr.appendChild(h('th',null,'Perfora '+c)));th.appendChild(tr);t.appendChild(th);
+ const tb=document.createElement('tbody');o.filas.forEach((f,i)=>{const row=document.createElement('tr');row.appendChild(h('td',null,f));o.cols.forEach((c,j)=>{const v=o.giro[i][j];const td=h('td','cell',loc(v,0)+' %');const a=Math.round(8+v*0.85);td.style.background=`color-mix(in oklab, var(--s1) ${a}%, var(--surface))`;td.style.color=a>52?'var(--on-fill)':'var(--ink)';td.tabIndex=0;bindHover(td,ev=>showTip(ev,'Interés abierto: '+f.toLowerCase()+' · perfora '+c,[{cls:'s1',v:loc(v,1)+' %',n:'giro · '+o.n[i][j]+' casos'}]));row.appendChild(td);});tb.appendChild(row);});t.appendChild(tb);
+ document.getElementById('oi-umbral').textContent='“Cae mucho” es el cuartil inferior: el interés abierto cae más de un '+loc(-o.umbral['1h'],1)+' % en la vela de 1 hora, más de un '+loc(-o.umbral['4h'],1)+' % en la de 4 horas y más de un '+loc(-o.umbral['1d'],1)+' % en la diaria.';})();
+
+// estrategias
+(function(){const host=document.getElementById('ch-estr');const nm={'1h':'1 hora','4h':'4 horas','1d':'Diario','15m':'15 minutos (Bitcoin)'};
+ function draw(tf){const E=D.estrategias[tf];document.getElementById('estr-title').textContent='Resultado por operación en '+nm[tf]+', en R y después de comisiones';
+  const items=Object.keys(E).map(k=>{const s=E[k];const se=s.z?Math.abs(s.R/s.z):null;return {label:k,v:s.R,se:se,txt:sg(s.R,2)+' R',tip:[{v:sg(s.R,2)+' R',n:'por operación'},{v:loc(s.n,0),n:'operaciones'},{v:s.z==null?'—':sg(s.z,1),n:'estadístico z'}]};});
+  hbars(host,items,{min:-0.6,max:0.4,zero:0,ticks:[-0.6,-0.4,-0.2,0,0.2,0.4],tf:t=>sg(t,1)+' R'});}
+ seg(document.getElementById('seg-estr'),[{v:'15m',l:'15 min'},{v:'1h',l:'1 hora'},{v:'4h',l:'4 horas'},{v:'1d',l:'Diario'}],'4h',draw);draw('4h');})();
+
+// mitades
+(function(){const host=document.getElementById('ch-mitades');const M=D.mitades_smc,Rr=D.mitades_rup;const items=[];
+ [['barrido','SMC tras barrido'],['ml_cerca','SMC tras mínimo más alto'],['doble','SMC tras suelo igual']].forEach(([k,l])=>{items.push({label:l+' · 1ª mitad',v:M[k]['1a'],txt:sg(M[k]['1a'],2)+' R',cls:'bg-s1'});items.push({label:l+' · 2ª mitad',v:M[k]['2a'],txt:sg(M[k]['2a'],2)+' R',cls:'bg-s2'});});
+ [['4h','Ruptura de máximo en 4 h'],['1d','Ruptura de máximo en diario']].forEach(([k,l])=>{items.push({label:l+' · 1ª mitad',v:Rr[k]['1a'],txt:sg(Rr[k]['1a'],2)+' R',cls:'bg-s1'});items.push({label:l+' · 2ª mitad',v:Rr[k]['2a'],txt:sg(Rr[k]['2a'],2)+' R',cls:'bg-s2'});});
+ hbars(host,items,{min:-0.3,max:0.3,zero:0,ticks:[-0.3,-0.2,-0.1,0,0.1,0.2,0.3],tf:t=>sg(t,1)+' R'});})();
+
+// comisiones
+(function(){const C=D.comisiones_smc;const nm={'15m':'15 min (BTC)','1h':'1 hora','4h':'4 horas','1d':'Diario'};const rows=['15m','1h','4h','1d'].map(tf=>({hl:tf==='4h',c:[nm[tf],nf(C[tf].barrido.riesgo,2)+' %',chip(C[tf].barrido.bruto),chip(C[tf].barrido.maker),chip(C[tf].barrido.taker)]}));
+ table(document.getElementById('tbl-com'),['Entrada SMC tras barrido','Stop típico','Sin comisión','Con órdenes límite (0,02 %)','A mercado (0,05 %)'],rows);})();
+
+// 20x
+(function(){const rows=ACT.map(a=>({c:[NOM[a],...['1h','4h','1d'].map(tf=>{const r=D.por_activo[a][tf].riesgo_smc;const m=r*20;const s=nf(r,2)+' % → '+(m>=90?'liquidación':nf(m,0)+' % del margen');return s;})]}));
+ table(document.getElementById('tbl-20x'),['Activo','1 hora','4 horas','Diario'],rows);})();
+
+// ---------- pestañas por activo ----------
+(function(){const tabs=document.getElementById('tabs');const panels=[...document.querySelectorAll('.panel')];
+ function sel(a){[...tabs.children].forEach(b=>b.setAttribute('aria-selected',b.dataset.a===a?'true':'false'));panels.forEach(p=>p.hidden=p.dataset.asset!==a);try{localStorage.setItem('liq_tab',a);}catch(e){}}
+ ACT.forEach(a=>{const b=h('button',null,NOM[a]);b.type='button';b.setAttribute('role','tab');b.dataset.a=a;b.addEventListener('click',()=>sel(a));tabs.appendChild(b);});
+ panels.forEach(p=>{const a=p.dataset.asset;const host=p.querySelector('.asset-tables');
+  host.appendChild(h('h3',null,'Tramo tras el giro, por caso'));const sg1=h('div','seg');sg1.setAttribute('role','group');host.appendChild(sg1);const tw=h('div','tbl-wrap');host.appendChild(tw);
+  function draw(tf){const t=D.tramos[a][tf];const rows=ORD.filter(c=>t[c]).map(c=>({hl:c==='barrido'||c==='ml_extremo',c:[CAT[c],loc(t[c].n,0),nf(t[c].tramo_pct,1)+' %',dur(t[c].tramo_h),nf(t[c].tend_pct,1)+' %',dur(t[c].tend_h),nf(t[c].rompe,0)+' %',sg(t[c].ventaja,1)+' pts']}));
+   table(tw,['Caso','Casos','Tramo','Dura','Tendencia completa','Dura','Llega al otro extremo','Ventaja sobre el azar'],rows);}
+  seg(sg1,[{v:'1h',l:'1 hora'},{v:'4h',l:'4 horas'},{v:'1d',l:'Diario'}],'4h',draw);draw('4h');
+  host.appendChild(h('p','small muted','“Tendencia completa” va desde el mínimo hasta el máximo más alto antes del primer mínimo más bajo. La ventaja sobre el azar es en puntos de acierto con entrada al confirmarse el giro, stop bajo el mínimo y objetivo en el otro extremo.'));
+  host.appendChild(h('h3',null,'Resultado por operación (R, después de comisiones)'));const tw2=h('div','tbl-wrap');host.appendChild(tw2);const P=D.por_activo[a];
+  const est=[['Comprar el barrido al cierre de la vela','confirmar'],['SMC tras barrido → liquidez opuesta','smc_barrido'],['SMC tras mínimo más alto → liquidez opuesta','smc_ml'],['SMC tras suelo igual → liquidez opuesta','smc_doble'],['Ruptura de máximo → largo (2R)','rup_max_largo'],['Ruptura de mínimo → corto (2R)','rup_min_corto']];
+  table(tw2,['Estrategia','1 hora','4 horas','Diario'],est.map(([l,k])=>({c:[l,...['1h','4h','1d'].map(tf=>{const s=P[tf][k];const w=h('span');w.appendChild(chip(s.R));const n=h('span','small muted',' '+loc(s.n,0));w.appendChild(n);return w;})]})));
+  host.appendChild(h('p','small muted','El número pequeño es la cantidad de operaciones. Por debajo de 150 operaciones, el resultado es poco fiable.'));
+  host.appendChild(h('h3',null,'Con apalancamiento 20x'));const tw3=h('div','tbl-wrap');host.appendChild(tw3);
+  table(tw3,['','1 hora','4 horas','Diario'],[
+   {c:['Stop típico (entrada SMC)',...['1h','4h','1d'].map(tf=>nf(P[tf].riesgo_smc,2)+' %')]},
+   {c:['Margen perdido si salta el stop',...['1h','4h','1d'].map(tf=>{const m=P[tf].riesgo_smc*20;return m>=90?'liquidación':nf(m,0)+' %';})]},
+   {c:['Ruptura de máximo: resultado medio sobre el margen',...['1h','4h','1d'].map(tf=>sg(P[tf].m20_rup_max,1)+' %')]},
+   {c:['Ruptura de máximo: operaciones liquidadas',...['1h','4h','1d'].map(tf=>nf(P[tf].liq_rup_max,1)+' %')]}]);
+ });
+ let start='BTC';try{const s=localStorage.getItem('liq_tab');if(s&&ACT.includes(s))start=s;}catch(e){}sel(start);
+ tabs.addEventListener('keydown',e=>{const i=ACT.indexOf([...tabs.children].find(b=>b.getAttribute('aria-selected')==='true').dataset.a);if(e.key==='ArrowRight'){sel(ACT[(i+1)%ACT.length]);tabs.children[(i+1)%ACT.length].focus();}if(e.key==='ArrowLeft'){const j=(i+ACT.length-1)%ACT.length;sel(ACT[j]);tabs.children[j].focus();}});})();
+})();
+</script>
