@@ -1,0 +1,406 @@
+{
+ "fecha": "2026-10-02",
+ "avisos": [],
+ "activos": {
+  "BTC": {
+   "nombre": "Bitcoin",
+   "fecha_precio": "2026-10-01",
+   "precio": 84880.05,
+   "media200": 71357.46145,
+   "dist_media200_pct": 18.95048993506481,
+   "extension_z": 0.5516941841861326,
+   "rsi_diario": 64.8212325504413,
+   "rsi_semanal": 61.620013877608535,
+   "caida_desde_max_historico_pct": -31.909959798983678,
+   "caida_desde_max_52s_pct": -31.909959798983678,
+   "liquidez": 28.57142857142857,
+   "puntuacion": 54,
+   "puntuacion_hace_4_semanas": 54,
+   "puntuacion_fiable": true,
+   "datos_caducados": [],
+   "ingredientes": [
+    {
+     "nombre": "Liquidez (7 luces)",
+     "puntos": 0.9,
+     "max": 3.0
+    },
+    {
+     "nombre": "Reloj del halving (fase del ciclo)",
+     "puntos": 1.5,
+     "max": 3.0
+    },
+    {
+     "nombre": "Regla de venta apagada (tendencia + liquidez)",
+     "puntos": 2.0,
+     "max": 2.0
+    },
+    {
+     "nombre": "Sin sobrecalentamiento (extensión por debajo de 1,2)",
+     "puntos": 1.0,
+     "max": 1.0
+    },
+    {
+     "nombre": "Zona de valor (cerca de la media de 200 semanas)",
+     "puntos": 0.0,
+     "max": 1.0
+    }
+   ],
+   "meses_desde_halving": 29.4,
+   "media200semanas": 65836.5562,
+   "regla_sin_reloj_tendencia_liquidez": 1.0,
+   "invertido_objetivo": 1.0,
+   "zona": "normal",
+   "accion": "Compras periódicas de siempre. La venta por tramos salta si la puntuación baja a 25 o menos.",
+   "compra": {
+    "Zona de valor (precio hasta un 10 % sobre la media de 200 semanas)": {
+     "activa": false
+    },
+    "RSI semanal por debajo de 35": {
+     "activa": false
+    },
+    "Liquidez favorable (67 o más) con precio sobre la media de 200 días": {
+     "activa": false
+    }
+   },
+   "compra_activas": [],
+   "compra_viejas": []
+  },
+  "sp500": {
+   "nombre": "S&P 500",
+   "fecha_precio": "2026-10-02",
+   "precio": 7722.72,
+   "media200": 7225.8176,
+   "dist_media200_pct": 6.876763675850328,
+   "extension_z": 0.5634171735354213,
+   "rsi_diario": 54.829334918349424,
+   "rsi_semanal": 63.8423848705292,
+   "caida_desde_max_historico_pct": -0.9779471444379295,
+   "caida_desde_max_52s_pct": -0.9779471444379295,
+   "liquidez": 33.33333333333333,
+   "puntuacion": 50,
+   "puntuacion_hace_4_semanas": 50,
+   "puntuacion_fiable": true,
+   "datos_caducados": [],
+   "ingredientes": [
+    {
+     "nombre": "Liquidez (6 luces)",
+     "puntos": 1.0,
+     "max": 3.0
+    },
+    {
+     "nombre": "Tendencia (precio sobre su media de 200)",
+     "puntos": 2.0,
+     "max": 2.0
+    },
+    {
+     "nombre": "Sin recesión con tendencia rota",
+     "puntos": 2.0,
+     "max": 2.0
+    },
+    {
+     "nombre": "Miedo aprovechable (VIX 30+, volatilidad extrema o RSI semanal bajo 35)",
+     "puntos": 0.0,
+     "max": 3.0
+    }
+   ],
+   "paro_sobre_minimo_pct": 0.5025125628140614,
+   "invertido_objetivo": 1.0,
+   "zona": "normal",
+   "accion": "Compras periódicas de siempre. No se vende por puntuación en este activo.",
+   "compra": {
+    "VIX en 40 o más (pánico)": {
+     "activa": false
+    },
+    "Volatilidad extrema (percentil 95 o más de su historia)": {
+     "activa": false
+    },
+    "RSI diario por debajo de 25": {
+     "activa": false
+    },
+    "Miedo en bolsa (índice de CNN en 25 o menos)": {
+     "activa": false
+    }
+   },
+   "compra_activas": [],
+   "compra_viejas": []
+  },
+  "nasdaq100": {
+   "nombre": "Nasdaq 100",
+   "fecha_precio": "2026-10-02",
+   "precio": 30807.93,
+   "media200": 27478.512158000005,
+   "dist_media200_pct": 12.11644146835904,
+   "extension_z": 0.6313314154949665,
+   "rsi_diario": 65.29967498163384,
+   "rsi_semanal": 63.705194701826855,
+   "caida_desde_max_historico_pct": 0.0,
+   "caida_desde_max_52s_pct": 0.0,
+   "liquidez": 33.33333333333333,
+   "puntuacion": 40,
+   "puntuacion_hace_4_semanas": 55,
+   "puntuacion_fiable": true,
+   "datos_caducados": [],
+   "ingredientes": [
+    {
+     "nombre": "Dólar bajando (13 semanas)",
+     "puntos": 0.0,
+     "max": 1.5
+    },
+    {
+     "nombre": "Bono a 10 años bajando (13 semanas)",
+     "puntos": 0.0,
+     "max": 1.5
+    },
+    {
+     "nombre": "Dólar sin dispararse (no sube más del 3 %)",
+     "puntos": 1.0,
+     "max": 1.0
+    },
+    {
+     "nombre": "Miedo aprovechable (VIX 30+ o RSI bajo)",
+     "puntos": 0.0,
+     "max": 3.0
+    },
+    {
+     "nombre": "Sin sobrecalentamiento (extensión por debajo de 1,2)",
+     "puntos": 1.0,
+     "max": 1.0
+    },
+    {
+     "nombre": "Sin recesión con tendencia rota",
+     "puntos": 2.0,
+     "max": 2.0
+    }
+   ],
+   "paro_sobre_minimo_pct": 0.5025125628140614,
+   "invertido_objetivo": 1.0,
+   "zona": "normal",
+   "accion": "Compras periódicas de siempre. No se vende por puntuación en este activo.",
+   "compra": {
+    "VIX en 40 o más (pánico)": {
+     "activa": false
+    },
+    "Volatilidad extrema (percentil 95 o más de su historia)": {
+     "activa": false
+    },
+    "RSI diario por debajo de 25": {
+     "activa": false
+    },
+    "Miedo en bolsa (índice de CNN en 25 o menos)": {
+     "activa": false
+    },
+    "Caída del 10 % o más desde el máximo de 52 semanas": {
+     "activa": false
+    }
+   },
+   "compra_activas": [],
+   "compra_viejas": []
+  },
+  "oro": {
+   "nombre": "Oro",
+   "fecha_precio": "2026-10-02",
+   "precio": 4166.3,
+   "media200": 4554.348,
+   "dist_media200_pct": -8.52038535483015,
+   "extension_z": -0.38029597671404175,
+   "rsi_diario": 34.47315183762056,
+   "rsi_semanal": 47.09642018101461,
+   "caida_desde_max_historico_pct": -22.195039964144314,
+   "caida_desde_max_52s_pct": -22.195039964144314,
+   "liquidez": 33.33333333333333,
+   "puntuacion": 30,
+   "puntuacion_hace_4_semanas": 40,
+   "puntuacion_fiable": true,
+   "datos_caducados": [],
+   "ingredientes": [
+    {
+     "nombre": "Tendencia (precio sobre su media de 200)",
+     "puntos": 0.0,
+     "max": 3.0
+    },
+    {
+     "nombre": "Media de 200 subiendo",
+     "puntos": 2.0,
+     "max": 2.0
+    },
+    {
+     "nombre": "Sin caída del 10 % desde el máximo de 52 semanas",
+     "puntos": 0.0,
+     "max": 2.0
+    },
+    {
+     "nombre": "Dólar bajando (13 semanas)",
+     "puntos": 0.0,
+     "max": 1.0
+    },
+    {
+     "nombre": "Sin subida parabólica (extensión por debajo de 1,7)",
+     "puntos": 1.0,
+     "max": 1.0
+    },
+    {
+     "nombre": "Volatilidad extrema (suele preceder a subidas)",
+     "puntos": 0.0,
+     "max": 1.0
+    }
+   ],
+   "aviso_parabolico": false,
+   "nivel_parabolico": 6781.320990830557,
+   "invertido_objetivo": 1.0,
+   "zona": "sin extra",
+   "accion": "Compras periódicas de siempre, sin dinero extra. No se vende por puntuación en este activo.",
+   "compra": {
+    "Tipos reales bajando 0,5 puntos o más en 13 semanas": {
+     "activa": false
+    },
+    "Volatilidad extrema (percentil 95 o más de su historia)": {
+     "activa": false
+    }
+   },
+   "compra_activas": [],
+   "compra_viejas": []
+  },
+  "plata": {
+   "nombre": "Plata",
+   "fecha_precio": "2026-10-02",
+   "precio": 61.17672082552907,
+   "media200": 72.96288444193681,
+   "dist_media200_pct": -16.153642645237063,
+   "extension_z": -0.3523887429853499,
+   "rsi_diario": 38.68013262552798,
+   "rsi_semanal": 47.5737103477837,
+   "caida_desde_max_historico_pct": -47.034976428929674,
+   "caida_desde_max_52s_pct": -47.034976428929674,
+   "liquidez": 33.33333333333333,
+   "puntuacion": 30,
+   "puntuacion_hace_4_semanas": 30,
+   "puntuacion_fiable": true,
+   "datos_caducados": [],
+   "ingredientes": [
+    {
+     "nombre": "Tendencia (precio sobre su media de 200)",
+     "puntos": 0.0,
+     "max": 2.0
+    },
+    {
+     "nombre": "Media de 200 subiendo",
+     "puntos": 1.0,
+     "max": 1.0
+    },
+    {
+     "nombre": "Oro en tendencia alcista",
+     "puntos": 0.0,
+     "max": 2.0
+    },
+    {
+     "nombre": "Sin caída del 10 % desde el máximo de 52 semanas",
+     "puntos": 0.0,
+     "max": 2.0
+    },
+    {
+     "nombre": "Sin subida parabólica (extensión por debajo de 1,7)",
+     "puntos": 2.0,
+     "max": 2.0
+    },
+    {
+     "nombre": "Plata no cara frente al oro (ratio oro/plata fuera de su 20 % más bajo)",
+     "puntos": 0.0,
+     "max": 1.0
+    }
+   ],
+   "aviso_parabolico": false,
+   "nivel_parabolico": 170.69895803811764,
+   "invertido_objetivo": 1.0,
+   "zona": "sin extra",
+   "accion": "Compras periódicas de siempre, sin dinero extra. No se vende por puntuación en este activo.",
+   "compra": {
+    "Tipos reales bajando 0,5 puntos o más en 13 semanas": {
+     "activa": false
+    },
+    "Volatilidad extrema (percentil 95 o más de su historia)": {
+     "activa": false
+    }
+   },
+   "compra_activas": [],
+   "compra_viejas": []
+  }
+ },
+ "liquidez": {
+  "dolar": {
+   "nombre": "Dólar (índice DXY, cambio en 13 semanas, %; verde si baja)",
+   "valor": 1.16,
+   "estado": "roja",
+   "verde": false
+  },
+  "condfin": {
+   "nombre": "Condiciones financieras (índice de la Fed de Chicago, cambio en 13 semanas; verde si baja)",
+   "valor": -0.03,
+   "estado": "verde",
+   "verde": true
+  },
+  "tipos": {
+   "nombre": "Tipo del bono de EE. UU. a 10 años (cambio en 13 semanas, puntos; verde si baja)",
+   "valor": 0.8,
+   "estado": "roja",
+   "verde": false
+  },
+  "credito": {
+   "nombre": "Prima de riesgo del crédito de empresas (cambio en 13 semanas, puntos; verde si baja)",
+   "valor": -0.07,
+   "estado": "verde",
+   "verde": true
+  },
+  "bancos_c": {
+   "nombre": "Balance de los bancos centrales: Fed + BCE + Banco de Japón, en dólares (cambio en 13 semanas, %; verde si sube)",
+   "valor": -1.62,
+   "estado": "roja",
+   "verde": false
+  },
+  "liq_neta": {
+   "nombre": "Liquidez neta de la Fed: balance menos cuenta del Tesoro menos repos inversos (cambio en 13 semanas, %; verde si sube)",
+   "valor": -1.06,
+   "estado": "roja",
+   "verde": false
+  },
+  "estables": {
+   "nombre": "Monedas estables en circulación (cambio en 13 semanas, %; verde si crece más del 2 %)",
+   "valor": 0.91,
+   "estado": "roja",
+   "verde": false
+  }
+ },
+ "liquidez_fiable": true,
+ "metales": {
+  "ratio": 68.10270220075937,
+  "fecha": "2026-10-02",
+  "semana_cerrada": "2026-10-02",
+  "ratio_semana": 68.10270220075937,
+  "media_5a": 80.5754309160328,
+  "z": -1.3147519700817973,
+  "z_semana": -1.3147519700817973,
+  "plata_cara_1": 66.50790656061852,
+  "plata_cara_2": 62.3873911315109,
+  "plata_barata_1": 97.61846978880453,
+  "plata_barata_2": 104.06590097057551,
+  "plata_tramos_en_oro": 2,
+  "oro_tramos_en_plata": 0,
+  "plata_desde": [
+   "2025-12-12",
+   "2025-12-19"
+  ],
+  "oro_desde": [
+   null,
+   null
+  ],
+  "plata_ratio_entrada": [
+   69.80340929249923,
+   65.00763087317935
+  ],
+  "oro_ratio_entrada": [
+   null,
+   null
+  ],
+  "estado": "plata cara frente al oro",
+  "accion": "PLATA CARA FRENTE AL ORO: 2 de 2 medios tramos de la regla están cambiados a oro (desde 2025-12-12). Vuelta a plata cuando el ratio cierre una semana en 80.6 o más (ese nivel se mueve un poco cada semana)."
+ }
+}
