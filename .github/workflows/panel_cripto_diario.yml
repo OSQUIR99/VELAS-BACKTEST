@@ -1,0 +1,43 @@
+name: Panel cripto · histórico diario
+
+on:
+  schedule:
+    - cron: '20 0 * * *'     # 00:20 UTC (02:20 en España en verano, 01:20 en invierno), tras el cierre diario
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: panel-diario
+  cancel-in-progress: false
+
+jobs:
+  panel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            PANEL_CRIPTO
+          sparse-checkout-cone-mode: true      # solo baja la carpeta del panel, no los 1,7 GB de velas
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Dependencias
+        run: pip install numpy pandas requests
+      - name: Ejecutar el panel
+        run: |
+          cd PANEL_CRIPTO/panel
+          DIA=$(date -u -d 'yesterday' +%F)
+          python panel_cripto_publico.py --json ../historial/json/${DIA}.json | tee ../historial/ultimo_resumen.txt
+          python aplanar.py ../historial/json/${DIA}.json ../historial/panel_diario.csv
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "panel-bot"
+          git config user.email "panel-bot@users.noreply.github.com"
+          git add PANEL_CRIPTO/historial
+          git diff --cached --quiet || git commit -m "PANEL_CRIPTO: cierre $(date -u -d 'yesterday' +%F)"
+          git pull --rebase --quiet || true
+          git push

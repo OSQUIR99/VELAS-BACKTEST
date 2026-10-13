@@ -18,6 +18,7 @@ ALTCOINS_SECUNDARIAS/                 el resto de monedas, tal como estaban (has
   CONTADO/<moneda>/<tf>.parquet          38 monedas
   PERPETUOS/<moneda>/15m.parquet         14 perpetuos y su financiación
 ACUMULACION/, RENTA_FIJA/, RADAR_BTC/, LIQUIDEZ/   datos y código de las herramientas
+PANEL_CRIPTO/                        panel cripto con fuentes públicas: script y su histórico diario (lo guarda GitHub Actions cada día a las 00:20 UTC)
 INDICE.csv                            qué hay, cuántas velas, desde y hasta cuándo, y de dónde sale
 cargar.py                             carga cualquier archivo con una línea
 ```
