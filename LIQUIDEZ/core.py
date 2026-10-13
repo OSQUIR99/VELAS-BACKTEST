@@ -6,12 +6,12 @@ from numba import njit
 import os
 BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..') + os.sep  # carpeta VELAS PARA BACKTEST
 ACTIVOS = {
-    'BTC':       ('CRIPTO/BTC', None),
-    'sp500':     ('TRADICIONAL/sp500', '1965-01-01'),
-    'nasdaq100': ('TRADICIONAL/nasdaq100', '1990-01-01'),
-    'oro':       ('TRADICIONAL/oro', '1975-01-01'),
-    'plata':     ('TRADICIONAL/plata', '2009-09-01'),
-    'brent':     ('TRADICIONAL/petroleo_brent', '1990-01-01'),
+    'BTC':       ('CARPETA_DE_BACKTEST/CRIPTO/BTC', None),
+    'sp500':     ('CARPETA_DE_BACKTEST/TRADICIONAL/sp500', '1965-01-01'),
+    'nasdaq100': ('CARPETA_DE_BACKTEST/TRADICIONAL/nasdaq100', '1990-01-01'),
+    'oro':       ('CARPETA_DE_BACKTEST/TRADICIONAL/oro', '1975-01-01'),
+    'plata':     ('CARPETA_DE_BACKTEST/TRADICIONAL/plata', '2009-09-01'),
+    'brent':     ('CARPETA_DE_BACKTEST/TRADICIONAL/petroleo_brent', '1990-01-01'),
 }
 NOMBRE = {'BTC': 'Bitcoin', 'sp500': 'S&P 500', 'nasdaq100': 'Nasdaq 100',
           'oro': 'Oro', 'plata': 'Plata', 'brent': 'Petróleo Brent'}

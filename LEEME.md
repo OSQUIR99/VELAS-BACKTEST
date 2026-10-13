@@ -1,3 +1,5 @@
+> **Aviso (13-oct-2026):** la carpeta se reorganizó. Las rutas de abajo son las antiguas. Ahora las velas están en `CARPETA_DE_BACKTEST/` y `ALTCOINS_SECUNDARIAS/`. Mira `README.md`.
+
 # Velas para backtest
 
 Copia fija del archivo de precios, tomada el 30 de septiembre de 2026. Los datos llegan

@@ -2,7 +2,7 @@ import pandas as pd, numpy as np
 from core import *
 pd.set_option('display.width',250)
 oi=pd.read_parquet('oi_btc.parquet').set_index('fecha')
-fu=pd.read_parquet(BASE+'CRIPTO_PERPETUOS/BTC/financiacion.parquet'); fu['fecha']=fu.fecha.dt.floor('min'); fu=fu.set_index('fecha').tasa
+fu=pd.read_parquet(BASE+'CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS/BTC/financiacion.parquet'); fu['fecha']=fu.fecha.dt.floor('min'); fu=fu.set_index('fecha').tasa
 ev=pd.read_parquet('ev2.parquet')
 rows=[]
 for tf,hrs in [('1h',1),('4h',4),('1d',24)]:
