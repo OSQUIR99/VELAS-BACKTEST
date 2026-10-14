@@ -238,7 +238,21 @@ def b_financiacion(ref):
     except Exception as e:
         out['HYPE'] = dict(error=str(e)[:120])
     OUT['financiacion'] = dict(umbral_pct_8h='0,02 % (0,03 % en ETH)', por_activo=out,
-                               lectura='media del día ≥ 0,02 % cada 8 h (0,03 % en ETH): bandera de riesgo; en altcoins, un día de −10 % en la semana pasa del 18 % al 57 %')
+                               lectura='media del día ≥ 0,02 % cada 8 h (0,03 % en ETH): bandera de riesgo; en altcoins, un día de −10 % en la semana pasa del 18 % al 57 %. '
+                                       'Umbrales válidos para Binance y OKX. Hyperliquid paga unas 3 veces más: allí el equivalente es 0,05 % en BTC, 0,06 % en ETH y SOL y 0,02 % en HYPE (en SOL y HYPE: 37 % frente a 14 %).')
+
+@bloque('Reloj de volatilidad: apertura de Nueva York')
+def b_reloj(ref):
+    from zoneinfo import ZoneInfo
+    ny = ZoneInfo('America/New_York'); d = NOW.astimezone(ny).date()
+    while True:
+        t = datetime(d.year, d.month, d.day, 9, 30, tzinfo=ny).astimezone(timezone.utc)
+        if d.weekday() < 5 and t > NOW: break
+        d += timedelta(days=1)
+    OUT['reloj'] = dict(proxima_apertura_nueva_york_utc=t.strftime('%Y-%m-%d %H:%M'),
+                        lectura='de 9:30 a 11:00 de Nueva York es la franja en la que BTC más se mueve (la 1.ª de 48 medias horas en 2023-26; '
+                                'el rango de 9:30-9:45 mide un 0,6 % de mediana). No da dirección: el RRA de Álvaro pierde de -0,11 a -0,27 R por operación. '
+                                'Sirve para no abrir justo antes ni poner stops ajustados en esa franja. No descuenta festivos de la bolsa.')
 
 @bloque('DVOL y riesgo de día extremo')
 def b_riesgo(ref):
@@ -285,7 +299,8 @@ def b_ciclo(ref):
     z = (mcap - rcap) / mcap.expanding(min_periods=365).std()
     d = cm.index[-1]
     OUT['ciclo'] = dict(fecha=str(d.date()), precio_entre_media_200_semanas=round(float(p200w.iloc[-1]), 3),
-                        percentil_4_anos=round(float(pct.iloc[-1]), 1), mvrv_z=round(float(z.iloc[-1]), 3),
+                        percentil_4_anos=round(float(pct.iloc[-1]), 1), mvrv_z=round(float(z.dropna().iloc[-1]), 3),
+                        fecha_mvrv=str(z.dropna().index[-1].date()),   # CoinMetrics publica el MVRV uno o dos días más tarde que el precio
                         lectura='contexto de meses: < 1,25 veces la media de 200 semanas y MVRV-Z < 1 = barato; > 2 y MVRV-Z 2-3 = caro (este ciclo)')
 
 @bloque('ETF')
@@ -396,6 +411,8 @@ def resumen():
     for k in ['BTC caja 4h (WS-02)', 'BTC caja 1d (MV-10)', 'ETH caja 4h (WS-02)', 'HYPE caja 1d (WS-02)']:
         v = fz.get(k)
         if isinstance(v, dict): L.append(f"{k}: posición {v['posicion']:.2f} → rompe primero arriba {v['P_rompe_arriba'] * 100:.0f} %")
+    rl = o.get('reloj')
+    if rl: L.append(f"Próxima apertura de Nueva York: {rl['proxima_apertura_nueva_york_utc']} UTC (franja de más volatilidad, sin dirección)")
     if o['errores']: L.append(f"Errores: {o['errores']}")
     return '\n'.join(L)
 
@@ -408,7 +425,7 @@ if __name__ == '__main__':
     ref = b_velas()
     if ref is None:
         print('No se pudieron bajar las velas de BTC:', OUT['errores']); sys.exit(1)
-    b_tendencia(); b_prima(ref); b_oi(ref); b_financiacion(ref); b_riesgo(ref); b_niveles(); b_ciclo(ref); b_etf(); b_contexto(ref); b_alts(); b_fases()
+    b_tendencia(); b_prima(ref); b_oi(ref); b_financiacion(ref); b_riesgo(ref); b_niveles(); b_ciclo(ref); b_etf(); b_contexto(ref); b_alts(); b_fases(); b_reloj(ref)
     print(resumen())
     if args.json:
         json.dump(OUT, open(args.json, 'w'), ensure_ascii=False, indent=1, default=lambda x: x.item() if hasattr(x, 'item') else str(x))

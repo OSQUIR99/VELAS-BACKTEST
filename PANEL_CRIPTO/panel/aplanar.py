@@ -22,7 +22,7 @@ def fila(j):
             if isinstance(val, (int, float, bool, str)) or val is None: f[f'riesgo_{s}_{k}'] = val
     for k, v in (j.get('niveles_BTC') or {}).items():
         if not isinstance(v, (dict, list)): f[f'niveles_BTC_{k}'] = v
-    for k in ['precio_entre_media_200_semanas', 'percentil_4_anos', 'mvrv_z']: f[f'ciclo_{k}'] = g(j, 'ciclo', k)
+    for k in ['precio_entre_media_200_semanas', 'percentil_4_anos', 'mvrv_z', 'fecha_mvrv']: f[f'ciclo_{k}'] = g(j, 'ciclo', k)
     for k in ['semana_hasta', 'flujo_semana_M', 'semana_anterior_M', 'p90_52s_M', 'p10_52s_M', 'dos_semanas_de_salidas', 'salida_fuerte']: f[f'etf_{k}'] = g(j, 'etf', k)
     for k in ['stablecoins_30d_pct', 'miedo_y_codicia']: f[f'contexto_{k}'] = g(j, 'contexto', k)
     for s, v in (g(j, 'altcoins', 'por_moneda') or {}).items(): f[f'alt_{s}_permitida'] = v.get('permitida')

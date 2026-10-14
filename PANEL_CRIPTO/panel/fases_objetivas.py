@@ -43,16 +43,27 @@ CALIBRACION_ALTS = {('WS02', '4h'): (0.033, 1.354), ('MV10', '1d'): (0.222, 1.41
                     ('MV10', '4h'): (-0.020, 1.402), ('ASM10', '4h'): (0.001, 0.928)}
 # Retroceso de Elliott medido: cuantiles de r = tramo 2 / tramo 1 (en logaritmos), 4h (en 1d casi igual)
 RETROCESO_CUANTILES = {10: 0.46, 25: 0.64, 50: 0.93, 75: 1.48, 90: 2.34}
-# Calidad de la ruptura (4h, 2023-26, BTC, ETH y 10 altcoins; 1.521 entradas en D). Se mira al entrar en D+ / D-.
-#   «tras su propio Spring/UTAD»: el rango tuvo antes un Spring (si D+) o un UTAD (si D-).
-#   «tendencia a favor»: cierre por encima de su SMA200 de 4h si D+ (por debajo si D-).
+# Calidad de la ruptura v2 (14-oct, t8_wyckoff W1d). Se fija al entrar en D+ / D-. Prioridad: tipo de entrada > trampa propia > tendencia > volumen.
+#   «sin ruptura de precio»: la máquina entró en D por SOS/SOW o por dos mínimos crecientes / máximos decrecientes tras su Spring/UTAD,
+#       sin cierre fuera de la caja (el precio sigue dentro): leer como «sigue en la caja con sesgo», no como ruptura.
+#   «tras su propio Spring/UTAD»: ruptura de precio en un rango que tuvo antes un Spring (si D+) o un UTAD (si D-).
+#   «tendencia a favor»: cierre por encima de su SMA200 de 4h si D+ (por debajo si D-); en 1d, la SMA50 diaria.
 #   «volumen ≥ 1,5»: la vela de ruptura (la que cerró fuera por primera vez) movió 1,5 veces o más la media de sus 90 velas anteriores.
-#   aguanta = llega a E; objetivo = toca borde ± 1 altura de la caja antes de volver a la mitad (7 días); mitad = vuelve antes a la mitad.
+#   aguanta = llega a E; objetivo = toca borde ± 1 altura antes de volver a la mitad (7 días en 4h, 20 días en 1d); mitad = vuelve antes a la mitad.
+# 4h: BTC, ETH y 10 altcoins, 2023-26 (sin HYPE; en HYPE coincide con 68 entradas). Hasta 2022, dentro de ±5 puntos.
 CALIDAD_RUPTURA_4H = {
-    'tendencia a favor y volumen ≥ 1,5': dict(n=436, aguanta=84.4, objetivo_1_altura=48.4, vuelve_a_la_mitad=21.8),
-    'tendencia a favor y volumen < 1,5': dict(n=329, aguanta=72.9, objetivo_1_altura=36.5, vuelve_a_la_mitad=24.0),
-    'tendencia en contra': dict(n=116, aguanta=69.8, objetivo_1_altura=34.5, vuelve_a_la_mitad=43.1),
-    'tras su propio Spring/UTAD': dict(n=640, aguanta=45.0, objetivo_1_altura=23.0, vuelve_a_la_mitad=58.9),
+    'entró en D sin ruptura de precio': dict(n=310, aguanta=11.9, objetivo_1_altura=4.8, vuelve_a_la_mitad=91.3),
+    'ruptura de precio tras su propio Spring/UTAD': dict(n=298, aguanta=79.5, objetivo_1_altura=43.3, vuelve_a_la_mitad=23.8),
+    'tendencia en contra': dict(n=108, aguanta=71.3, objetivo_1_altura=33.3, vuelve_a_la_mitad=42.6),
+    'tendencia a favor y volumen ≥ 1,5': dict(n=422, aguanta=84.1, objetivo_1_altura=48.6, vuelve_a_la_mitad=21.8),
+    'tendencia a favor y volumen < 1,5': dict(n=315, aguanta=73.0, objetivo_1_altura=36.5, vuelve_a_la_mitad=24.1),
+}
+# 1d: universo amplio de altcoins (71 monedas, incluidas deslistadas), 2023-26. En BTC+ETH 1d solo hay 43 casos: se usa esta con nota.
+CALIDAD_RUPTURA_1D = {
+    'entró en D sin ruptura de precio': dict(n=267, aguanta=10.5, objetivo_1_altura=4.5, vuelve_a_la_mitad=88.0),
+    'ruptura de precio tras su propio Spring/UTAD': dict(n=242, aguanta=81.4, objetivo_1_altura=35.1, vuelve_a_la_mitad=8.3),
+    'tendencia a favor y volumen ≥ 1,5': dict(n=329, aguanta=83.6, objetivo_1_altura=42.6, vuelve_a_la_mitad=14.3),
+    'tendencia a favor y volumen < 1,5': dict(n=445, aguanta=78.9, objetivo_1_altura=18.2, vuelve_a_la_mitad=14.6),
 }
 # Fibonacci como regla de medir: P(el tramo en curso llega a r) con r = tramo en curso / tramo anterior (log), rejilla 0,10-3,00 cada 0,05.
 # Sale de los tramos confirmados del zigzag 2017-26. Las series sustitutas (azar con la misma volatilidad) dan casi lo mismo:
@@ -278,20 +289,26 @@ def estado_wyckoff(df, tf='4h'):
     out['P_salida_final_alcista'] = SALIDA_FINAL_ALCISTA.get(tf, {}).get(st)
     if st in ('D+', 'D-'):
         out['objetivo_1_altura'] = round(T + W, 6) if st == 'D+' else round(S - W, 6)
-        if tf == '4h':
+        if tf in ('4h', '1d'):
             sg = 1 if st == 'D+' else -1
+            por_ruptura = hist[-1][3].startswith('ruptura')
             propia = (st == 'D+' and 'C+' in previos) or (st == 'D-' and 'C-' in previos)
             t_d = int(idx.get_loc(pd.Timestamp(hist[-1][0])))
-            cc = df['close']; sma = cc.rolling(200).mean().values
+            cc = df['close']; sma = cc.rolling(200 if tf == '4h' else 50).mean().values
             tend = bool(np.sign(cc.values[t_d] - sma[t_d]) == sg) if not np.isnan(sma[t_d]) else None
-            tb = t_d - 5 if hist[-1][3].startswith('ruptura') else t_d
+            tb = t_d - 5 if por_ruptura else t_d
             vv = df['volume'].values; vm = pd.Series(vv).rolling(90, min_periods=60).mean().shift(1).values
             vr = float(vv[tb] / vm[tb]) if vm[tb] > 0 else np.nan
-            if propia: celda = 'tras su propio Spring/UTAD'
+            if not por_ruptura: celda = 'entró en D sin ruptura de precio'
+            elif propia: celda = 'ruptura de precio tras su propio Spring/UTAD'
             elif tend is False: celda = 'tendencia en contra'
             else: celda = 'tendencia a favor y volumen ≥ 1,5' if vr >= 1.5 else 'tendencia a favor y volumen < 1,5'
+            tabla = CALIDAD_RUPTURA_4H if tf == '4h' else CALIDAD_RUPTURA_1D
+            fila = tabla.get(celda)
             out['calidad_ruptura'] = dict(celda=celda, tendencia_a_favor=tend, volumen_vela_ruptura=round(vr, 2) if vr == vr else None,
-                                          vela_ruptura=str(idx[tb]), **CALIDAD_RUPTURA_4H[celda])
+                                          vela_ruptura=str(idx[tb]), **(fila or dict(nota='celda sin muestra en 1d')))
+            if tf == '1d': out['calidad_ruptura']['nota_tabla'] = 'tabla medida en 71 altcoins; en BTC y ETH diario solo hay 43 casos'
+            if not por_ruptura: out['calidad_ruptura']['lectura'] = 'no es una ruptura: el precio sigue dentro de la caja; el 90 % vuelve a la mitad'
     if tf == '4h':
         out['P_siguiente_estado'] = TRANSICION_4H.get(st)
         if st == 'B':
