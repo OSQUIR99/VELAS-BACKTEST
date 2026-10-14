@@ -308,7 +308,7 @@ def estado_wyckoff(df, tf='4h'):
             out['calidad_ruptura'] = dict(celda=celda, tendencia_a_favor=tend, volumen_vela_ruptura=round(vr, 2) if vr == vr else None,
                                           vela_ruptura=str(idx[tb]), **(fila or dict(nota='celda sin muestra en 1d')))
             if tf == '1d': out['calidad_ruptura']['nota_tabla'] = 'tabla medida en 71 altcoins; en BTC y ETH diario solo hay 43 casos'
-            if not por_ruptura: out['calidad_ruptura']['lectura'] = 'no es una ruptura: el precio sigue dentro de la caja; el 90 % vuelve a la mitad'
+            if not por_ruptura: out['calidad_ruptura']['lectura'] = 'no es una ruptura: el precio sigue en el centro de la caja (por eso casi siempre toca la mitad). Operar en contra tampoco funciona: -0,21 R por operación en 2023-26'
     if tf == '4h':
         out['P_siguiente_estado'] = TRANSICION_4H.get(st)
         if st == 'B':
