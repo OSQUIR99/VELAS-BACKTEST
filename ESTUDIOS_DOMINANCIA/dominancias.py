@@ -219,7 +219,10 @@ def main():
             ac = [e for e in acercamientos(dd, zonas, 'resistencia') if e[0] >= DESDE and e[3] is not None]
             fila['al_llegar_a_resistencia'] = {'casos': len(ac),
                                                'la_rompe_en_20d_%': round(np.mean([e[3] for e in ac]) * 100) if ac else None}
-            activo = [e for e in ev if (dd.index[-1] - e[0]).days <= H_SESGO]
+            hoy_d = pd.Timestamp(dt.datetime.now(dt.timezone.utc).date())
+            # vivo: menos de 28 días desde la rotura (contados hasta hoy) y sin un cierre más de un 2 % bajo la zona rota
+            activo = [e for e in ev if (hoy_d - e[0]).days <= H_SESGO
+                      and not (dd.cierre[dd.index > e[0]] < e[1] * (1 - 2 * TOL)).any()]
             fila['sesgo_activo'] = ({'desde': str(activo[-1][0].date()), 'nivel_roto': activo[-1][1],
                                      'invalida_si_cierra_bajo': activo[-1][1] * (1 - 2 * TOL),
                                      'hasta': str((activo[-1][0] + pd.Timedelta(days=H_SESGO)).date()),
