@@ -1,0 +1,41 @@
+name: Libro de órdenes · registro horario
+
+on:
+  schedule:
+    - cron: '7 * * * *'      # cada hora a y 7 (GitHub puede retrasarlo; la hora real queda en cada registro)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: libro-horario
+  cancel-in-progress: false
+
+jobs:
+  libro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Programa (rama main, solo la carpeta del libro)
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            PANEL_CRIPTO/libro
+          path: codigo
+      - name: Datos (rama registro-libro)
+        uses: actions/checkout@v4
+        with:
+          ref: registro-libro
+          path: datos
+      - name: Registrar libro y liquidaciones
+        run: python3 codigo/PANEL_CRIPTO/libro/registrar_libro.py datos
+      - name: Guardar
+        run: |
+          cd datos
+          git config user.name "panel-bot"
+          git config user.email "panel-bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -q -m "Libro $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase -q origin registro-libro || true
+          git push -q origin HEAD:registro-libro
