@@ -31,6 +31,7 @@ Igual que siempre: `velas('BTC', '5m')` ya trae lo nuevo. Para repetir un backte
 - **Corregido:** `INDICE.csv` decía «Binance futuros» en el 15m de 10 altcoins secundarias (ALGO, AVAX, BCH, ENA, ETC, ICP,
   LTC, NEAR, SUI, THETA) que en realidad son de **contado**; la actualización usa el contado (`mercado` en `estado.json`).
 - **No se actualizan:** TON al contado (retirado de Binance en junio) y KGEN (sin datos que cuadren).
+- **Financiación del perpetuo de TON:** Binance no publica su archivo mensual desde julio; sus velas sí se actualizan.
 - Una moneda que pase más de 30 días sin datos se deja de pedir y se avisa en `ultimo_informe.json`.
 
 Código: `actualizar.py` (y `tv.py`, la conexión a TradingView). Primera vez con el repositorio entero: `--iniciar`.

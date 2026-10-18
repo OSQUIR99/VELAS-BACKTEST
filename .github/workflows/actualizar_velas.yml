@@ -36,4 +36,5 @@ jobs:
           git add ACTUALIZACION INDICE.csv
           git diff --cached --quiet && exit 0
           git commit -q -m "Velas: actualización del $(date -u +%F)"
-          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 10; done
+          for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 10; done
+          echo 'No se pudo subir'; exit 1

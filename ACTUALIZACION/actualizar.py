@@ -266,7 +266,7 @@ def cerradas(df, tf, parado=False):
     ultima = df.fecha.iloc[-1]
     fin = ultima + pd.Timedelta(seconds=DUR[tf])
     if fin <= AHORA: return df
-    if parado and tf != '1w': return df
+    if parado and tf == '1d': return df          # las intradía solo cuando ha pasado su duración (o hay otra posterior)
     if parado and tf == '1w' and AHORA.weekday() >= 5: return df
     return df.iloc[:-1]
 
