@@ -10741,9 +10741,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-18 16:25:00",
+"hasta": "2026-10-18 16:30:00",
 "muerta": false,
-"nuevas": 1480
+"nuevas": 1481
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_btc|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -10831,9 +10831,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-18 16:25:00",
+"hasta": "2026-10-18 16:30:00",
 "muerta": false,
-"nuevas": 1480
+"nuevas": 1481
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_eth|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -10921,9 +10921,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-18 16:25:00",
+"hasta": "2026-10-18 16:30:00",
 "muerta": false,
-"nuevas": 1480
+"nuevas": 1481
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_usdt|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -11011,9 +11011,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-18 16:25:00",
+"hasta": "2026-10-18 16:30:00",
 "muerta": false,
-"nuevas": 1480
+"nuevas": 1481
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|others_fuera_top10|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -11101,9 +11101,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-18 16:25:00",
+"hasta": "2026-10-18 16:30:00",
 "muerta": false,
-"nuevas": 1480
+"nuevas": 1481
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|total3_sin_btc_eth|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -11191,9 +11191,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-18 16:25:00",
+"hasta": "2026-10-18 16:30:00",
 "muerta": false,
-"nuevas": 1480
+"nuevas": 1481
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|bono_10a|15m": {
 "base_hasta": "2026-10-13 12:45:00",
