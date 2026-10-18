@@ -1,3 +1,5 @@
+> **Desde el 18-oct-2026 las velas se actualizan solas cada día** (todas las series y temporalidades). Mira `ACTUALIZACION/LEEME.md`. `velas(..., actualizado=False)` da la copia fija original.
+
 # VELAS-BACKTEST
 
 Archivo de velas de Óscar para hacer backtests **sin depender de que el Mac esté encendido**.

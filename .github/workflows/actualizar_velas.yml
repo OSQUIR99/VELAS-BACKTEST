@@ -1,0 +1,39 @@
+name: Velas · actualización diaria (todas las series y temporalidades)
+
+on:
+  schedule:
+    - cron: '30 3 * * *'     # 03:30 UTC (05:30 en España en verano, 04:30 en invierno): Binance ya ha publicado el día anterior
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualizar-velas
+  cancel-in-progress: false
+
+jobs:
+  velas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            ACTUALIZACION
+          sparse-checkout-cone-mode: true      # solo la carpeta de actualización (y los archivos de la raíz), no los 1,7 GB de velas
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Dependencias
+        run: pip install pandas pyarrow websocket-client
+      - name: Actualizar velas
+        run: python ACTUALIZACION/actualizar.py --hilos 12
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "panel-bot"
+          git config user.email "panel-bot@users.noreply.github.com"
+          git add ACTUALIZACION INDICE.csv
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Velas: actualización del $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 10; done
