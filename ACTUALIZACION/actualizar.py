@@ -236,9 +236,25 @@ def hyperliquid(tf, desde):
                          'minimo': df.l.astype(float), 'cierre': df.c.astype(float), 'volumen': df.v.astype(float)})
 
 
+import threading
+_TV_LOCK = threading.Lock()
+
+
 def tradingview(simbolo, tf, ajuste, desde):
+    """De una en una y con pausa: TradingView corta (error 429) si se le piden muchas a la vez."""
     from tv import velas_tv
-    n = 5000 if tf in ('5m', '15m', '1h', '4h') else int(min(5000, max(30, (AHORA - desde).days * 1.2 + 20)))
+    with _TV_LOCK:
+        for espera in (0, 15, 45, 120):
+            time.sleep(espera or 0.7)
+            try:
+                return _tradingview(velas_tv, simbolo, tf, ajuste, desde)
+            except Exception as ex:
+                if '429' not in str(ex) or espera == 120: raise
+
+
+def _tradingview(velas_tv, simbolo, tf, ajuste, desde):
+    # solo lo que falta (con margen): pedir 5000 velas cada día gasta y hace que TradingView corte antes
+    n = int(min(5000, max(30, (AHORA - desde).total_seconds() / DUR[tf] * 1.3 + 30)))
     return velas_tv(simbolo, tf, n=n, ajuste=ajuste)
 
 
@@ -400,7 +416,9 @@ def main():
     from tv import velas_tv
     for sim in {s['simbolo'] for s in series if s.get('tipo') == 'tv'} - set(parado):
         try:
-            x = velas_tv(sim, '5m', 3)
+            with _TV_LOCK:
+                time.sleep(0.7)
+                x = velas_tv(sim, '5m', 3)
             parado[sim] = (AHORA - (x.fecha.max() + pd.Timedelta(minutes=5))) > pd.Timedelta(minutes=45)
         except Exception:
             pass
