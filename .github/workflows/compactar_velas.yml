@@ -1,0 +1,38 @@
+name: Velas · juntar los diarios por semestre
+
+on:
+  schedule:
+    - cron: '0 5 2 1,7 *'    # 2 de enero y 2 de julio, 05:00 UTC (después de la actualización diaria de las 03:30)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualizar-velas     # la misma que la actualización diaria: nunca a la vez
+  cancel-in-progress: false
+
+jobs:
+  compactar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            ACTUALIZACION
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas pyarrow
+      - run: python ACTUALIZACION/compactar.py
+      - name: Guardar
+        run: |
+          git config user.name "panel-bot"
+          git config user.email "panel-bot@users.noreply.github.com"
+          git add -A ACTUALIZACION/velas
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Velas: diarios juntados por semestre ($(date -u +%F))"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 10; done
+          echo 'No se pudo subir'; exit 1

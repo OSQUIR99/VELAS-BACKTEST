@@ -16,6 +16,10 @@ Igual que siempre: `velas('BTC', '5m')` ya trae lo nuevo. Para repetir un backte
 - `estado.json`: hasta dónde está guardada cada serie. `ultimo_informe.json`: lo que hizo la última ejecución.
 - `INDICE.csv` se actualiza con la nueva fecha final y el número de velas.
 
+## Cada 6 meses
+El 2 de enero y el 2 de julio, `compactar.py` (workflow `compactar_velas.yml`) junta los diarios del semestre terminado en un
+solo archivo por activo (`<AAAA>-S1.parquet` o `-S2`). No cambia los datos (probado: mismas filas); solo hace que cargar sea más rápido.
+
 ## Fuentes (las mismas que el original)
 - **Binance** (contado y perpetuos): archivo oficial diario `data.binance.vision`. Si aún no está publicado, el contado
   usa la API pública `data-api.binance.vision`; los perpetuos esperan al día siguiente (sin huecos: nunca se salta un día).
