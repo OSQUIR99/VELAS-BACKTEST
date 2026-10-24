@@ -1,19 +1,19 @@
-Panel cripto · cierre diario 2026-10-22 (UTC) · generado 2026-10-23 05:01
-BTC 81,416 · permiso de régimen: sí · diario lateral · 4h lateral · 1h bajista
-Prima de Coinbase (7 d): -0.0057 % → sin +1
-Exceso de OI: +1.2 puntos → sin alarma (OKX (aproximación; Binance falló: 404 Client Error: Not Found for url: https://data.binance.vi))
-Financiación alta (≥ 0,02 %/8 h; ETH ≥ 0,03 %): ninguna · BTC 0.0044 · ETH 0.005
-BTC: DVOL 37.99 · día de ±5 % en 7 d: 27.4 % · día de ±10 %: 7.4 % (racha: False, día de 5 %: False)
-ETH: DVOL 52.24 · día de ±5 % en 7 d: 69.8 % · día de ±10 %: 17.2 % (racha: False, día de 5 %: False)
-ETF semana hasta 2026-10-16: -229 M$ (p10/p90 de 52 semanas: -1,254 / +918) · 2 semanas de salidas: True
-Ciclo: precio/media 200 semanas 1.214 (percentil 36.4) · MVRV-Z 0.982
+Panel cripto · cierre diario 2026-10-23 (UTC) · generado 2026-10-24 04:46
+BTC 81,189 · permiso de régimen: no · diario lateral · 4h lateral · 1h bajista
+Prima de Coinbase (7 d): -0.0065 % → sin +1
+Exceso de OI: +4.0 puntos → sin alarma (OKX (aproximación; Binance falló: 404 Client Error: Not Found for url: https://data.binance.vi))
+Financiación alta (≥ 0,02 %/8 h; ETH ≥ 0,03 %): ninguna · BTC 0.007 · ETH 0.0061
+BTC: DVOL 37.35 · día de ±5 % en 7 d: 27.4 % · día de ±10 %: 7.4 % (racha: False, día de 5 %: False)
+ETH: DVOL 51.98 · día de ±5 % en 7 d: 69.8 % · día de ±10 %: 17.2 % (racha: False, día de 5 %: False)
+ETF semana hasta 2026-10-23: +1,078 M$ (p10/p90 de 52 semanas: -1,253 / +918) · 2 semanas de salidas: False
+Ciclo: precio/media 200 semanas 1.208 (percentil 35.7) · MVRV-Z 0.872
 Altcoins permitidas: ninguna
 BTC 4h: estado B en la caja 80,126.04-87,395.67 · P(salida final alcista) 53.6 % · casos parecidos {'B tercio inferior': 38.0, 'B tercio inferior con caja de 90 velas o más': 35.0}
-ETH 4h: estado C+ en la caja 2,409.09-2,579.88 · P(salida final alcista) 31.7 % · casos parecidos None
-BTC Elliott 4h: tramo desde 84,898.00 (baja), lleva 0.77 del anterior · 0.786 en 80,864.58: 98.2 % · 1.0 en 79,800.00: 71.5 % · 1.272 en 78,467.09: 52.4 % · 1.618 en 76,803.68: 31.9 %
-ETH Elliott 4h: tramo desde 2,526.62 (baja), lleva 0.84 del anterior · 1.0 en 2,329.00: 78.1 % · 1.272 en 2,277.97: 57.2 % · 1.618 en 2,214.68: 34.8 % · 2.0 en 2,146.84: 23.7 %
-BTC caja 4h (WS-02): posición 0.25 → rompe primero arriba 24 %
-BTC caja 1d (MV-10): posición 0.17 → rompe primero arriba 29 %
-HYPE caja 1d (WS-02): posición 0.11 → rompe primero arriba 16 %
-Próxima apertura de Nueva York: 2026-10-23 13:30 UTC (franja de más volatilidad, sin dirección)
-Guardado en ../historial/json/2026-10-22.json
+ETH 4h: estado B en la caja 2,409.09-2,579.88 · P(salida final alcista) 53.6 % · casos parecidos {'B tercio inferior': 38.0}
+BTC Elliott 4h: tramo desde 84,898.00 (baja), lleva 0.86 del anterior · 1.0 en 79,800.00: 80.6 % · 1.272 en 78,467.09: 59.1 % · 1.618 en 76,803.68: 35.9 % · 2.0 en 75,008.13: 24.5 %
+ETH Elliott 4h: tramo desde 2,526.62 (baja), lleva 0.88 del anterior · 1.0 en 2,329.00: 84.0 % · 1.272 en 2,277.97: 61.5 % · 1.618 en 2,214.68: 37.4 % · 2.0 en 2,146.84: 25.5 %
+BTC caja 4h (WS-02): posición 0.13 → rompe primero arriba 10 %
+BTC caja 1d (MV-10): posición 0.14 → rompe primero arriba 24 %
+HYPE caja 1d (WS-02): posición 0.10 → rompe primero arriba 14 %
+Próxima apertura de Nueva York: 2026-10-26 13:30 UTC (franja de más volatilidad, sin dirección)
+Guardado en ../historial/json/2026-10-23.json
