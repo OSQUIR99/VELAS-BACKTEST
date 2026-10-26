@@ -8,11 +8,12 @@
     df = velas('shy', '1d', ajustado=True)    # fondos cotizados: precio con dividendos reinvertidos
     df = velas('dominancia_btc', '4h')
     df = velas('AVAX', '1h')                  # también busca en ALTCOINS_SECUNDARIAS
+    df = velas('HST', '1d')                   # acciones de la lista de seguimiento (símbolo de Yahoo: RACE.MI, RAND.AS...)
     f  = financiacion('SOL')
 
 Dónde busca, por este orden:
     CARPETA_DE_BACKTEST/CRIPTO, TRADICIONAL, INDICES_CRIPTO
-    ALTCOINS_SECUNDARIAS/CONTADO
+    ALTCOINS_SECUNDARIAS/CONTADO, CARPETA_DE_BACKTEST/ACCIONES (solo 1d)
     (perpetuo=True) CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS y ALTCOINS_SECUNDARIAS/PERPETUOS
 
 Temporalidades: 5m, 15m, 1h, 4h, 1d, 1w. Desde el 18-oct-2026 se actualizan solas cada día (ACTUALIZACION/);
@@ -24,7 +25,8 @@ import pandas as pd
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CONTADO = ['CARPETA_DE_BACKTEST/CRIPTO', 'CARPETA_DE_BACKTEST/TRADICIONAL',
-           'CARPETA_DE_BACKTEST/INDICES_CRIPTO', 'ALTCOINS_SECUNDARIAS/CONTADO']
+           'CARPETA_DE_BACKTEST/INDICES_CRIPTO', 'ALTCOINS_SECUNDARIAS/CONTADO',
+           'CARPETA_DE_BACKTEST/ACCIONES']
 PERPETUOS = ['CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS', 'ALTCOINS_SECUNDARIAS/PERPETUOS']
 
 
