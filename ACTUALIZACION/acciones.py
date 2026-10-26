@@ -30,7 +30,7 @@ def yahoo(simbolo, desde=None):
     else:
         p.update(period1=str(int((desde - pd.Timedelta(days=7)).timestamp())), period2=str(int(time.time()) + 86400))
     ultimo = None
-    for intento, espera in enumerate((0, 10, 30, 60, 120)):
+    for intento, espera in enumerate((0, 5, 20, 45)):
         time.sleep(espera + random.uniform(0.3, 0.8))
         host = ('query1', 'query2')[intento % 2]
         url = f'https://{host}.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(simbolo)}?' + urllib.parse.urlencode(p)
@@ -69,10 +69,19 @@ def lista():
     return pd.read_csv(LISTA).yahoo.dropna().astype(str).tolist()
 
 
+PRESUPUESTO_S = 30 * 60   # como mucho 30 min por ejecución; lo que falte se hace mañana (se guarda lo hecho)
+
+
 def actualizar_acciones(est, solo=None):
-    informe = {'acciones_ok': 0, 'acciones_nuevas': 0, 'velas': 0, 'fallos': []}
-    for sim in lista():
+    informe = {'acciones_ok': 0, 'acciones_nuevas': 0, 'velas': 0, 'fallos': [], 'pendientes': 0}
+    t0, seguidos = time.time(), 0
+    for i, sim in enumerate(lista()):
         if solo and sim not in solo: continue
+        if time.time() - t0 > PRESUPUESTO_S or seguidos >= 8:   # 8 fallos seguidos = Yahoo nos está cortando: parar
+            informe['pendientes'] += 1; continue
+        if i % 25 == 0:
+            print(f'{i} {sim} {time.time() - t0:.0f}s ok={informe["acciones_ok"]} fallos={len(informe["fallos"])}', flush=True)
+            A.guardar_estado(est)
         clave = f'{CARPETA}|{sim}|1d'
         e = est.get(clave)
         try:
@@ -92,8 +101,10 @@ def actualizar_acciones(est, solo=None):
                     A.escribir(CARPETA, sim, {'1d': n[COLS]})
                     e['hasta'] = str(n.fecha.max()); e['nuevas'] = e.get('nuevas', 0) + len(n)
                     informe['velas'] += len(n)
-            informe['acciones_ok'] += 1
+            informe['acciones_ok'] += 1; seguidos = 0
         except Exception as ex:
+            seguidos += 1
+            print('FALLO', sim, ex, flush=True)
             informe['fallos'].append(f'{sim}: {ex.__class__.__name__}: {str(ex)[:120]}')
     indice(est)
     return informe
