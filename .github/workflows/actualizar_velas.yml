@@ -30,7 +30,7 @@ jobs:
         run: pip install pandas pyarrow websocket-client
       - name: Actualizar velas
         run: python ACTUALIZACION/actualizar.py --hilos 12
-      - name: Acciones de la lista de seguimiento (Yahoo, diario)
+      - name: Acciones de la lista de seguimiento (TradingView, diario)
         continue-on-error: true
         timeout-minutes: 40
         run: python -u ACTUALIZACION/acciones.py

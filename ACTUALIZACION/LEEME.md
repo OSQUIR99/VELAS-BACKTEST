@@ -41,11 +41,11 @@ solo archivo por activo (`<AAAA>-S1.parquet` o `-S2`). No cambia los datos (prob
 ## Acciones de la lista de seguimiento (desde el 26-oct-2026)
 - `acciones_lista.csv`: las acciones (EE. UU. y Europa) con su símbolo de Yahoo (RACE.MI, RAND.AS, SAP.DE, SAN.MC...) y el de TradingView.
   Para añadir o quitar una, edita ese archivo.
-- `acciones.py` (paso propio del workflow, después de `actualizar.py`): velas **diarias** desde Yahoo Finance.
+- `acciones.py` (paso propio del workflow, después de `actualizar.py`): velas **diarias** desde TradingView con `tv.py` (mismo método que TRADICIONAL), con el símbolo de TradingView de la lista; la carpeta usa el nombre de Yahoo.
   La primera vez baja toda la historia a `CARPETA_DE_BACKTEST/ACCIONES/<simbolo>/1d.parquet`; después solo lo nuevo,
   en `ACTUALIZACION/velas/CARPETA_DE_BACKTEST/ACCIONES/<simbolo>/...` como el resto.
 - Columnas como TRADICIONAL (`fecha` = apertura de la sesión en UTC, apertura, maximo, minimo, cierre, volumen). Ajustadas por splits, no por dividendos.
-- De una en una, con pausa y reintentos (Yahoo corta con 429); si una falla, sigue con las demás y lo dice en el registro de la Acción.
+- De una en una, con pausa y reintentos (TradingView corta con 429); si una falla, sigue con las demás y lo dice en el registro de la Acción.
 - Se leen con `velas('HST', '1d')`, `velas('RACE.MI', '1d')`.
 
 Código: `actualizar.py` (y `tv.py`, la conexión a TradingView). Primera vez con el repositorio entero: `--iniciar`.
