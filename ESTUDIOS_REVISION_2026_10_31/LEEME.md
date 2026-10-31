@@ -29,3 +29,8 @@ Informes en el proyecto «1. GESTIÓN INTEGRAL CARTERA»:
 - **Liquidez:** nada fiable. Lo que pasa son mejoras de centésimas o efectos del freno.
 - **Largo semanal de BTC con la línea:** no pasa.
 - **Connors (réplica) en lugar de la E1:** 5,81 / 5,53 / 6,72. Encima de la E1: 5,83 / 5,38 / 6,53. No pasa. Hay que repetirlo con la lista oficial `yt_connors_qqq` cuando esté en `MOTOR/`.
+
+## Nota sobre las rutas
+- Los guiones llevan rutas de la sesión en la que se hicieron (`/home/claude/...`).
+- Para repetirlos, cambia esas rutas por las de tu copia del repositorio.
+- `mstr/datos.py` descarga los precios y guarda `datos.pkl`, que usan los demás.

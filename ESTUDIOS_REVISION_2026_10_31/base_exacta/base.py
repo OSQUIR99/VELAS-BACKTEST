@@ -1,6 +1,6 @@
 import sys; sys.path.insert(0,'/home/claude/velas-backtest/ESTUDIOS_CAIDAS_2026_10')
 import numpy as np, pandas as pd
-import comun; comun.LISTAS_GH='/home/claude/exacta/listas_gh'
+import comun; pass  # comun.py ya excluye petroleo_con_s1 (antes: carpeta local sin esa lista)
 from comun import Cartera
 C=Cartera(extra=('/home/claude/velas-backtest/MOTOR/listas_reconstruidas','/home/claude/liq31/listas_nuevas','/home/claude/exacta/listas_extra'))
 C.usar_base_31oct=True
