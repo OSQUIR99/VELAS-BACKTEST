@@ -28,7 +28,12 @@ Informes en el proyecto «1. GESTIÓN INTEGRAL CARTERA»:
 - **E1e:** descartada.
 - **Liquidez:** nada fiable. Lo que pasa son mejoras de centésimas o efectos del freno.
 - **Largo semanal de BTC con la línea:** no pasa.
-- **Connors (réplica) en lugar de la E1:** 5,81 / 5,53 / 6,72. Encima de la E1: 5,83 / 5,38 / 6,53. No pasa. Hay que repetirlo con la lista oficial `yt_connors_qqq` cuando esté en `MOTOR/`.
+- **Connors con la lista oficial `yt_connors_qqq`** (ya en `MOTOR/listas_reconstruidas/`; guiones `oficial_test*.py`):
+  - en lugar de la E1: 6,07 / 5,76 / 6,44;
+  - encima (sitio de N1): 5,94 / 5,63 / 6,32. **No pasa.**
+  - Con T1/T2 en la base (5,66 / 5,05 / 6,74): +N1 5,43 / 4,85 / 6,85; +Connors 5,86 / 5,22 / 6,61. Connors no pasa ni frente a la base ni frente a N1 (2022-26 baja).
+  - **Con la carga vieja se reproduce exacto el «pasa» anterior** (6,04 / 5,67 / 6,75 → 6,19 / 6,06 / 6,84). Aquel resultado venía del fallo de carga.
+- Réplica propia de Connors (`connors*.py`): da lo mismo, no pasa.
 
 ## Nota sobre las rutas
 - Los guiones llevan rutas de la sesión en la que se hicieron (`/home/claude/...`).
