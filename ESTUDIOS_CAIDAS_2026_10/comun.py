@@ -26,10 +26,17 @@ FL = dict(freno=(4, 0.5), freno_modo='latente', prioridad='descorr')
 IDX = ['SPX', 'DJI', 'NDX']
 
 
+# 31-oct-2026: `petroleo_con_s1` comparte los `id` con `petroleo` y el motor guarda el latente diario por `id`:
+# si se cargan las dos, el petróleo de la base no se valora día a día (base 5,76 en vez de 6,14). Se excluye.
+EXCLUIR = {'petroleo_con_s1', 'petroleo_con_s1_diario'}
+
+
 def mezclar(*carpetas):
     tmp = tempfile.mkdtemp(prefix='caidas_')
     for car in carpetas:
         for p in glob.glob(os.path.join(car, '*.parquet')):
+            if os.path.basename(p)[:-8] in EXCLUIR:
+                continue
             dst = os.path.join(tmp, os.path.basename(p))
             if not os.path.exists(dst):
                 os.symlink(os.path.abspath(p), dst)
