@@ -1,6 +1,6 @@
 {
- "hora": "2026-11-01 10:42:59.039667",
- "nuevas": 23357,
+ "hora": "2026-11-02 11:32:33.883087",
+ "nuevas": 28952,
  "avisos": [
   "ALTCOINS_SECUNDARIAS/PERPETUOS|ALGO|15m: sin datos de 2026-10-28 en Binance",
   "ALTCOINS_SECUNDARIAS/PERPETUOS|ARPA|15m: sin datos de 2026-10-28 en Binance",
@@ -83,5 +83,5 @@
   "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ZEC|5m: sin datos de 2026-10-28 en Binance"
  ],
  "errores": [],
- "archivos_dia": 63
+ "archivos_dia": 954
 }
