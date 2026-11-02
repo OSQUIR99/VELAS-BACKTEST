@@ -28,7 +28,23 @@ Pedido por Óscar (2-nov, 20:21): «usa la información disponible para mejorar 
 - **No vender el tercio con la nota de puntos máxima (2) sube el total y 2022-26** sin subir la caída. Afecta a 42 operaciones y suma +55,9 R.
 - **2018-21 queda en empate:** 5,727 → 5,731 (+0,004). Técnicamente pasa el criterio, pero es ruido.
 
-## 3. Robustez de «puntos 2»
+
+## 2 bis. Con el tamaño del petróleo K8 (aplicado hoy por otra conversación)
+Mismo cálculo fiel, ahora con K8 en el resto de la cartera:
+
+| Lista cripto | Ratio todo / 2018-21 / 2022-26 | R/año | Caída | 2024-26 | Freno 3 R | Freno 5 R |
+|---|---|---|---|---|---|---|
+| Sin regla de tercio | 6,67 / 6,26 / 7,57 | 62,1 | −9,3 | 11,35 | — | — |
+| Volatilidad ≤ 10 % (fiel) | 6,82 / 6,30 / 7,82 | 63,5 | −9,3 | 11,75 | no pasa | pasa |
+| **Puntos 2** | **7,28 / 6,55 / 8,23** | **65,6** | **−9,0** | **12,58** | pasa | pasa |
+| Volatilidad o puntos 2 | 7,33 / 6,59 / 8,30 | 66,1 | −9,0 | 12,67 | no pasa | pasa |
+
+- **Con K8, puntos 2 mejora los tres tramos con claridad**, también 2018-21 (6,26 → 6,55). La peor caída baja de −9,3 a −9,0 R.
+- **Frente a la regla de volatilidad (fiel), también pasa** en los tres tramos. Remuestreo 0,89.
+- **La regla de volatilidad aporta poco con K8** y no aguanta el freno de 3 R. Juntar las dos tampoco aguanta ese freno.
+- **Ojo:** la base oficial con K8 que se cita (6,92 / 6,30 / 8,41) lleva la lista hecha con la fórmula, que infla 2022-26. La cifra fiel equivalente es **6,82 / 6,30 / 7,82**.
+
+## 3. Robustez de «puntos 2» (sin K8)
 - **Freno 3 R:** 5,85 / 5,40 / 7,37 → 6,28 / 5,62 / 8,07 (pasa). **Freno 5 R:** 4,93 / 4,54 / 6,87 → 5,05 / 4,62 / 7,56 (pasa, pero la caída sube de 12,3 a 13,2).
 - **Remuestreo mensual:** 0,92.
 - **Placebo** (20 sorteos marcando al azar el mismo 14 % de operaciones): media 6,20 / 5,67 / 7,05, máximo 6,44 / 6,07 / 7,34. **Ningún sorteo llega a 6,61 en total ni a 7,71 en 2022-26.** En 2018-21 varios sorteos sí superan.
