@@ -1,0 +1,121 @@
+base,regla,r,r1821,r2226,Ra,Ra1821,Ra2226,caida,media5,pasa,boot,Ra_misma_caida
+a · con S1 (listas originales),BASE,6.626,6.246,7.274,62.93,59.327,65.719,9.498,9.091,,,
+a · con S1 (listas originales),"P1 petróleo largo × 0,5 si el dólar sube +2 % en 20 sesiones",6.519,6.207,6.862,63.254,58.95,66.578,9.703,9.196,False,0.31,61.919
+a · con S1 (listas originales),P2 petróleo largo NO entrar si el dólar sube +2 %,5.123,5.97,5.488,62.472,56.7,66.917,12.194,9.785,False,0.172,48.659
+a · con S1 (listas originales),"P3 petróleo largo × 0,5 con la línea de liquidez < 33",6.275,6.343,6.52,63.442,60.248,65.919,10.11,9.216,False,0.6,59.601
+a · con S1 (listas originales),P4 petróleo largo NO entrar con la línea < 33,5.685,6.383,5.913,63.936,60.628,66.499,11.247,9.443,False,0.632,53.993
+a · con S1 (listas originales),"P5 petróleo largo × 0,5 si el bono a 10 años sube +0,30 en 20 días",6.651,6.251,6.987,63.166,59.366,66.105,9.498,9.086,False,0.65,63.166
+a · con S1 (listas originales),"E1a E1 × 0,5 con la línea con impulso < 50",6.456,6.398,6.63,62.938,60.771,64.629,9.749,9.283,False,0.426,61.319
+a · con S1 (listas originales),E1b E1 NO entrar con la línea con impulso < 50,5.932,6.514,6.047,63.431,61.87,64.659,10.693,9.473,False,0.442,56.342
+a · con S1 (listas originales),E1c E1 del mismo día repartidas (1 R entre todas),6.64,6.36,6.868,63.203,60.407,65.375,9.518,9.203,False,0.436,63.066
+a · con S1 (listas originales),E1d E1 del mismo día × 1/raíz(n),6.612,6.36,6.945,62.8,60.404,64.666,9.498,9.158,False,0.434,62.8
+a · con S1 (listas originales),E1e E1 una sola abierta a la vez (de los 3 índices),6.45,6.353,6.684,63.299,60.339,65.596,9.813,9.385,False,0.354,61.264
+a · con S1 (listas originales),K1 tope por bloque 6 R (en vez de 10),6.282,5.465,7.263,59.665,51.904,65.628,9.498,9.091,False,0.094,59.665
+a · con S1 (listas originales),K2 tope por bloque 4 R,6.445,5.749,7.006,57.124,50.954,61.871,8.863,8.7,False,0.368,61.214
+a · con S1 (listas originales),K3 cripto: máximo 2 entradas en 24 h,6.273,5.549,6.956,57.729,51.07,62.848,9.203,8.839,False,0.098,59.577
+a · con S1 (listas originales),K4 cripto simultáneas × 1/raíz(n),6.362,5.48,7.138,58.552,50.434,64.787,9.203,8.916,False,0.076,60.426
+a · con S1 (listas originales),G cripto: tras +3 R no devolver más del 50 % de lo ganado,6.681,6.246,7.662,63.452,59.327,66.639,9.498,9.014,False,1.0,63.452
+a · con S1 (listas originales),G cripto: tras +5 R no devolver más del 50 % de lo ganado,6.626,6.246,7.274,62.93,59.327,65.719,9.498,9.091,False,0.0,62.93
+a · con S1 (listas originales),G cripto: tras +3 R no devolver más del 33 % de lo ganado,6.471,5.857,7.776,63.62,57.585,68.267,9.831,9.141,False,0.736,61.463
+a · con S1 (listas originales),G cripto: tras +5 R no devolver más del 33 % de lo ganado,6.564,6.103,7.274,62.342,57.969,65.719,9.498,9.091,False,0.046,62.342
+a · con S1 (listas originales),G cripto: vender la mitad al llegar a +3 R,6.147,5.405,7.216,55.463,48.767,60.61,9.022,8.595,False,0.294,58.387
+a · con S1 (listas originales),G cripto: vender la mitad al llegar a +5 R,6.418,5.864,7.195,60.956,55.698,65.008,9.498,9.029,False,0.056,60.956
+a · con S1 (listas originales),G todas: tras +3 R no devolver más del 50 %,6.687,6.246,7.674,63.512,59.327,66.745,9.498,9.014,False,1.0,63.512
+a · con S1 (listas originales),F1 freno a 3 R (en vez de 4),6.448,6.006,6.915,61.012,55.275,65.429,9.461,8.97,False,0.582,61.247
+a · con S1 (listas originales),F2 freno a 6 R,4.629,4.456,7.18,66.015,63.554,67.932,14.262,11.421,False,0.448,43.962
+a · con S1 (listas originales),B21 mitad (vigente desde el 27-oct),6.322,6.157,7.42,59.97,58.405,61.2,9.485,8.702,False,0.582,60.049
+b · sin S1,BASE,6.356,5.952,6.767,61.72,56.534,65.718,9.711,9.226,,,
+b · sin S1,"P1 petróleo largo × 0,5 si el dólar sube +2 % en 20 sesiones",5.255,5.913,5.639,62.045,56.157,66.579,11.808,9.617,False,0.3,51.029
+b · sin S1,P2 petróleo largo NO entrar si el dólar sube +2 %,4.822,5.939,5.175,62.322,56.408,66.875,12.924,9.931,False,0.228,46.829
+b · sin S1,"P3 petróleo largo × 0,5 con la línea de liquidez < 33",5.181,6.024,5.495,62.094,57.214,65.857,11.985,9.591,False,0.572,50.314
+b · sin S1,P4 petróleo largo NO entrar con la línea < 33,5.32,6.338,5.548,63.716,60.194,66.443,11.977,9.589,False,0.662,51.663
+b · sin S1,"P5 petróleo largo × 0,5 si el bono a 10 años sube +0,30 en 20 días",6.178,5.994,6.576,62.126,56.933,66.128,10.056,9.205,False,0.664,59.997
+b · sin S1,"E1a E1 × 0,5 con la línea con impulso < 50",6.595,6.327,6.909,62.788,60.233,64.776,9.52,9.213,False,0.598,64.046
+b · sin S1,E1b E1 NO entrar con la línea con impulso < 50,6.124,6.423,6.28,63.201,61.147,64.806,10.32,9.403,False,0.546,59.471
+b · sin S1,E1c E1 del mismo día repartidas (1 R entre todas),6.642,6.311,7.164,63.084,59.94,65.522,9.498,9.129,False,0.572,64.501
+b · sin S1,E1d E1 del mismo día × 1/raíz(n),6.576,6.256,7.251,62.456,59.416,64.813,9.498,9.084,False,0.57,63.858
+b · sin S1,E1e E1 una sola abierta a la vez (de los 3 índices),6.609,6.227,6.964,62.924,59.28,65.743,9.52,9.315,True,0.442,64.185
+b · sin S1,K1 tope por bloque 6 R (en vez de 10),6.019,5.171,6.758,58.455,49.111,65.627,9.711,9.226,False,0.096,58.455
+b · sin S1,K2 tope por bloque 4 R,5.988,5.434,6.626,55.914,48.16,61.87,9.338,8.808,False,0.364,58.148
+b · sin S1,K3 cripto: máximo 2 entradas en 24 h,5.82,5.246,6.472,56.519,48.277,62.847,9.711,8.974,False,0.094,56.519
+b · sin S1,K4 cripto simultáneas × 1/raíz(n),5.906,5.241,6.643,57.6,48.236,64.786,9.753,9.051,False,0.078,57.354
+b · sin S1,G cripto: tras +3 R no devolver más del 50 % de lo ganado,6.553,5.952,7.38,62.237,56.534,66.63,9.498,9.089,False,0.998,63.635
+b · sin S1,G cripto: tras +5 R no devolver más del 50 % de lo ganado,6.356,5.952,6.767,61.72,56.534,65.718,9.711,9.226,False,0.0,61.72
+b · sin S1,G cripto: tras +3 R no devolver más del 33 % de lo ganado,6.341,5.573,7.406,62.336,54.792,68.135,9.831,9.225,False,0.666,61.574
+b · sin S1,G cripto: tras +5 R no devolver más del 33 % de lo ganado,6.295,5.809,6.767,61.132,55.175,65.718,9.711,9.226,False,0.008,61.132
+b · sin S1,G cripto: vender la mitad al llegar a +3 R,5.676,5.163,6.309,54.495,46.583,60.571,9.601,8.835,False,0.302,55.122
+b · sin S1,G cripto: vender la mitad al llegar a +5 R,6.191,5.66,6.694,60.117,53.762,65.007,9.711,9.165,False,0.112,60.117
+b · sin S1,G todas: tras +3 R no devolver más del 50 %,6.559,5.952,7.391,62.297,56.534,66.736,9.498,9.089,False,1.0,63.696
+b · sin S1,F1 freno a 3 R (en vez de 4),5.612,5.76,6.113,59.97,53.012,65.32,10.686,9.215,False,0.578,54.498
+b · sin S1,F2 freno a 6 R,4.552,4.289,6.347,64.923,61.174,67.824,14.262,11.658,False,0.478,44.206
+b · sin S1,B21 mitad (vigente desde el 27-oct),6.276,6.071,6.932,59.667,57.727,61.184,9.508,8.86,False,0.656,60.943
+c · sin petróleo,BASE,4.498,5.108,4.939,57.772,50.399,63.438,12.845,9.976,,,
+c · sin petróleo,"P1 petróleo largo × 0,5 si el dólar sube +2 % en 20 sesiones",4.498,5.108,4.939,57.772,50.399,63.438,12.845,9.976,False,0.0,57.772
+c · sin petróleo,P2 petróleo largo NO entrar si el dólar sube +2 %,4.498,5.108,4.939,57.772,50.399,63.438,12.845,9.976,False,0.0,57.772
+c · sin petróleo,"P3 petróleo largo × 0,5 con la línea de liquidez < 33",4.498,5.108,4.939,57.772,50.399,63.438,12.845,9.976,False,0.0,57.772
+c · sin petróleo,P4 petróleo largo NO entrar con la línea < 33,4.498,5.108,4.939,57.772,50.399,63.438,12.845,9.976,False,0.0,57.772
+c · sin petróleo,"P5 petróleo largo × 0,5 si el bono a 10 años sube +0,30 en 20 días",4.498,5.108,4.939,57.772,50.399,63.438,12.845,9.976,False,0.0,57.772
+c · sin petróleo,"E1a E1 × 0,5 con la línea con impulso < 50",4.518,5.197,4.904,57.681,51.285,62.599,12.766,9.926,False,0.62,58.035
+c · sin petróleo,E1b E1 NO entrar con la línea con impulso < 50,4.249,5.261,4.569,57.552,51.915,61.892,13.545,10.082,False,0.542,54.576
+c · sin petróleo,E1c E1 del mismo día repartidas (1 R entre todas),4.545,4.915,4.928,57.358,51.071,62.193,12.62,9.995,False,0.508,58.377
+c · sin petróleo,E1d E1 del mismo día × 1/raíz(n),4.365,4.923,4.774,57.188,50.214,62.547,13.103,10.054,False,0.476,56.061
+c · sin petróleo,E1e E1 una sola abierta a la vez (de los 3 índices),4.463,4.933,4.892,56.773,49.68,62.224,12.72,10.067,False,0.522,57.331
+c · sin petróleo,K1 tope por bloque 6 R (en vez de 10),4.248,4.355,4.939,54.559,42.976,63.438,12.845,9.976,False,0.07,54.559
+c · sin petróleo,K2 tope por bloque 4 R,4.354,4.766,4.805,54.367,47.025,60.007,12.487,9.778,False,0.45,55.923
+c · sin petróleo,K3 cripto: máximo 2 entradas en 24 h,4.114,4.182,4.752,52.844,42.154,61.041,12.845,9.845,False,0.034,52.844
+c · sin petróleo,K4 cripto simultáneas × 1/raíz(n),4.332,4.524,5.027,56.568,44.747,65.631,13.057,9.855,False,0.202,55.649
+c · sin petróleo,G cripto: tras +3 R no devolver más del 50 % de lo ganado,4.71,5.108,5.177,57.862,50.399,63.596,12.284,9.864,False,0.678,60.502
+c · sin petróleo,G cripto: tras +5 R no devolver más del 50 % de lo ganado,4.498,5.108,4.939,57.772,50.399,63.438,12.845,9.976,False,0.0,57.772
+c · sin petróleo,G cripto: tras +3 R no devolver más del 33 % de lo ganado,4.711,5.014,5.266,58.46,49.479,65.355,12.41,9.789,False,0.732,60.508
+c · sin petróleo,G cripto: tras +5 R no devolver más del 33 % de lo ganado,4.475,5.039,4.939,57.478,49.72,63.438,12.845,9.976,False,0.146,57.478
+c · sin petróleo,G cripto: vender la mitad al llegar a +3 R,4.313,4.765,4.883,52.522,43.48,59.46,12.177,9.369,False,0.208,55.401
+c · sin petróleo,G cripto: vender la mitad al llegar a +5 R,4.485,4.949,5.043,57.607,48.275,64.769,12.845,9.887,False,0.44,57.607
+c · sin petróleo,G todas: tras +3 R no devolver más del 50 %,4.713,5.108,5.182,57.896,50.399,63.657,12.284,9.864,False,0.724,60.539
+c · sin petróleo,F1 freno a 3 R (en vez de 4),4.341,4.392,4.932,52.684,43.334,59.858,12.137,9.559,False,0.224,55.755
+c · sin petróleo,F2 freno a 6 R,4.797,4.168,5.33,64.11,55.709,70.565,13.365,12.517,False,0.338,61.614
+c · sin petróleo,B21 mitad (vigente desde el 27-oct),5.958,5.253,7.064,56.646,49.948,61.795,9.508,8.946,False,0.828,76.525
+a · con S1 (listas originales),PS seguro de la ganancia abierta: cartera −5 R → cobrar lo que gana > +1 R,6.328,6.295,6.823,56.31,56.016,56.566,8.898,8.59,False,0.396,60.103
+a · con S1 (listas originales),PS seguro de la ganancia abierta: cartera −7 R → cobrar lo que gana > +1 R,5.994,5.687,6.265,57.363,54.015,59.953,9.57,9.331,False,0.208,56.933
+a · con S1 (listas originales),"E1f E1 × 1,5 con la línea con impulso ≥ 50",6.536,5.962,7.005,62.076,56.624,66.278,9.498,9.218,False,0.384,62.076
+a · con S1 (listas originales),"P6 petróleo largo × 1,5 sin dólar al alza y con línea ≥ 33",5.431,5.152,7.57,64.346,61.044,66.905,11.849,9.61,False,0.456,51.579
+b · sin S1,PS seguro de la ganancia abierta: cartera −5 R → cobrar lo que gana > +1 R,6.164,5.914,6.825,54.852,52.623,56.585,8.898,8.59,False,0.392,59.862
+b · sin S1,PS seguro de la ganancia abierta: cartera −7 R → cobrar lo que gana > +1 R,5.876,5.393,6.28,56.233,51.221,60.094,9.57,9.33,False,0.226,57.065
+b · sin S1,"E1f E1 × 1,5 con la línea con impulso ≥ 50",6.415,5.678,7.101,60.924,53.93,66.303,9.498,9.193,False,0.386,62.293
+b · sin S1,"P6 petróleo largo × 1,5 sin dólar al alza y con línea ≥ 33",5.327,4.916,6.905,63.116,58.251,66.869,11.849,9.779,False,0.458,51.729
+c · sin petróleo,PS seguro de la ganancia abierta: cartera −5 R → cobrar lo que gana > +1 R,4.321,5.057,4.552,48.735,45.361,51.341,11.279,9.367,False,0.348,55.502
+c · sin petróleo,PS seguro de la ganancia abierta: cartera −7 R → cobrar lo que gana > +1 R,5.065,5.296,5.381,55.655,51.146,59.131,10.989,9.549,False,0.416,65.054
+c · sin petróleo,"E1f E1 × 1,5 con la línea con impulso ≥ 50",4.408,5.396,4.824,58.432,51.253,63.949,13.256,9.997,False,0.494,56.62
+c · sin petróleo,"P6 petróleo largo × 1,5 sin dólar al alza y con línea ≥ 33",4.498,5.108,4.939,57.772,50.399,63.438,12.845,9.976,False,0.0,57.772
+a · con S1 (listas originales),BASE,6.626,6.246,7.274,62.93,,,9.498,9.091,,,
+a · con S1 (listas originales),"B21 mitad · resto (todo menos cripto, SHY y cortos)",6.322,6.157,7.42,59.97,,,9.485,8.702,False,0.582,
+a · con S1 (listas originales),"B21 bloquear · resto (todo menos cripto, SHY y cortos)",6.042,6.041,7.308,57.372,,,9.495,8.639,False,0.58,
+a · con S1 (listas originales),B21 mitad · solo E1,6.588,6.305,7.019,62.568,,,9.498,9.174,False,0.316,
+a · con S1 (listas originales),B21 bloquear · solo E1,6.382,6.153,6.651,62.99,,,9.87,9.357,False,0.434,
+a · con S1 (listas originales),B21 mitad · E1 + C10,6.655,6.276,7.165,63.212,,,9.498,9.131,False,0.578,
+a · con S1 (listas originales),B21 bloquear · E1 + C10,6.356,6.356,6.587,62.733,,,9.87,9.251,False,0.536,
+a · con S1 (listas originales),B21 mitad · resto sin oro,5.869,5.842,6.254,60.65,,,10.334,9.339,False,0.454,
+a · con S1 (listas originales),B21 bloquear · resto sin oro,4.724,5.235,4.977,58.904,,,12.47,9.993,False,0.458,
+a · con S1 (listas originales),B21 mitad · resto sin petróleo,6.446,6.269,7.573,61.143,,,9.485,8.821,False,0.524,
+a · con S1 (listas originales),B21 bloquear · resto sin petróleo,5.857,6.059,6.726,56.938,,,9.721,8.749,False,0.368,
+b · sin S1,BASE,6.356,5.952,6.767,61.72,,,9.711,9.226,,,
+b · sin S1,"B21 mitad · resto (todo menos cripto, SHY y cortos)",6.276,6.071,6.932,59.667,,,9.508,8.86,False,0.656,
+b · sin S1,"B21 bloquear · resto (todo menos cripto, SHY y cortos)",6.15,6.073,7.42,57.707,,,9.383,8.617,False,0.644,
+b · sin S1,B21 mitad · solo E1,6.575,6.256,7.331,62.449,,,9.498,9.099,False,0.584,
+b · sin S1,B21 bloquear · solo E1,6.482,6.075,6.928,62.745,,,9.68,9.283,True,0.572,
+b · sin S1,B21 mitad · E1 + C10,6.293,6.23,6.594,63.074,,,10.023,9.294,False,0.704,
+b · sin S1,B21 bloquear · E1 + C10,6.582,6.281,6.861,62.513,,,9.497,9.176,False,0.636,
+b · sin S1,B21 mitad · resto sin oro,5.305,5.78,5.681,60.455,,,11.396,9.552,False,0.516,
+b · sin S1,B21 bloquear · resto sin oro,4.858,5.178,5.147,58.763,,,12.097,9.919,False,0.488,
+b · sin S1,B21 mitad · resto sin petróleo,6.395,6.146,7.595,60.803,,,9.508,8.826,False,0.616,
+b · sin S1,B21 bloquear · resto sin petróleo,5.847,6.015,6.743,56.836,,,9.721,8.727,False,0.424,
+c · sin petróleo,BASE,4.498,5.108,4.939,57.772,,,12.845,9.976,,,
+c · sin petróleo,"B21 mitad · resto (todo menos cripto, SHY y cortos)",5.958,5.253,7.064,56.646,,,9.508,8.946,False,0.828,
+c · sin petróleo,"B21 bloquear · resto (todo menos cripto, SHY y cortos)",5.627,5.191,6.866,53.433,,,9.495,8.709,False,0.754,
+c · sin petróleo,B21 mitad · solo E1,4.709,4.889,5.175,57.581,,,12.229,9.888,False,0.618,
+c · sin petróleo,B21 bloquear · solo E1,4.674,4.724,5.117,57.398,,,12.28,10.024,False,0.518,
+c · sin petróleo,B21 mitad · E1 + C10,4.643,4.861,5.11,57.372,,,12.355,9.897,False,0.582,
+c · sin petróleo,B21 bloquear · E1 + C10,4.528,4.781,4.919,57.389,,,12.675,10.009,False,0.57,
+c · sin petróleo,B21 mitad · resto sin oro,4.704,4.988,5.176,57.472,,,12.218,9.784,False,0.66,
+c · sin petróleo,B21 bloquear · resto sin oro,4.594,5.068,4.984,57.893,,,12.603,9.817,False,0.714,
+c · sin petróleo,B21 mitad · resto sin petróleo,5.043,5.181,5.512,56.307,,,11.166,9.541,False,0.774,
+c · sin petróleo,B21 bloquear · resto sin petróleo,5.748,5.502,6.839,54.584,,,9.495,8.806,False,0.706,
