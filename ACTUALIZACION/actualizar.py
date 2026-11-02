@@ -165,12 +165,33 @@ def binance_dia(mercado, simbolo, tf, dia):
         z = zipfile.ZipFile(io.BytesIO(_get(url)))
     except urllib.error.HTTPError as e:
         if e.code != 404: raise
-        if mercado != 'spot': return None
+        if mercado != 'spot': return binance_mes_dia(base, simbolo, tf, dia)
         return binance_api_dia(simbolo, tf, dia)
     raw = z.read(z.namelist()[0]).decode()
     lineas = [l for l in raw.splitlines() if l and l[0].isdigit()]          # futuros traen cabecera
     df = pd.read_csv(io.StringIO('\n'.join(lineas)), header=None)
     return _binance_df(df)
+
+
+_MES = {}
+def binance_mes_dia(base, simbolo, tf, dia):
+    """Respaldo para futuros (2-nov-2026): a veces Binance no publica el archivo de un día (p. ej. 2026-10-28).
+    Si el mes ya ha terminado, se saca ese día del archivo mensual. Si no, None (se reintenta mañana)."""
+    d = pd.Timestamp(dia); mes = d.strftime('%Y-%m')
+    if d.to_period('M') >= AHORA.to_period('M'): return None
+    k = (base, simbolo, tf, mes)
+    if k not in _MES:
+        try:
+            z = zipfile.ZipFile(io.BytesIO(_get(f'{base}/monthly/klines/{simbolo}/{tf}/{simbolo}-{tf}-{mes}.zip')))
+            raw = z.read(z.namelist()[0]).decode()
+            lineas = [l for l in raw.splitlines() if l and l[0].isdigit()]
+            _MES[k] = _binance_df(pd.read_csv(io.StringIO('\n'.join(lineas)), header=None))
+        except urllib.error.HTTPError:
+            _MES[k] = None
+    m = _MES[k]
+    if m is None: return None
+    x = m[(m.fecha >= d) & (m.fecha < d + pd.Timedelta(days=1))]
+    return x.reset_index(drop=True) if len(x) else None
 
 
 def binance_api_dia(simbolo, tf, dia):
@@ -285,16 +306,21 @@ def actualizar_serie(s, e, leer_nuevas_1d):
         if tf == '1w':
             return semanas_binance(s, e, leer_nuevas_1d), None
         dias = pd.date_range(hasta.normalize(), (AHORA - pd.Timedelta(days=1)).normalize(), freq='D')
-        partes = []
+        partes, huecos = [], []
         for d in dias:
             x = binance_dia(s['mercado'], s['simbolo'], tf, d.strftime('%Y-%m-%d'))
             if x is None:            # aún no publicado: se para aquí y se sigue mañana (sin huecos)
+                # 2-nov-2026: si el mes ya cerró y tampoco está en el archivo mensual, Binance no lo publicará nunca
+                # (pasó con 2026-10-28 en futuros): se deja el hueco y se sigue, en vez de quedarse parado para siempre.
+                if s['mercado'] != 'spot' and d.to_period('M') < AHORA.to_period('M') and (AHORA - d).days >= 4:
+                    huecos.append(str(d.date())); continue
                 if (AHORA - d).days >= 4:
                     return (pd.concat(partes) if partes else None), f'sin datos de {d.date()} en Binance'
                 break
             partes.append(x)
         df = pd.concat(partes) if partes else None
-        return (df[df.fecha > hasta] if df is not None else None), None
+        aviso = f'hueco sin datos en Binance: {", ".join(huecos)}' if huecos else None
+        return (df[df.fecha > hasta] if df is not None else None), aviso
     if tipo == 'okx':
         try:
             df = okx(tf, hasta)

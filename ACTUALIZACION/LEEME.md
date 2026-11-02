@@ -2,8 +2,12 @@
 
 Desde el 18 de octubre de 2026, **GitHub añade cada día las velas cerradas de todas las series de `INDICE.csv`**
 (contado y perpetuos de cripto, altcoins secundarias, índices cripto, activos tradicionales; 5m, 15m, 1h, 4h, 1d y 1w,
-y la financiación de los perpetuos). Lo hace `.github/workflows/actualizar_velas.yml` a las **03:30 UTC**
-(05:30 en España en verano; 04:30 en invierno).
+y la financiación de los perpetuos). Lo hace `.github/workflows/actualizar_velas.yml` programado a las **02:47 UTC**
+(03:47 en España en invierno). **Ojo (2-nov-2026):** GitHub retrasa las tareas programadas; con el horario antiguo
+(03:30 UTC) entraba entre las 10 y las 13 h de Madrid. **Las revisiones de las 6:00 no deben contar con las velas de
+hoy en GitHub:** las señales del día se calculan con fuentes en vivo (OKX, Yahoo, TradingView); GitHub es para la historia.
+**Huecos de Binance:** si Binance no publica un día de futuros (pasó con el 28-oct-2026) y tampoco está en su archivo
+mensual, la serie deja ese día vacío y sigue (aviso «hueco sin datos en Binance»), en vez de quedarse parada.
 
 ## Cómo se usa
 Igual que siempre: `velas('BTC', '5m')` ya trae lo nuevo. Para repetir un backtest con los mismos datos de antes:

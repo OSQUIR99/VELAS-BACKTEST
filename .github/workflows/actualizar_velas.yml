@@ -2,7 +2,7 @@ name: Velas · actualización diaria (todas las series y temporalidades)
 
 on:
   schedule:
-    - cron: '30 3 * * *'     # 03:30 UTC (05:30 en España en verano, 04:30 en invierno): Binance ya ha publicado el día anterior
+    - cron: '47 2 * * *'     # 02:47 UTC (2-nov-2026: minuto impar para que GitHub lo retrase menos; antes 03:30 y entraba a las 10-12 UTC); 03:47 en España en invierno. Binance ya ha publicado el día anterior
   workflow_dispatch: {}
 
 permissions:
