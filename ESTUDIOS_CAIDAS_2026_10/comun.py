@@ -28,7 +28,7 @@ IDX = ['SPX', 'DJI', 'NDX']
 
 # 31-oct-2026: `petroleo_con_s1` comparte los `id` con `petroleo` y el motor guarda el latente diario por `id`:
 # si se cargan las dos, el petróleo de la base no se valora día a día (base 5,76 en vez de 6,14). Se excluye.
-EXCLUIR = {'petroleo_con_s1', 'petroleo_con_s1_diario'}
+EXCLUIR = {'petroleo_con_s1', 'petroleo_con_s1_diario', 'cripto_realista_sin_tercio_vol10', 'cripto_realista_sin_tercio_vol10_diario'}  # variantes que repiten los id de su lista base
 
 
 def mezclar(*carpetas):
