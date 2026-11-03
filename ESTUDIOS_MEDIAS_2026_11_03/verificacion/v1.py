@@ -1,0 +1,16 @@
+import sys,time; sys.path.insert(0,'/home/claude/med'); sys.path.insert(0,'/home/claude/caidas'); sys.path.insert(0,'/home/claude/velas-backtest')
+from ev import *
+t=time.time()
+EXTRA=tuple(f'/home/claude/med/{d}' for d in ['l_p1_btc_st','l_p1_6_st','l_p1_btc_ns','l_p1_6_ns','l_e1r_200','l_e1r_200m','l_e1r_20s','l_sectores_lentos','l_sectores_lentos_d3','l_sectores_lentos_d7','l_sectores_lentos_d11'])
+C0=cartera(); M0=mascaras(C0); e00,q00=run(C0,M0['BASE'],M0['EX']); print('BASE sin extra',C0.fmt(q00),time.time()-t,flush=True)
+C=cartera(extra=EXTRA); M=mascaras(C); e0,q0=run(C,M['BASE'],M['EX']); print('BASE con extra',C.fmt(q0),flush=True)
+O=C.O
+print('ids duplicados',O.id.duplicated().sum(), O[O.id.duplicated(keep=False)].lista.value_counts().to_dict())
+print('ops por lista nuevas', O.lista.value_counts()[lambda s: s.index.str.startswith(('p1','e1r','sectores'))].to_dict())
+print('en_cartera nuevas', O[O.lista.str.startswith(('p1','e1r','sectores'))].groupby('lista').en_cartera.mean().to_dict())
+print('bloques', O.groupby('lista').bloque.agg(lambda x: ','.join(sorted(set(map(str,x))))).to_dict())
+print('sin_freno de nuevas', {l: bool(C.M.sin_freno[(C.L==l)].any()) for l in ['p1_btc_st','sectores_lentos','e1r_200']})
+print('EX contiene nuevas?', {l: bool(M['EX'][(C.L==l)].any()) for l in ['p1_btc_st','sectores_lentos','e1r_200']})
+print('escala', O.groupby('lista').escala_diario.first()[lambda s: s.index.str.startswith(('p1','e1r','sectores'))].to_dict())
+print('dif curvas base', float((e0-e00).abs().max()))
+import pickle; pickle.dump((e0,q0),open('base.pkl','wb'))
