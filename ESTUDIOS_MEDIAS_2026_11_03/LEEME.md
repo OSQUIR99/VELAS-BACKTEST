@@ -62,3 +62,28 @@ Sin largos nuevos con el cierre semanal un 2,8 % bajo la media (hasta que cierre
 
 ## Código y verificación
 `velas-backtest/ESTUDIOS_MEDIAS_2026_11_03/` (p1.py, p34.py, ev.py, t1.py, t2.py, gen/gen2.py; verificación en `verificacion/`).
+
+## 9. Ideas de rotación medidas (3-nov, 22:00; Óscar: «sí»)
+**Definiciones fijadas antes de mirar** (la definición exacta del «termómetro 2» está en el otro proyecto; si es distinta, se repite):
+- **Termómetro:** % de la lista de cripto de Óscar (ETH, AAVE, ADA, BNB, HBAR, HYPE, LINK, ONDO, SOL, UNI, XRP, ZEC) con el cierre diario sobre su media de 50, el día anterior. Media 47 %; ≥ 70 el 37 % de los días.
+- **Etiqueta:** con el sesgo de rotación del documento 12 (pendiente de 5 días de la media de 20): ETH y BTC con ETH/BTC; las altcoins con la dominancia de BTC al revés. Neutral si el cambio es menor del 0,25 %.
+
+**Idea 1 · altcoins a media posición con el termómetro ≥ 70**
+| Variante | Ratio en la cartera | R/año | Caída | 2024-26 |
+|---|---|---|---|---|
+| Base | 7,28 / 6,55 / 8,23 | 65,6 | −9,0 | 12,58 |
+| SOL, ADA, LINK, ZEC × 0,5 (263 op.) | 6,47 / 5,57 / 8,93 | 62,3 | −9,6 | 12,61 |
+| Las 5 sin BTC (con ETH) × 0,5 (316 op.) | 7,09 / 6,47 / 8,92 | 64,5 | −9,1 | 12,64 |
+- **Sola, la señal es fuerte:** las altcoins del REBOTE 4H ganan mucho menos con el termómetro ≥ 70 (2018-21: +0,52 frente a +1,07 R por operación; 2022-26: +0,15 frente a +0,92). Encaja con lo del 14-oct: comprar el retroceso de una altcoin cuando todo el mercado de altcoins está eufórico sale peor.
+- **En la cartera no pasa:** sube 2022-26 (8,93, por encima del máximo de 20 sorteos al azar, 8,64), pero baja 2018-21 porque esas operaciones, aun ganando menos, ganaban. **✗ como tamaño.**
+- **Queda como aviso de contexto {~}** (no mueve estrellas ni tamaño): «Altcoin del REBOTE 4H con el termómetro de la lista ≥ 70 %: en el pasado ganó +0,15 R por operación desde 2022 (119 casos), frente a +0,92 R con el termómetro bajo 70».
+
+**Idea 5 · etiqueta «apoya / neutral / en contra»** (R por operación del REBOTE 4H)
+| Periodo | Apoya | Neutral | En contra |
+|---|---|---|---|
+| 2018-21 | +0,56 (163) | +1,32 (36) | +0,96 (84) |
+| 2022-26 | +0,56 (121) | +0,40 (75) | +0,75 (108) |
+| 2024-26 | +0,79 (83) | +0,72 (52) | +0,68 (71) |
+- **No separa:** «en contra» gana igual o más que «apoya». **✗** No se pone etiqueta en las señales.
+
+Pendientes de la lista de rotación: ideas 2 (ADX ≤ 20 en lateral), 3 (perder la media de 50 como salida) y 4 (esperar al cierre tras caída nocturna), que necesitan re-simular con el original.
