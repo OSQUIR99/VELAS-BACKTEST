@@ -1,0 +1,2544 @@
+{
+ "generado": "2026-11-01 04:12 UTC",
+ "parametros": {
+  "pivote_dias": 5,
+  "tolerancia": 0.02,
+  "giros_minimos": 2,
+  "cierres_confirmacion": 2,
+  "dias_sesgo": 28,
+  "cerca": 0.03
+ },
+ "fallos": [],
+ "series": {
+  "ETH_BTC": {
+   "que": "ETH frente a BTC",
+   "papel": "sesgo",
+   "tolerancia_zona": 0.02,
+   "precio_hoy": 0.02915,
+   "ultimo_cierre": 0.02908,
+   "ultima_vela_cerrada": "2026-10-31",
+   "resistencias": [
+    {
+     "nivel": 0.029314126362008513,
+     "fuerza_giros": 6,
+     "distancia_%": 0.56,
+     "cerca": true,
+     "principal": true,
+     "roturas_previas_de_esta_zona": [
+      {
+       "fecha": "2021-01-05",
+       "nivel": 0.029473,
+       "fuerza": 2,
+       "1d_%": 1.5,
+       "2d_%": -4.2,
+       "7d_%": -4.8,
+       "28d_%": 31.6,
+       "btc_sobre_media200": true,
+       "btc_30d_%": 75.4
+      }
+     ]
+    },
+    {
+     "nivel": 0.02990535828027229,
+     "fuerza_giros": 13,
+     "distancia_%": 2.59,
+     "cerca": true,
+     "principal": true,
+     "roturas_previas_de_esta_zona": [
+      {
+       "fecha": "2021-01-05",
+       "nivel": 0.029473,
+       "fuerza": 2,
+       "1d_%": 1.5,
+       "2d_%": -4.2,
+       "7d_%": -4.8,
+       "28d_%": 31.6,
+       "btc_sobre_media200": true,
+       "btc_30d_%": 75.4
+      }
+     ]
+    },
+    {
+     "nivel": 0.030648906850585935,
+     "fuerza_giros": 9,
+     "distancia_%": 5.14,
+     "cerca": false,
+     "principal": true,
+     "roturas_previas_de_esta_zona": [
+      {
+       "fecha": "2018-12-24",
+       "nivel": 0.030656,
+       "fuerza": 2,
+       "1d_%": -1.1,
+       "2d_%": -0.6,
+       "7d_%": 3.1,
+       "28d_%": -4.9,
+       "btc_sobre_media200": false,
+       "btc_30d_%": 1.9
+      },
+      {
+       "fecha": "2020-07-26",
+       "nivel": 0.030639,
+       "fuerza": 3,
+       "1d_%": -6.8,
+       "2d_%": -7.2,
+       "7d_%": 7.4,
+       "28d_%": 7.1,
+       "btc_sobre_media200": true,
+       "btc_30d_%": 8.4
+      },
+      {
+       "fecha": "2020-11-24",
+       "nivel": 0.030704,
+       "fuerza": 4,
+       "1d_%": -3.7,
+       "2d_%": -4.0,
+       "7d_%": -1.2,
+       "28d_%": -15.3,
+       "btc_sobre_media200": true,
+       "btc_30d_%": 47.1
+      }
+     ]
+    }
+   ],
+   "soportes": [
+    {
+     "nivel": 0.02856709357242625,
+     "fuerza_giros": 9,
+     "distancia_%": -2.0,
+     "cerca": true,
+     "principal": true
+    },
+    {
+     "nivel": 0.02758317980691791,
+     "fuerza_giros": 6,
+     "distancia_%": -5.38,
+     "cerca": false,
+     "principal": true
+    },
+    {
+     "nivel": 0.02663280429439574,
+     "fuerza_giros": 5,
+     "distancia_%": -8.64,
+     "cerca": false,
+     "principal": true
+    }
+   ],
+   "aviso": [
+    "resistencia principal a 0.56 %",
+    "resistencia principal a 2.59 %",
+    "soporte principal a -2.0 %"
+   ],
+   "roturas_resistencia": {
+    "evento": "rotura de resistencia diaria de ETH_BTC confirmada con 2 cierres",
+    "que_se_mide": "ETH frente a BTC: ganancia de rotar (positivo = a favor de la rotura)",
+    "estadistica": {
+     "misma_fase": {
+      "casos": 31,
+      "1d": {
+       "media_%": -0.18,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": 0.07,
+       "dia_cualquiera_a_favor_%": 44
+      },
+      "2d": {
+       "media_%": -0.83,
+       "a_favor_%": 42,
+       "dia_cualquiera_media_%": 0.14,
+       "dia_cualquiera_a_favor_%": 46
+      },
+      "7d": {
+       "media_%": 1.04,
+       "a_favor_%": 42,
+       "dia_cualquiera_media_%": 0.48,
+       "dia_cualquiera_a_favor_%": 45
+      },
+      "28d": {
+       "media_%": 4.79,
+       "a_favor_%": 42,
+       "dia_cualquiera_media_%": 1.76,
+       "dia_cualquiera_a_favor_%": 46
+      }
+     },
+     "ultimos_5_anos": {
+      "casos": 17,
+      "1d": {
+       "media_%": 0.19,
+       "a_favor_%": 59,
+       "dia_cualquiera_media_%": -0.03,
+       "dia_cualquiera_a_favor_%": 46
+      },
+      "2d": {
+       "media_%": 0.11,
+       "a_favor_%": 47,
+       "dia_cualquiera_media_%": -0.06,
+       "dia_cualquiera_a_favor_%": 46
+      },
+      "7d": {
+       "media_%": -1.53,
+       "a_favor_%": 29,
+       "dia_cualquiera_media_%": -0.22,
+       "dia_cualquiera_a_favor_%": 44
+      },
+      "28d": {
+       "media_%": 2.4,
+       "a_favor_%": 35,
+       "dia_cualquiera_media_%": -0.81,
+       "dia_cualquiera_a_favor_%": 40
+      }
+     },
+     "todo_desde_2018": {
+      "casos": 48,
+      "1d": {
+       "media_%": 0.02,
+       "a_favor_%": 46,
+       "dia_cualquiera_media_%": 0.01,
+       "dia_cualquiera_a_favor_%": 46
+      },
+      "2d": {
+       "media_%": -0.09,
+       "a_favor_%": 46,
+       "dia_cualquiera_media_%": 0.02,
+       "dia_cualquiera_a_favor_%": 47
+      },
+      "7d": {
+       "media_%": 1.44,
+       "a_favor_%": 50,
+       "dia_cualquiera_media_%": 0.09,
+       "dia_cualquiera_a_favor_%": 44
+      },
+      "28d": {
+       "media_%": 5.29,
+       "a_favor_%": 48,
+       "dia_cualquiera_media_%": 0.28,
+       "dia_cualquiera_a_favor_%": 43
+      }
+     }
+    },
+    "ultimas_5": [
+     {
+      "fecha": "2025-05-11",
+      "nivel": 0.022998,
+      "fuerza": 4,
+      "1d_%": 0.5,
+      "2d_%": 6.6,
+      "7d_%": -2.9,
+      "28d_%": -1.7,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 24.8
+     },
+     {
+      "fecha": "2025-07-16",
+      "nivel": 0.025574,
+      "fuerza": 6,
+      "1d_%": 2.6,
+      "2d_%": 5.8,
+      "7d_%": 7.5,
+      "28d_%": 35.5,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 11.1
+     },
+     {
+      "fecha": "2025-07-17",
+      "nivel": 0.02758,
+      "fuerza": 2,
+      "1d_%": 3.1,
+      "2d_%": 4.5,
+      "7d_%": 7.4,
+      "28d_%": 31.8,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 14.0
+     },
+     {
+      "fecha": "2025-08-13",
+      "nivel": 0.035142,
+      "fuerza": 7,
+      "1d_%": -0.2,
+      "2d_%": -1.7,
+      "7d_%": -1.5,
+      "28d_%": -0.9,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 2.9
+     },
+     {
+      "fecha": "2025-08-23",
+      "nivel": 0.040138,
+      "fuerza": 6,
+      "1d_%": 1.7,
+      "2d_%": -4.0,
+      "7d_%": -2.9,
+      "28d_%": -6.5,
+      "btc_sobre_media200": true,
+      "btc_30d_%": -2.5
+     }
+    ]
+   },
+   "al_llegar_a_resistencia": {
+    "casos": 40,
+    "la_rompe_en_20d_%": 70
+   },
+   "sesgo_activo": null,
+   "pendiente_media20": {
+    "sube": false,
+    "media20": 0.0293605,
+    "favorece": "BTC",
+    "desde": "2026-10-01"
+   }
+  },
+  "OTHERS": {
+   "que": "altcoins pequeñas (OTHERS) frente a BTC",
+   "papel": "sesgo",
+   "tolerancia_zona": 0.02,
+   "precio_hoy": 215776412009.0,
+   "ultimo_cierre": 216092863895.0,
+   "ultima_vela_cerrada": "2026-10-31",
+   "resistencias": [
+    {
+     "nivel": 218923914822.98215,
+     "fuerza_giros": 7,
+     "distancia_%": 1.46,
+     "cerca": true,
+     "principal": true,
+     "roturas_previas_de_esta_zona": [
+      {
+       "fecha": "2025-04-24",
+       "nivel": 221465786946.31,
+       "fuerza": 3,
+       "1d_%": 0.9,
+       "2d_%": 1.7,
+       "7d_%": -1.5,
+       "28d_%": 0.6,
+       "btc_sobre_media200": true,
+       "btc_30d_%": 7.5
+      }
+     ]
+    },
+    {
+     "nivel": 226134207881.9286,
+     "fuerza_giros": 4,
+     "distancia_%": 4.8,
+     "cerca": false,
+     "principal": true,
+     "roturas_previas_de_esta_zona": [
+      {
+       "fecha": "2024-02-19",
+       "nivel": 228059777151.97,
+       "fuerza": 2,
+       "1d_%": -2.2,
+       "2d_%": -4.1,
+       "7d_%": -0.1,
+       "28d_%": -0.4,
+       "btc_sobre_media200": true,
+       "btc_30d_%": 24.2
+      },
+      {
+       "fecha": "2026-09-22",
+       "nivel": 229277706792.14,
+       "fuerza": 4,
+       "1d_%": -2.8,
+       "2d_%": -0.4,
+       "7d_%": 2.0,
+       "28d_%": -4.4,
+       "btc_sobre_media200": true,
+       "btc_30d_%": 10.9
+      }
+     ]
+    },
+    {
+     "nivel": 229277706792.14285,
+     "fuerza_giros": 4,
+     "distancia_%": 6.26,
+     "cerca": false,
+     "principal": true,
+     "roturas_previas_de_esta_zona": [
+      {
+       "fecha": "2024-02-19",
+       "nivel": 228059777151.97,
+       "fuerza": 2,
+       "1d_%": -2.2,
+       "2d_%": -4.1,
+       "7d_%": -0.1,
+       "28d_%": -0.4,
+       "btc_sobre_media200": true,
+       "btc_30d_%": 24.2
+      },
+      {
+       "fecha": "2026-09-22",
+       "nivel": 229277706792.14,
+       "fuerza": 4,
+       "1d_%": -2.8,
+       "2d_%": -0.4,
+       "7d_%": 2.0,
+       "28d_%": -4.4,
+       "btc_sobre_media200": true,
+       "btc_30d_%": 10.9
+      }
+     ]
+    }
+   ],
+   "soportes": [
+    {
+     "nivel": 213036545369.545,
+     "fuerza_giros": 4,
+     "distancia_%": -1.27,
+     "cerca": true,
+     "principal": true
+    },
+    {
+     "nivel": 208702265292.4882,
+     "fuerza_giros": 5,
+     "distancia_%": -3.28,
+     "cerca": false,
+     "principal": true
+    },
+    {
+     "nivel": 202462002819.45407,
+     "fuerza_giros": 6,
+     "distancia_%": -6.17,
+     "cerca": false,
+     "principal": true
+    }
+   ],
+   "aviso": [
+    "resistencia principal a 1.46 %",
+    "soporte principal a -1.27 %"
+   ],
+   "roturas_resistencia": {
+    "evento": "rotura de resistencia diaria de OTHERS confirmada con 2 cierres",
+    "que_se_mide": "altcoins pequeñas (OTHERS) frente a BTC: ganancia de rotar (positivo = a favor de la rotura)",
+    "estadistica": {
+     "misma_fase": {
+      "casos": 40,
+      "1d": {
+       "media_%": -0.25,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": 0.05,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 0.27,
+       "a_favor_%": 57,
+       "dia_cualquiera_media_%": 0.1,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "7d": {
+       "media_%": 1.37,
+       "a_favor_%": 55,
+       "dia_cualquiera_media_%": 0.38,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "28d": {
+       "media_%": 1.06,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": 1.98,
+       "dia_cualquiera_a_favor_%": 51
+      }
+     },
+     "ultimos_5_anos": {
+      "casos": 35,
+      "1d": {
+       "media_%": -0.52,
+       "a_favor_%": 43,
+       "dia_cualquiera_media_%": -0.03,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "2d": {
+       "media_%": -0.28,
+       "a_favor_%": 43,
+       "dia_cualquiera_media_%": -0.06,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "7d": {
+       "media_%": 0.15,
+       "a_favor_%": 46,
+       "dia_cualquiera_media_%": -0.22,
+       "dia_cualquiera_a_favor_%": 45
+      },
+      "28d": {
+       "media_%": 0.9,
+       "a_favor_%": 49,
+       "dia_cualquiera_media_%": -0.87,
+       "dia_cualquiera_a_favor_%": 44
+      }
+     },
+     "todo_desde_2018": {
+      "casos": 58,
+      "1d": {
+       "media_%": -0.26,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": 0.02,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 0.29,
+       "a_favor_%": 53,
+       "dia_cualquiera_media_%": 0.05,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "7d": {
+       "media_%": 1.2,
+       "a_favor_%": 55,
+       "dia_cualquiera_media_%": 0.14,
+       "dia_cualquiera_a_favor_%": 50
+      },
+      "28d": {
+       "media_%": 2.49,
+       "a_favor_%": 53,
+       "dia_cualquiera_media_%": 0.59,
+       "dia_cualquiera_a_favor_%": 48
+      }
+     }
+    },
+    "ultimas_5": [
+     {
+      "fecha": "2026-01-05",
+      "nivel": 213478334932.66,
+      "fuerza": 3,
+      "1d_%": 0.6,
+      "2d_%": -0.1,
+      "7d_%": -1.6,
+      "28d_%": -1.5,
+      "btc_sobre_media200": false,
+      "btc_30d_%": 5.2
+     },
+     {
+      "fecha": "2026-04-17",
+      "nivel": 184870084510.23,
+      "fuerza": 3,
+      "1d_%": -3.2,
+      "2d_%": -3.4,
+      "7d_%": -5.5,
+      "28d_%": -2.9,
+      "btc_sobre_media200": false,
+      "btc_30d_%": 8.2
+     },
+     {
+      "fecha": "2026-05-09",
+      "nivel": 195549633360.54,
+      "fuerza": 5,
+      "1d_%": -0.1,
+      "2d_%": 0.1,
+      "7d_%": -3.3,
+      "28d_%": 11.9,
+      "btc_sobre_media200": false,
+      "btc_30d_%": 12.4
+     },
+     {
+      "fecha": "2026-08-22",
+      "nivel": 175795075994.88,
+      "fuerza": 6,
+      "1d_%": 1.7,
+      "2d_%": -1.3,
+      "7d_%": -0.6,
+      "28d_%": 12.5,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 18.4
+     },
+     {
+      "fecha": "2026-09-22",
+      "nivel": 229277706792.14,
+      "fuerza": 4,
+      "1d_%": -2.8,
+      "2d_%": -0.4,
+      "7d_%": 2.0,
+      "28d_%": -4.4,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 10.9
+     }
+    ]
+   },
+   "al_llegar_a_resistencia": {
+    "casos": 94,
+    "la_rompe_en_20d_%": 53
+   },
+   "sesgo_activo": null
+  },
+  "TOTAL3": {
+   "que": "altcoins sin BTC ni ETH (TOTAL3) frente a BTC",
+   "papel": "sesgo",
+   "tolerancia_zona": 0.02,
+   "precio_hoy": 747337856123.0,
+   "ultimo_cierre": 748750072226.0,
+   "ultima_vela_cerrada": "2026-10-31",
+   "resistencias": [
+    {
+     "nivel": 756798917550.8961,
+     "fuerza_giros": 9,
+     "distancia_%": 1.27,
+     "cerca": true,
+     "principal": true,
+     "roturas_previas_de_esta_zona": [
+      {
+       "fecha": "2022-02-08",
+       "nivel": 745705008768.42,
+       "fuerza": 2,
+       "1d_%": 0.6,
+       "2d_%": -0.8,
+       "7d_%": -2.6,
+       "28d_%": -3.8,
+       "btc_sobre_media200": false,
+       "btc_30d_%": 5.2
+      },
+      {
+       "fecha": "2024-11-16",
+       "nivel": 745528874267.16,
+       "fuerza": 3,
+       "1d_%": 0.5,
+       "2d_%": 2.4,
+       "7d_%": 6.0,
+       "28d_%": 15.9,
+       "btc_sobre_media200": true,
+       "btc_30d_%": 34.4
+      }
+     ]
+    },
+    {
+     "nivel": 768023856660.1093,
+     "fuerza_giros": 2,
+     "distancia_%": 2.77,
+     "cerca": true,
+     "principal": false,
+     "roturas_previas_de_esta_zona": []
+    },
+    {
+     "nivel": 788851166675.0188,
+     "fuerza_giros": 9,
+     "distancia_%": 5.55,
+     "cerca": false,
+     "principal": true,
+     "roturas_previas_de_esta_zona": []
+    }
+   ],
+   "soportes": [
+    {
+     "nivel": 739758289360.2352,
+     "fuerza_giros": 8,
+     "distancia_%": -1.01,
+     "cerca": true,
+     "principal": true
+    },
+    {
+     "nivel": 726267250552.3958,
+     "fuerza_giros": 6,
+     "distancia_%": -2.82,
+     "cerca": true,
+     "principal": true
+    },
+    {
+     "nivel": 712110396626.216,
+     "fuerza_giros": 6,
+     "distancia_%": -4.71,
+     "cerca": false,
+     "principal": true
+    }
+   ],
+   "aviso": [
+    "resistencia principal a 1.27 %",
+    "soporte principal a -1.01 %",
+    "soporte principal a -2.82 %"
+   ],
+   "roturas_resistencia": {
+    "evento": "rotura de resistencia diaria de TOTAL3 confirmada con 2 cierres",
+    "que_se_mide": "altcoins sin BTC ni ETH (TOTAL3) frente a BTC: ganancia de rotar (positivo = a favor de la rotura)",
+    "estadistica": {
+     "misma_fase": {
+      "casos": 28,
+      "1d": {
+       "media_%": 0.31,
+       "a_favor_%": 57,
+       "dia_cualquiera_media_%": 0.01,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 1.21,
+       "a_favor_%": 54,
+       "dia_cualquiera_media_%": 0.04,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "7d": {
+       "media_%": 2.05,
+       "a_favor_%": 57,
+       "dia_cualquiera_media_%": 0.2,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "28d": {
+       "media_%": 0.66,
+       "a_favor_%": 46,
+       "dia_cualquiera_media_%": 1.32,
+       "dia_cualquiera_a_favor_%": 51
+      }
+     },
+     "ultimos_5_anos": {
+      "casos": 18,
+      "1d": {
+       "media_%": 0.35,
+       "a_favor_%": 61,
+       "dia_cualquiera_media_%": -0.02,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 0.58,
+       "a_favor_%": 50,
+       "dia_cualquiera_media_%": -0.03,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "7d": {
+       "media_%": 2.69,
+       "a_favor_%": 67,
+       "dia_cualquiera_media_%": -0.13,
+       "dia_cualquiera_a_favor_%": 47
+      },
+      "28d": {
+       "media_%": 2.38,
+       "a_favor_%": 67,
+       "dia_cualquiera_media_%": -0.53,
+       "dia_cualquiera_a_favor_%": 42
+      }
+     },
+     "todo_desde_2018": {
+      "casos": 41,
+      "1d": {
+       "media_%": 0.53,
+       "a_favor_%": 54,
+       "dia_cualquiera_media_%": 0.0,
+       "dia_cualquiera_a_favor_%": 50
+      },
+      "2d": {
+       "media_%": 1.36,
+       "a_favor_%": 54,
+       "dia_cualquiera_media_%": 0.01,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "7d": {
+       "media_%": 2.46,
+       "a_favor_%": 63,
+       "dia_cualquiera_media_%": 0.02,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "28d": {
+       "media_%": 1.71,
+       "a_favor_%": 51,
+       "dia_cualquiera_media_%": 0.23,
+       "dia_cualquiera_a_favor_%": 46
+      }
+     }
+    },
+    "ultimas_5": [
+     {
+      "fecha": "2024-11-30",
+      "nivel": 930542561847.26,
+      "fuerza": 2,
+      "1d_%": 2.9,
+      "2d_%": 8.2,
+      "7d_%": 11.4,
+      "28d_%": -0.2,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 37.2
+     },
+     {
+      "fecha": "2025-05-11",
+      "nivel": 869582408400.74,
+      "fuerza": 3,
+      "1d_%": 2.9,
+      "2d_%": 3.5,
+      "7d_%": -3.0,
+      "28d_%": -7.3,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 24.8
+     },
+     {
+      "fecha": "2025-07-14",
+      "nivel": 903456205423.75,
+      "fuerza": 3,
+      "1d_%": 2.4,
+      "2d_%": 4.1,
+      "7d_%": 14.9,
+      "28d_%": 8.5,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 13.7
+     },
+     {
+      "fecha": "2025-07-20",
+      "nivel": 1004150132126.24,
+      "fuerza": 3,
+      "1d_%": 1.7,
+      "2d_%": 0.7,
+      "7d_%": -1.6,
+      "28d_%": 0.8,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 13.5
+     },
+     {
+      "fecha": "2026-08-22",
+      "nivel": 712110396626.22,
+      "fuerza": 6,
+      "1d_%": 0.6,
+      "2d_%": -1.5,
+      "7d_%": -1.2,
+      "28d_%": 1.5,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 18.4
+     }
+    ]
+   },
+   "al_llegar_a_resistencia": {
+    "casos": 54,
+    "la_rompe_en_20d_%": 57
+   },
+   "sesgo_activo": null
+  },
+  "BTC.D": {
+   "que": "dominancia de BTC",
+   "papel": "contexto",
+   "tolerancia_zona": 0.005,
+   "precio_hoy": 60.39034045771861,
+   "ultimo_cierre": 60.332248733406324,
+   "ultima_vela_cerrada": "2026-10-31",
+   "resistencias": [
+    {
+     "nivel": 60.68417433074454,
+     "fuerza_giros": 7,
+     "distancia_%": 0.49,
+     "cerca": true,
+     "principal": true
+    },
+    {
+     "nivel": 61.01586659520396,
+     "fuerza_giros": 4,
+     "distancia_%": 1.04,
+     "cerca": false,
+     "principal": true
+    },
+    {
+     "nivel": 61.43277323311812,
+     "fuerza_giros": 4,
+     "distancia_%": 1.73,
+     "cerca": false,
+     "principal": true
+    }
+   ],
+   "soportes": [
+    {
+     "nivel": 60.34742008953642,
+     "fuerza_giros": 13,
+     "distancia_%": -0.07,
+     "cerca": true,
+     "principal": true
+    },
+    {
+     "nivel": 60.01946231594008,
+     "fuerza_giros": 16,
+     "distancia_%": -0.61,
+     "cerca": true,
+     "principal": true
+    },
+    {
+     "nivel": 59.65152374166862,
+     "fuerza_giros": 6,
+     "distancia_%": -1.22,
+     "cerca": false,
+     "principal": true
+    }
+   ],
+   "aviso": [
+    "resistencia principal a 0.49 %",
+    "soporte principal a -0.07 %",
+    "soporte principal a -0.61 %"
+   ],
+   "al_llegar_a_resistencia": {
+    "evento": "BTC.D llega a una zona de resistencia diaria viniendo de lejos",
+    "casos": 62,
+    "aguanta_20d_%": 44,
+    "btc": {
+     "misma_fase": {
+      "casos": 39,
+      "1d": {
+       "media_%": 0.84,
+       "a_favor_%": 54,
+       "dia_cualquiera_media_%": 0.17,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "2d": {
+       "media_%": 0.51,
+       "a_favor_%": 62,
+       "dia_cualquiera_media_%": 0.34,
+       "dia_cualquiera_a_favor_%": 53
+      },
+      "7d": {
+       "media_%": 3.65,
+       "a_favor_%": 67,
+       "dia_cualquiera_media_%": 1.27,
+       "dia_cualquiera_a_favor_%": 53
+      },
+      "28d": {
+       "media_%": 8.78,
+       "a_favor_%": 62,
+       "dia_cualquiera_media_%": 5.07,
+       "dia_cualquiera_a_favor_%": 53
+      }
+     },
+     "ultimos_5_anos": {
+      "casos": 32,
+      "1d": {
+       "media_%": 0.58,
+       "a_favor_%": 50,
+       "dia_cualquiera_media_%": 0.05,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "2d": {
+       "media_%": 1.03,
+       "a_favor_%": 72,
+       "dia_cualquiera_media_%": 0.09,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "7d": {
+       "media_%": 1.26,
+       "a_favor_%": 53,
+       "dia_cualquiera_media_%": 0.34,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "28d": {
+       "media_%": 2.15,
+       "a_favor_%": 50,
+       "dia_cualquiera_media_%": 1.51,
+       "dia_cualquiera_a_favor_%": 53
+      }
+     },
+     "todo_desde_2018": {
+      "casos": 62,
+      "1d": {
+       "media_%": 0.65,
+       "a_favor_%": 56,
+       "dia_cualquiera_media_%": 0.11,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 0.51,
+       "a_favor_%": 65,
+       "dia_cualquiera_media_%": 0.21,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "7d": {
+       "media_%": 2.72,
+       "a_favor_%": 66,
+       "dia_cualquiera_media_%": 0.75,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "28d": {
+       "media_%": 5.77,
+       "a_favor_%": 58,
+       "dia_cualquiera_media_%": 3.37,
+       "dia_cualquiera_a_favor_%": 54
+      }
+     }
+    },
+    "zonas_fuertes": {
+     "giros_minimos": 4,
+     "casos": 10,
+     "aguanta_20d_%": 60,
+     "altcoins_frente_a_btc_TOTAL3": {
+      "misma_fase": {
+       "casos": 6,
+       "1d": {
+        "media_%": -0.4,
+        "a_favor_%": 67,
+        "dia_cualquiera_media_%": 0.01,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": 0.29,
+        "a_favor_%": 50,
+        "dia_cualquiera_media_%": 0.04,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "7d": {
+        "media_%": -0.45,
+        "a_favor_%": 50,
+        "dia_cualquiera_media_%": 0.2,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "28d": {
+        "media_%": -0.33,
+        "a_favor_%": 83,
+        "dia_cualquiera_media_%": 1.32,
+        "dia_cualquiera_a_favor_%": 51
+       }
+      },
+      "ultimos_5_anos": {
+       "casos": 7,
+       "1d": {
+        "media_%": -0.48,
+        "a_favor_%": 71,
+        "dia_cualquiera_media_%": -0.02,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": 0.42,
+        "a_favor_%": 57,
+        "dia_cualquiera_media_%": -0.03,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "7d": {
+        "media_%": 0.81,
+        "a_favor_%": 43,
+        "dia_cualquiera_media_%": -0.13,
+        "dia_cualquiera_a_favor_%": 47
+       },
+       "28d": {
+        "media_%": -0.49,
+        "a_favor_%": 57,
+        "dia_cualquiera_media_%": -0.53,
+        "dia_cualquiera_a_favor_%": 42
+       }
+      },
+      "todo_desde_2018": {
+       "casos": 10,
+       "1d": {
+        "media_%": 0.13,
+        "a_favor_%": 80,
+        "dia_cualquiera_media_%": 0.0,
+        "dia_cualquiera_a_favor_%": 50
+       },
+       "2d": {
+        "media_%": 0.41,
+        "a_favor_%": 60,
+        "dia_cualquiera_media_%": 0.01,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "7d": {
+        "media_%": 0.06,
+        "a_favor_%": 50,
+        "dia_cualquiera_media_%": 0.02,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "28d": {
+        "media_%": -1.74,
+        "a_favor_%": 60,
+        "dia_cualquiera_media_%": 0.23,
+        "dia_cualquiera_a_favor_%": 46
+       }
+      }
+     },
+     "btc": {
+      "misma_fase": {
+       "casos": 6,
+       "1d": {
+        "media_%": 1.65,
+        "a_favor_%": 67,
+        "dia_cualquiera_media_%": 0.17,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "2d": {
+        "media_%": 2.49,
+        "a_favor_%": 83,
+        "dia_cualquiera_media_%": 0.34,
+        "dia_cualquiera_a_favor_%": 53
+       },
+       "7d": {
+        "media_%": 2.25,
+        "a_favor_%": 67,
+        "dia_cualquiera_media_%": 1.27,
+        "dia_cualquiera_a_favor_%": 53
+       },
+       "28d": {
+        "media_%": 24.07,
+        "a_favor_%": 83,
+        "dia_cualquiera_media_%": 5.07,
+        "dia_cualquiera_a_favor_%": 53
+       }
+      },
+      "ultimos_5_anos": {
+       "casos": 7,
+       "1d": {
+        "media_%": 1.02,
+        "a_favor_%": 57,
+        "dia_cualquiera_media_%": 0.05,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "2d": {
+        "media_%": 2.26,
+        "a_favor_%": 86,
+        "dia_cualquiera_media_%": 0.09,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "7d": {
+        "media_%": 1.24,
+        "a_favor_%": 57,
+        "dia_cualquiera_media_%": 0.34,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "28d": {
+        "media_%": 12.24,
+        "a_favor_%": 71,
+        "dia_cualquiera_media_%": 1.51,
+        "dia_cualquiera_a_favor_%": 53
+       }
+      },
+      "todo_desde_2018": {
+       "casos": 10,
+       "1d": {
+        "media_%": 0.9,
+        "a_favor_%": 60,
+        "dia_cualquiera_media_%": 0.11,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": 1.6,
+        "a_favor_%": 80,
+        "dia_cualquiera_media_%": 0.21,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "7d": {
+        "media_%": 1.79,
+        "a_favor_%": 70,
+        "dia_cualquiera_media_%": 0.75,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "28d": {
+        "media_%": 17.43,
+        "a_favor_%": 80,
+        "dia_cualquiera_media_%": 3.37,
+        "dia_cualquiera_a_favor_%": 54
+       }
+      }
+     }
+    },
+    "altcoins_frente_a_btc_TOTAL3": {
+     "misma_fase": {
+      "casos": 39,
+      "1d": {
+       "media_%": 0.12,
+       "a_favor_%": 56,
+       "dia_cualquiera_media_%": 0.01,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 0.52,
+       "a_favor_%": 46,
+       "dia_cualquiera_media_%": 0.04,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "7d": {
+       "media_%": -0.1,
+       "a_favor_%": 49,
+       "dia_cualquiera_media_%": 0.2,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "28d": {
+       "media_%": 2.07,
+       "a_favor_%": 59,
+       "dia_cualquiera_media_%": 1.32,
+       "dia_cualquiera_a_favor_%": 51
+      }
+     },
+     "ultimos_5_anos": {
+      "casos": 32,
+      "1d": {
+       "media_%": -0.33,
+       "a_favor_%": 56,
+       "dia_cualquiera_media_%": -0.02,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": -0.09,
+       "a_favor_%": 44,
+       "dia_cualquiera_media_%": -0.03,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "7d": {
+       "media_%": -0.19,
+       "a_favor_%": 44,
+       "dia_cualquiera_media_%": -0.13,
+       "dia_cualquiera_a_favor_%": 47
+      },
+      "28d": {
+       "media_%": 1.14,
+       "a_favor_%": 56,
+       "dia_cualquiera_media_%": -0.53,
+       "dia_cualquiera_a_favor_%": 42
+      }
+     },
+     "todo_desde_2018": {
+      "casos": 62,
+      "1d": {
+       "media_%": 0.38,
+       "a_favor_%": 61,
+       "dia_cualquiera_media_%": 0.0,
+       "dia_cualquiera_a_favor_%": 50
+      },
+      "2d": {
+       "media_%": 0.62,
+       "a_favor_%": 53,
+       "dia_cualquiera_media_%": 0.01,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "7d": {
+       "media_%": 0.08,
+       "a_favor_%": 50,
+       "dia_cualquiera_media_%": 0.02,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "28d": {
+       "media_%": 2.48,
+       "a_favor_%": 56,
+       "dia_cualquiera_media_%": 0.23,
+       "dia_cualquiera_a_favor_%": 46
+      }
+     }
+    },
+    "ultimas_5": [
+     {
+      "fecha": "2025-02-02",
+      "nivel": 61.58,
+      "fuerza": 3,
+      "1d_%": 3.7,
+      "2d_%": 0.1,
+      "7d_%": -1.3,
+      "28d_%": -3.5,
+      "btc_sobre_media200": true,
+      "btc_30d_%": -0.5,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": 5.6
+     },
+     {
+      "fecha": "2025-04-07",
+      "nivel": 64.32,
+      "fuerza": 5,
+      "1d_%": -3.6,
+      "2d_%": 4.4,
+      "7d_%": 6.9,
+      "28d_%": 19.7,
+      "btc_sobre_media200": false,
+      "btc_30d_%": -8.2,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": -6.3
+     },
+     {
+      "fecha": "2025-09-22",
+      "nivel": 59.05,
+      "fuerza": 3,
+      "1d_%": -0.6,
+      "2d_%": 0.6,
+      "7d_%": 1.5,
+      "28d_%": -1.9,
+      "btc_sobre_media200": true,
+      "btc_30d_%": -2.4,
+      "aguanto": false,
+      "alts_vs_btc_28d_%": -5.0
+     },
+     {
+      "fecha": "2025-10-10",
+      "nivel": 60.34,
+      "fuerza": 8,
+      "1d_%": -1.9,
+      "2d_%": 1.9,
+      "7d_%": -5.6,
+      "28d_%": -8.4,
+      "btc_sobre_media200": true,
+      "btc_30d_%": -1.0,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": 5.7
+     },
+     {
+      "fecha": "2025-11-03",
+      "nivel": 61.14,
+      "fuerza": 2,
+      "1d_%": -4.8,
+      "2d_%": -2.5,
+      "7d_%": -0.5,
+      "28d_%": -19.0,
+      "btc_sobre_media200": false,
+      "btc_30d_%": -12.9,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": 10.5
+     }
+    ]
+   },
+   "al_llegar_a_soporte": {
+    "evento": "BTC.D llega a una zona de soporte diaria viniendo de lejos",
+    "casos": 58,
+    "aguanta_20d_%": 43,
+    "btc": {
+     "misma_fase": {
+      "casos": 39,
+      "1d": {
+       "media_%": 0.04,
+       "a_favor_%": 51,
+       "dia_cualquiera_media_%": 0.17,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "2d": {
+       "media_%": 0.65,
+       "a_favor_%": 59,
+       "dia_cualquiera_media_%": 0.34,
+       "dia_cualquiera_a_favor_%": 53
+      },
+      "7d": {
+       "media_%": 0.71,
+       "a_favor_%": 54,
+       "dia_cualquiera_media_%": 1.27,
+       "dia_cualquiera_a_favor_%": 53
+      },
+      "28d": {
+       "media_%": 4.38,
+       "a_favor_%": 49,
+       "dia_cualquiera_media_%": 5.07,
+       "dia_cualquiera_a_favor_%": 53
+      }
+     },
+     "ultimos_5_anos": {
+      "casos": 23,
+      "1d": {
+       "media_%": 1.6,
+       "a_favor_%": 70,
+       "dia_cualquiera_media_%": 0.05,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "2d": {
+       "media_%": 1.46,
+       "a_favor_%": 65,
+       "dia_cualquiera_media_%": 0.09,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "7d": {
+       "media_%": 1.41,
+       "a_favor_%": 57,
+       "dia_cualquiera_media_%": 0.34,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "28d": {
+       "media_%": 1.64,
+       "a_favor_%": 43,
+       "dia_cualquiera_media_%": 1.51,
+       "dia_cualquiera_a_favor_%": 53
+      }
+     },
+     "todo_desde_2018": {
+      "casos": 58,
+      "1d": {
+       "media_%": 0.72,
+       "a_favor_%": 60,
+       "dia_cualquiera_media_%": 0.11,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 1.04,
+       "a_favor_%": 60,
+       "dia_cualquiera_media_%": 0.21,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "7d": {
+       "media_%": 0.95,
+       "a_favor_%": 53,
+       "dia_cualquiera_media_%": 0.75,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "28d": {
+       "media_%": 3.27,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": 3.37,
+       "dia_cualquiera_a_favor_%": 54
+      }
+     }
+    },
+    "zonas_fuertes": {
+     "giros_minimos": 4,
+     "casos": 16,
+     "aguanta_20d_%": 62,
+     "altcoins_frente_a_btc_TOTAL3": {
+      "misma_fase": {
+       "casos": 12,
+       "1d": {
+        "media_%": -0.32,
+        "a_favor_%": 42,
+        "dia_cualquiera_media_%": 0.01,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": -1.09,
+        "a_favor_%": 42,
+        "dia_cualquiera_media_%": 0.04,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "7d": {
+        "media_%": 0.27,
+        "a_favor_%": 42,
+        "dia_cualquiera_media_%": 0.2,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "28d": {
+        "media_%": 13.74,
+        "a_favor_%": 67,
+        "dia_cualquiera_media_%": 1.32,
+        "dia_cualquiera_a_favor_%": 51
+       }
+      },
+      "ultimos_5_anos": {
+       "casos": 9,
+       "1d": {
+        "media_%": -1.24,
+        "a_favor_%": 33,
+        "dia_cualquiera_media_%": -0.02,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": -0.53,
+        "a_favor_%": 44,
+        "dia_cualquiera_media_%": -0.03,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "7d": {
+        "media_%": 0.22,
+        "a_favor_%": 44,
+        "dia_cualquiera_media_%": -0.13,
+        "dia_cualquiera_a_favor_%": 47
+       },
+       "28d": {
+        "media_%": 1.2,
+        "a_favor_%": 33,
+        "dia_cualquiera_media_%": -0.53,
+        "dia_cualquiera_a_favor_%": 42
+       }
+      },
+      "todo_desde_2018": {
+       "casos": 16,
+       "1d": {
+        "media_%": -0.98,
+        "a_favor_%": 31,
+        "dia_cualquiera_media_%": 0.0,
+        "dia_cualquiera_a_favor_%": 50
+       },
+       "2d": {
+        "media_%": -1.36,
+        "a_favor_%": 31,
+        "dia_cualquiera_media_%": 0.01,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "7d": {
+        "media_%": 0.07,
+        "a_favor_%": 44,
+        "dia_cualquiera_media_%": 0.02,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "28d": {
+        "media_%": 10.74,
+        "a_favor_%": 56,
+        "dia_cualquiera_media_%": 0.23,
+        "dia_cualquiera_a_favor_%": 46
+       }
+      }
+     },
+     "btc": {
+      "misma_fase": {
+       "casos": 12,
+       "1d": {
+        "media_%": 1.42,
+        "a_favor_%": 67,
+        "dia_cualquiera_media_%": 0.17,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "2d": {
+        "media_%": 3.13,
+        "a_favor_%": 75,
+        "dia_cualquiera_media_%": 0.34,
+        "dia_cualquiera_a_favor_%": 53
+       },
+       "7d": {
+        "media_%": 4.45,
+        "a_favor_%": 75,
+        "dia_cualquiera_media_%": 1.27,
+        "dia_cualquiera_a_favor_%": 53
+       },
+       "28d": {
+        "media_%": 13.57,
+        "a_favor_%": 75,
+        "dia_cualquiera_media_%": 5.07,
+        "dia_cualquiera_a_favor_%": 53
+       }
+      },
+      "ultimos_5_anos": {
+       "casos": 9,
+       "1d": {
+        "media_%": 3.16,
+        "a_favor_%": 67,
+        "dia_cualquiera_media_%": 0.05,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "2d": {
+        "media_%": 2.96,
+        "a_favor_%": 67,
+        "dia_cualquiera_media_%": 0.09,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "7d": {
+        "media_%": 3.31,
+        "a_favor_%": 67,
+        "dia_cualquiera_media_%": 0.34,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "28d": {
+        "media_%": 5.74,
+        "a_favor_%": 56,
+        "dia_cualquiera_media_%": 1.51,
+        "dia_cualquiera_a_favor_%": 53
+       }
+      },
+      "todo_desde_2018": {
+       "casos": 16,
+       "1d": {
+        "media_%": 2.34,
+        "a_favor_%": 69,
+        "dia_cualquiera_media_%": 0.11,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": 3.14,
+        "a_favor_%": 69,
+        "dia_cualquiera_media_%": 0.21,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "7d": {
+        "media_%": 4.19,
+        "a_favor_%": 69,
+        "dia_cualquiera_media_%": 0.75,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "28d": {
+        "media_%": 12.3,
+        "a_favor_%": 75,
+        "dia_cualquiera_media_%": 3.37,
+        "dia_cualquiera_a_favor_%": 54
+       }
+      }
+     }
+    },
+    "altcoins_frente_a_btc_TOTAL3": {
+     "misma_fase": {
+      "casos": 39,
+      "1d": {
+       "media_%": 0.48,
+       "a_favor_%": 54,
+       "dia_cualquiera_media_%": 0.01,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 0.56,
+       "a_favor_%": 62,
+       "dia_cualquiera_media_%": 0.04,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "7d": {
+       "media_%": 1.93,
+       "a_favor_%": 56,
+       "dia_cualquiera_media_%": 0.2,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "28d": {
+       "media_%": 7.41,
+       "a_favor_%": 64,
+       "dia_cualquiera_media_%": 1.32,
+       "dia_cualquiera_a_favor_%": 51
+      }
+     },
+     "ultimos_5_anos": {
+      "casos": 23,
+      "1d": {
+       "media_%": -0.44,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": -0.02,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": -0.13,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": -0.03,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "7d": {
+       "media_%": -0.87,
+       "a_favor_%": 43,
+       "dia_cualquiera_media_%": -0.13,
+       "dia_cualquiera_a_favor_%": 47
+      },
+      "28d": {
+       "media_%": -0.99,
+       "a_favor_%": 43,
+       "dia_cualquiera_media_%": -0.53,
+       "dia_cualquiera_a_favor_%": 42
+      }
+     },
+     "todo_desde_2018": {
+      "casos": 58,
+      "1d": {
+       "media_%": 0.35,
+       "a_favor_%": 53,
+       "dia_cualquiera_media_%": 0.0,
+       "dia_cualquiera_a_favor_%": 50
+      },
+      "2d": {
+       "media_%": 0.22,
+       "a_favor_%": 53,
+       "dia_cualquiera_media_%": 0.01,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "7d": {
+       "media_%": 0.8,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": 0.02,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "28d": {
+       "media_%": 4.83,
+       "a_favor_%": 57,
+       "dia_cualquiera_media_%": 0.23,
+       "dia_cualquiera_a_favor_%": 46
+      }
+     }
+    },
+    "ultimas_5": [
+     {
+      "fecha": "2025-07-15",
+      "nivel": 63.43,
+      "fuerza": 4,
+      "1d_%": 0.7,
+      "2d_%": 1.2,
+      "7d_%": 1.9,
+      "28d_%": 2.0,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 11.5,
+      "aguanto": false,
+      "alts_vs_btc_28d_%": 9.0
+     },
+     {
+      "fecha": "2025-08-09",
+      "nivel": 59.62,
+      "fuerza": 2,
+      "1d_%": 2.4,
+      "2d_%": 1.9,
+      "7d_%": 0.8,
+      "28d_%": -5.4,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 0.4,
+      "aguanto": false,
+      "alts_vs_btc_28d_%": 5.2
+     },
+     {
+      "fecha": "2025-08-22",
+      "nivel": 58.35,
+      "fuerza": 5,
+      "1d_%": -1.3,
+      "2d_%": -2.9,
+      "7d_%": -7.3,
+      "28d_%": -1.1,
+      "btc_sobre_media200": true,
+      "btc_30d_%": -1.5,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": 5.9
+     },
+     {
+      "fecha": "2026-02-05",
+      "nivel": 58.39,
+      "fuerza": 7,
+      "1d_%": 12.2,
+      "2d_%": 10.1,
+      "7d_%": 5.3,
+      "28d_%": 12.7,
+      "btc_sobre_media200": false,
+      "btc_30d_%": -32.9,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": -5.2
+     },
+     {
+      "fecha": "2026-06-03",
+      "nivel": 57.71,
+      "fuerza": 7,
+      "1d_%": -0.4,
+      "2d_%": -4.8,
+      "7d_%": -4.1,
+      "28d_%": -6.4,
+      "btc_sobre_media200": false,
+      "btc_30d_%": -19.7,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": -1.4
+     }
+    ]
+   }
+  },
+  "USDT.D": {
+   "que": "dominancia de USDT",
+   "papel": "contexto",
+   "tolerancia_zona": 0.02,
+   "precio_hoy": 6.960032865122217,
+   "ultimo_cierre": 6.969313426255877,
+   "ultima_vela_cerrada": "2026-10-31",
+   "resistencias": [
+    {
+     "nivel": 7.081185840802757,
+     "fuerza_giros": 6,
+     "distancia_%": 1.74,
+     "cerca": true,
+     "principal": true
+    },
+    {
+     "nivel": 7.238059000228558,
+     "fuerza_giros": 13,
+     "distancia_%": 3.99,
+     "cerca": false,
+     "principal": true
+    },
+    {
+     "nivel": 7.408500050593357,
+     "fuerza_giros": 6,
+     "distancia_%": 6.44,
+     "cerca": false,
+     "principal": true
+    }
+   ],
+   "soportes": [
+    {
+     "nivel": 6.9101547471078435,
+     "fuerza_giros": 9,
+     "distancia_%": -0.72,
+     "cerca": true,
+     "principal": true
+    },
+    {
+     "nivel": 6.748788716742278,
+     "fuerza_giros": 10,
+     "distancia_%": -3.04,
+     "cerca": false,
+     "principal": true
+    },
+    {
+     "nivel": 6.6063607620574505,
+     "fuerza_giros": 6,
+     "distancia_%": -5.08,
+     "cerca": false,
+     "principal": true
+    }
+   ],
+   "aviso": [
+    "resistencia principal a 1.74 %",
+    "soporte principal a -0.72 %"
+   ],
+   "al_llegar_a_resistencia": {
+    "evento": "USDT.D llega a una zona de resistencia diaria viniendo de lejos",
+    "casos": 74,
+    "aguanta_20d_%": 41,
+    "btc": {
+     "misma_fase": {
+      "casos": 42,
+      "1d": {
+       "media_%": 0.11,
+       "a_favor_%": 55,
+       "dia_cualquiera_media_%": 0.17,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "2d": {
+       "media_%": 0.8,
+       "a_favor_%": 62,
+       "dia_cualquiera_media_%": 0.34,
+       "dia_cualquiera_a_favor_%": 53
+      },
+      "7d": {
+       "media_%": 2.28,
+       "a_favor_%": 57,
+       "dia_cualquiera_media_%": 1.27,
+       "dia_cualquiera_a_favor_%": 53
+      },
+      "28d": {
+       "media_%": 7.0,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": 5.07,
+       "dia_cualquiera_a_favor_%": 53
+      }
+     },
+     "ultimos_5_anos": {
+      "casos": 40,
+      "1d": {
+       "media_%": -0.94,
+       "a_favor_%": 48,
+       "dia_cualquiera_media_%": 0.05,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "2d": {
+       "media_%": 0.13,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": 0.09,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "7d": {
+       "media_%": 1.41,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": 0.34,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "28d": {
+       "media_%": 0.11,
+       "a_favor_%": 45,
+       "dia_cualquiera_media_%": 1.51,
+       "dia_cualquiera_a_favor_%": 53
+      }
+     },
+     "todo_desde_2018": {
+      "casos": 74,
+      "1d": {
+       "media_%": -0.1,
+       "a_favor_%": 53,
+       "dia_cualquiera_media_%": 0.11,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 0.45,
+       "a_favor_%": 54,
+       "dia_cualquiera_media_%": 0.21,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "7d": {
+       "media_%": -0.14,
+       "a_favor_%": 50,
+       "dia_cualquiera_media_%": 0.75,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "28d": {
+       "media_%": 2.38,
+       "a_favor_%": 46,
+       "dia_cualquiera_media_%": 3.37,
+       "dia_cualquiera_a_favor_%": 54
+      }
+     }
+    },
+    "zonas_fuertes": {
+     "giros_minimos": 4,
+     "casos": 31,
+     "aguanta_20d_%": 58,
+     "altcoins_frente_a_btc_TOTAL3": {
+      "misma_fase": {
+       "casos": 18,
+       "1d": {
+        "media_%": 0.64,
+        "a_favor_%": 67,
+        "dia_cualquiera_media_%": 0.01,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": 0.82,
+        "a_favor_%": 61,
+        "dia_cualquiera_media_%": 0.04,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "7d": {
+        "media_%": -1.19,
+        "a_favor_%": 39,
+        "dia_cualquiera_media_%": 0.2,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "28d": {
+        "media_%": 2.43,
+        "a_favor_%": 56,
+        "dia_cualquiera_media_%": 1.32,
+        "dia_cualquiera_a_favor_%": 51
+       }
+      },
+      "ultimos_5_anos": {
+       "casos": 26,
+       "1d": {
+        "media_%": 0.55,
+        "a_favor_%": 62,
+        "dia_cualquiera_media_%": -0.02,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": 0.56,
+        "a_favor_%": 54,
+        "dia_cualquiera_media_%": -0.03,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "7d": {
+        "media_%": -0.69,
+        "a_favor_%": 46,
+        "dia_cualquiera_media_%": -0.13,
+        "dia_cualquiera_a_favor_%": 47
+       },
+       "28d": {
+        "media_%": -1.17,
+        "a_favor_%": 42,
+        "dia_cualquiera_media_%": -0.53,
+        "dia_cualquiera_a_favor_%": 42
+       }
+      },
+      "todo_desde_2018": {
+       "casos": 31,
+       "1d": {
+        "media_%": 0.59,
+        "a_favor_%": 65,
+        "dia_cualquiera_media_%": 0.0,
+        "dia_cualquiera_a_favor_%": 50
+       },
+       "2d": {
+        "media_%": 0.83,
+        "a_favor_%": 61,
+        "dia_cualquiera_media_%": 0.01,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "7d": {
+        "media_%": -0.36,
+        "a_favor_%": 48,
+        "dia_cualquiera_media_%": 0.02,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "28d": {
+        "media_%": 0.35,
+        "a_favor_%": 48,
+        "dia_cualquiera_media_%": 0.23,
+        "dia_cualquiera_a_favor_%": 46
+       }
+      }
+     },
+     "btc": {
+      "misma_fase": {
+       "casos": 18,
+       "1d": {
+        "media_%": -0.46,
+        "a_favor_%": 39,
+        "dia_cualquiera_media_%": 0.17,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "2d": {
+        "media_%": 0.45,
+        "a_favor_%": 61,
+        "dia_cualquiera_media_%": 0.34,
+        "dia_cualquiera_a_favor_%": 53
+       },
+       "7d": {
+        "media_%": 3.14,
+        "a_favor_%": 61,
+        "dia_cualquiera_media_%": 1.27,
+        "dia_cualquiera_a_favor_%": 53
+       },
+       "28d": {
+        "media_%": 0.68,
+        "a_favor_%": 39,
+        "dia_cualquiera_media_%": 5.07,
+        "dia_cualquiera_a_favor_%": 53
+       }
+      },
+      "ultimos_5_anos": {
+       "casos": 26,
+       "1d": {
+        "media_%": -0.25,
+        "a_favor_%": 46,
+        "dia_cualquiera_media_%": 0.05,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "2d": {
+        "media_%": 0.46,
+        "a_favor_%": 58,
+        "dia_cualquiera_media_%": 0.09,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "7d": {
+        "media_%": 2.52,
+        "a_favor_%": 58,
+        "dia_cualquiera_media_%": 0.34,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "28d": {
+        "media_%": 0.82,
+        "a_favor_%": 42,
+        "dia_cualquiera_media_%": 1.51,
+        "dia_cualquiera_a_favor_%": 53
+       }
+      },
+      "todo_desde_2018": {
+       "casos": 31,
+       "1d": {
+        "media_%": -0.41,
+        "a_favor_%": 42,
+        "dia_cualquiera_media_%": 0.11,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": 0.55,
+        "a_favor_%": 58,
+        "dia_cualquiera_media_%": 0.21,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "7d": {
+        "media_%": 1.1,
+        "a_favor_%": 55,
+        "dia_cualquiera_media_%": 0.75,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "28d": {
+        "media_%": 0.55,
+        "a_favor_%": 39,
+        "dia_cualquiera_media_%": 3.37,
+        "dia_cualquiera_a_favor_%": 54
+       }
+      }
+     }
+    },
+    "altcoins_frente_a_btc_TOTAL3": {
+     "misma_fase": {
+      "casos": 42,
+      "1d": {
+       "media_%": 1.03,
+       "a_favor_%": 71,
+       "dia_cualquiera_media_%": 0.01,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 1.25,
+       "a_favor_%": 62,
+       "dia_cualquiera_media_%": 0.04,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "7d": {
+       "media_%": 0.18,
+       "a_favor_%": 50,
+       "dia_cualquiera_media_%": 0.2,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "28d": {
+       "media_%": 2.09,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": 1.32,
+       "dia_cualquiera_a_favor_%": 51
+      }
+     },
+     "ultimos_5_anos": {
+      "casos": 40,
+      "1d": {
+       "media_%": 0.57,
+       "a_favor_%": 65,
+       "dia_cualquiera_media_%": -0.02,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 0.46,
+       "a_favor_%": 50,
+       "dia_cualquiera_media_%": -0.03,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "7d": {
+       "media_%": -0.37,
+       "a_favor_%": 50,
+       "dia_cualquiera_media_%": -0.13,
+       "dia_cualquiera_a_favor_%": 47
+      },
+      "28d": {
+       "media_%": -1.47,
+       "a_favor_%": 38,
+       "dia_cualquiera_media_%": -0.53,
+       "dia_cualquiera_a_favor_%": 42
+      }
+     },
+     "todo_desde_2018": {
+      "casos": 74,
+      "1d": {
+       "media_%": 0.85,
+       "a_favor_%": 68,
+       "dia_cualquiera_media_%": 0.0,
+       "dia_cualquiera_a_favor_%": 50
+      },
+      "2d": {
+       "media_%": 1.07,
+       "a_favor_%": 58,
+       "dia_cualquiera_media_%": 0.01,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "7d": {
+       "media_%": -0.06,
+       "a_favor_%": 50,
+       "dia_cualquiera_media_%": 0.02,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "28d": {
+       "media_%": -0.53,
+       "a_favor_%": 42,
+       "dia_cualquiera_media_%": 0.23,
+       "dia_cualquiera_a_favor_%": 46
+      }
+     }
+    },
+    "ultimas_5": [
+     {
+      "fecha": "2025-11-20",
+      "nivel": 6.41,
+      "fuerza": 6,
+      "1d_%": -1.7,
+      "2d_%": -2.2,
+      "7d_%": 5.4,
+      "28d_%": -1.3,
+      "btc_sobre_media200": false,
+      "btc_30d_%": -20.0,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": -5.6
+     },
+     {
+      "fecha": "2025-12-01",
+      "nivel": 6.54,
+      "fuerza": 5,
+      "1d_%": 5.8,
+      "2d_%": 8.3,
+      "7d_%": 5.0,
+      "28d_%": 1.1,
+      "btc_sobre_media200": false,
+      "btc_30d_%": -21.6,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": -2.3
+     },
+     {
+      "fecha": "2026-01-31",
+      "nivel": 7.14,
+      "fuerza": 7,
+      "1d_%": -2.3,
+      "2d_%": -0.0,
+      "7d_%": -12.0,
+      "28d_%": -14.9,
+      "btc_sobre_media200": false,
+      "btc_30d_%": -11.4,
+      "aguanto": false,
+      "alts_vs_btc_28d_%": 7.9
+     },
+     {
+      "fecha": "2026-06-02",
+      "nivel": 8.49,
+      "fuerza": 4,
+      "1d_%": -3.9,
+      "2d_%": -4.3,
+      "7d_%": -7.5,
+      "28d_%": -12.2,
+      "btc_sobre_media200": false,
+      "btc_30d_%": -15.0,
+      "aguanto": false,
+      "alts_vs_btc_28d_%": 3.6
+     },
+     {
+      "fecha": "2026-06-24",
+      "nivel": 9.34,
+      "fuerza": 2,
+      "1d_%": -2.1,
+      "2d_%": -1.6,
+      "7d_%": -1.7,
+      "28d_%": 8.2,
+      "btc_sobre_media200": false,
+      "btc_30d_%": -21.0,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": -6.6
+     }
+    ]
+   },
+   "al_llegar_a_soporte": {
+    "evento": "USDT.D llega a una zona de soporte diaria viniendo de lejos",
+    "casos": 55,
+    "aguanta_20d_%": 53,
+    "btc": {
+     "misma_fase": {
+      "casos": 37,
+      "1d": {
+       "media_%": 0.76,
+       "a_favor_%": 49,
+       "dia_cualquiera_media_%": 0.17,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "2d": {
+       "media_%": 0.73,
+       "a_favor_%": 59,
+       "dia_cualquiera_media_%": 0.34,
+       "dia_cualquiera_a_favor_%": 53
+      },
+      "7d": {
+       "media_%": 2.83,
+       "a_favor_%": 59,
+       "dia_cualquiera_media_%": 1.27,
+       "dia_cualquiera_a_favor_%": 53
+      },
+      "28d": {
+       "media_%": 8.41,
+       "a_favor_%": 59,
+       "dia_cualquiera_media_%": 5.07,
+       "dia_cualquiera_a_favor_%": 53
+      }
+     },
+     "ultimos_5_anos": {
+      "casos": 23,
+      "1d": {
+       "media_%": 0.49,
+       "a_favor_%": 35,
+       "dia_cualquiera_media_%": 0.05,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "2d": {
+       "media_%": 0.46,
+       "a_favor_%": 57,
+       "dia_cualquiera_media_%": 0.09,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "7d": {
+       "media_%": 0.2,
+       "a_favor_%": 48,
+       "dia_cualquiera_media_%": 0.34,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "28d": {
+       "media_%": 3.03,
+       "a_favor_%": 43,
+       "dia_cualquiera_media_%": 1.51,
+       "dia_cualquiera_a_favor_%": 53
+      }
+     },
+     "todo_desde_2018": {
+      "casos": 55,
+      "1d": {
+       "media_%": 0.45,
+       "a_favor_%": 49,
+       "dia_cualquiera_media_%": 0.11,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 0.35,
+       "a_favor_%": 56,
+       "dia_cualquiera_media_%": 0.21,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "7d": {
+       "media_%": 1.38,
+       "a_favor_%": 53,
+       "dia_cualquiera_media_%": 0.75,
+       "dia_cualquiera_a_favor_%": 52
+      },
+      "28d": {
+       "media_%": 4.93,
+       "a_favor_%": 53,
+       "dia_cualquiera_media_%": 3.37,
+       "dia_cualquiera_a_favor_%": 54
+      }
+     }
+    },
+    "zonas_fuertes": {
+     "giros_minimos": 4,
+     "casos": 20,
+     "aguanta_20d_%": 55,
+     "altcoins_frente_a_btc_TOTAL3": {
+      "misma_fase": {
+       "casos": 19,
+       "1d": {
+        "media_%": -0.32,
+        "a_favor_%": 47,
+        "dia_cualquiera_media_%": 0.01,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": 0.95,
+        "a_favor_%": 53,
+        "dia_cualquiera_media_%": 0.04,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "7d": {
+        "media_%": 0.25,
+        "a_favor_%": 53,
+        "dia_cualquiera_media_%": 0.2,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "28d": {
+        "media_%": 3.64,
+        "a_favor_%": 47,
+        "dia_cualquiera_media_%": 1.32,
+        "dia_cualquiera_a_favor_%": 51
+       }
+      },
+      "ultimos_5_anos": {
+       "casos": 15,
+       "1d": {
+        "media_%": -0.32,
+        "a_favor_%": 53,
+        "dia_cualquiera_media_%": -0.02,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": 0.15,
+        "a_favor_%": 53,
+        "dia_cualquiera_media_%": -0.03,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "7d": {
+        "media_%": -0.83,
+        "a_favor_%": 47,
+        "dia_cualquiera_media_%": -0.13,
+        "dia_cualquiera_a_favor_%": 47
+       },
+       "28d": {
+        "media_%": -0.14,
+        "a_favor_%": 47,
+        "dia_cualquiera_media_%": -0.53,
+        "dia_cualquiera_a_favor_%": 42
+       }
+      },
+      "todo_desde_2018": {
+       "casos": 20,
+       "1d": {
+        "media_%": -0.23,
+        "a_favor_%": 50,
+        "dia_cualquiera_media_%": 0.0,
+        "dia_cualquiera_a_favor_%": 50
+       },
+       "2d": {
+        "media_%": 1.09,
+        "a_favor_%": 55,
+        "dia_cualquiera_media_%": 0.01,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "7d": {
+        "media_%": 0.37,
+        "a_favor_%": 55,
+        "dia_cualquiera_media_%": 0.02,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "28d": {
+        "media_%": 3.66,
+        "a_favor_%": 50,
+        "dia_cualquiera_media_%": 0.23,
+        "dia_cualquiera_a_favor_%": 46
+       }
+      }
+     },
+     "btc": {
+      "misma_fase": {
+       "casos": 19,
+       "1d": {
+        "media_%": 0.13,
+        "a_favor_%": 37,
+        "dia_cualquiera_media_%": 0.17,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "2d": {
+        "media_%": -0.14,
+        "a_favor_%": 47,
+        "dia_cualquiera_media_%": 0.34,
+        "dia_cualquiera_a_favor_%": 53
+       },
+       "7d": {
+        "media_%": 1.26,
+        "a_favor_%": 53,
+        "dia_cualquiera_media_%": 1.27,
+        "dia_cualquiera_a_favor_%": 53
+       },
+       "28d": {
+        "media_%": 7.08,
+        "a_favor_%": 47,
+        "dia_cualquiera_media_%": 5.07,
+        "dia_cualquiera_a_favor_%": 53
+       }
+      },
+      "ultimos_5_anos": {
+       "casos": 15,
+       "1d": {
+        "media_%": -0.14,
+        "a_favor_%": 27,
+        "dia_cualquiera_media_%": 0.05,
+        "dia_cualquiera_a_favor_%": 49
+       },
+       "2d": {
+        "media_%": -0.36,
+        "a_favor_%": 47,
+        "dia_cualquiera_media_%": 0.09,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "7d": {
+        "media_%": 1.17,
+        "a_favor_%": 53,
+        "dia_cualquiera_media_%": 0.34,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "28d": {
+        "media_%": 3.89,
+        "a_favor_%": 40,
+        "dia_cualquiera_media_%": 1.51,
+        "dia_cualquiera_a_favor_%": 53
+       }
+      },
+      "todo_desde_2018": {
+       "casos": 20,
+       "1d": {
+        "media_%": 0.0,
+        "a_favor_%": 35,
+        "dia_cualquiera_media_%": 0.11,
+        "dia_cualquiera_a_favor_%": 51
+       },
+       "2d": {
+        "media_%": -0.45,
+        "a_favor_%": 45,
+        "dia_cualquiera_media_%": 0.21,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "7d": {
+        "media_%": 1.02,
+        "a_favor_%": 50,
+        "dia_cualquiera_media_%": 0.75,
+        "dia_cualquiera_a_favor_%": 52
+       },
+       "28d": {
+        "media_%": 6.41,
+        "a_favor_%": 45,
+        "dia_cualquiera_media_%": 3.37,
+        "dia_cualquiera_a_favor_%": 54
+       }
+      }
+     }
+    },
+    "altcoins_frente_a_btc_TOTAL3": {
+     "misma_fase": {
+      "casos": 37,
+      "1d": {
+       "media_%": -0.28,
+       "a_favor_%": 46,
+       "dia_cualquiera_media_%": 0.01,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": 0.67,
+       "a_favor_%": 43,
+       "dia_cualquiera_media_%": 0.04,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "7d": {
+       "media_%": -0.28,
+       "a_favor_%": 51,
+       "dia_cualquiera_media_%": 0.2,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "28d": {
+       "media_%": 3.2,
+       "a_favor_%": 49,
+       "dia_cualquiera_media_%": 1.32,
+       "dia_cualquiera_a_favor_%": 51
+      }
+     },
+     "ultimos_5_anos": {
+      "casos": 23,
+      "1d": {
+       "media_%": -0.44,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": -0.02,
+       "dia_cualquiera_a_favor_%": 51
+      },
+      "2d": {
+       "media_%": -0.3,
+       "a_favor_%": 43,
+       "dia_cualquiera_media_%": -0.03,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "7d": {
+       "media_%": -0.46,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": -0.13,
+       "dia_cualquiera_a_favor_%": 47
+      },
+      "28d": {
+       "media_%": 1.52,
+       "a_favor_%": 52,
+       "dia_cualquiera_media_%": -0.53,
+       "dia_cualquiera_a_favor_%": 42
+      }
+     },
+     "todo_desde_2018": {
+      "casos": 55,
+      "1d": {
+       "media_%": -0.23,
+       "a_favor_%": 45,
+       "dia_cualquiera_media_%": 0.0,
+       "dia_cualquiera_a_favor_%": 50
+      },
+      "2d": {
+       "media_%": 0.07,
+       "a_favor_%": 47,
+       "dia_cualquiera_media_%": 0.01,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "7d": {
+       "media_%": -0.34,
+       "a_favor_%": 53,
+       "dia_cualquiera_media_%": 0.02,
+       "dia_cualquiera_a_favor_%": 49
+      },
+      "28d": {
+       "media_%": 2.91,
+       "a_favor_%": 55,
+       "dia_cualquiera_media_%": 0.23,
+       "dia_cualquiera_a_favor_%": 46
+      }
+     }
+    },
+    "ultimas_5": [
+     {
+      "fecha": "2025-04-22",
+      "nivel": 4.98,
+      "fuerza": 5,
+      "1d_%": 0.3,
+      "2d_%": 0.6,
+      "7d_%": 0.9,
+      "28d_%": 14.3,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 8.6,
+      "aguanto": false,
+      "alts_vs_btc_28d_%": -4.1
+     },
+     {
+      "fecha": "2025-05-08",
+      "nivel": 4.64,
+      "fuerza": 8,
+      "1d_%": -0.3,
+      "2d_%": 1.5,
+      "7d_%": 0.5,
+      "28d_%": -1.7,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 35.3,
+      "aguanto": false,
+      "alts_vs_btc_28d_%": -3.9
+     },
+     {
+      "fecha": "2026-03-04",
+      "nivel": 7.28,
+      "fuerza": 8,
+      "1d_%": -2.4,
+      "2d_%": -6.3,
+      "7d_%": -3.4,
+      "28d_%": -6.3,
+      "btc_sobre_media200": false,
+      "btc_30d_%": -7.7,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": 4.0
+     },
+     {
+      "fecha": "2026-08-19",
+      "nivel": 7.61,
+      "fuerza": 6,
+      "1d_%": 5.3,
+      "2d_%": 13.0,
+      "7d_%": 14.0,
+      "28d_%": 9.9,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 6.3,
+      "aguanto": false,
+      "alts_vs_btc_28d_%": 0.2
+     },
+     {
+      "fecha": "2026-09-21",
+      "nivel": 6.17,
+      "fuerza": 8,
+      "1d_%": -0.5,
+      "2d_%": -2.6,
+      "7d_%": -3.6,
+      "28d_%": -5.4,
+      "btc_sobre_media200": true,
+      "btc_30d_%": 12.4,
+      "aguanto": true,
+      "alts_vs_btc_28d_%": -1.7
+     }
+    ]
+   }
+  }
+ }
+}
