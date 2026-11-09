@@ -10,10 +10,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3757
+"nuevas": 3853
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ALGO|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -26,10 +26,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.1125,
@@ -100,10 +100,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ALGO|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -116,9 +116,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ALGO|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -131,10 +131,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ALGO|5m": {
 "base_hasta": "2026-09-29 21:15:00",
@@ -147,10 +147,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11264
+"nuevas": 11552
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|APT|15m": {
 "base_hasta": "2026-09-29 20:30:00",
@@ -163,10 +163,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3757
+"nuevas": 3853
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|APT|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -179,10 +179,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.795,
@@ -253,10 +253,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|APT|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -269,9 +269,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|APT|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -284,10 +284,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|APT|5m": {
 "base_hasta": "2026-09-29 21:20:00",
@@ -300,10 +300,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11263
+"nuevas": 11551
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ARB|15m": {
 "base_hasta": "2026-09-29 20:30:00",
@@ -316,10 +316,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3757
+"nuevas": 3853
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ARB|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -332,10 +332,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.2256,
@@ -406,10 +406,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ARB|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -422,9 +422,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ARB|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -437,10 +437,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ARB|5m": {
 "base_hasta": "2026-09-29 21:20:00",
@@ -453,10 +453,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11263
+"nuevas": 11551
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ATOM|15m": {
 "base_hasta": "2026-09-29 20:30:00",
@@ -469,10 +469,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3757
+"nuevas": 3853
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ATOM|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -485,10 +485,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 1.812,
@@ -559,10 +559,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ATOM|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -575,9 +575,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ATOM|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -590,10 +590,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ATOM|5m": {
 "base_hasta": "2026-09-29 21:20:00",
@@ -606,10 +606,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11263
+"nuevas": 11551
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|AVAX|15m": {
 "base_hasta": "2026-09-29 20:30:00",
@@ -622,10 +622,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3757
+"nuevas": 3853
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|AVAX|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -638,10 +638,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 11.231,
@@ -712,10 +712,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|AVAX|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -728,9 +728,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|AVAX|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -743,10 +743,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|AVAX|5m": {
 "base_hasta": "2026-09-29 21:20:00",
@@ -759,10 +759,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11263
+"nuevas": 11551
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|AXS|15m": {
 "base_hasta": "2026-09-29 20:30:00",
@@ -775,10 +775,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3757
+"nuevas": 3853
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|AXS|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -791,10 +791,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 1.084,
@@ -865,10 +865,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|AXS|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -881,9 +881,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|AXS|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -896,10 +896,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|AXS|5m": {
 "base_hasta": "2026-09-29 21:20:00",
@@ -912,10 +912,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11263
+"nuevas": 11551
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|BCH|15m": {
 "base_hasta": "2026-09-29 20:30:00",
@@ -928,10 +928,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3757
+"nuevas": 3853
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|BCH|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -944,10 +944,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 267.3,
@@ -1018,10 +1018,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|BCH|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -1034,9 +1034,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|BCH|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -1049,10 +1049,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|BCH|5m": {
 "base_hasta": "2026-09-29 21:25:00",
@@ -1065,10 +1065,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11262
+"nuevas": 11550
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|CRV|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -1081,10 +1081,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|CRV|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -1097,10 +1097,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.3678,
@@ -1171,10 +1171,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|CRV|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -1187,9 +1187,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|CRV|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -1202,10 +1202,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|CRV|5m": {
 "base_hasta": "2026-09-29 21:25:00",
@@ -1218,10 +1218,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11262
+"nuevas": 11550
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|DOGE|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -1234,10 +1234,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|DOGE|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -1250,10 +1250,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.09987,
@@ -1324,10 +1324,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|DOGE|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -1340,9 +1340,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|DOGE|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -1355,10 +1355,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|DOGE|5m": {
 "base_hasta": "2026-09-29 21:30:00",
@@ -1371,10 +1371,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11261
+"nuevas": 11549
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|DOT|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -1387,10 +1387,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|DOT|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -1403,10 +1403,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 1.206,
@@ -1477,10 +1477,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|DOT|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -1493,9 +1493,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|DOT|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -1508,10 +1508,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|DOT|5m": {
 "base_hasta": "2026-09-29 21:30:00",
@@ -1524,10 +1524,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11261
+"nuevas": 11549
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|EGLD|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -1540,10 +1540,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|EGLD|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -1556,10 +1556,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 4.37,
@@ -1630,10 +1630,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|EGLD|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -1646,9 +1646,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|EGLD|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -1661,10 +1661,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|EGLD|5m": {
 "base_hasta": "2026-09-29 21:30:00",
@@ -1677,10 +1677,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11261
+"nuevas": 11549
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ENA|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -1693,10 +1693,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ENA|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -1709,10 +1709,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.2127,
@@ -1783,10 +1783,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ENA|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -1799,9 +1799,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ENA|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -1814,10 +1814,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ENA|5m": {
 "base_hasta": "2026-09-29 21:35:00",
@@ -1830,10 +1830,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11260
+"nuevas": 11548
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ETC|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -1846,10 +1846,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ETC|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -1862,10 +1862,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 8.89,
@@ -1936,10 +1936,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ETC|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -1952,9 +1952,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ETC|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -1967,10 +1967,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ETC|5m": {
 "base_hasta": "2026-09-29 21:40:00",
@@ -1983,10 +1983,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11259
+"nuevas": 11547
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|FET|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -1999,10 +1999,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|FET|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -2015,10 +2015,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.205,
@@ -2089,10 +2089,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|FET|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -2105,9 +2105,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|FET|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -2120,10 +2120,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|FET|5m": {
 "base_hasta": "2026-09-29 21:45:00",
@@ -2136,10 +2136,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11258
+"nuevas": 11546
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|FIL|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -2152,10 +2152,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|FIL|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -2168,10 +2168,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.9858,
@@ -2242,10 +2242,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|FIL|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -2258,9 +2258,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|FIL|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -2273,10 +2273,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|FIL|5m": {
 "base_hasta": "2026-09-29 21:50:00",
@@ -2289,10 +2289,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11257
+"nuevas": 11545
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|GRT|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -2305,10 +2305,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|GRT|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -2321,10 +2321,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.0236,
@@ -2395,10 +2395,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|GRT|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -2411,9 +2411,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|GRT|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -2426,10 +2426,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|GRT|5m": {
 "base_hasta": "2026-09-29 21:50:00",
@@ -2442,10 +2442,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11257
+"nuevas": 11545
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ICP|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -2458,10 +2458,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ICP|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -2474,10 +2474,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 3.03,
@@ -2548,10 +2548,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ICP|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -2564,9 +2564,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ICP|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -2579,10 +2579,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|ICP|5m": {
 "base_hasta": "2026-09-29 21:55:00",
@@ -2595,10 +2595,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11256
+"nuevas": 11544
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|IMX|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -2611,10 +2611,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|IMX|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -2627,10 +2627,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.1511,
@@ -2701,10 +2701,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|IMX|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -2717,9 +2717,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|IMX|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -2732,10 +2732,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|IMX|5m": {
 "base_hasta": "2026-09-29 22:00:00",
@@ -2748,10 +2748,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11255
+"nuevas": 11543
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|INJ|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -2764,10 +2764,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|INJ|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -2780,10 +2780,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 7.852,
@@ -2854,10 +2854,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|INJ|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -2870,9 +2870,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|INJ|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -2885,10 +2885,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|INJ|5m": {
 "base_hasta": "2026-09-29 22:05:00",
@@ -2901,10 +2901,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11254
+"nuevas": 11542
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|KGEN|1h": {
 "base_hasta": "2026-09-04 00:00:00",
@@ -2932,10 +2932,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|LTC|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -2948,10 +2948,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 62.01,
@@ -3022,10 +3022,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|LTC|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -3038,9 +3038,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|LTC|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -3053,10 +3053,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|LTC|5m": {
 "base_hasta": "2026-09-29 22:05:00",
@@ -3069,10 +3069,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11254
+"nuevas": 11542
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|NEAR|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -3085,10 +3085,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|NEAR|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -3101,10 +3101,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 4.27,
@@ -3175,10 +3175,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|NEAR|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -3191,9 +3191,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|NEAR|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -3206,10 +3206,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|NEAR|5m": {
 "base_hasta": "2026-09-29 22:05:00",
@@ -3222,10 +3222,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11254
+"nuevas": 11542
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|OP|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -3238,10 +3238,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|OP|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -3254,10 +3254,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.1274,
@@ -3328,10 +3328,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|OP|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -3344,9 +3344,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|OP|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -3359,10 +3359,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|OP|5m": {
 "base_hasta": "2026-09-29 22:10:00",
@@ -3375,10 +3375,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11253
+"nuevas": 11541
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|PEPE|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -3391,10 +3391,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|PEPE|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -3407,10 +3407,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 4.77e-06,
@@ -3481,10 +3481,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|PEPE|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -3497,9 +3497,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|PEPE|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -3512,10 +3512,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|PEPE|5m": {
 "base_hasta": "2026-09-29 22:15:00",
@@ -3528,10 +3528,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11252
+"nuevas": 11540
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|POL|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -3544,10 +3544,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|POL|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -3560,10 +3560,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.11219,
@@ -3634,10 +3634,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|POL|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -3650,9 +3650,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|POL|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -3665,10 +3665,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|POL|5m": {
 "base_hasta": "2026-09-29 22:15:00",
@@ -3681,10 +3681,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11252
+"nuevas": 11540
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|RUNE|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -3697,10 +3697,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|RUNE|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -3713,10 +3713,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.654,
@@ -3787,10 +3787,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|RUNE|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -3803,9 +3803,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|RUNE|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -3818,10 +3818,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|RUNE|5m": {
 "base_hasta": "2026-09-29 22:15:00",
@@ -3834,10 +3834,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11252
+"nuevas": 11540
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SAND|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -3850,10 +3850,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SAND|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -3866,10 +3866,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.04183,
@@ -3940,10 +3940,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SAND|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -3956,9 +3956,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SAND|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -3971,10 +3971,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SAND|5m": {
 "base_hasta": "2026-09-29 22:15:00",
@@ -3987,10 +3987,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11252
+"nuevas": 11540
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SHIB|15m": {
 "base_hasta": "2026-09-29 21:00:00",
@@ -4003,10 +4003,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3755
+"nuevas": 3851
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SHIB|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -4019,10 +4019,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 6.04e-06,
@@ -4093,10 +4093,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SHIB|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -4109,9 +4109,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SHIB|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -4124,10 +4124,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SHIB|5m": {
 "base_hasta": "2026-09-29 22:20:00",
@@ -4140,10 +4140,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11251
+"nuevas": 11539
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|STX|15m": {
 "base_hasta": "2026-09-29 21:00:00",
@@ -4156,10 +4156,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3755
+"nuevas": 3851
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|STX|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -4172,10 +4172,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.3414,
@@ -4246,10 +4246,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|STX|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -4262,9 +4262,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|STX|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -4277,10 +4277,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|STX|5m": {
 "base_hasta": "2026-09-29 22:25:00",
@@ -4293,10 +4293,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11250
+"nuevas": 11538
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SUI|15m": {
 "base_hasta": "2026-09-29 21:00:00",
@@ -4309,10 +4309,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3755
+"nuevas": 3851
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SUI|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -4325,10 +4325,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 1.0427,
@@ -4399,10 +4399,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SUI|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -4415,9 +4415,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SUI|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -4430,10 +4430,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SUI|5m": {
 "base_hasta": "2026-09-29 22:30:00",
@@ -4446,10 +4446,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11249
+"nuevas": 11537
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SYRUP|15m": {
 "base_hasta": "2026-09-29 21:00:00",
@@ -4462,10 +4462,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3755
+"nuevas": 3851
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SYRUP|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -4478,10 +4478,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.2313,
@@ -4552,10 +4552,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SYRUP|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -4568,9 +4568,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SYRUP|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -4583,10 +4583,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|SYRUP|5m": {
 "base_hasta": "2026-09-29 22:30:00",
@@ -4599,10 +4599,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11249
+"nuevas": 11537
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|S|15m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -4615,10 +4615,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3756
+"nuevas": 3852
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|S|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -4631,10 +4631,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.0395,
@@ -4705,10 +4705,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|S|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -4721,9 +4721,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|S|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -4736,10 +4736,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|S|5m": {
 "base_hasta": "2026-09-29 22:15:00",
@@ -4752,10 +4752,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11252
+"nuevas": 11540
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|TAO|15m": {
 "base_hasta": "2026-09-29 21:00:00",
@@ -4768,10 +4768,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3755
+"nuevas": 3851
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|TAO|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -4784,10 +4784,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 319.4,
@@ -4858,10 +4858,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|TAO|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -4874,9 +4874,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|TAO|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -4889,10 +4889,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|TAO|5m": {
 "base_hasta": "2026-09-29 22:30:00",
@@ -4905,10 +4905,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11249
+"nuevas": 11537
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|THETA|15m": {
 "base_hasta": "2026-09-29 21:00:00",
@@ -4921,10 +4921,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3755
+"nuevas": 3851
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|THETA|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -4937,10 +4937,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.2252,
@@ -5011,10 +5011,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|THETA|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -5027,9 +5027,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|THETA|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5042,10 +5042,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|THETA|5m": {
 "base_hasta": "2026-09-29 22:30:00",
@@ -5058,10 +5058,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11249
+"nuevas": 11537
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|TON|15m": {
 "base_hasta": "2026-06-30 02:45:00",
@@ -5222,10 +5222,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3755
+"nuevas": 3851
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|TRX|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -5238,10 +5238,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.3446,
@@ -5312,10 +5312,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|TRX|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -5328,9 +5328,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|TRX|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5343,10 +5343,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|TRX|5m": {
 "base_hasta": "2026-09-29 22:35:00",
@@ -5359,10 +5359,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11248
+"nuevas": 11536
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|VET|15m": {
 "base_hasta": "2026-09-29 21:00:00",
@@ -5375,10 +5375,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3755
+"nuevas": 3851
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|VET|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -5391,10 +5391,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.009321,
@@ -5465,10 +5465,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|VET|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -5481,9 +5481,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|VET|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5496,10 +5496,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|VET|5m": {
 "base_hasta": "2026-09-29 22:45:00",
@@ -5512,10 +5512,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11246
+"nuevas": 11534
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|XLM|15m": {
 "base_hasta": "2026-09-29 21:00:00",
@@ -5528,10 +5528,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 3755
+"nuevas": 3851
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|XLM|1d": {
 "base_hasta": "2026-09-28 00:00:00",
@@ -5544,10 +5544,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 40,
+"nuevas": 41,
 "semilla_1d": [
 {
 "apertura": 0.2154,
@@ -5618,10 +5618,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 940
+"nuevas": 964
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|XLM|1w": {
 "base_hasta": "2026-09-21 00:00:00",
@@ -5634,9 +5634,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 5
+"nuevas": 6
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|XLM|4h": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5649,10 +5649,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 235
+"nuevas": 241
 },
 "ALTCOINS_SECUNDARIAS/CONTADO|XLM|5m": {
 "base_hasta": "2026-09-29 22:50:00",
@@ -5665,10 +5665,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 11245
+"nuevas": 11533
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|ALGO|15m": {
 "base_hasta": "2026-09-29 22:30:00",
@@ -5681,10 +5681,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|ALGO|financiacion": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5708,10 +5708,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|ARPA|financiacion": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5735,10 +5735,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|AVAX|financiacion": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5762,10 +5762,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|BCH|financiacion": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5789,10 +5789,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|DASH|financiacion": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5816,10 +5816,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|ENA|financiacion": {
 "base_hasta": "2026-09-29 20:00:00",
@@ -5843,10 +5843,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|ETC|financiacion": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5870,10 +5870,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|ICP|financiacion": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5897,10 +5897,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|KAS|financiacion": {
 "base_hasta": "2026-09-29 20:00:00",
@@ -5924,10 +5924,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|LTC|financiacion": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5951,10 +5951,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|NEAR|financiacion": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -5978,10 +5978,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|SUI|financiacion": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -6005,10 +6005,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|THETA|financiacion": {
 "base_hasta": "2026-09-29 16:00:00",
@@ -6032,10 +6032,10 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 3653
+"nuevas": 3749
 },
 "ALTCOINS_SECUNDARIAS/PERPETUOS|TON|financiacion": {
 "base_hasta": "2026-06-23 08:00:00.005000",
@@ -12283,9 +12283,9 @@
 ],
 "desde": "2022-01-13 14:30:00",
 "fuente": "TradingView (NASDAQ:TPG)",
-"hasta": "2026-11-06 14:30:00",
+"hasta": "2026-11-09 14:30:00",
 "muerta": false,
-"nuevas": 10
+"nuevas": 11
 },
 "CARPETA_DE_BACKTEST/ACCIONES|TRE.MC|1d": {
 "base_hasta": "2026-10-23 07:00:00",
@@ -12945,10 +12945,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|AAVE|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -12962,10 +12962,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 183.94,
@@ -13044,10 +13044,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|AAVE|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -13061,9 +13061,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|AAVE|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -13077,10 +13077,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|AAVE|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -13094,10 +13094,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|AAVE|financiacion": {
 "base_hasta": "2026-09-30 16:00:00.002000",
@@ -13122,10 +13122,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ADA|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -13139,10 +13139,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 0.2703,
@@ -13221,10 +13221,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ADA|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -13238,9 +13238,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ADA|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -13254,10 +13254,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ADA|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -13271,10 +13271,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ADA|financiacion": {
 "base_hasta": "2026-09-30 16:00:00.002000",
@@ -13299,10 +13299,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|BNB|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -13316,10 +13316,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 786.81,
@@ -13398,10 +13398,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|BNB|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -13415,9 +13415,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|BNB|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -13431,10 +13431,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|BNB|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -13448,10 +13448,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|BNB|financiacion": {
 "base_hasta": "2026-09-30 16:00:00.002000",
@@ -13476,10 +13476,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|BTC|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -13493,10 +13493,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 85717.2,
@@ -13575,10 +13575,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|BTC|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -13592,9 +13592,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|BTC|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -13608,10 +13608,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|BTC|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -13625,10 +13625,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|BTC|financiacion": {
 "base_hasta": "2026-09-30 16:00:00.002000",
@@ -13653,10 +13653,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ETH|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -13670,10 +13670,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 2708.69,
@@ -13752,10 +13752,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ETH|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -13769,9 +13769,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ETH|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -13785,10 +13785,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ETH|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -13802,10 +13802,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ETH|financiacion": {
 "base_hasta": "2026-09-30 16:00:00.002000",
@@ -13830,10 +13830,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|HBAR|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -13847,10 +13847,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 0.10166,
@@ -13929,10 +13929,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|HBAR|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -13946,9 +13946,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|HBAR|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -13962,10 +13962,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|HBAR|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -13979,10 +13979,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|HBAR|financiacion": {
 "base_hasta": "2026-09-30 16:00:00.002000",
@@ -14007,10 +14007,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|HYPE|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -14024,10 +14024,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 94.151,
@@ -14106,10 +14106,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|HYPE|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -14123,9 +14123,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|HYPE|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -14139,10 +14139,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|HYPE|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -14156,10 +14156,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|HYPE|financiacion": {
 "base_hasta": "2026-09-30 20:00:00",
@@ -14184,10 +14184,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|LINK|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -14201,10 +14201,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 13.848,
@@ -14283,10 +14283,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|LINK|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -14300,9 +14300,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|LINK|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -14316,10 +14316,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|LINK|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -14333,10 +14333,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|LINK|financiacion": {
 "base_hasta": "2026-09-30 16:00:00.002000",
@@ -14361,10 +14361,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ONDO|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -14378,10 +14378,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 0.4993,
@@ -14460,10 +14460,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ONDO|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -14477,9 +14477,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ONDO|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -14493,10 +14493,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ONDO|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -14510,10 +14510,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ONDO|financiacion": {
 "base_hasta": "2026-09-30 20:00:00",
@@ -14538,10 +14538,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|SOL|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -14555,10 +14555,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 120.72,
@@ -14637,10 +14637,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|SOL|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -14654,9 +14654,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|SOL|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -14670,10 +14670,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|SOL|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -14687,10 +14687,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|SOL|financiacion": {
 "base_hasta": "2026-09-30 16:00:00.002000",
@@ -14715,10 +14715,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|UNI|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -14732,10 +14732,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 9.079,
@@ -14814,10 +14814,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|UNI|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -14831,9 +14831,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|UNI|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -14847,10 +14847,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|UNI|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -14864,10 +14864,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|UNI|financiacion": {
 "base_hasta": "2026-09-30 16:00:00.002000",
@@ -14892,10 +14892,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|XRP|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -14909,10 +14909,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 1.5071,
@@ -14991,10 +14991,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|XRP|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -15008,9 +15008,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|XRP|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -15024,10 +15024,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|XRP|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -15041,10 +15041,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|XRP|financiacion": {
 "base_hasta": "2026-09-30 16:00:00.002000",
@@ -15069,10 +15069,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 2400
+"nuevas": 2496
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ZEC|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -15086,10 +15086,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 25,
+"nuevas": 26,
 "semilla_1d": [
 {
 "apertura": 1337.17,
@@ -15168,10 +15168,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 600
+"nuevas": 624
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ZEC|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -15185,9 +15185,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-19 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 2
+"nuevas": 3
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ZEC|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -15201,10 +15201,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 150
+"nuevas": 156
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ZEC|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -15218,10 +15218,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "um",
 "muerta": false,
-"nuevas": 7200
+"nuevas": 7488
 },
 "CARPETA_DE_BACKTEST/CRIPTO_PERPETUOS|ZEC|financiacion": {
 "base_hasta": "2026-09-30 16:00:00.002000",
@@ -15246,10 +15246,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|AAVE|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -15263,10 +15263,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 184.08,
@@ -15345,10 +15345,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|AAVE|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -15362,9 +15362,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|AAVE|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -15378,10 +15378,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|AAVE|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -15395,10 +15395,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ADA|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -15412,10 +15412,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ADA|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -15429,10 +15429,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 0.2704,
@@ -15511,10 +15511,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ADA|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -15528,9 +15528,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ADA|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -15544,10 +15544,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ADA|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -15561,10 +15561,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|BNB|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -15578,10 +15578,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|BNB|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -15595,10 +15595,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 786.42,
@@ -15677,10 +15677,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|BNB|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -15694,9 +15694,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|BNB|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -15710,10 +15710,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|BNB|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -15727,10 +15727,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|BTC|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -15744,10 +15744,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|BTC|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -15761,10 +15761,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 85766.87,
@@ -15843,10 +15843,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|BTC|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -15860,9 +15860,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|BTC|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -15876,10 +15876,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|BTC|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -15893,10 +15893,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ETH_BTC|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -15910,10 +15910,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ETH_BTC|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -15927,10 +15927,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 0.0316,
@@ -16009,10 +16009,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ETH_BTC|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -16026,9 +16026,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ETH_BTC|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -16042,10 +16042,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ETH_BTC|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -16059,10 +16059,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ETH|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -16076,10 +16076,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ETH|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -16093,10 +16093,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 2709.99,
@@ -16175,10 +16175,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ETH|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -16192,9 +16192,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ETH|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -16208,10 +16208,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ETH|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -16225,10 +16225,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|HBAR|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -16242,10 +16242,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|HBAR|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -16259,10 +16259,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 0.1017,
@@ -16341,10 +16341,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|HBAR|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -16358,9 +16358,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|HBAR|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -16374,10 +16374,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|HBAR|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -16391,10 +16391,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|HYPE|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -16407,9 +16407,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:00:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 2533
+"nuevas": 2633
 },
 "CARPETA_DE_BACKTEST/CRIPTO|HYPE|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -16422,9 +16422,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 94.158,
@@ -16495,9 +16495,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 08:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 633
+"nuevas": 658
 },
 "CARPETA_DE_BACKTEST/CRIPTO|HYPE|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -16510,9 +16510,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|HYPE|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -16525,9 +16525,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 04:00:00",
+"hasta": "2026-11-09 04:00:00",
 "muerta": false,
-"nuevas": 158
+"nuevas": 164
 },
 "CARPETA_DE_BACKTEST/CRIPTO|HYPE|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -16540,9 +16540,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:20:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 7601
+"nuevas": 7900
 },
 "CARPETA_DE_BACKTEST/CRIPTO|LINK|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -16556,10 +16556,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|LINK|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -16573,10 +16573,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 13.854,
@@ -16655,10 +16655,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|LINK|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -16672,9 +16672,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|LINK|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -16688,10 +16688,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|LINK|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -16705,10 +16705,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ONDO|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -16722,10 +16722,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ONDO|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -16739,10 +16739,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 0.4995,
@@ -16821,10 +16821,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ONDO|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -16838,9 +16838,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ONDO|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -16854,10 +16854,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ONDO|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -16871,10 +16871,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|SOL|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -16888,10 +16888,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|SOL|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -16905,10 +16905,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 120.79,
@@ -16987,10 +16987,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|SOL|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -17004,9 +17004,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|SOL|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -17020,10 +17020,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|SOL|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -17037,10 +17037,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|UNI|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -17054,10 +17054,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|UNI|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -17071,10 +17071,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 9.083,
@@ -17153,10 +17153,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|UNI|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -17170,9 +17170,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|UNI|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -17186,10 +17186,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|UNI|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -17203,10 +17203,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|XRP|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -17220,10 +17220,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|XRP|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -17237,10 +17237,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 1.5076,
@@ -17319,10 +17319,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|XRP|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -17336,9 +17336,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|XRP|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -17352,10 +17352,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|XRP|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -17369,10 +17369,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ZEC|15m": {
 "base_hasta": "2026-10-12 23:45:00",
@@ -17386,10 +17386,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:45:00",
+"hasta": "2026-11-08 23:45:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 2496
+"nuevas": 2592
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ZEC|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -17403,10 +17403,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 26,
+"nuevas": 27,
 "semilla_1d": [
 {
 "apertura": 1337.56,
@@ -17485,10 +17485,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 23:00:00",
+"hasta": "2026-11-08 23:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 624
+"nuevas": 648
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ZEC|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -17502,9 +17502,9 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ZEC|4h": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -17518,10 +17518,10 @@
 "volumen",
 "volumen_comprador"
 ],
-"hasta": "2026-11-07 20:00:00",
+"hasta": "2026-11-08 20:00:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 156
+"nuevas": 162
 },
 "CARPETA_DE_BACKTEST/CRIPTO|ZEC|5m": {
 "base_hasta": "2026-10-12 23:55:00",
@@ -17535,10 +17535,10 @@
 "volumen_comprador",
 "fecha"
 ],
-"hasta": "2026-11-07 23:55:00",
+"hasta": "2026-11-08 23:55:00",
 "mercado": "spot",
 "muerta": false,
-"nuevas": 7488
+"nuevas": 7776
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|capitalizacion_total|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -17551,9 +17551,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:00:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 2481
+"nuevas": 2581
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|capitalizacion_total|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -17566,9 +17566,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "muerta": false,
-"nuevas": 26
+"nuevas": 27
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|capitalizacion_total|1h": {
 "base_hasta": "2026-10-13 12:00:00",
@@ -17581,9 +17581,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 08:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 620
+"nuevas": 645
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|capitalizacion_total|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -17596,9 +17596,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|capitalizacion_total|4h": {
 "base_hasta": "2026-10-13 08:00:00",
@@ -17611,9 +17611,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 04:00:00",
+"hasta": "2026-11-09 04:00:00",
 "muerta": false,
-"nuevas": 155
+"nuevas": 161
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|capitalizacion_total|5m": {
 "base_hasta": "2026-10-13 13:05:00",
@@ -17626,9 +17626,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:20:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 7443
+"nuevas": 7742
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_btc|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -17641,9 +17641,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:00:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 2481
+"nuevas": 2581
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_btc|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -17656,9 +17656,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "muerta": false,
-"nuevas": 26
+"nuevas": 27
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_btc|1h": {
 "base_hasta": "2026-10-13 12:00:00",
@@ -17671,9 +17671,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 08:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 620
+"nuevas": 645
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_btc|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -17686,9 +17686,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_btc|4h": {
 "base_hasta": "2026-10-13 08:00:00",
@@ -17701,9 +17701,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 04:00:00",
+"hasta": "2026-11-09 04:00:00",
 "muerta": false,
-"nuevas": 155
+"nuevas": 161
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_btc|5m": {
 "base_hasta": "2026-10-13 13:05:00",
@@ -17716,9 +17716,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:20:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 7443
+"nuevas": 7742
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_eth|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -17731,9 +17731,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:00:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 2481
+"nuevas": 2581
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_eth|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -17746,9 +17746,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "muerta": false,
-"nuevas": 26
+"nuevas": 27
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_eth|1h": {
 "base_hasta": "2026-10-13 12:00:00",
@@ -17761,9 +17761,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 08:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 620
+"nuevas": 645
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_eth|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -17776,9 +17776,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_eth|4h": {
 "base_hasta": "2026-10-13 08:00:00",
@@ -17791,9 +17791,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 04:00:00",
+"hasta": "2026-11-09 04:00:00",
 "muerta": false,
-"nuevas": 155
+"nuevas": 161
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_eth|5m": {
 "base_hasta": "2026-10-13 13:05:00",
@@ -17806,9 +17806,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:20:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 7443
+"nuevas": 7742
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_usdt|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -17821,9 +17821,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:00:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 2481
+"nuevas": 2581
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_usdt|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -17836,9 +17836,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "muerta": false,
-"nuevas": 26
+"nuevas": 27
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_usdt|1h": {
 "base_hasta": "2026-10-13 12:00:00",
@@ -17851,9 +17851,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 08:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 620
+"nuevas": 645
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_usdt|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -17866,9 +17866,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_usdt|4h": {
 "base_hasta": "2026-10-13 08:00:00",
@@ -17881,9 +17881,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 04:00:00",
+"hasta": "2026-11-09 04:00:00",
 "muerta": false,
-"nuevas": 155
+"nuevas": 161
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|dominancia_usdt|5m": {
 "base_hasta": "2026-10-13 13:05:00",
@@ -17896,9 +17896,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:20:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 7443
+"nuevas": 7742
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|others_fuera_top10|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -17911,9 +17911,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:00:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 2481
+"nuevas": 2581
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|others_fuera_top10|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -17926,9 +17926,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "muerta": false,
-"nuevas": 26
+"nuevas": 27
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|others_fuera_top10|1h": {
 "base_hasta": "2026-10-13 12:00:00",
@@ -17941,9 +17941,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 08:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 620
+"nuevas": 645
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|others_fuera_top10|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -17956,9 +17956,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|others_fuera_top10|4h": {
 "base_hasta": "2026-10-13 08:00:00",
@@ -17971,9 +17971,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 04:00:00",
+"hasta": "2026-11-09 04:00:00",
 "muerta": false,
-"nuevas": 155
+"nuevas": 161
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|others_fuera_top10|5m": {
 "base_hasta": "2026-10-13 13:05:00",
@@ -17986,9 +17986,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:20:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 7443
+"nuevas": 7742
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|total3_sin_btc_eth|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -18001,9 +18001,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:00:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 2481
+"nuevas": 2581
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|total3_sin_btc_eth|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -18016,9 +18016,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-07 00:00:00",
+"hasta": "2026-11-08 00:00:00",
 "muerta": false,
-"nuevas": 26
+"nuevas": 27
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|total3_sin_btc_eth|1h": {
 "base_hasta": "2026-10-13 12:00:00",
@@ -18031,9 +18031,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 08:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 620
+"nuevas": 645
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|total3_sin_btc_eth|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -18046,9 +18046,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-10-26 00:00:00",
+"hasta": "2026-11-02 00:00:00",
 "muerta": false,
-"nuevas": 3
+"nuevas": 4
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|total3_sin_btc_eth|4h": {
 "base_hasta": "2026-10-13 08:00:00",
@@ -18061,9 +18061,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 04:00:00",
+"hasta": "2026-11-09 04:00:00",
 "muerta": false,
-"nuevas": 155
+"nuevas": 161
 },
 "CARPETA_DE_BACKTEST/INDICES_CRIPTO|total3_sin_btc_eth|5m": {
 "base_hasta": "2026-10-13 13:05:00",
@@ -18076,9 +18076,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-08 09:20:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 7443
+"nuevas": 7742
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|bono_10a|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -18091,9 +18091,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 22:15:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 1575
+"nuevas": 1616
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|bono_10a|1d": {
 "base_hasta": "2026-10-08 23:00:00",
@@ -18121,9 +18121,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 22:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 404
+"nuevas": 414
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|bono_10a|1w": {
 "base_hasta": "2026-10-04 23:00:00",
@@ -18151,9 +18151,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 20:00:00",
+"hasta": "2026-11-09 04:00:00",
 "muerta": false,
-"nuevas": 110
+"nuevas": 112
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|bono_10a|5m": {
 "base_hasta": "2026-10-13 13:05:00",
@@ -18166,9 +18166,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 22:25:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 4631
+"nuevas": 4752
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|bono_2a|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -18181,9 +18181,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 22:15:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 1574
+"nuevas": 1615
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|bono_2a|1d": {
 "base_hasta": "2026-10-08 23:00:00",
@@ -18211,9 +18211,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 22:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 404
+"nuevas": 414
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|bono_2a|1w": {
 "base_hasta": "2026-10-04 23:00:00",
@@ -18241,9 +18241,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 20:00:00",
+"hasta": "2026-11-09 04:00:00",
 "muerta": false,
-"nuevas": 110
+"nuevas": 112
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|bono_2a|5m": {
 "base_hasta": "2026-10-13 13:05:00",
@@ -18256,9 +18256,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 22:25:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 4559
+"nuevas": 4680
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|cobre|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -18271,9 +18271,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:45:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 1688
+"nuevas": 1733
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|cobre|1d": {
 "base_hasta": "2026-10-11 22:00:00",
@@ -18301,9 +18301,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 422
+"nuevas": 433
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|cobre|1w": {
 "base_hasta": "2026-10-04 22:00:00",
@@ -18331,9 +18331,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:00:00",
+"hasta": "2026-11-09 03:00:00",
 "muerta": false,
-"nuevas": 111
+"nuevas": 113
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|cobre|5m": {
 "base_hasta": "2026-10-13 13:00:00",
@@ -18346,9 +18346,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:55:00",
+"hasta": "2026-11-09 10:10:00",
 "muerta": false,
-"nuevas": 5053
+"nuevas": 5188
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|dax|15m": {
 "base_hasta": "2026-09-29 15:00:00",
@@ -18361,9 +18361,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 16:15:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 953
+"nuevas": 962
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|dax|1d": {
 "base_hasta": "2026-09-28 07:00:00",
@@ -18391,9 +18391,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 16:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 253
+"nuevas": 255
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|dax|1w": {
 "base_hasta": "2026-09-21 07:00:00",
@@ -18436,9 +18436,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 16:25:00",
+"hasta": "2026-11-09 10:05:00",
 "muerta": false,
-"nuevas": 2857
+"nuevas": 2883
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|dolar_dxy|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -18451,9 +18451,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:45:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 1662
+"nuevas": 1707
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|dolar_dxy|1d": {
 "base_hasta": "2026-10-11 21:00:00",
@@ -18481,9 +18481,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 436
+"nuevas": 447
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|dolar_dxy|1w": {
 "base_hasta": "2026-10-04 21:00:00",
@@ -18511,9 +18511,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 20:00:00",
+"hasta": "2026-11-09 06:00:00",
 "muerta": false,
-"nuevas": 114
+"nuevas": 117
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|dolar_dxy|5m": {
 "base_hasta": "2026-10-13 13:05:00",
@@ -18526,9 +18526,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:55:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 4931
+"nuevas": 5067
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|dowjones|15m": {
 "base_hasta": "2026-10-12 19:45:00",
@@ -18631,9 +18631,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:45:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 1688
+"nuevas": 1733
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|gas_natural|1d": {
 "base_hasta": "2026-10-11 22:00:00",
@@ -18661,9 +18661,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 422
+"nuevas": 433
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|gas_natural|1w": {
 "base_hasta": "2026-10-04 22:00:00",
@@ -18691,9 +18691,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:00:00",
+"hasta": "2026-11-09 03:00:00",
 "muerta": false,
-"nuevas": 111
+"nuevas": 113
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|gas_natural|5m": {
 "base_hasta": "2026-10-13 13:00:00",
@@ -18706,9 +18706,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:55:00",
+"hasta": "2026-11-09 10:10:00",
 "muerta": false,
-"nuevas": 5045
+"nuevas": 5180
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|hyg|15m": {
 "base_hasta": "2026-10-12 19:45:00",
@@ -18961,9 +18961,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:15:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 1298
+"nuevas": 1335
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|maiz|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -18991,9 +18991,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 348
+"nuevas": 357
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|maiz|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -19021,9 +19021,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 17:00:00",
+"hasta": "2026-11-09 05:00:00",
 "muerta": false,
-"nuevas": 92
+"nuevas": 94
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|maiz|5m": {
 "base_hasta": "2026-10-13 12:40:00",
@@ -19036,9 +19036,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:15:00",
+"hasta": "2026-11-09 10:10:00",
 "muerta": false,
-"nuevas": 3818
+"nuevas": 3926
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|move|1d": {
 "base_hasta": "2026-10-09 13:30:00",
@@ -19171,9 +19171,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:45:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 2578
+"nuevas": 2623
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|oro|1d": {
 "base_hasta": "2026-09-27 22:00:00",
@@ -19201,9 +19201,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 645
+"nuevas": 656
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|oro|1w": {
 "base_hasta": "2026-09-20 22:00:00",
@@ -19231,9 +19231,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:00:00",
+"hasta": "2026-11-09 03:00:00",
 "muerta": false,
-"nuevas": 169
+"nuevas": 171
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|oro|5m": {
 "base_hasta": "2026-09-29 20:30:00",
@@ -19246,9 +19246,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:55:00",
+"hasta": "2026-11-09 10:10:00",
 "muerta": false,
-"nuevas": 7733
+"nuevas": 7868
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|paladio|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -19261,9 +19261,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:45:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 1678
+"nuevas": 1723
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|paladio|1d": {
 "base_hasta": "2026-10-11 22:00:00",
@@ -19291,9 +19291,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 422
+"nuevas": 433
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|paladio|1w": {
 "base_hasta": "2026-10-04 22:00:00",
@@ -19321,9 +19321,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:00:00",
+"hasta": "2026-11-09 03:00:00",
 "muerta": false,
-"nuevas": 111
+"nuevas": 113
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|paladio|5m": {
 "base_hasta": "2026-10-13 13:00:00",
@@ -19336,9 +19336,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:55:00",
+"hasta": "2026-11-09 10:10:00",
 "muerta": false,
-"nuevas": 4697
+"nuevas": 4818
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|petroleo_brent|15m": {
 "base_hasta": "2026-09-29 20:30:00",
@@ -19351,9 +19351,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 22:45:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 2506
+"nuevas": 2551
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|petroleo_brent|1d": {
 "base_hasta": "2026-09-27 22:00:00",
@@ -19381,9 +19381,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 22:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 628
+"nuevas": 639
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|petroleo_brent|1w": {
 "base_hasta": "2026-09-20 22:00:00",
@@ -19411,9 +19411,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:00:00",
+"hasta": "2026-11-09 03:00:00",
 "muerta": false,
-"nuevas": 169
+"nuevas": 171
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|petroleo_brent|5m": {
 "base_hasta": "2026-09-29 20:45:00",
@@ -19426,9 +19426,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 22:55:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 7469
+"nuevas": 7605
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|petroleo_wti|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -19441,9 +19441,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:45:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 1688
+"nuevas": 1733
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|petroleo_wti|1d": {
 "base_hasta": "2026-10-11 22:00:00",
@@ -19471,9 +19471,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 422
+"nuevas": 433
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|petroleo_wti|1w": {
 "base_hasta": "2026-10-04 22:00:00",
@@ -19501,9 +19501,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:00:00",
+"hasta": "2026-11-09 03:00:00",
 "muerta": false,
-"nuevas": 111
+"nuevas": 113
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|petroleo_wti|5m": {
 "base_hasta": "2026-10-13 13:05:00",
@@ -19516,9 +19516,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:55:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 5062
+"nuevas": 5198
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|plata|15m": {
 "base_hasta": "2026-09-29 20:15:00",
@@ -19531,9 +19531,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:45:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 2578
+"nuevas": 2623
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|plata|1d": {
 "base_hasta": "2026-09-27 22:00:00",
@@ -19561,9 +19561,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 645
+"nuevas": 656
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|plata|1w": {
 "base_hasta": "2026-09-20 22:00:00",
@@ -19591,9 +19591,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:00:00",
+"hasta": "2026-11-09 03:00:00",
 "muerta": false,
-"nuevas": 169
+"nuevas": 171
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|plata|5m": {
 "base_hasta": "2026-09-29 20:35:00",
@@ -19606,9 +19606,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:55:00",
+"hasta": "2026-11-09 10:10:00",
 "muerta": false,
-"nuevas": 7730
+"nuevas": 7865
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|platino|15m": {
 "base_hasta": "2026-10-13 12:45:00",
@@ -19621,9 +19621,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:45:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 1688
+"nuevas": 1733
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|platino|1d": {
 "base_hasta": "2026-10-11 22:00:00",
@@ -19651,9 +19651,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 422
+"nuevas": 433
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|platino|1w": {
 "base_hasta": "2026-10-04 22:00:00",
@@ -19681,9 +19681,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:00:00",
+"hasta": "2026-11-09 03:00:00",
 "muerta": false,
-"nuevas": 111
+"nuevas": 113
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|platino|5m": {
 "base_hasta": "2026-10-13 13:00:00",
@@ -19696,9 +19696,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:55:00",
+"hasta": "2026-11-09 10:10:00",
 "muerta": false,
-"nuevas": 5043
+"nuevas": 5176
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|russell2000|15m": {
 "base_hasta": "2026-10-12 20:00:00",
@@ -21841,9 +21841,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:15:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 1298
+"nuevas": 1335
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|trigo|1d": {
 "base_hasta": "2026-10-12 00:00:00",
@@ -21871,9 +21871,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:00:00",
+"hasta": "2026-11-09 09:00:00",
 "muerta": false,
-"nuevas": 348
+"nuevas": 357
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|trigo|1w": {
 "base_hasta": "2026-10-05 00:00:00",
@@ -21901,9 +21901,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 17:00:00",
+"hasta": "2026-11-09 05:00:00",
 "muerta": false,
-"nuevas": 92
+"nuevas": 94
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|trigo|5m": {
 "base_hasta": "2026-10-13 12:40:00",
@@ -21916,9 +21916,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 19:15:00",
+"hasta": "2026-11-09 10:15:00",
 "muerta": false,
-"nuevas": 3825
+"nuevas": 3937
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|uup|15m": {
 "base_hasta": "2026-10-12 19:45:00",
@@ -22171,9 +22171,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:15:00",
+"hasta": "2026-11-09 10:00:00",
 "muerta": false,
-"nuevas": 978
+"nuevas": 986
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|vix|1d": {
 "base_hasta": "2026-10-12 07:15:00",
@@ -22201,9 +22201,9 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 20:30:00",
+"hasta": "2026-11-09 09:15:00",
 "muerta": false,
-"nuevas": 261
+"nuevas": 263
 },
 "CARPETA_DE_BACKTEST/TRADICIONAL|vix|1w": {
 "base_hasta": "2026-10-05 07:15:00",
@@ -22246,8 +22246,8 @@
 "cierre",
 "volumen"
 ],
-"hasta": "2026-11-06 21:15:00",
+"hasta": "2026-11-09 10:20:00",
 "muerta": false,
-"nuevas": 2895
+"nuevas": 2921
 }
 }
