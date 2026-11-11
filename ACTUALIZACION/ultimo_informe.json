@@ -1,7 +1,9 @@
 {
- "hora": "2026-11-10 10:27:07.373368",
- "nuevas": 38413,
+ "hora": "2026-11-11 09:51:33.614363",
+ "nuevas": 37838,
  "avisos": [],
- "errores": [],
- "archivos_dia": 560
+ "errores": [
+  "CARPETA_DE_BACKTEST/ACCIONES|CMCSA|1d: ERROR WebSocketConnectionClosedException: Connection to remote host was lost."
+ ],
+ "archivos_dia": 555
 }
