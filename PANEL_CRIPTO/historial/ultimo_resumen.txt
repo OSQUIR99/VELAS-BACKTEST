@@ -1,14 +1,14 @@
-Panel cripto · cierre diario 2026-11-11 (UTC) · generado 2026-11-12 07:22
-BTC 74,015 · permiso de régimen: no · diario bajista · 4h bajista · 1h bajista
-Prima de Coinbase (7 d): -0.0020 % → sin +1
-Exceso de OI: +8.4 puntos → sin alarma (OKX (aproximación; Binance falló: 404 Client Error: Not Found for url: https://data.binance.vi))
-Financiación alta (≥ 0,02 %/8 h; ETH ≥ 0,03 %): ninguna · BTC 0.008 · ETH 0.0016
-BTC: DVOL 38.92 · día de ±5 % en 7 d: 27.4 % · día de ±10 %: 14.8 % (racha: False, día de 5 %: True)
-ETH: DVOL 54.78 · día de ±5 % en 7 d: 69.8 % · día de ±10 %: 34.4 % (racha: False, día de 5 %: True)
+Panel cripto · cierre diario 2026-11-12 (UTC) · generado 2026-11-13 06:55
+BTC 71,460 · permiso de régimen: no · diario bajista · 4h bajista · 1h bajista
+Prima de Coinbase (7 d): +0.0001 % → +1 al medio plazo
+Exceso de OI: +7.0 puntos → sin alarma (Binance (data.binance.vision))
+Financiación alta (≥ 0,02 %/8 h; ETH ≥ 0,03 %): ninguna · BTC 0.0076 · ETH 0.0018
+BTC: DVOL 40.07 · día de ±5 % en 7 d: 41.5 % · día de ±10 %: 7.4 % (racha: False, día de 5 %: False)
+ETH: DVOL 56.06 · día de ±5 % en 7 d: 69.8 % · día de ±10 %: 34.4 % (racha: False, día de 5 %: True)
 ETF semana hasta 2026-11-06: -872 M$ (p10/p90 de 52 semanas: -1,253 / +918) · 2 semanas de salidas: True
-Ciclo: precio/media 200 semanas 1.088 (percentil 24.0) · MVRV-Z 0.645
+Ciclo: precio/media 200 semanas 1.051 (percentil 20.4) · MVRV-Z 0.565
 Altcoins permitidas: ninguna
-BTC Elliott 4h: tramo desde 81,196.01 (baja), lleva 1.58 del anterior · 1.618 en 72,547.48: 95.0 % · 2.0 en 70,643.86: 64.8 % · 2.618 en 67,669.38: 38.8 %
-ETH Elliott 4h: tramo desde 2,450.00 (baja), lleva 2.09 del anterior · 2.618 en 1,907.11: 65.0 %
-Próxima apertura de Nueva York: 2026-11-12 14:30 UTC (franja de más volatilidad, sin dirección)
-Guardado en ../historial/json/2026-11-11.json
+BTC Elliott 4h: tramo desde 81,196.01 (baja), lleva 2.44 del anterior · 2.618 en 67,669.38: 86.6 %
+ETH Elliott 4h: tramo desde 2,450.00 (baja), lleva 2.56 del anterior · 2.618 en 1,907.11: 95.0 %
+Próxima apertura de Nueva York: 2026-11-13 14:30 UTC (franja de más volatilidad, sin dirección)
+Guardado en ../historial/json/2026-11-12.json
