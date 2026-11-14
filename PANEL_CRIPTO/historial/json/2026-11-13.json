@@ -1,0 +1,788 @@
+{
+ "generado_utc": "2026-11-14 06:40",
+ "errores": {},
+ "fecha_cierre_diario": "2026-11-13",
+ "tendencia": {
+  "BTC": {
+   "cierre": 68314.0,
+   "sma50": 80624.4102,
+   "sma200": 73091.5811,
+   "permiso_regimen": false,
+   "largo_1d": "bajista",
+   "medio_4h": "bajista",
+   "corto_1h": "bajista",
+   "vela_4h": "2026-11-14 00:00:00+00:00"
+  },
+  "ETH": {
+   "cierre": 1929.88,
+   "sma50": 2416.0724,
+   "sma200": 2148.7858499999998,
+   "permiso_regimen": false,
+   "largo_1d": "bajista",
+   "medio_4h": "bajista",
+   "corto_1h": "bajista",
+   "vela_4h": "2026-11-14 00:00:00+00:00"
+  },
+  "HYPE": {
+   "cierre": 71.642,
+   "sma50": 82.8049,
+   "sma200": 68.92454,
+   "permiso_regimen": false,
+   "largo_1d": "bajista",
+   "medio_4h": "bajista",
+   "corto_1h": "bajista",
+   "vela_4h": "2026-11-14 00:00:00+00:00"
+  }
+ },
+ "prima_coinbase": {
+  "media_7d_pct": -0.0003,
+  "ultimo_dia_pct": 0.0062,
+  "positiva": false,
+  "sesgo_medio_plazo_BTC": 0,
+  "rentab_media_7d_en_su_quintil_pct": 0.7,
+  "fuente_usdt": "CoinMetrics",
+  "lectura": "media de 7 días > 0 → +1 al medio plazo de BTC (+1,4 puntos a 7 días en 2023-26)"
+ },
+ "exceso_oi": {
+  "puntos": 1.85,
+  "oi_usd_millones": 6717,
+  "alarma": false,
+  "fuente": "Binance (data.binance.vision)",
+  "lectura": "> 10 puntos → −1 al medio plazo de BTC (−2,5 puntos a 7 días; caída del 10 % en 7 días: 21 % frente a 9 %)"
+ },
+ "financiacion": {
+  "umbral_pct_8h": "0,02 % (0,03 % en ETH)",
+  "por_activo": {
+   "BTC": {
+    "pct_8h": 0.0025,
+    "max_7d": 0.008,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "ETH": {
+    "pct_8h": -0.0013,
+    "max_7d": 0.0052,
+    "umbral": 0.03,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "AAVE": {
+    "pct_8h": 0.0013,
+    "max_7d": 0.0074,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "SOL": {
+    "pct_8h": 0.0015,
+    "max_7d": 0.0086,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "XRP": {
+    "pct_8h": 0.0039,
+    "max_7d": 0.0085,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "ADA": {
+    "pct_8h": -0.0019,
+    "max_7d": 0.0089,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "LINK": {
+    "pct_8h": 0.0063,
+    "max_7d": 0.0094,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "ZEC": {
+    "pct_8h": 0.0046,
+    "max_7d": 0.0379,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "BNB": {
+    "pct_8h": -0.0002,
+    "max_7d": 0.008,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "UNI": {
+    "pct_8h": 0.0053,
+    "max_7d": 0.009,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "HBAR": {
+    "pct_8h": 0.003,
+    "max_7d": 0.0099,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "ONDO": {
+    "pct_8h": 0.0068,
+    "max_7d": 0.0094,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "OKX"
+   },
+   "HYPE": {
+    "pct_8h": 0.0086,
+    "max_7d": 0.01,
+    "umbral": 0.02,
+    "alarma": false,
+    "fuente": "Hyperliquid"
+   }
+  },
+  "lectura": "media del día ≥ 0,02 % cada 8 h (0,03 % en ETH): bandera de riesgo; en altcoins, un día de −10 % en la semana pasa del 18 % al 57 %. Umbrales válidos para Binance y OKX. Hyperliquid paga unas 3 veces más: allí el equivalente es 0,05 % en BTC, 0,06 % en ETH y SOL y 0,02 % en HYPE (en SOL y HYPE: 37 % frente a 14 %)."
+ },
+ "riesgo": {
+  "BTC": {
+   "dvol": 39.87,
+   "vol30_diaria_pct": 2.01,
+   "dvol_menos_realizada_log": 0.036,
+   "racha_10pct_2d": false,
+   "dia_5pct_ultima_semana": false,
+   "P_dia_5pct_en_7d": 27.4,
+   "P_dia_10pct_en_7d_por_dvol": 8.7,
+   "P_dia_10pct_en_7d_regla_base": 7.4,
+   "aviso_sorpresa": false
+  },
+  "ETH": {
+   "dvol": 55.55,
+   "vol30_diaria_pct": 2.63,
+   "dvol_menos_realizada_log": 0.1,
+   "racha_10pct_2d": false,
+   "dia_5pct_ultima_semana": true,
+   "P_dia_5pct_en_7d": 69.8,
+   "P_dia_10pct_en_7d_por_dvol": 13.4,
+   "P_dia_10pct_en_7d_regla_base": 34.4,
+   "aviso_sorpresa": false
+  },
+  "AAVE": {
+   "vol30_diaria_pct": 3.87,
+   "racha_10pct_2d": false,
+   "dia_5pct_ultima_semana": true,
+   "P_dia_10pct_en_7d": 30.0
+  },
+  "SOL": {
+   "vol30_diaria_pct": 2.34,
+   "racha_10pct_2d": false,
+   "dia_5pct_ultima_semana": false,
+   "P_dia_10pct_en_7d": 19.6
+  },
+  "XRP": {
+   "vol30_diaria_pct": 2.55,
+   "racha_10pct_2d": false,
+   "dia_5pct_ultima_semana": false,
+   "P_dia_10pct_en_7d": 19.6
+  },
+  "ADA": {
+   "vol30_diaria_pct": 2.83,
+   "racha_10pct_2d": false,
+   "dia_5pct_ultima_semana": false,
+   "P_dia_10pct_en_7d": 19.6
+  },
+  "LINK": {
+   "vol30_diaria_pct": 3.37,
+   "racha_10pct_2d": false,
+   "dia_5pct_ultima_semana": false,
+   "P_dia_10pct_en_7d": 30.0
+  },
+  "ZEC": {
+   "vol30_diaria_pct": 5.11,
+   "racha_10pct_2d": true,
+   "dia_5pct_ultima_semana": true,
+   "P_dia_10pct_en_7d": 48.6
+  },
+  "BNB": {
+   "vol30_diaria_pct": 2.26,
+   "racha_10pct_2d": false,
+   "dia_5pct_ultima_semana": false,
+   "P_dia_10pct_en_7d": 19.6
+  },
+  "UNI": {
+   "vol30_diaria_pct": 4.69,
+   "racha_10pct_2d": true,
+   "dia_5pct_ultima_semana": true,
+   "P_dia_10pct_en_7d": 41.7
+  },
+  "HBAR": {
+   "vol30_diaria_pct": 2.82,
+   "racha_10pct_2d": false,
+   "dia_5pct_ultima_semana": false,
+   "P_dia_10pct_en_7d": 19.6
+  },
+  "ONDO": {
+   "vol30_diaria_pct": 4.34,
+   "racha_10pct_2d": false,
+   "dia_5pct_ultima_semana": true,
+   "P_dia_10pct_en_7d": 41.7
+  },
+  "HYPE": {
+   "vol30_diaria_pct": 3.24,
+   "racha_10pct_2d": false,
+   "dia_5pct_ultima_semana": false,
+   "P_dia_5pct_en_7d": 92.0,
+   "P_dia_10pct_en_7d": 25.0
+  }
+ },
+ "niveles_BTC": {
+  "atr_diario": 2423.5,
+  "maximo_ayer": 71514.01,
+  "minimo_ayer": 67568.0,
+  "dist_max_atr": 1.32,
+  "dist_min_atr": 0.31,
+  "P_tocar_max_24h": 11,
+  "P_tocar_min_24h": 47,
+  "P_tocar_caida_en_7d": {
+   "3.2": 53,
+   "4.8": 36,
+   "9.0": 12,
+   "16.7": 2
+  }
+ },
+ "ciclo": {
+  "fecha": "2026-11-13",
+  "precio_entre_media_200_semanas": 1.003,
+  "percentil_4_anos": 15.1,
+  "mvrv_z": 0.464,
+  "fecha_mvrv": "2026-11-13",
+  "lectura": "contexto de meses: < 1,25 veces la media de 200 semanas y MVRV-Z < 1 = barato; > 2 y MVRV-Z 2-3 = caro (este ciclo)"
+ },
+ "etf": {
+  "semana_hasta": "2026-11-13",
+  "dias": 3,
+  "flujo_semana_M": -582,
+  "semana_anterior_M": -1568,
+  "p90_52s_M": 918,
+  "p10_52s_M": -1321,
+  "dos_semanas_de_salidas": true,
+  "salida_fuerte": false,
+  "entrada_fuerte": false,
+  "lectura": "entradas fuertes: nada; salidas fuertes (≤ p10 de 52 semanas) o 2 semanas de salidas: aviso de semanas flojas"
+ },
+ "contexto": {
+  "stablecoins_30d_pct": -5.33,
+  "miedo_y_codicia": 20,
+  "nota": "solo contexto: no predicen"
+ },
+ "altcoins": {
+  "regimen_btc": false,
+  "por_moneda": {
+   "AAVE": {
+    "cierre": 111.77,
+    "sobre_sma50": false,
+    "rsi14": 31.8,
+    "regimen_alt": false,
+    "alt_btc_subiendo": false,
+    "permitida": false,
+    "regla_triple_aviso": false
+   },
+   "SOL": {
+    "cierre": 78.19,
+    "sobre_sma50": false,
+    "rsi14": 19.4,
+    "regimen_alt": false,
+    "alt_btc_subiendo": false,
+    "permitida": false,
+    "regla_triple_aviso": false
+   },
+   "XRP": {
+    "cierre": 1.011,
+    "sobre_sma50": false,
+    "rsi14": 20.8,
+    "regimen_alt": false,
+    "alt_btc_subiendo": false,
+    "permitida": false,
+    "regla_triple_aviso": false
+   },
+   "ADA": {
+    "cierre": 0.1686,
+    "sobre_sma50": false,
+    "rsi14": 28.4,
+    "regimen_alt": false,
+    "alt_btc_subiendo": false,
+    "permitida": false,
+    "regla_triple_aviso": false
+   },
+   "LINK": {
+    "cierre": 9.858,
+    "sobre_sma50": false,
+    "rsi14": 33.2,
+    "regimen_alt": false,
+    "alt_btc_subiendo": false,
+    "permitida": false,
+    "regla_triple_aviso": false
+   },
+   "ZEC": {
+    "cierre": 934.44,
+    "sobre_sma50": false,
+    "rsi14": 32.4,
+    "regimen_alt": false,
+    "alt_btc_subiendo": false,
+    "permitida": false,
+    "regla_triple_aviso": false
+   },
+   "BNB": {
+    "cierre": 630.31,
+    "sobre_sma50": false,
+    "rsi14": 27.0,
+    "regimen_alt": false,
+    "alt_btc_subiendo": true,
+    "permitida": false,
+    "regla_triple_aviso": false
+   },
+   "UNI": {
+    "cierre": 5.747,
+    "sobre_sma50": false,
+    "rsi14": 34.3,
+    "regimen_alt": false,
+    "alt_btc_subiendo": false,
+    "permitida": false,
+    "regla_triple_aviso": false
+   },
+   "HBAR": {
+    "cierre": 0.06151,
+    "sobre_sma50": false,
+    "rsi14": 26.7,
+    "regimen_alt": false,
+    "alt_btc_subiendo": false,
+    "permitida": false,
+    "regla_triple_aviso": false
+   },
+   "ONDO": {
+    "cierre": 0.3391,
+    "sobre_sma50": false,
+    "rsi14": 34.8,
+    "regimen_alt": false,
+    "alt_btc_subiendo": false,
+    "permitida": false,
+    "regla_triple_aviso": false
+   }
+  },
+  "lectura": "permitida = BTC en régimen + altcoin sobre su SMA50 + RSI14 > 55 (+5 puntos a 14 días en 2023-26)"
+ },
+ "fases": {
+  "BTC 4h": {
+   "estado": "B",
+   "suelo": 66613.55,
+   "techo": 75568.18,
+   "altura": 8954.63,
+   "mitad": 71090.865,
+   "caja_desde": "2026-11-14 00:00:00+00:00",
+   "velas_en_la_caja": 0,
+   "velas_en_el_estado": 0,
+   "cierre": 66755.66,
+   "posicion": 0.016,
+   "historial": [
+    [
+     "2026-11-14 00:00:00+00:00",
+     "NADA",
+     "B",
+     "caja"
+    ]
+   ],
+   "spring_fallido": false,
+   "utad_fallido": false,
+   "extension_bajista": 62136.235,
+   "extension_alcista": 80045.495,
+   "P_salida_final_alcista": 53.6,
+   "P_siguiente_estado": {
+    "C+": 29.5,
+    "C-": 29.8,
+    "D+": 21.8,
+    "D-": 18.5
+   },
+   "casos_parecidos": {
+    "B tercio inferior": 38.0
+   }
+  },
+  "BTC 1d": {
+   "estado": "B",
+   "suelo": 74967.97,
+   "techo": 87395.67,
+   "altura": 12427.7,
+   "mitad": 81181.82,
+   "caja_desde": "2026-10-02 00:00:00+00:00",
+   "velas_en_la_caja": 42,
+   "velas_en_el_estado": 1,
+   "cierre": 68314.0,
+   "posicion": -0.535,
+   "historial": [
+    [
+     "2026-10-02 00:00:00+00:00",
+     "NADA",
+     "B",
+     "caja"
+    ],
+    [
+     "2026-11-09 00:00:00+00:00",
+     "B",
+     "C+",
+     "spring"
+    ],
+    [
+     "2026-11-12 00:00:00+00:00",
+     "C+",
+     "B",
+     "spring_fallido"
+    ]
+   ],
+   "spring_fallido": false,
+   "utad_fallido": false,
+   "extension_bajista": 68754.12,
+   "extension_alcista": 93609.52,
+   "P_salida_final_alcista": 53.0
+  },
+  "BTC caja 4h (WS-02)": {
+   "desde": "2026-11-09 04:00:00+00:00",
+   "validada": "2026-11-14 00:00:00+00:00",
+   "suelo": 66613.55,
+   "techo": 75568.18,
+   "nivel_ruptura_abajo": 66493.3032128557,
+   "nivel_ruptura_arriba": 75688.4267871443,
+   "posicion": 0.02853216544885923,
+   "altura_atr": 7.446876721333028,
+   "velas": 30,
+   "P_rompe_arriba": 0.013
+  },
+  "BTC caja 1d (MV-10)": "sin caja activa",
+  "BTC Elliott 4h": {
+   "ultimo_pivote": "H",
+   "fecha_pivote": "2026-11-04 12:00:00+00:00",
+   "precio_pivote": 81196.01,
+   "pivote_anterior": 75736.38,
+   "tramo_anterior_pct": 7.2087284868909585,
+   "theta_pct": 5.40389176637471,
+   "r_actual": 2.8133041924629096,
+   "r_extremo": 2.8439198293513828,
+   "extremo_del_tramo": 66613.55,
+   "niveles_cuantiles": {
+    "25": 77658.21348195581,
+    "50": 76106.30781754652,
+    "75": 73247.71368990338
+   },
+   "fibonacci": {
+    "0.236": {
+     "precio": 79873.06941502933,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.382": {
+     "precio": 79065.4547050424,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.5": {
+     "precio": 78418.69590756914,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.618": {
+     "precio": 77777.22762469128,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.786": {
+     "precio": 76872.99368235798,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "1.0": {
+     "precio": 75736.38,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "1.272": {
+     "precio": 74315.93456131004,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "1.618": {
+     "precio": 72547.47698476953,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "2.0": {
+     "precio": 70643.85621293954,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "2.618": {
+     "precio": 67669.37544048975,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    }
+   },
+   "nota_fibonacci": "P_llega = probabilidad de que el tramo en curso llegue a ese nivel, dado lo que ya ha recorrido. Los niveles de Fibonacci no frenan más que otros cercanos; la zona 0,45-0,70 frena algo más que el azar (22 % frente a 20 % en BTC y ETH, 24 % frente a 21 % en altcoins) y el nivel 1,0 (el extremo anterior) frena menos: si llega a 0,97, sigue más allá de 1,03 el 95 % de las veces frente al 93 % del azar.",
+   "invalidacion": 81196.01,
+   "nota": "Etiqueta descriptiva: el estado de onda no mejora ninguna probabilidad."
+  },
+  "BTC Elliott 1d": {
+   "ultimo_pivote": "H",
+   "fecha_pivote": "2026-09-21 00:00:00+00:00",
+   "precio_pivote": 87395.67,
+   "pivote_anterior": 57800.19,
+   "tramo_anterior_pct": 51.20308428051879,
+   "theta_pct": 10.642838001174,
+   "r_actual": 0.5957886690876432,
+   "r_extremo": 0.6223459983590097,
+   "extremo_del_tramo": 67568.0,
+   "niveles_cuantiles": {
+    "25": 67076.60914863634,
+    "50": 59497.47175916896,
+    "75": 47395.83228126979
+   },
+   "fibonacci": {
+    "0.236": {
+     "precio": 79270.86600259153,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.382": {
+     "precio": 74627.30319195503,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.5": {
+     "precio": 71073.80903805072,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.618": {
+     "precio": 67689.51998953997,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.786": {
+     "precio": 63147.36674959374,
+     "P_llega": 82.5,
+     "estado": "pendiente"
+    },
+    "1.0": {
+     "precio": 57800.19,
+     "P_llega": 63.8,
+     "estado": "pendiente"
+    },
+    "1.272": {
+     "precio": 51652.19348623396,
+     "P_llega": 45.4,
+     "estado": "pendiente"
+    },
+    "1.618": {
+     "precio": 44767.28785767314,
+     "P_llega": 31.0,
+     "estado": "pendiente"
+    },
+    "2.0": {
+     "precio": 38226.85911139649,
+     "P_llega": 22.1,
+     "estado": "pendiente"
+    },
+    "2.618": {
+     "precio": 29607.39066315529,
+     "P_llega": 12.5,
+     "estado": "pendiente"
+    }
+   },
+   "nota_fibonacci": "P_llega = probabilidad de que el tramo en curso llegue a ese nivel, dado lo que ya ha recorrido. Los niveles de Fibonacci no frenan más que otros cercanos; la zona 0,45-0,70 frena algo más que el azar (22 % frente a 20 % en BTC y ETH, 24 % frente a 21 % en altcoins) y el nivel 1,0 (el extremo anterior) frena menos: si llega a 0,97, sigue más allá de 1,03 el 95 % de las veces frente al 93 % del azar.",
+   "invalidacion": 87395.67,
+   "nota": "Etiqueta descriptiva: el estado de onda no mejora ninguna probabilidad."
+  },
+  "ETH 4h": {
+   "estado": "sin caja activa",
+   "ultima_transicion": [
+    "2026-10-31 00:00:00+00:00",
+    "D-",
+    "E-",
+    "LPSY"
+   ]
+  },
+  "ETH 1d": {
+   "estado": "B",
+   "suelo": 1983.82,
+   "techo": 2530.44,
+   "altura": 546.62,
+   "mitad": 2257.13,
+   "caja_desde": "2026-11-12 00:00:00+00:00",
+   "velas_en_la_caja": 1,
+   "velas_en_el_estado": 1,
+   "cierre": 1929.88,
+   "posicion": -0.099,
+   "historial": [
+    [
+     "2026-11-12 00:00:00+00:00",
+     "NADA",
+     "B",
+     "caja"
+    ]
+   ],
+   "spring_fallido": false,
+   "utad_fallido": false,
+   "extension_bajista": 1710.51,
+   "extension_alcista": 2803.75,
+   "P_salida_final_alcista": 53.0
+  },
+  "ETH caja 4h (WS-02)": "sin caja activa",
+  "ETH caja 1d (MV-10)": "sin caja activa",
+  "ETH Elliott 4h": {
+   "ultimo_pivote": "H",
+   "fecha_pivote": "2026-11-04 12:00:00+00:00",
+   "precio_pivote": 2450.0,
+   "pivote_anterior": 2226.44,
+   "tramo_anterior_pct": 10.041141912649799,
+   "theta_pct": 6.837868334735391,
+   "r_actual": 2.742456655215031,
+   "r_extremo": 2.778733018426857,
+   "extremo_del_tramo": 1878.0,
+   "niveles_cuantiles": {
+    "25": 2304.468774072064,
+    "50": 2241.4025004274663,
+    "75": 2126.495918172091
+   },
+   "fibonacci": {
+    "0.236": {
+     "precio": 2395.295416701758,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.382": {
+     "precio": 2362.0660664566035,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.5": {
+     "precio": 2335.546616961434,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.618": {
+     "precio": 2309.32490731847,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.786": {
+     "precio": 2272.4994397307887,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "1.0": {
+     "precio": 2226.44,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "1.272": {
+     "precio": 2169.24203666341,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "1.618": {
+     "precio": 2098.6013659796467,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "2.0": {
+     "precio": 2023.2796218775507,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "2.618": {
+     "precio": 1907.1061327639693,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    }
+   },
+   "nota_fibonacci": "P_llega = probabilidad de que el tramo en curso llegue a ese nivel, dado lo que ya ha recorrido. Los niveles de Fibonacci no frenan más que otros cercanos; la zona 0,45-0,70 frena algo más que el azar (22 % frente a 20 % en BTC y ETH, 24 % frente a 21 % en altcoins) y el nivel 1,0 (el extremo anterior) frena menos: si llega a 0,97, sigue más allá de 1,03 el 95 % de las veces frente al 93 % del azar.",
+   "invalidacion": 2450.0,
+   "nota": "Etiqueta descriptiva: el estado de onda no mejora ninguna probabilidad."
+  },
+  "ETH Elliott 1d": {
+   "ultimo_pivote": "H",
+   "fecha_pivote": "2026-11-04 00:00:00+00:00",
+   "precio_pivote": 2450.0,
+   "pivote_anterior": 2174.08,
+   "tramo_anterior_pct": 12.691345304680613,
+   "theta_pct": 15.352747969539388,
+   "r_actual": 1.9971989500705047,
+   "r_extremo": 2.145654178611355,
+   "extremo_del_tramo": 1895.95,
+   "niveles_cuantiles": {
+    "25": 2269.635541578574,
+    "50": 2192.3397602981136,
+    "75": 2052.9012084654596
+   },
+   "fibonacci": {
+    "0.236": {
+     "precio": 2381.8801842544467,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.382": {
+     "precio": 2340.6899427461913,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.5": {
+     "precio": 2307.920275919426,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.618": {
+     "precio": 2275.609384535032,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "0.786": {
+     "precio": 2230.386364935961,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "1.0": {
+     "precio": 2174.08,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "1.272": {
+     "precio": 2104.5598826816363,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "1.618": {
+     "precio": 2019.3293268285395,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "2.0": {
+     "precio": 1929.2342230204079,
+     "P_llega": null,
+     "estado": "ya alcanzado"
+    },
+    "2.618": {
+     "precio": 1791.9116338250576,
+     "P_llega": 67.1,
+     "estado": "pendiente"
+    }
+   },
+   "nota_fibonacci": "P_llega = probabilidad de que el tramo en curso llegue a ese nivel, dado lo que ya ha recorrido. Los niveles de Fibonacci no frenan más que otros cercanos; la zona 0,45-0,70 frena algo más que el azar (22 % frente a 20 % en BTC y ETH, 24 % frente a 21 % en altcoins) y el nivel 1,0 (el extremo anterior) frena menos: si llega a 0,97, sigue más allá de 1,03 el 95 % de las veces frente al 93 % del azar.",
+   "invalidacion": 2450.0,
+   "nota": "Etiqueta descriptiva: el estado de onda no mejora ninguna probabilidad."
+  },
+  "HYPE caja 1d (WS-02)": "sin caja activa"
+ },
+ "reloj": {
+  "proxima_apertura_nueva_york_utc": "2026-11-16 14:30",
+  "lectura": "de 9:30 a 11:00 de Nueva York es la franja en la que BTC más se mueve (la 1.ª de 48 medias horas en 2023-26; el rango de 9:30-9:45 mide un 0,6 % de mediana). No da dirección: el RRA de Álvaro pierde de -0,11 a -0,27 R por operación. Sirve para no abrir justo antes ni poner stops ajustados en esa franja. No descuenta festivos de la bolsa."
+ }
+}

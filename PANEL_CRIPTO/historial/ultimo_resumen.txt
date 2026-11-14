@@ -1,14 +1,14 @@
-Panel cripto · cierre diario 2026-11-12 (UTC) · generado 2026-11-13 06:55
-BTC 71,460 · permiso de régimen: no · diario bajista · 4h bajista · 1h bajista
-Prima de Coinbase (7 d): +0.0001 % → +1 al medio plazo
-Exceso de OI: +7.0 puntos → sin alarma (Binance (data.binance.vision))
-Financiación alta (≥ 0,02 %/8 h; ETH ≥ 0,03 %): ninguna · BTC 0.0076 · ETH 0.0018
-BTC: DVOL 40.07 · día de ±5 % en 7 d: 41.5 % · día de ±10 %: 7.4 % (racha: False, día de 5 %: False)
-ETH: DVOL 56.06 · día de ±5 % en 7 d: 69.8 % · día de ±10 %: 34.4 % (racha: False, día de 5 %: True)
-ETF semana hasta 2026-11-06: -872 M$ (p10/p90 de 52 semanas: -1,253 / +918) · 2 semanas de salidas: True
-Ciclo: precio/media 200 semanas 1.051 (percentil 20.4) · MVRV-Z 0.565
+Panel cripto · cierre diario 2026-11-13 (UTC) · generado 2026-11-14 06:40
+BTC 68,314 · permiso de régimen: no · diario bajista · 4h bajista · 1h bajista
+Prima de Coinbase (7 d): -0.0003 % → sin +1
+Exceso de OI: +1.9 puntos → sin alarma (Binance (data.binance.vision))
+Financiación alta (≥ 0,02 %/8 h; ETH ≥ 0,03 %): ninguna · BTC 0.0025 · ETH -0.0013
+BTC: DVOL 39.87 · día de ±5 % en 7 d: 27.4 % · día de ±10 %: 7.4 % (racha: False, día de 5 %: False)
+ETH: DVOL 55.55 · día de ±5 % en 7 d: 69.8 % · día de ±10 %: 34.4 % (racha: False, día de 5 %: True)
+ETF semana hasta 2026-11-13: -582 M$ (p10/p90 de 52 semanas: -1,321 / +918) · 2 semanas de salidas: True
+Ciclo: precio/media 200 semanas 1.003 (percentil 15.1) · MVRV-Z 0.464
 Altcoins permitidas: ninguna
-BTC Elliott 4h: tramo desde 81,196.01 (baja), lleva 2.44 del anterior · 2.618 en 67,669.38: 86.6 %
-ETH Elliott 4h: tramo desde 2,450.00 (baja), lleva 2.56 del anterior · 2.618 en 1,907.11: 95.0 %
-Próxima apertura de Nueva York: 2026-11-13 14:30 UTC (franja de más volatilidad, sin dirección)
-Guardado en ../historial/json/2026-11-12.json
+BTC 4h: estado B en la caja 66,613.55-75,568.18 · P(salida final alcista) 53.6 % · casos parecidos {'B tercio inferior': 38.0}
+BTC caja 4h (WS-02): posición 0.03 → rompe primero arriba 1 %
+Próxima apertura de Nueva York: 2026-11-16 14:30 UTC (franja de más volatilidad, sin dirección)
+Guardado en ../historial/json/2026-11-13.json
