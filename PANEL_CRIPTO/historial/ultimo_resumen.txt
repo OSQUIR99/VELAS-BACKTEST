@@ -1,12 +1,13 @@
-Panel cripto · cierre diario 2026-11-15 (UTC) · generado 2026-11-16 06:45
-BTC 65,351 · permiso de régimen: no · diario bajista · 4h bajista · 1h bajista
-Prima de Coinbase (7 d): +0.0058 % → +1 al medio plazo
-Exceso de OI: -1.9 puntos → sin alarma (Binance (data.binance.vision))
-Financiación alta (≥ 0,02 %/8 h; ETH ≥ 0,03 %): ninguna · BTC -0.0009 · ETH -0.0068
-BTC: DVOL 43.95 · día de ±5 % en 7 d: 41.5 % · día de ±10 %: 14.8 % (racha: True, día de 5 %: True)
-ETH: DVOL 57.1 · día de ±5 % en 7 d: 69.8 % · día de ±10 %: 34.4 % (racha: True, día de 5 %: True)
+Panel cripto · cierre diario 2026-11-16 (UTC) · generado 2026-11-17 08:05
+BTC 64,883 · permiso de régimen: no · diario bajista · 4h bajista · 1h bajista
+Prima de Coinbase (7 d): +0.0072 % → +1 al medio plazo
+Exceso de OI: -5.2 puntos → sin alarma (Binance (data.binance.vision))
+Financiación alta (≥ 0,02 %/8 h; ETH ≥ 0,03 %): ninguna · BTC 0.0015 · ETH -0.0024
+BTC: DVOL 43.13 · día de ±5 % en 7 d: 41.5 % · día de ±10 %: 14.8 % (racha: True, día de 5 %: True)
+ETH: DVOL 57.86 · día de ±5 % en 7 d: 69.8 % · día de ±10 %: 34.4 % (racha: True, día de 5 %: True)
 ETF semana hasta 2026-11-13: -903 M$ (p10/p90 de 52 semanas: -1,321 / +918) · 2 semanas de salidas: True
-Ciclo: precio/media 200 semanas 0.96 (percentil 10.3) · MVRV-Z 0.373
+Ciclo: precio/media 200 semanas 0.955 (percentil 9.9) · MVRV-Z 0.367
 Altcoins permitidas: ninguna
-Próxima apertura de Nueva York: 2026-11-16 14:30 UTC (franja de más volatilidad, sin dirección)
-Guardado en ../historial/json/2026-11-15.json
+ETH Elliott 4h: tramo desde 1,711.08 (sube), lleva 0.24 del anterior · 0.382 en 1,962.56: 95.2 % · 0.5 en 2,047.47: 87.3 % · 0.618 en 2,136.06: 77.4 % · 0.786 en 2,268.84: 62.9 %
+Próxima apertura de Nueva York: 2026-11-17 14:30 UTC (franja de más volatilidad, sin dirección)
+Guardado en ../historial/json/2026-11-16.json
