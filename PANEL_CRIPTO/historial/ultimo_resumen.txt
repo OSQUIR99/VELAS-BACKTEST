@@ -1,16 +1,17 @@
-Panel cripto · cierre diario 2026-11-18 (UTC) · generado 2026-11-19 07:37
-BTC 63,068 · permiso de régimen: no · diario bajista · 4h bajista · 1h bajista
-Prima de Coinbase (7 d): +0.0075 % → +1 al medio plazo
-Exceso de OI: +0.1 puntos → sin alarma (Binance (data.binance.vision))
-Financiación alta (≥ 0,02 %/8 h; ETH ≥ 0,03 %): ninguna · BTC 0.0026 · ETH -0.0008
-BTC: DVOL 45.7 · día de ±5 % en 7 d: 41.5 % · día de ±10 %: 14.8 % (racha: False, día de 5 %: True)
-ETH: DVOL 59.87 · día de ±5 % en 7 d: 69.8 % · día de ±10 %: 34.4 % (racha: False, día de 5 %: True)
+Panel cripto · cierre diario 2026-11-19 (UTC) · generado 2026-11-20 07:28
+BTC 61,987 · permiso de régimen: no · diario bajista · 4h bajista · 1h bajista
+Prima de Coinbase (7 d): +0.0086 % → +1 al medio plazo
+Exceso de OI: -3.6 puntos → sin alarma (Binance (data.binance.vision))
+Financiación alta (≥ 0,02 %/8 h; ETH ≥ 0,03 %): ninguna · BTC -0.0011 · ETH -0.0004
+BTC: DVOL 45.88 · día de ±5 % en 7 d: 41.5 % · día de ±10 %: 14.8 % (racha: False, día de 5 %: True)
+ETH: DVOL 61.31 · día de ±5 % en 7 d: 69.8 % · día de ±10 %: 34.4 % (racha: False, día de 5 %: True)
 ETF semana hasta 2026-11-13: -1,056 M$ (p10/p90 de 52 semanas: -1,321 / +918) · 2 semanas de salidas: True
-Ciclo: precio/media 200 semanas 0.925 (percentil 5.9) · MVRV-Z 0.305
+Ciclo: precio/media 200 semanas 0.909 (percentil 5.3) · MVRV-Z 0.274
 Altcoins permitidas: ninguna
-BTC 4h: estado B en la caja 62,006.00-71,514.01 · P(salida final alcista) 53.6 % · casos parecidos {'B tercio inferior': 38.0}
+BTC 4h: estado C+ en la caja 62,006.00-71,514.01 · P(salida final alcista) 31.7 % · casos parecidos None
 ETH 4h: estado B en la caja 1,711.08-2,028.12 · P(salida final alcista) 53.6 % · casos parecidos {'B tercio inferior': 38.0}
-ETH Elliott 4h: tramo desde 1,866.89 (baja), lleva 0.86 del anterior · 1.0 en 1,711.08: 80.4 % · 1.272 en 1,671.00: 58.9 % · 1.618 en 1,621.36: 35.9 % · 2.0 en 1,568.27: 24.4 %
-ETH caja 4h (WS-02): posición 0.27 → rompe primero arriba 27 %
-Próxima apertura de Nueva York: 2026-11-19 14:30 UTC (franja de más volatilidad, sin dirección)
-Guardado en ../historial/json/2026-11-18.json
+ETH Elliott 4h: tramo desde 1,866.89 (baja), lleva 0.92 del anterior · 1.0 en 1,711.08: 88.8 % · 1.272 en 1,671.00: 65.0 % · 1.618 en 1,621.36: 39.6 % · 2.0 en 1,568.27: 27.0 %
+BTC caja 4h (WS-02): posición 0.06 → rompe primero arriba 4 %
+ETH caja 4h (WS-02): posición 0.12 → rompe primero arriba 9 %
+Próxima apertura de Nueva York: 2026-11-20 14:30 UTC (franja de más volatilidad, sin dirección)
+Guardado en ../historial/json/2026-11-19.json
