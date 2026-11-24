@@ -1,10 +1,9 @@
 {
- "hora": "2026-11-23 11:18:07.372526",
- "nuevas": 32643,
+ "hora": "2026-11-24 12:56:48.265412",
+ "nuevas": 38985,
  "avisos": [],
  "errores": [
-  "CARPETA_DE_BACKTEST/ACCIONES|BKH|1d: ERROR RuntimeError: NYSE:BKH 1d: symbol_error ['cs_zliswuwwmtxr', 'sds_sym_1', 'invalid symbol']",
-  "CARPETA_DE_BACKTEST/ACCIONES|GM|1d: ERROR RuntimeError: NYSE:GM 1d: symbol_error ['cs_drnqtghcqspq', 'sds_sym_1', 'invalid symbol']"
+  "CARPETA_DE_BACKTEST/ACCIONES|GM|1d: ERROR RuntimeError: NYSE:GM 1d: symbol_error ['cs_alwfoxylkwas', 'sds_sym_1', 'invalid symbol']"
  ],
- "archivos_dia": 183
+ "archivos_dia": 564
 }
