@@ -1,9 +1,9 @@
 {
- "hora": "2026-11-27 11:25:52.388452",
- "nuevas": 33553,
+ "hora": "2026-11-28 10:53:58.029234",
+ "nuevas": 33783,
  "avisos": [],
  "errores": [
-  "CARPETA_DE_BACKTEST/ACCIONES|GM|1d: ERROR RuntimeError: NYSE:GM 1d: symbol_error ['cs_upkkffcinjjt', 'sds_sym_1', 'invalid symbol']"
+  "CARPETA_DE_BACKTEST/ACCIONES|GM|1d: ERROR RuntimeError: NYSE:GM 1d: symbol_error ['cs_ixyaipgamjaf', 'sds_sym_1', 'invalid symbol']"
  ],
- "archivos_dia": 237
+ "archivos_dia": 575
 }
